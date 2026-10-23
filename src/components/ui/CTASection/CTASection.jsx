@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { MessageCircle, ChevronRight, Instagram } from 'lucide-react';
-import business from '../../../data/business.json';
+import business from '../../../config/business';
 import { renderHeadingWithRed, renderSubheadingWithRed } from '../../../utils/textUtils';
 import './CTASection.css';
 
@@ -14,8 +14,8 @@ export default function CTASection({
   variant = 'dark',
   primaryIcon: PrimaryIcon,
 }) {
-  const whatsappUrl = `https://wa.me/${business.whatsapp || '9789550006'}?text=${encodeURIComponent(whatsappMessage || 'Hello Bumper To Bumper Car Accessories, I would like to enquire about your services.')}`;
-  const instagramUrl = business.instagram || business.social?.instagram;
+  const whatsappUrl = `https://wa.me/${business.whatsapp}?text=${encodeURIComponent(whatsappMessage || `Hello ${business.name}, I would like to enquire about your services.`)}`;
+  const instagramUrl = business.social.instagram;
 
   const primary = primaryCta ? {
     label: primaryCta.label || primaryCta.text || 'Get a Quote',

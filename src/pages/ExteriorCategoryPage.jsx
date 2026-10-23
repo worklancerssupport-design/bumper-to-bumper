@@ -2,7 +2,7 @@ import { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import exteriorData from '../data/products/exterior.json';
-import business from '../data/business.json';
+import business from '../config/business';
 import faqsData from '../data/faqs.json';
 import Breadcrumbs from '../components/ui/Breadcrumbs/Breadcrumbs';
 import CTASection from '../components/ui/CTASection/CTASection';
@@ -43,11 +43,11 @@ export default function ExteriorCategoryPage() {
     { label: 'Exterior Car Accessories' },
   ];
 
-  const pageTitle = 'Exterior Car Accessories in Chennai | Bumper To Bumper';
-  const pageDescription = 'Explore exterior car accessories in Chennai at Bumper To Bumper, Adambakkam. High-performance bi-LED fog lights, headlights, spoilers, side foot steps, and zero wire-cutting OEM fitment.';
+  const pageTitle = `Exterior Car Accessories in ${business.city} | ${business.shortName}`;
+  const pageDescription = `Explore exterior car accessories in ${business.city} at ${business.shortName}, ${business.location}. High-performance bi-LED fog lights, headlights, spoilers, side foot steps, and zero wire-cutting OEM fitment.`;
 
   const isGroupedView = activeTag === 'All' && !search.trim();
-  const whatsappHref = `https://wa.me/${business.whatsapp || '9789550006'}?text=${encodeURIComponent('Hi Bumper To Bumper, I am interested in exterior car accessories for my car.')}`;
+  const whatsappHref = `https://wa.me/${business.whatsapp}?text=${encodeURIComponent(`Hi ${business.shortName}, I am interested in exterior car accessories for my car.`)}`;
 
   return (
     <>
@@ -80,10 +80,10 @@ export default function ExteriorCategoryPage() {
         <div className="cat-hero__content">
           <span className="section-label">3D Exterior Customization Studio</span>
           <h1 id="cat-hero-title" className="cat-hero__title">
-            Exterior Car <br /><span className="cat-hero__title-accent text-red">Accessories</span><br />in Chennai
+            Exterior Car <br /><span className="cat-hero__title-accent text-red">Accessories</span><br />in {business.city}
           </h1>
           <p className="cat-hero__subtitle">
-            Explore exterior car accessories in Chennai designed to complement your vehicle's appearance and everyday practicality. Browse available styling and protection accessories, compare product details, and choose options that suit your vehicle and <span className="text-red">preferences</span>.
+            Explore exterior car accessories in {business.city} designed to complement your vehicle's appearance and everyday practicality. Browse available styling and protection accessories, compare product details, and choose options that suit your vehicle and <span className="text-red">preferences</span>.
           </p>
           <div className="cat-hero__actions">
             <Link to="/contact" className="cat-hero__btn cat-hero__btn--primary">
@@ -199,7 +199,7 @@ export default function ExteriorCategoryPage() {
               Exterior Fitment <span className="text-red">FAQ</span>
             </h2>
             <p className="cat-faq__subtitle">
-              Common questions about our exterior fitment process, materials, and warranty — answered by our Chennai <span className="text-red">technicians</span>.
+              Common questions about our exterior fitment process, materials, and warranty — answered by our {business.city} <span className="text-red">technicians</span>.
             </p>
           </header>
           <div className="cat-faq__inner">
@@ -213,7 +213,7 @@ export default function ExteriorCategoryPage() {
         title={<>Ready to Transform Your Vehicle's <span className="text-red">Exterior</span>?</>}
         subtitle={<>Contact our technicians with your car model for accurate compatibility and <span className="text-red">pricing</span>.</>}
         primaryCta={{ label: 'Book Fitment Slot', href: '/contact' }}
-        whatsappMessage="Hi Bumper To Bumper Car Accessories, I am interested in exterior car accessories for my car."
+        whatsappMessage={`Hi ${business.name}, I am interested in exterior car accessories for my car.`}
         dark={true}
       />
     </>

@@ -40,13 +40,23 @@ function Shell() {
 }
 
 function EditContent() {
-    const { isAuthenticated } = useAuth();
+    const { isAuthenticated, sessionExpired } = useAuth();
 
     if (!isAuthenticated) {
         return <EditLogin />;
     }
 
-    return <Shell />;
+    // Overlay keeps the editor mounted, so unsaved changes survive re-login
+    return (
+        <>
+            <Shell />
+            {sessionExpired && (
+                <div className="edit-session-overlay">
+                    <EditLogin />
+                </div>
+            )}
+        </>
+    );
 }
 
 export default function EditPage() {

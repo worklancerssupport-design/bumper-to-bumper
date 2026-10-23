@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Lightbulb, Music, Eye, Armchair, Shield, Gauge, Sparkles, ChevronRight, ArrowRight } from 'lucide-react';
+import business from '../../../config/business';
 import './CategoryPromoBanner.css';
 
 const categories = [
@@ -93,7 +94,7 @@ export default function CategoryPromoBanner() {
             <div className="cat-promo-banner-bg" aria-hidden="true">
               <img
                 src="/images/promo_studio.jpg"
-                alt="Bumper To Bumper Precision Automotive Retrofit Workshop"
+                alt={`${business.name} Precision Automotive Retrofit Workshop`}
                 className="cat-promo-banner-img"
                 loading="lazy"
               />
@@ -103,7 +104,7 @@ export default function CategoryPromoBanner() {
             <div className="cat-promo-banner-content">
               <div className="cat-promo-badge">
                 <span className="cat-promo-badge-tag">EXPERT RETROFIT STUDIO</span>
-                <span className="cat-promo-badge-location">ADAMBAKKAM, CHENNAI</span>
+                <span className="cat-promo-badge-location">{business.location.toUpperCase()}</span>
               </div>
 
               <h2 className="cat-promo-banner-title">
@@ -138,8 +139,8 @@ export default function CategoryPromoBanner() {
                 </div>
                 <div className="cat-promo-feature-sep" />
                 <div className="cat-promo-feature">
-                  <strong>15+ Years</strong>
-                  <span>Chennai Master Technicians</span>
+                  <strong>{business.stats.yearsExperience}+ Years</strong>
+                  <span>{business.city} Master Technicians</span>
                 </div>
               </div>
 

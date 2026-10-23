@@ -1,11 +1,9 @@
 {
   "$comment": "THEME REFERENCE — documentation of all colors used in colorConfig.css. This file is for reference only; the actual CSS variables live in /src/styles/colorConfig.css.",
-  "name": "Bumper To Bumper Car Accessories — Dark Green & Charcoal",
+  "name": "Brand Theme — Dark Green & Charcoal",
   "version": "4.0",
   "description": "Sophisticated dark green and charcoal automotive aesthetic inspired by premium engineering and understated luxury.",
   "brand": {
-    "name": "Bumper To Bumper Car Accessories",
-    "tagline": "Premium Automotive Accessories & Retrofit Studio · Chennai",
     "accentColor": "#477A50",
     "accentMeaning": "Elegance, reliability, automotive craftsmanship — understated forest green on dark charcoal"
   },

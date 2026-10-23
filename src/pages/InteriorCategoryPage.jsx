@@ -2,7 +2,7 @@ import { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import interiorData from '../data/products/interior.json';
-import business from '../data/business.json';
+import business from '../config/business';
 import faqsData from '../data/faqs.json';
 import Breadcrumbs from '../components/ui/Breadcrumbs/Breadcrumbs';
 import CTASection from '../components/ui/CTASection/CTASection';
@@ -43,11 +43,11 @@ export default function InteriorCategoryPage() {
     { label: 'Interior Car Accessories' },
   ];
 
-  const pageTitle = 'Interior Car Accessories in Chennai | Bumper To Bumper';
-  const pageDescription = 'Discover premium interior car accessories in Chennai at Bumper To Bumper, Adambakkam. Custom-fit seat covers, 7D floor mats, Android screens, ambient lights & audio.';
+  const pageTitle = `Interior Car Accessories in ${business.city} | ${business.shortName}`;
+  const pageDescription = `Discover premium interior car accessories in ${business.city} at ${business.shortName}, ${business.location}. Custom-fit seat covers, 7D floor mats, Android screens, ambient lights & audio.`;
 
   const isGroupedView = activeTag === 'All' && !search.trim();
-  const whatsappHref = `https://wa.me/${business.whatsapp || '9789550006'}?text=${encodeURIComponent('Hi Bumper To Bumper, I am interested in interior car customization for my car.')}`;
+  const whatsappHref = `https://wa.me/${business.whatsapp}?text=${encodeURIComponent(`Hi ${business.shortName}, I am interested in interior car customization for my car.`)}`;
 
   return (
     <>
@@ -72,10 +72,10 @@ export default function InteriorCategoryPage() {
         <div className="cat-hero__content">
           <span className="section-label">3D Cockpit Customization Studio</span>
           <h1 id="cat-hero-title" className="cat-hero__title">
-            Interior Car <br /><span className="cat-hero__title-accent text-red">Accessories</span><br />in Chennai
+            Interior Car <br /><span className="cat-hero__title-accent text-red">Accessories</span><br />in {business.city}
           </h1>
           <p className="cat-hero__subtitle">
-            Explore interior car accessories in Chennai designed for comfort, convenience, and elevated driving refinement. Browse tailored seat covers, durable all-weather floor mats, responsive touchscreen displays, and ambient interior styling suited to your vehicle <span className="text-red">model</span>.
+            Explore interior car accessories in {business.city} designed for comfort, convenience, and elevated driving refinement. Browse tailored seat covers, durable all-weather floor mats, responsive touchscreen displays, and ambient interior styling suited to your vehicle <span className="text-red">model</span>.
           </p>
           <div className="cat-hero__actions">
             <Link to="/contact" className="cat-hero__btn cat-hero__btn--primary">
@@ -191,7 +191,7 @@ export default function InteriorCategoryPage() {
               Interior Customization <span className="text-red">FAQ</span>
             </h2>
             <p className="cat-faq__subtitle">
-              Common questions about our interior customization process, materials, and warranty — answered by our Chennai <span className="text-red">technicians</span>.
+              Common questions about our interior customization process, materials, and warranty — answered by our {business.city} <span className="text-red">technicians</span>.
             </p>
           </header>
           <div className="cat-faq__inner">
@@ -203,9 +203,9 @@ export default function InteriorCategoryPage() {
       {/* Closing CTA */}
       <CTASection
         title={<>Ready to Upgrade Your Car's <span className="text-red">Cabin</span>?</>}
-        subtitle={<>Schedule your slot at Bumper To Bumper Car Accessories, Adambakkam, Chennai for professional <span className="text-red">consultation</span>.</>}
+        subtitle={<>Schedule your slot at {business.name}, {business.location} for professional <span className="text-red">consultation</span>.</>}
         primaryCta={{ label: 'Book Fitment Slot', href: '/contact' }}
-        whatsappMessage="Hi Bumper To Bumper Car Accessories, I am interested in interior car customization for my car."
+        whatsappMessage={`Hi ${business.name}, I am interested in interior car customization for my car.`}
         dark={true}
       />
     </>

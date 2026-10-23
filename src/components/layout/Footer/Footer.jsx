@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Instagram, MapPin, Phone, Clock, Mail, ShieldCheck } from 'lucide-react';
-import business from '../../../data/business.json';
+import business from '../../../config/business';
 import exteriorData from '../../../data/products/exterior.json';
 import interiorData from '../../../data/products/interior.json';
 import './Footer.css';
@@ -11,14 +11,13 @@ const categoryRoutes = {
 };
 
 const popularUpgrades = [
-  ...exteriorData.items.filter(p => p.showInFooter || ['fog-light-fog-projector', 'headlight-led-upgrade', 'drl-headlight-fog'].includes(p.slug)),
-  ...interiorData.items.filter(p => p.showInFooter || ['ambient-lights', 'premium-car-seat-covers', 'infotainment-systems'].includes(p.slug)),
+  ...exteriorData.items.filter(p => p.showInFooter),
+  ...interiorData.items.filter(p => p.showInFooter),
 ].slice(0, 8);
 
 export default function Footer() {
-  const phoneDisplay = business.phone || '+91 97895 50006';
-  const phoneHref = business.phoneHref || '9789550006';
-  const instaUrl = business.instagram || 'https://www.instagram.com/bumpertobumpercaraccessories/';
+  const phoneDisplay = business.phone;
+  const instaUrl = business.social.instagram;
 
   return (
     <footer className="footer">
@@ -29,8 +28,8 @@ export default function Footer() {
           <div className="footer-trust-item">
             <span className="footer-trust-icon">★</span>
             <div>
-              <strong>15+ Years Experience</strong>
-              <p>Trusted by 1,000+ vehicle owners in Chennai</p>
+              <strong>{business.stats.yearsExperience}+ Years Experience</strong>
+              <p>Trusted by {business.stats.clientsServed.toLocaleString()}+ vehicle owners in {business.city}</p>
             </div>
           </div>
           <div className="footer-trust-item">
@@ -43,8 +42,8 @@ export default function Footer() {
           <div className="footer-trust-item">
             <span className="footer-trust-icon">📍</span>
             <div>
-              <strong>Prime Adambakkam Studio</strong>
-              <p>The ARK, Jawaharlal Nehru Salai, Chennai</p>
+              <strong>Prime {business.location.split(',')[0]} Studio</strong>
+              <p>{business.landmark}, {business.city}</p>
             </div>
           </div>
         </div>
@@ -54,17 +53,17 @@ export default function Footer() {
 
           <div className="footer-col footer-col--brand">
             <div className="footer-brand">
-              <Link to="/" className="footer-logo" aria-label="Bumper To Bumper Car Accessories">
+              <Link to="/" className="footer-logo" aria-label={business.name}>
                 <img
                   src="/logo.svg"
-                  alt="Bumper To Bumper Car Accessories"
+                  alt={business.name}
                   className="footer-logo-img"
                   width="240"
                   height="46"
                 />
               </Link>
               <p className="footer-desc">
-                Chennai's premier automotive accessories and retrofit studio. Precision OEM fitment, zero wire-cutting craftsmanship, and over 15 years of dedication to enhancing every drive.
+                {business.city}'s premier automotive accessories and retrofit studio. Precision OEM fitment, zero wire-cutting craftsmanship, and over {business.stats.yearsExperience} years of dedication to enhancing every drive.
               </p>
               <div className="footer-socials" aria-label="Social media links">
                 <a
@@ -72,10 +71,10 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="footer-social-link footer-social-link--ig"
-                  aria-label="Follow Bumper To Bumper on Instagram"
+                  aria-label={`Follow ${business.shortName} on Instagram`}
                 >
                   <Instagram size={17} />
-                  <span>@bumpertobumpercaraccessories</span>
+                  <span>{business.instagramHandle}</span>
                 </a>
               </div>
             </div>
@@ -120,7 +119,7 @@ export default function Footer() {
                 </div>
               </li>
               <li>
-                <a href={`tel:${phoneHref}`} className="footer-contact-item">
+                <a href={business.callHref} className="footer-contact-item">
                   <span className="footer-contact-item-icon"><Phone size={15} /></span>
                   <div className="footer-contact-item-body">
                     <span className="footer-contact-item-label">Phone &amp; WhatsApp (Click to Call)</span>
@@ -142,8 +141,8 @@ export default function Footer() {
                   <span className="footer-contact-item-icon"><Clock size={15} /></span>
                   <div className="footer-contact-item-body">
                     <span className="footer-contact-item-label">Opening Hours</span>
-                    <span className="footer-contact-item-value">{business.hours.weekdays.days}: {business.hours.weekdays.open} – {business.hours.weekdays.close}</span>
-                    <span className="footer-contact-item-value">{business.hours.sunday.days}: {business.hours.sunday.open} – {business.hours.sunday.close}</span>
+                    <span className="footer-contact-item-value">{business.hoursWeekdays}</span>
+                    <span className="footer-contact-item-value">{business.hoursSunday}</span>
                   </div>
                 </div>
               </li>
@@ -154,11 +153,11 @@ export default function Footer() {
 
         {/* ── Footer Bottom Bar ──────────────────────────────── */}
         <div className="footer-bottom">
-          <p>© {new Date().getFullYear()} Bumper To Bumper Car Accessories. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} {business.name}. All rights reserved.</p>
           <div className="footer-bottom-meta">
-            <span>Vanuvampet, Adambakkam</span>
+            <span>{business.location}</span>
             <span className="footer-bottom-meta-sep">·</span>
-            <span>Chennai, Tamil Nadu</span>
+            <span>{business.city}, {business.state}</span>
             <span className="footer-bottom-meta-sep">·</span>
             <span className="footer-bottom-tagline">Automotive Upgrades &amp; Customization</span>
           </div>

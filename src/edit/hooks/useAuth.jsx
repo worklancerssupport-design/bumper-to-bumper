@@ -1,39 +1,54 @@
-import { createContext, useContext, useState, useCallback } from "react";
+import { createContext, useContext, useState, useCallback, useEffect } from "react";
+import {
+    apiFetch,
+    clearSession,
+    readSession,
+    writeSession,
+    SESSION_EXPIRED_EVENT,
+} from "../lib/api.js";
 
 const AuthContext = createContext(null);
 
 export function AuthProvider({ children }) {
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [isAuthenticated, setIsAuthenticated] = useState(() => readSession() !== null);
+    const [sessionExpired, setSessionExpired] = useState(false);
     const [error, setError] = useState(null);
+
+    useEffect(() => {
+        const onExpired = () => {
+            setSessionExpired(true);
+            setError("Your session expired. Sign in again to continue.");
+        };
+        window.addEventListener(SESSION_EXPIRED_EVENT, onExpired);
+        return () => window.removeEventListener(SESSION_EXPIRED_EVENT, onExpired);
+    }, []);
 
     const login = useCallback(async (username, password) => {
         try {
-            const res = await fetch("/api/auth", {
+            const data = await apiFetch("/api/auth", {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ username, password }),
+                body: { username, password },
             });
-            const data = await res.json();
-            if (data.success) {
-                setIsAuthenticated(true);
-                setError(null);
-                return true;
-            }
-            setError(data.error || "Invalid username or password");
-            return false;
-        } catch {
-            setError("Connection failed");
+            writeSession({ token: data.token, expiresAt: data.expiresAt });
+            setIsAuthenticated(true);
+            setSessionExpired(false);
+            setError(null);
+            return true;
+        } catch (err) {
+            setError(err.status ? err.message : "Connection failed");
             return false;
         }
     }, []);
 
     const logout = useCallback(() => {
+        clearSession();
         setIsAuthenticated(false);
+        setSessionExpired(false);
         setError(null);
     }, []);
 
     return (
-        <AuthContext.Provider value={{ isAuthenticated, login, logout, error, setError }}>
+        <AuthContext.Provider value={{ isAuthenticated, sessionExpired, login, logout, error, setError }}>
             {children}
         </AuthContext.Provider>
     );

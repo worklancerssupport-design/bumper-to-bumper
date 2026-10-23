@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Search, X, ArrowRight, Sparkles } from 'lucide-react';
 import exteriorData from '../../../data/products/exterior.json';
 import interiorData from '../../../data/products/interior.json';
+import business from '../../../config/business';
 import { renderHeadingWithRed } from '../../../utils/textUtils';
 import './SearchModal.css';
 
@@ -163,12 +164,12 @@ export default function SearchModal({ isOpen, onClose, initialQuery = '' }) {
         <div className="search-modal-footer">
           <span>Need custom advice?</span>
           <a
-            href="https://wa.me/9789550006?text=Hi%20Bumper%20To%20Bumper,%20I'm%20looking%20for%20an%20accessory%20recommendation%20for%20my%20car"
+            href={`https://wa.me/${business.whatsapp}?text=${encodeURIComponent(`Hi ${business.shortName}, I'm looking for an accessory recommendation for my car`)}`}
             target="_blank"
             rel="noopener noreferrer"
             className="search-modal-wa-link"
           >
-            WhatsApp Technician (+91 97895 50006)
+            WhatsApp Technician ({business.phone})
           </a>
         </div>
 

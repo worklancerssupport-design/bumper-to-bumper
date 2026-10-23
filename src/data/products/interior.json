@@ -95,7 +95,7 @@
                 }
             ],
             "image": "/images/interior/roof-vip-light-1.jpg",
-            "imageAlt": "Roof LED cabin light and VIP executive reading lamp installation in Chennai",
+            "imageAlt": "Roof LED cabin light and VIP executive reading lamp installation in {{city}}",
             "gallery": [
                 "/images/interior/roof-vip-light-1.jpg",
                 "/images/interior/roof-vip-light-og.jpg"
@@ -159,7 +159,7 @@
                 }
             ],
             "image": "/images/interior/steering-covers-1.jpg",
-            "imageAlt": "Hand-stitched leather steering cover and steering control buttons in Chennai",
+            "imageAlt": "Hand-stitched leather steering cover and steering control buttons in {{city}}",
             "gallery": [
                 "/images/interior/steering-covers-1.jpg",
                 "/images/interior/steering-covers-2.jpg"
@@ -223,7 +223,7 @@
                 }
             ],
             "image": "https://res.cloudinary.com/fthteymu/image/upload/v1789629693/best-car-accessories/elqixtcydmu8pybrwwiz.jpg",
-            "imageAlt": "Android touchscreen infotainment system with wireless Apple CarPlay in Chennai",
+            "imageAlt": "Android touchscreen infotainment system with wireless Apple CarPlay in {{city}}",
             "gallery": [
                 "https://res.cloudinary.com/fthteymu/image/upload/v1789629773/best-car-accessories/xzp0e27ljp5ew6ckqaq4.jpg",
                 "https://res.cloudinary.com/fthteymu/image/upload/v1789629792/best-car-accessories/psgtgk4hajaeebr7x47a.jpg",
@@ -324,7 +324,7 @@
                 }
             ],
             "image": "/images/interior/dashcam-ai-1.jpg",
-            "imageAlt": "Dual-channel 4K dash camera and AI CarPlay dongle installation in Chennai",
+            "imageAlt": "Dual-channel 4K dash camera and AI CarPlay dongle installation in {{city}}",
             "gallery": [
                 "https://res.cloudinary.com/fthteymu/image/upload/v1789629885/best-car-accessories/t7bv11b3ozauad58wdea.jpg",
                 "https://res.cloudinary.com/fthteymu/image/upload/v1789629925/best-car-accessories/vbmyv25u4iaxqeiklsco.jpg",
@@ -386,7 +386,7 @@
                 }
             ],
             "image": "https://res.cloudinary.com/fthteymu/image/upload/v1789629957/best-car-accessories/eev5uyq1pnqwcnrpuziw.jpg",
-            "imageAlt": "OEM-style Android infotainment system with AHD reverse camera in Chennai",
+            "imageAlt": "OEM-style Android infotainment system with AHD reverse camera in {{city}}",
             "gallery": [
                 "/images/interior/oem-infotainment-1.jpg",
                 "/images/interior/oem-infotainment-2.jpg"
@@ -446,7 +446,7 @@
                 }
             ],
             "image": "https://res.cloudinary.com/fthteymu/image/upload/v1789629990/best-car-accessories/h20umu7mke8zdui1jb6o.jpg",
-            "imageAlt": "18-zone symphony ambient lighting installation in Chennai",
+            "imageAlt": "18-zone symphony ambient lighting installation in {{city}}",
             "gallery": [
                 "https://res.cloudinary.com/fthteymu/image/upload/v1789630037/best-car-accessories/fodqhtti4g0cjetaxfkm.jpg",
                 "https://res.cloudinary.com/fthteymu/image/upload/v1789630073/best-car-accessories/nshpjsrsspnx9toj7u2l.jpg"
@@ -511,7 +511,7 @@
                 }
             ],
             "image": "/images/interior/dashboard-custom-1.jpg",
-            "imageAlt": "Dashboard leatherette wrapping and hydro-dipped door pad customization in Chennai",
+            "imageAlt": "Dashboard leatherette wrapping and hydro-dipped door pad customization in {{city}}",
             "gallery": [
                 "/images/interior/dashboard-custom-1.jpg",
                 "/images/interior/dashboard-custom-2.jpg",
@@ -574,7 +574,7 @@
                 }
             ],
             "image": "https://res.cloudinary.com/fthteymu/image/upload/v1789630144/best-car-accessories/gp37yzgwerczddwlykud.jpg",
-            "imageAlt": "Nano-ceramic solar heat rejection window film installation in Chennai",
+            "imageAlt": "Nano-ceramic solar heat rejection window film installation in {{city}}",
             "gallery": [
                 "https://res.cloudinary.com/fthteymu/image/upload/v1790235508/best-car-accessories/v8madynae53qps4rhiq9.jpg",
                 "/images/interior/sun-control-films-2.jpg"
@@ -633,7 +633,7 @@
                 }
             ],
             "image": "/images/interior/floor-mats-1.jpg",
-            "imageAlt": "7D custom-fit all-weather luxury car floor mats in Chennai",
+            "imageAlt": "7D custom-fit all-weather luxury car floor mats in {{city}}",
             "gallery": [
                 "https://res.cloudinary.com/fthteymu/image/upload/v1790235537/best-car-accessories/egewx08z8kocviuhw6nw.jpg",
                 "https://res.cloudinary.com/fthteymu/image/upload/v1790235549/best-car-accessories/jc3fdbc3h349sxqld06x.jpg",
@@ -698,7 +698,7 @@
                 }
             ],
             "image": "https://res.cloudinary.com/fthteymu/image/upload/v1790235819/best-car-accessories/lh36d5a4waihuobisarb.jpg",
-            "imageAlt": "Component car speaker and silk-dome tweeter audio installation in Chennai",
+            "imageAlt": "Component car speaker and silk-dome tweeter audio installation in {{city}}",
             "gallery": [
                 "https://res.cloudinary.com/fthteymu/image/upload/v1790235768/best-car-accessories/gzmvvwna6c3mwr3togyh.jpg",
                 "https://res.cloudinary.com/fthteymu/image/upload/v1789203152/best-car-accessories/zgb4ualbm5yp9nxnf8lj.jpg",
@@ -763,7 +763,7 @@
                 }
             ],
             "image": "/images/interior/woofers-amplifiers-1.webp",
-            "imageAlt": "Under-seat active subwoofer and multi-channel amplifier installation in Chennai",
+            "imageAlt": "Under-seat active subwoofer and multi-channel amplifier installation in {{city}}",
             "gallery": [
                 "/images/interior/woofers-amplifiers-1.webp",
                 "/images/interior/woofers-amplifiers-2.png"
@@ -822,7 +822,7 @@
                 }
             ],
             "image": "/images/interior/neck-pillows-1.jpg",
-            "imageAlt": "Memory foam car neck pillow and ergonomic lumbar seat cushions in Chennai",
+            "imageAlt": "Memory foam car neck pillow and ergonomic lumbar seat cushions in {{city}}",
             "gallery": [
                 "/images/interior/neck-pillows-1.jpg",
                 "/images/interior/neck-pillows-2.webp",
@@ -877,7 +877,7 @@
                 }
             ],
             "image": "/images/interior/door-foot-lights-1.jpg",
-            "imageAlt": "Wireless charging car phone mount and LED footwell lighting in Chennai",
+            "imageAlt": "Wireless charging car phone mount and LED footwell lighting in {{city}}",
             "gallery": [
                 "/images/interior/door-foot-lights-1.jpg",
                 "/images/interior/door-foot-lights-2.jpg"
@@ -937,7 +937,7 @@
                 }
             ],
             "image": "/images/interior/footstep-patti-1.jpg",
-            "imageAlt": "Stainless steel illuminated LED door sill scuff plates in Chennai",
+            "imageAlt": "Stainless steel illuminated LED door sill scuff plates in {{city}}",
             "gallery": [
                 "/images/interior/footstep-patti-1.jpg",
                 "/images/interior/footstep-patti-2.jpg"
@@ -985,7 +985,7 @@
                 }
             ],
             "image": "/images/interior/parcel-trays-1.jpg",
-            "imageAlt": "Reinforced rear parcel tray and custom acoustic speaker shelf in Chennai",
+            "imageAlt": "Reinforced rear parcel tray and custom acoustic speaker shelf in {{city}}",
             "gallery": [
                 "/images/interior/parcel-trays-1.jpg",
                 "/images/interior/parcel-trays-2.jpg"
@@ -1045,7 +1045,7 @@
                 }
             ],
             "image": "/images/interior/armrest-gear-1.jpg",
-            "imageAlt": "Sliding center console armrest and leather gear shift knob in Chennai",
+            "imageAlt": "Sliding center console armrest and leather gear shift knob in {{city}}",
             "gallery": [
                 "/images/interior/armrest-gear-1.jpg",
                 "/images/interior/armrest-gear-2.jpg",
@@ -1106,7 +1106,7 @@
                 }
             ],
             "image": "/images/interior/curtains-air-1.jpg",
-            "imageAlt": "Magnetic window sunshades and luxury car air freshener diffusers in Chennai",
+            "imageAlt": "Magnetic window sunshades and luxury car air freshener diffusers in {{city}}",
             "gallery": [
                 "/images/interior/curtains-air-1.jpg",
                 "/images/interior/curtains-air-2.webp",
@@ -1143,7 +1143,7 @@
                 "4-channel continuous cyclic recording functions as an all-around surveillance system",
                 "Precise software calibration using optical grid mats ensures accurate distance perspective"
             ],
-            "installation": "Wing mirror cameras are integrated into custom lower mirror housings. System is calibrated in our Adambakkam bay using high-contrast optical grid mats to ensure distortion-free image stitching.",
+            "installation": "Wing mirror cameras are integrated into custom lower mirror housings. System is calibrated in our {{location}} bay using high-contrast optical grid mats to ensure distortion-free image stitching.",
             "options": [
                 {
                     "label": "OEM-Style Reverse Camera",
@@ -1159,7 +1159,7 @@
                 }
             ],
             "image": "/images/interior/360-camera-1.jpg",
-            "imageAlt": "360 degree bird view surround camera system installation in Chennai",
+            "imageAlt": "360 degree bird view surround camera system installation in {{city}}",
             "gallery": [
                 "/images/interior/360-camera-1.jpg",
                 "/images/interior/360-camera-2.jpg",
@@ -1221,7 +1221,7 @@
                 }
             ],
             "image": "https://res.cloudinary.com/fthteymu/image/upload/v1789971939/best-car-accessories/wpi5fhhbzorjvace6gel.jpg",
-            "imageAlt": "Seatback organizer and portable car vacuum cleaner accessories in Chennai",
+            "imageAlt": "Seatback organizer and portable car vacuum cleaner accessories in {{city}}",
             "relatedServices": [
                 "premium-car-seat-covers",
                 "floor-mats",
@@ -1281,7 +1281,7 @@
                 }
             ],
             "image": "https://res.cloudinary.com/fthteymu/image/upload/v1790236186/best-car-accessories/jggsunwfeqrfymvmom2c.jpg",
-            "imageAlt": "Custom-fit perforated Nappa leather car seat covers in Chennai",
+            "imageAlt": "Custom-fit perforated Nappa leather car seat covers in {{city}}",
             "gallery": [
                 "https://res.cloudinary.com/fthteymu/image/upload/v1789971237/best-car-accessories/rmdvaus31f8kdaneanty.jpg",
                 "https://res.cloudinary.com/fthteymu/image/upload/v1789971298/best-car-accessories/nc8womwwuditzqhjbbx3.jpg",

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { ChevronRight } from 'lucide-react';
-import business from '../../../data/business.json';
+import business from '../../../config/business';
 import './Breadcrumbs.css';
 
 export default function Breadcrumbs({ items = [] }) {

@@ -39,13 +39,7 @@ export default function ThemeEditor() {
                 </div>
             </SectionCard>
 
-            <SectionCard title="Brand" subtitle="Brand identity settings">
-                <Field label="Brand name">
-                    <TextInput value={hook.editData?.brand?.name} onChange={(v) => hook.updateEditData((d) => { d.brand.name = v; })} />
-                </Field>
-                <Field label="Tagline">
-                    <TextInput value={hook.editData?.brand?.tagline} onChange={(v) => hook.updateEditData((d) => { d.brand.tagline = v; })} />
-                </Field>
+            <SectionCard title="Brand" subtitle="Brand identity settings — name and tagline are managed in Business">
                 <Field label="Accent color" hint="Hex value (e.g. #e63946)">
                     <TextInput value={hook.editData?.brand?.accentColor} onChange={(v) => hook.updateEditData((d) => { d.brand.accentColor = v; })} />
                 </Field>

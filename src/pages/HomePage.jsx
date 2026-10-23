@@ -7,49 +7,49 @@ import ReviewsStrip from '../components/ui/ReviewsStrip/ReviewsStrip';
 import Gallery from '../components/sections/Gallery/Gallery';
 import FAQSection from '../components/sections/FAQSection/FAQSection';
 import ContactSection from '../components/sections/ContactSection/ContactSection';
-import business from '../data/business.json';
+import business, { to24h } from '../config/business';
 
 const localBusinessSchema = {
   '@context': 'https://schema.org',
   '@type': 'AutoPartsStore',
   name: business.name,
-  description: 'Premium automotive accessories, bi-LED lighting, Android infotainment, 360° cameras, custom seat covers, and zero wire-cutting installation in Adambakkam, Chennai.',
+  description: `${business.tagline} — premium automotive accessories, bi-LED lighting, Android infotainment, 360° cameras, custom seat covers, and zero wire-cutting installation in ${business.location}.`,
   url: business.siteUrl,
-  image: 'https://bumpertobumpercaraccessories.com/images/cars/jeep_compass.jpg',
-  telephone: business.phoneHref || '9789550006',
+  image: `${business.siteUrl}/images/cars/jeep_compass.jpg`,
+  telephone: business.phone,
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'Shop No. 1, Survey.No 27/2A, The ARK, Shop, Jawaharlal Nehru Salai, Usha Nagar, Vanuvampet',
-    addressLocality: 'Adambakkam, Chennai',
-    addressRegion: 'Tamil Nadu',
-    postalCode: '600091',
+    streetAddress: business.street,
+    addressLocality: business.location,
+    addressRegion: business.state,
+    postalCode: business.pincode,
     addressCountry: 'IN',
   },
   geo: {
     '@type': 'GeoCoordinates',
-    latitude: 12.9863,
-    longitude: 80.1983,
+    latitude: business.geo.latitude,
+    longitude: business.geo.longitude,
   },
   openingHoursSpecification: [
     {
       '@type': 'OpeningHoursSpecification',
       dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-      opens: '10:00',
-      closes: '21:30',
+      opens: to24h(business.hours.weekdays.open),
+      closes: to24h(business.hours.weekdays.close),
     },
     {
       '@type': 'OpeningHoursSpecification',
       dayOfWeek: 'Sunday',
-      opens: '10:30',
-      closes: '19:00',
+      opens: to24h(business.hours.sunday.open),
+      closes: to24h(business.hours.sunday.close),
     },
   ],
-  sameAs: [business.instagram].filter(Boolean),
+  sameAs: [business.social.instagram].filter(Boolean),
 };
 
 export default function HomePage() {
-  const pageTitle = `${business.name} | Adambakkam, Chennai | Premium Auto Studio & Upgrades`;
-  const pageDescription = `${business.name} in Adambakkam, Chennai — 15+ years experience, 1000+ car upgrades. Bi-LED headlights, Android touchscreens, 360° cameras, custom leather seats, and 7D mats with zero wire cutting. Call ${business.phoneHref || '9789550006'}.`;
+  const pageTitle = `${business.name} | ${business.location} | Premium Auto Studio & Upgrades`;
+  const pageDescription = `${business.name} in ${business.location} — ${business.stats.yearsExperience}+ years experience, ${business.stats.clientsServed}+ car upgrades. Bi-LED headlights, Android touchscreens, 360° cameras, custom leather seats, and 7D mats with zero wire cutting. Call ${business.phone}.`;
 
   return (
     <>

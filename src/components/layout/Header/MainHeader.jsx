@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import { Search, Menu, Instagram, Phone } from 'lucide-react';
+import business from '../../../config/business';
 
 export default function MainHeader({ onOpenSearch, onOpenMobileMenu }) {
   const location = useLocation();
@@ -17,15 +18,18 @@ export default function MainHeader({ onOpenSearch, onOpenMobileMenu }) {
       <div className="container header-main-row__inner">
 
         {/* ── Left: Brand Identity ──────────────────────────── */}
-        <Link to="/" className="brand-badge" aria-label="Bumper To Bumper Car Accessories Home">
+        <Link to="/" className="brand-badge" aria-label={`${business.name} Home`}>
           <div className="brand-badge__mark" aria-hidden="true">
             <span className="brand-badge__mark-b">B</span>
             <span className="brand-badge__mark-dot">·</span>
             <span className="brand-badge__mark-b">B</span>
           </div>
           <div className="brand-badge__text">
-            <span className="brand-badge__title"><span style={{color:'#e53e3e'}}>BUMPER</span> TO BUMPER</span>
-            <span className="brand-badge__sub">CAR ACCESSORIES</span>
+            <span className="brand-badge__title">
+              <span style={{color:'#e53e3e'}}>{business.shortName.split(' ')[0].toUpperCase()}</span>{' '}
+              {business.shortName.split(' ').slice(1).join(' ').toUpperCase()}
+            </span>
+            <span className="brand-badge__sub">{business.name.replace(business.shortName, '').trim().toUpperCase()}</span>
           </div>
         </Link>
 
@@ -49,7 +53,7 @@ export default function MainHeader({ onOpenSearch, onOpenMobileMenu }) {
               <Link
                 to="/exterior-car-accessories-chennai"
                 className={`header-main-nav__link ${isExteriorActive ? 'header-main-nav__link--active' : ''}`}
-                title="Exterior Car Accessories in Chennai"
+                title={`Exterior Car Accessories in ${business.city}`}
                 aria-current={isExteriorActive ? 'page' : undefined}
               >
                 <span>Exterior</span>
@@ -62,7 +66,7 @@ export default function MainHeader({ onOpenSearch, onOpenMobileMenu }) {
               <Link
                 to="/interior-car-accessories-chennai"
                 className={`header-main-nav__link ${isInteriorActive ? 'header-main-nav__link--active' : ''}`}
-                title="Interior Car Accessories in Chennai"
+                title={`Interior Car Accessories in ${business.city}`}
                 aria-current={isInteriorActive ? 'page' : undefined}
               >
                 <span>Interior</span>
@@ -135,22 +139,22 @@ export default function MainHeader({ onOpenSearch, onOpenMobileMenu }) {
 
           {/* Instagram Account Link */}
           <a
-            href="https://www.instagram.com/bumpertobumpercaraccessories/"
+            href={business.social.instagram}
             target="_blank"
             rel="noopener noreferrer"
             className="header-icon-btn header-icon-btn--ig"
             aria-label="Visit our Instagram"
-            title="Visit our Instagram (@bumpertobumpercaraccessories)"
+            title={`Visit our Instagram (${business.instagramHandle})`}
           >
             <Instagram size={18} aria-hidden="true" />
           </a>
 
           {/* Phone / Call Direct Link */}
           <a
-            href="tel:9789550006"
+            href={business.callHref}
             className="header-icon-btn header-icon-btn--phone"
-            aria-label="Call Bumper To Bumper Car Accessories"
-            title="Call Bumper To Bumper Car Accessories (9789550006)"
+            aria-label={`Call ${business.name}`}
+            title={`Call ${business.name} (${business.phone})`}
           >
             <Phone size={18} aria-hidden="true" />
           </a>

@@ -1,16 +1,17 @@
 import { Link } from 'react-router-dom';
 import { ChevronRight, Phone, ShieldCheck, Wrench, Award, CheckCircle } from 'lucide-react';
-import business from '../../../data/business.json';
+import business from '../../../config/business';
+import catalog from '../../../data/catalog.json';
 import './PremiumHero.css';
 
 export default function PremiumHero() {
   return (
-    <section className="premium-hero" aria-label="Bumper To Bumper Car Accessories — Chennai's premier automotive studio">
+    <section className="premium-hero" aria-label={`${business.name} — ${business.city}'s premier automotive studio`}>
       {/* Background imagery with sophisticated dark gradient */}
       <div className="premium-hero__bg" aria-hidden="true">
         <img
           src="/images/hero_engine.jpg"
-          alt="Bumper To Bumper High-Performance Automotive Components"
+          alt={`${business.name} High-Performance Automotive Components`}
           className="premium-hero__bg-img"
           loading="eager"
           fetchpriority="high"
@@ -22,7 +23,7 @@ export default function PremiumHero() {
         <article className="premium-hero__copy">
           <div className="premium-hero__badge">
             <span className="premium-hero__badge-dot" />
-            <span>PRECISION RETROFIT &amp; ACCESSORY STUDIO · ADAMBAKKAM, CHENNAI</span>
+            <span>PRECISION RETROFIT &amp; ACCESSORY STUDIO · {business.location.toUpperCase()}</span>
           </div>
 
           <h1 className="premium-hero__title">
@@ -45,14 +46,14 @@ export default function PremiumHero() {
             </Link>
 
             <a
-              href={`tel:${business.phoneHref || '9789550006'}`}
+              href={business.callHref}
               className="premium-hero__hotline-link"
               aria-label="Call store"
             >
               <span className="premium-hero__hotline-icon"><Phone size={14} /></span>
               <span className="premium-hero__hotline-text">
                 <small>Direct Call</small>
-                <strong>{business.phone || '+91 97895 50006'}</strong>
+                <strong>{business.phone}</strong>
               </span>
             </a>
           </div>
@@ -69,7 +70,7 @@ export default function PremiumHero() {
             </div>
             <div className="premium-hero__highlight-item">
               <CheckCircle size={15} className="premium-hero__highlight-icon" />
-              <span>15+ Years Craftsmanship</span>
+              <span>{business.stats.yearsExperience}+ Years Craftsmanship</span>
             </div>
           </div>
         </article>
@@ -79,16 +80,9 @@ export default function PremiumHero() {
       <div className="premium-hero__brand-strip" aria-label="Car brands we upgrade">
         <span className="premium-hero__brand-strip-label">ENGINEERED FOR ALL LEADING MARQUES:</span>
         <ul className="premium-hero__brands">
-          <li>HYUNDAI</li>
-          <li>TATA</li>
-          <li>VOLKSWAGEN</li>
-          <li>MARUTI SUZUKI</li>
-          <li>MAHINDRA</li>
-          <li>TOYOTA</li>
-          <li>KIA</li>
-          <li>HONDA</li>
-          <li>SKODA</li>
-          <li>MG</li>
+          {catalog.carBrands.map((brand) => (
+            <li key={brand.slug}>{brand.name.toUpperCase()}</li>
+          ))}
         </ul>
       </div>
     </section>

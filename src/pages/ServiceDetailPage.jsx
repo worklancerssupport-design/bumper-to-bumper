@@ -16,7 +16,7 @@ import CTASection from '../components/ui/CTASection/CTASection';
 import RelatedServices from '../components/ui/RelatedServices/RelatedServices';
 import exteriorData from '../data/products/exterior.json';
 import interiorData from '../data/products/interior.json';
-import business from '../data/business.json';
+import business from '../config/business';
 import { renderSubheadingWithRed } from '../utils/textUtils';
 import './ServiceDetailPage.css';
 
@@ -77,8 +77,8 @@ export default function ServiceDetailPage() {
     { label: service.name, href: '' },
   ];
 
-  const pageTitle = `${service.name} in Chennai | Bumper To Bumper Car Accessories`;
-  const pageDescription = `${service.shortDescription} Professional installation in Adambakkam, Chennai with 15+ years experience. Contact Bumper To Bumper Car Accessories today.`;
+  const pageTitle = `${service.name} in ${business.city} | ${business.name}`;
+  const pageDescription = `${service.shortDescription} Professional installation in ${business.location} with ${business.stats.yearsExperience}+ years experience. Contact ${business.name} today.`;
   const canonicalUrl = `${business.siteUrl}${
     isExterior ? '/exterior-car-accessories-chennai' : '/interior-car-accessories-chennai'
   }/${service.slug}`;
@@ -86,7 +86,7 @@ export default function ServiceDetailPage() {
   const whatsappMessage = encodeURIComponent(
     `Hello ${business.name}, I would like to enquire about ${service.name} installation for my car.`
   );
-  const whatsappUrl = `https://wa.me/${business.whatsapp || '9789550006'}?text=${whatsappMessage}`;
+  const whatsappUrl = `https://wa.me/${business.whatsapp}?text=${whatsappMessage}`;
 
   const serviceSchema = {
     '@context': 'https://schema.org',
@@ -98,13 +98,14 @@ export default function ServiceDetailPage() {
       name: business.name,
       address: {
         '@type': 'PostalAddress',
-        streetAddress: business.address,
-        addressLocality: 'Chennai',
-        addressRegion: 'Tamil Nadu',
+        streetAddress: business.street,
+        addressLocality: business.location,
+        addressRegion: business.state,
+        postalCode: business.pincode,
         addressCountry: 'IN',
       },
     },
-    areaServed: 'Chennai',
+    areaServed: business.city,
   };
 
   return (
@@ -235,7 +236,7 @@ export default function ServiceDetailPage() {
                     <span className="section-label">Fitment Process</span>
                     <h3 className="sd-installation__title">Installation &amp; <span className="text-red">Fitment</span></h3>
                   </div>
-                  <p>{service.installation}</p>
+                  <p>{fillTokens(service.installation)}</p>
                   <div className="sd-installation__badges">
                     <span className="tech-tag">Zero Void Warranty</span>
                     <span className="tech-tag">Heat-Resistant Sleeving</span>
@@ -298,7 +299,7 @@ export default function ServiceDetailPage() {
                 <div className="sd-sidebar__meta">
                   <div className="sd-sidebar__meta-row">
                     <span>Studio</span>
-                    <strong>Adambakkam, Chennai</strong>
+                    <strong>{business.location}</strong>
                   </div>
                   <div className="sd-sidebar__meta-row">
                     <span>Estimated Time</span>
@@ -326,7 +327,7 @@ export default function ServiceDetailPage() {
               <span className="section-label">Questions &amp; Answers</span>
               <h2>Frequently Asked <span className="text-red">Questions</span></h2>
               <p className="sd-faq__subtitle">
-                Common questions about {service.name.toLowerCase()} installation, materials, warranty, and fitment — answered by our Chennai <span className="text-red">technicians</span>.
+                Common questions about {service.name.toLowerCase()} installation, materials, warranty, and fitment — answered by our {business.city} <span className="text-red">technicians</span>.
               </p>
             </div>
             <div className="sd-faq__wrap">
@@ -343,7 +344,7 @@ export default function ServiceDetailPage() {
             <span className="section-label">RECOMMENDED UPGRADES</span>
             <h2>Related <span className="text-red">Accessories</span></h2>
             <p className="sd-related__subtitle">
-              Explore more {service.category === 'exterior' || service.category === 'Exterior' ? 'exterior' : 'interior'} enhancements chosen by Chennai <span className="text-red">drivers</span>.
+              Explore more {service.category === 'exterior' || service.category === 'Exterior' ? 'exterior' : 'interior'} enhancements chosen by {business.city} <span className="text-red">drivers</span>.
             </p>
           </div>
           <RelatedServices
@@ -357,7 +358,7 @@ export default function ServiceDetailPage() {
 
       <CTASection
         title={`Upgrade Your Vehicle with ${service.name}`}
-        subtitle="Visit Bumper To Bumper Car Accessories in Adambakkam, Chennai for professional consultation and flawless fitment."
+        subtitle={`Visit ${business.name} in ${business.location} for professional consultation and flawless fitment.`}
         primaryCta={{ label: 'Schedule Fitment', href: '/contact' }}
         whatsappMessage={`Hi, I would like to get a quote for ${service.name}.`}
         dark={true}

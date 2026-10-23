@@ -13,6 +13,7 @@ export const DATA_FILES = {
     theme: "src/data/theme.json",
     productsExterior: "src/data/products/exterior.json",
     productsInterior: "src/data/products/interior.json",
+    catalog: "src/data/catalog.json",
 };
 
 /**

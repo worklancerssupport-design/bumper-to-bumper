@@ -2,6 +2,10 @@ import fs from 'fs';
 import path from 'path';
 import https from 'https';
 
+const business = JSON.parse(
+  fs.readFileSync(new URL('../src/data/business.json', import.meta.url), 'utf-8')
+);
+
 const destDir = path.resolve('public/images/cars');
 if (!fs.existsSync(destDir)) {
   fs.mkdirSync(destDir, { recursive: true });
@@ -27,7 +31,7 @@ function download(filename, url) {
     const file = fs.createWriteStream(path.join(destDir, filename));
     const options = new URL(url);
     const headers = {
-      'User-Agent': 'BumperToBumperApp/1.0 (https://bumpertobumpercaraccessories.com; info@bumpertobumpercaraccessories.com) Node/18'
+      'User-Agent': `${business.shortName.replace(/\s+/g, '')}App/1.0 (${business.siteUrl}; ${business.email}) Node/${process.versions.node.split('.')[0]}`
     };
 
     const req = https.get({

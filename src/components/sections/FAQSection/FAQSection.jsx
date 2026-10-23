@@ -1,5 +1,6 @@
 import FAQ from '../../ui/FAQ/FAQ';
 import faqsData from '../../../data/faqs.json';
+import business from '../../../config/business';
 import './FAQSection.css';
 
 export default function FAQSection({ page = 'homepage' }) {
@@ -14,7 +15,7 @@ export default function FAQSection({ page = 'homepage' }) {
             Questions, <span className="hp-faq-section__title-accent">Answered</span>
           </h2>
           <p className="hp-faq-section__subtitle">
-            Got questions about fitment, warranty, or scheduling? Here is everything you need to know before booking your upgrade at our Adambakkam studio in <span className="text-red">Chennai</span>.
+            Got questions about fitment, warranty, or scheduling? Here is everything you need to know before booking your upgrade at our {business.location.split(',')[0]} studio in <span className="text-red">{business.city}</span>.
           </p>
         </header>
 

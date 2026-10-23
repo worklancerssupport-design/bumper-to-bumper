@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { X, ArrowRight, Eye } from 'lucide-react';
 import galleryData from '../../../data/gallery.json';
+import business from '../../../config/business';
 import './Gallery.css';
 
 // Select exactly five distinct authentic installation photographs
@@ -33,7 +34,7 @@ export default function Gallery({ compact = false }) {
             Our <span className="gallery-section__title-accent">Craftsmanship</span>
           </h2>
           <p className="gallery-section__subtitle">
-            A curated look at five customer vehicle upgrades completed at our Adambakkam studio in Chennai with <span className="text-red">zero</span> wire cutting.
+            A curated look at five customer vehicle upgrades completed at our {business.location.split(',')[0]} studio in {business.city} with <span className="text-red">zero</span> wire cutting.
           </p>
         </header>
 
@@ -117,7 +118,7 @@ export default function Gallery({ compact = false }) {
             <div className="gallery-lightbox__caption">
               <span className="gallery-lightbox__category" style={{color:'#fff'}}>{activeItem.category}</span>
               <h3 style={{color:'#fff'}}>{activeItem.title}</h3>
-              {activeItem.car && <p style={{color:'rgba(255,255,255,0.8)'}}>{activeItem.car} · Adambakkam Studio</p>}
+              {activeItem.car && <p style={{color:'rgba(255,255,255,0.8)'}}>{activeItem.car} · {business.location.split(',')[0]} Studio</p>}
             </div>
           </div>
         </div>

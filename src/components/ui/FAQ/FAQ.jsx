@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Plus, Minus } from 'lucide-react';
+import { fillTokens } from '../../../config/business';
 import './FAQ.css';
 
 export default function FAQ({ faqs = [] }) {
@@ -15,10 +16,10 @@ export default function FAQ({ faqs = [] }) {
     "@type": "FAQPage",
     "mainEntity": faqs.map(faq => ({
       "@type": "Question",
-      "name": faq.q,
+      "name": fillTokens(faq.q),
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": faq.a
+        "text": fillTokens(faq.a)
       }
     }))
   };
@@ -42,14 +43,14 @@ export default function FAQ({ faqs = [] }) {
                 aria-expanded={isOpen}
                 type="button"
               >
-                <span className="faq-question__text">{faq.q}</span>
+                <span className="faq-question__text">{fillTokens(faq.q)}</span>
                 <span className="faq-icon" aria-hidden="true">
                   {isOpen ? <Minus size={20} /> : <Plus size={20} />}
                 </span>
               </button>
               <div className={`faq-answer ${isOpen ? 'is-open' : ''}`}>
                 <div className="faq-answer__inner">
-                  {faq.a}
+                  {fillTokens(faq.a)}
                 </div>
               </div>
             </div>

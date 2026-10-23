@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import business from '../data/business.json';
+import business from '../config/business';
 import formsData from '../data/forms.json';
 import Breadcrumbs from '../components/ui/Breadcrumbs/Breadcrumbs';
 import CTASection from '../components/ui/CTASection/CTASection';
@@ -53,7 +53,7 @@ export default function ContactPage() {
       if (form.carModel) lines.push(`Car: ${form.carModel}`);
       if (form.service) lines.push(`Service: ${form.service}`);
       if (form.message) { lines.push(''); lines.push('Message:'); lines.push(form.message); }
-      const url = `https://wa.me/${business.whatsapp || '9789550006'}?text=${encodeURIComponent(lines.join('\n'))}`;
+      const url = `https://wa.me/${business.whatsapp}?text=${encodeURIComponent(lines.join('\n'))}`;
       const opened = window.open(url, '_blank');
       if (!opened) window.location.href = url;
       setSuccess(true);
@@ -63,16 +63,16 @@ export default function ContactPage() {
     }
   };
 
-  const whatsappUrl = `https://wa.me/${business.whatsapp || '9789550006'}?text=${encodeURIComponent(`Hello ${business.name}, I would like to enquire about your services.`)}`;
+  const whatsappUrl = `https://wa.me/${business.whatsapp}?text=${encodeURIComponent(`Hello ${business.name}, I would like to enquire about your services.`)}`;
 
   return (
     <>
       <Helmet>
-        <title>Contact Bumper To Bumper Car Accessories | Adambakkam, Chennai | Get a Quote</title>
-        <meta name="description" content="Contact Bumper To Bumper Car Accessories at The ARK, Jawaharlal Nehru Salai, Adambakkam, Chennai. Call 9789550006 or WhatsApp for car accessory installation, quotes & studio visit." />
+        <title>{`Contact ${business.name} | ${business.location} | Get a Quote`}</title>
+        <meta name="description" content={`Contact ${business.name} at ${business.landmark}, ${business.location}. Call ${business.phone} or WhatsApp for car accessory installation, quotes & studio visit.`} />
         <link rel="canonical" href={`${business.siteUrl}/contact`} />
-        <meta property="og:title" content="Contact Bumper To Bumper Car Accessories | Adambakkam Chennai" />
-        <meta property="og:description" content="Get in touch with Bumper To Bumper Car Accessories in Adambakkam, Chennai for quotes and customization consultations. Call 9789550006." />
+        <meta property="og:title" content={`Contact ${business.name} | ${business.location}`} />
+        <meta property="og:description" content={`Get in touch with ${business.name} in ${business.location} for quotes and customization consultations. Call ${business.phone}.`} />
       </Helmet>
 
       <div className="contact-breadcrumb-wrap">
@@ -87,7 +87,7 @@ export default function ContactPage() {
             Let's <span className="contact-hero__title-accent text-red">Upgrade</span><br />Your Ride
           </h1>
           <p className="contact-hero__subtitle">
-            Send us an enquiry, WhatsApp your car model, or visit our studio on Jawaharlal Nehru Salai, Adambakkam, <span className="text-red">Chennai</span>.
+            Send us an enquiry, WhatsApp your car model, or visit our studio at {business.landmark}, <span className="text-red">{business.city}</span>.
           </p>
           <div className="contact-hero__actions">
             <a
@@ -100,7 +100,7 @@ export default function ContactPage() {
               <MessageCircle size={16} className="contact-hero__btn-icon" aria-hidden="true" />
             </a>
             <a
-              href={`tel:${business.phoneHref || '9789550006'}`}
+              href={business.callHref}
               className="contact-hero__btn contact-hero__btn--primary"
             >
               <span>Call Now</span>
@@ -193,7 +193,7 @@ export default function ContactPage() {
                   </span>
                   <div>
                     <span className="contact-info__label">Phone / Click to Call</span>
-                    <a href={`tel:${business.phoneHref || '9789550006'}`} className="contact-info__value">
+                    <a href={business.callHref} className="contact-info__value">
                       {business.phone}
                     </a>
                   </div>
@@ -205,7 +205,7 @@ export default function ContactPage() {
                   <div>
                     <span className="contact-info__label">WhatsApp</span>
                     <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="contact-info__value">
-                      +91 {business.whatsapp || '9789550006'}
+                      {business.whatsappDisplay}
                     </a>
                   </div>
                 </li>
@@ -258,8 +258,8 @@ export default function ContactPage() {
             {/* Embedded map */}
             <div className="contact-info__map">
               <iframe
-                src="https://maps.google.com/maps?q=Shop%20No.%201,%20Survey.No%2027/2A,%20The%20ARK,%20Jawaharlal%20Nehru%20Salai,%20Vanuvampet,%20Adambakkam,%20Chennai%20600091&t=&z=15&ie=UTF8&iwloc=&output=embed"
-                title="Bumper To Bumper Car Accessories location map — Adambakkam, Chennai"
+                src={business.mapUrl}
+                title={`${business.name} location map — ${business.location}`}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 allowFullScreen
@@ -272,7 +272,7 @@ export default function ContactPage() {
       <CTASection
         title={<>Prefer to Talk <span className="text-red">Directly</span>?</>}
         subtitle={<>Call us during working hours or WhatsApp your car model and requirements — our specialists will guide you with accurate pricing and <span className="text-red">fitment</span>.</>}
-        primaryCta={{ label: 'Call Now', href: `tel:${business.phoneHref || '9789550006'}` }}
+        primaryCta={{ label: 'Call Now', href: business.callHref }}
         whatsappMessage={`Hi ${business.name}, I would like to enquire about your services.`}
         primaryIcon={Phone}
         dark={true}

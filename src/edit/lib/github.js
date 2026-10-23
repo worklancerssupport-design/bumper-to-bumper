@@ -1,20 +1,16 @@
 /**
- * GitHub API client — proxied through serverless functions.
+ * GitHub API client — proxied through serverless functions (see server/github.js).
  * Never calls GitHub directly from the browser (PAT stays server-side).
  */
+import { apiFetch } from "./api.js";
 
 /**
  * Fetch a single file from GitHub via the serverless proxy.
  * @param {string} filePath - Repo-relative path, e.g. "src/data/business.json"
  * @returns {Promise<{ content: string, sha: string }>}
  */
-export async function fetchFileFromGitHub(filePath) {
-    const res = await fetch(`/api/github-file?path=${encodeURIComponent(filePath)}`);
-    if (!res.ok) {
-        const body = await res.json().catch(() => ({}));
-        throw new Error(body.error || `Failed to fetch ${filePath}`);
-    }
-    return res.json();
+export function fetchFileFromGitHub(filePath) {
+    return apiFetch(`/api/github-file?path=${encodeURIComponent(filePath)}`);
 }
 
 /**
@@ -25,15 +21,9 @@ export async function fetchFileFromGitHub(filePath) {
  * @param {string} message - Commit message
  * @returns {Promise<{ newSha: string }>}
  */
-export async function saveFileToGitHub(filePath, content, sha, message) {
-    const res = await fetch("/api/github-file", {
+export function saveFileToGitHub(filePath, content, sha, message) {
+    return apiFetch("/api/github-file", {
         method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ path: filePath, content, sha, message }),
+        body: { path: filePath, content, sha, message },
     });
-    if (!res.ok) {
-        const body = await res.json().catch(() => ({}));
-        throw new Error(body.error || `Failed to save ${filePath}`);
-    }
-    return res.json();
 }

@@ -1,11 +1,9 @@
 import { ShieldCheck, CheckCircle2, Phone, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import business from '../../../data/business.json';
+import business from '../../../config/business';
 import './WorkEthicsSection.css';
 
 export default function WorkEthicsSection() {
-  const phoneHref = business.phoneHref || '9789550006';
-
   return (
     <section className="work-ethics-section" aria-labelledby="ethics-heading">
       <div className="container">
@@ -16,13 +14,13 @@ export default function WorkEthicsSection() {
             <div className="work-ethics-media__frame">
               <img
                 src="/images/about/about-showroom-upgrade.jpg"
-                alt="Bumper To Bumper Car Accessories Showroom and Installation Bay in Adambakkam Chennai"
+                alt={`${business.name} Showroom and Installation Bay in ${business.location}`}
                 className="work-ethics-media__img"
                 loading="lazy"
               />
               <div className="work-ethics-media__badge">
-                <span className="work-ethics-media__badge-title">15+ Years</span>
-                <span className="work-ethics-media__badge-sub">Chennai Automotive Excellence</span>
+                <span className="work-ethics-media__badge-title">{business.stats.yearsExperience}+ Years</span>
+                <span className="work-ethics-media__badge-sub">{business.city} Automotive Excellence</span>
               </div>
             </div>
           </div>
@@ -39,7 +37,7 @@ export default function WorkEthicsSection() {
 
             <div className="work-ethics-text">
               <p>
-                At <strong>Bumper To Bumper Car Accessories</strong>, we believe choosing accessories for your vehicle should be straightforward, transparent, and informed. As a trusted <strong>car accessories shop in Adambakkam, Chennai</strong>, located at The ARK on Jawaharlal Nehru Salai near Vanuvampet, we focus on helping car owners explore suitable products, understand fitment options, and select upgrades tailored to their personal preferences.
+                At <strong>{business.name}</strong>, we believe choosing accessories for your vehicle should be straightforward, transparent, and informed. As a trusted <strong>car accessories shop in {business.location}</strong>, located at {business.landmark}, we focus on helping car owners explore suitable products, understand fitment options, and select upgrades tailored to their personal preferences.
               </p>
               <p>
                 Our approach emphasizes clear communication, attention to product details, and a customer-first experience. Whether you are looking for premium <strong>interior car accessories</strong> like customized leather seat covers and ambient lighting, or durable <strong>exterior car accessories</strong> such as bi-LED headlights, spoilers, and body styling, our team aims to make your upgrade journey effortless.
@@ -52,7 +50,7 @@ export default function WorkEthicsSection() {
                 <CheckCircle2 size={18} className="work-ethics-highlight-icon" aria-hidden="true" />
                 <div>
                   <strong>Genuine Product Selection</strong>
-                  <p>Handpicked accessories for high durability and OEM compatibility across Chennai vehicles.</p>
+                  <p>Handpicked accessories for high durability and OEM compatibility across {business.city} vehicles.</p>
                 </div>
               </div>
 
@@ -72,9 +70,9 @@ export default function WorkEthicsSection() {
                 <ArrowRight size={14} aria-hidden="true" />
               </Link>
 
-              <a href={`tel:${phoneHref}`} className="work-ethics-phone-link">
+              <a href={business.callHref} className="work-ethics-phone-link">
                 <Phone size={14} className="work-ethics-phone-icon" aria-hidden="true" />
-                <span>Call {business.phone || '9789550006'}</span>
+                <span>Call {business.phone}</span>
               </a>
             </div>
 

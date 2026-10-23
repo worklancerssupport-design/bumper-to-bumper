@@ -44,11 +44,20 @@ export default function BusinessEditor() {
                 <Field label="Name">
                     <TextInput value={hook.editData?.name} onChange={(v) => updateField('name', v)} />
                 </Field>
+                <Field label="Short name" hint="Compact brand name used in nav, alt text, and WhatsApp messages">
+                    <TextInput value={hook.editData?.shortName} onChange={(v) => updateField('shortName', v)} />
+                </Field>
                 <Field label="Tagline">
                     <TextInput value={hook.editData?.tagline} onChange={(v) => updateField('tagline', v)} />
                 </Field>
-                <Field label="Location">
+                <Field label="Location" hint="Area and city, e.g. Adambakkam, Chennai">
                     <TextInput value={hook.editData?.location} onChange={(v) => updateField('location', v)} />
+                </Field>
+                <Field label="City">
+                    <TextInput value={hook.editData?.city} onChange={(v) => updateField('city', v)} />
+                </Field>
+                <Field label="State">
+                    <TextInput value={hook.editData?.state} onChange={(v) => updateField('state', v)} />
                 </Field>
             </SectionCard>
 
@@ -68,11 +77,23 @@ export default function BusinessEditor() {
                 <Field label="Full Address" hint="Shown in footer and contact page">
                     <Textarea value={hook.editData?.address} onChange={(v) => updateField('address', v)} rows={2} />
                 </Field>
+                <Field label="Street address" hint="Used in schema.org structured data">
+                    <Textarea value={hook.editData?.street} onChange={(v) => updateField('street', v)} rows={2} />
+                </Field>
+                <Field label="Landmark" hint="Short location line, e.g. The ARK, Jawaharlal Nehru Salai">
+                    <TextInput value={hook.editData?.landmark} onChange={(v) => updateField('landmark', v)} />
+                </Field>
+                <Field label="Pincode">
+                    <TextInput value={hook.editData?.pincode} onChange={(v) => updateField('pincode', v)} />
+                </Field>
                 <Field label="Google Maps Embed URL">
                     <TextInput value={hook.editData?.mapUrl} onChange={(v) => updateField('mapUrl', v)} />
                 </Field>
                 <Field label="Google Maps Link">
                     <TextInput value={hook.editData?.googleMapsUrl} onChange={(v) => updateField('googleMapsUrl', v)} />
+                </Field>
+                <Field label="Google Reviews Link">
+                    <TextInput value={hook.editData?.googleReviewsUrl} onChange={(v) => updateField('googleReviewsUrl', v)} />
                 </Field>
             </SectionCard>
 
@@ -144,22 +165,28 @@ export default function BusinessEditor() {
                     <NumberInput value={hook.editData?.stats?.accessoryCategories} onChange={(v) => updateNested('stats', 'accessoryCategories', v)} />
                 </Field>
                 <Field label="Years label">
-                    <TextInput value={hook.editData?.stats?.labels?.yearsExperience} onChange={(v) => updateNested('stats', 'labels', v)} />
+                    <TextInput value={hook.editData?.stats?.labels?.yearsExperience} onChange={(v) => updateNestedNested('stats', 'labels', 'yearsExperience', v)} />
                 </Field>
                 <Field label="Clients label">
-                    <TextInput value={hook.editData?.stats?.labels?.clientsServed} onChange={(v) => updateNested('stats', 'labels', v)} />
+                    <TextInput value={hook.editData?.stats?.labels?.clientsServed} onChange={(v) => updateNestedNested('stats', 'labels', 'clientsServed', v)} />
                 </Field>
                 <Field label="Categories label">
-                    <TextInput value={hook.editData?.stats?.labels?.accessoryCategories} onChange={(v) => updateNested('stats', 'labels', v)} />
+                    <TextInput value={hook.editData?.stats?.labels?.accessoryCategories} onChange={(v) => updateNestedNested('stats', 'labels', 'accessoryCategories', v)} />
                 </Field>
             </SectionCard>
 
-            <SectionCard title="Site Settings" subtitle="URL and site name">
+            <SectionCard title="Site Settings" subtitle="URL, site name, and geo coordinates">
                 <Field label="Site URL" hint="Used in schema.org markup">
                     <TextInput value={hook.editData?.siteUrl} onChange={(v) => updateField('siteUrl', v)} />
                 </Field>
                 <Field label="Site Name">
                     <TextInput value={hook.editData?.siteName} onChange={(v) => updateField('siteName', v)} />
+                </Field>
+                <Field label="Latitude" hint="Used in schema.org geo coordinates">
+                    <NumberInput value={hook.editData?.geo?.latitude} onChange={(v) => updateNested('geo', 'latitude', v)} step="any" />
+                </Field>
+                <Field label="Longitude" hint="Used in schema.org geo coordinates">
+                    <NumberInput value={hook.editData?.geo?.longitude} onChange={(v) => updateNested('geo', 'longitude', v)} step="any" />
                 </Field>
             </SectionCard>
         </div>

@@ -7,7 +7,7 @@ import {
   Clock,
   Send,
 } from 'lucide-react';
-import business from '../../../data/business.json';
+import business from '../../../config/business';
 import formsData from '../../../data/forms.json';
 import './ContactSection.css';
 
@@ -49,10 +49,10 @@ export default function ContactSection() {
   };
 
   const whatsappMessage = encodeURIComponent(
-    "Hello Bumper To Bumper Car Accessories, I would like to get a quote for my car."
+    `Hello ${business.name}, I would like to get a quote for my car.`
   );
-  const whatsappLink = `https://wa.me/${business.whatsapp || '9789550006'}?text=${whatsappMessage}`;
-  const phoneCallLink = `tel:${business.phoneHref || '9789550006'}`;
+  const whatsappLink = `https://wa.me/${business.whatsapp}?text=${whatsappMessage}`;
+  const phoneCallLink = business.callHref;
   const mapsLink = business.googleMapsUrl || business.mapUrl;
 
   return (
@@ -184,7 +184,7 @@ export default function ContactSection() {
                     <span className="contact-info-row-label">Phone</span>
                     <a href={phoneCallLink} className="contact-info-row-value">{business.phone}</a>
                     {business.phone2 && (
-                      <a href={`tel:${business.phone2.replace(/\s+/g, '')}`} className="contact-info-row-value">
+                      <a href={business.callHref2} className="contact-info-row-value">
                         {business.phone2}
                       </a>
                     )}

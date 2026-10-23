@@ -92,7 +92,7 @@
                 }
             ],
             "image": "https://res.cloudinary.com/fthteymu/image/upload/v1790172382/best-car-accessories/f4nn9jmcu0t8c0qunuex.jpg",
-            "imageAlt": "Fog light and bi-LED projector fog lamp installation in Chennai",
+            "imageAlt": "Fog light and bi-LED projector fog lamp installation in {{city}}",
             "relatedServices": [
                 "drl-headlight-fog",
                 "headlight-led-upgrade",
@@ -169,7 +169,7 @@
                 }
             ],
             "image": "/images/exterior/led-headlight-upgrade-chennai.webp",
-            "imageAlt": "Headlight LED bulb upgrade and dome lens polish in Chennai",
+            "imageAlt": "Headlight LED bulb upgrade and dome lens polish in {{city}}",
             "relatedServices": [
                 "fog-light-fog-projector",
                 "drl-headlight-fog",
@@ -203,6 +203,7 @@
             "id": "ext-03",
             "name": "DRL for Headlights & Fog",
             "slug": "drl-headlight-fog",
+            "showInFooter": true,
             "category": "exterior",
             "shortDescription": "Distinctive Daytime Running Lights with integrated dynamic sequential indicators for heightened daytime conspicuity and modern front-end styling.",
             "description": "Daytime Running Lights (DRLs) provide critical visual contrast on busy suburban roads and highways, allowing pedestrians and other drivers to identify your vehicle earlier from greater distances. We supply and install both flexible matrix LED light strips and integrated bezel housings that feature crisp white daytime illumination and smooth amber sequential turn signals synchronized with your hazard and indicator controls.",
@@ -230,7 +231,7 @@
                 }
             ],
             "image": "https://m.media-amazon.com/images/I/71dtPz9y+EL._AC_UF1000,1000_QL80_.jpg",
-            "imageAlt": "Daytime running lights and dynamic indicator installation in Chennai",
+            "imageAlt": "Daytime running lights and dynamic indicator installation in {{city}}",
             "relatedServices": [
                 "fog-light-fog-projector",
                 "headlight-led-upgrade",
@@ -290,7 +291,7 @@
                 }
             ],
             "image": "https://res.cloudinary.com/fthteymu/image/upload/v1790157587/best-car-accessories/h67fqu5rgspkdfkntzc4.jpg",
-            "imageAlt": "Bonnet 3D lettering and engine hood sound damping in Chennai",
+            "imageAlt": "Bonnet 3D lettering and engine hood sound damping in {{city}}",
             "relatedServices": [
                 "rear-spoiler-tail-light",
                 "door-visors-side-claddings",
@@ -340,7 +341,7 @@
                 }
             ],
             "image": "/images/exterior/anti-rat-machine-mesh-chennai.webp",
-            "imageAlt": "Anti-rat ultrasonic repellent and stainless steel mesh installation in Chennai",
+            "imageAlt": "Anti-rat ultrasonic repellent and stainless steel mesh installation in {{city}}",
             "relatedServices": [
                 "wiring-kits-cutouts",
                 "bonnet-letters-damping",
@@ -389,7 +390,7 @@
                 }
             ],
             "image": "/images/exterior/windshield-anti-glare-film-chennai.webp",
-            "imageAlt": "Windshield anti-glare film and certified auto glass replacement in Chennai",
+            "imageAlt": "Windshield anti-glare film and certified auto glass replacement in {{city}}",
             "relatedServices": [
                 "sun-control-films",
                 "wiper-blades",
@@ -442,7 +443,7 @@
                 }
             ],
             "image": "/images/exterior/roof-rails-sharkfin-antenna-chennai.webp",
-            "imageAlt": "Drill-free roof rails and amplified sharkfin antenna installation in Chennai",
+            "imageAlt": "Drill-free roof rails and amplified sharkfin antenna installation in {{city}}",
             "relatedServices": [
                 "rear-spoiler-tail-light",
                 "door-visors-side-claddings",
@@ -493,7 +494,7 @@
                 }
             ],
             "image": "https://res.cloudinary.com/fthteymu/image/upload/v1790172325/best-car-accessories/uvlph57x4sljvzwzx0yt.jpg",
-            "imageAlt": "Rear spoiler and LED tail light assembly replacement in Chennai",
+            "imageAlt": "Rear spoiler and LED tail light assembly replacement in {{city}}",
             "relatedServices": [
                 "front-rear-bumpers",
                 "roof-rails-sharkfin-antenna",
@@ -549,7 +550,7 @@
                 }
             ],
             "image": "https://res.cloudinary.com/fthteymu/image/upload/v1790170805/best-car-accessories/jl9bakw6sopdfezjd4qc.jpg",
-            "imageAlt": "Front and rear bumper guard and ABS diffuser installation in Chennai",
+            "imageAlt": "Front and rear bumper guard and ABS diffuser installation in {{city}}",
             "relatedServices": [
                 "fog-light-fog-projector",
                 "rear-spoiler-tail-light",
@@ -634,7 +635,7 @@
                 }
             ],
             "image": "https://res.cloudinary.com/fthteymu/image/upload/v1790171427/best-car-accessories/qw3epurbr3lrw3yrf6aj.jpg",
-            "imageAlt": "Reverse camera and ultrasonic parking sensor installation in Chennai",
+            "imageAlt": "Reverse camera and ultrasonic parking sensor installation in {{city}}",
             "relatedServices": [
                 "dash-cameras-ai-dongles",
                 "oem-camera-360-camera",
@@ -694,7 +695,7 @@
                 }
             ],
             "image": "https://i.pinimg.com/1200x/33/33/28/333328778c3839d16929881de4f0697f.jpg",
-            "imageAlt": "Frameless aerodynamic wiper blades and washer liquid in Chennai",
+            "imageAlt": "Frameless aerodynamic wiper blades and washer liquid in {{city}}",
             "relatedServices": [
                 "windshield-anti-glare-film",
                 "horn-parking-leds",
@@ -747,7 +748,7 @@
                 }
             ],
             "image": "/images/exterior/horn-parking-leds-chrome-chennai.webp",
-            "imageAlt": "Twin-tone horn and LED parking light upgrade in Chennai",
+            "imageAlt": "Twin-tone horn and LED parking light upgrade in {{city}}",
             "relatedServices": [
                 "wiring-kits-cutouts",
                 "fog-light-fog-projector",
@@ -801,7 +802,7 @@
                 }
             ],
             "image": "/images/exterior/number-plates-frames-chennai.webp",
-            "imageAlt": "Number plate frames and anti-rattle brackets in Chennai",
+            "imageAlt": "Number plate frames and anti-rattle brackets in {{city}}",
             "relatedServices": [
                 "rear-spoiler-tail-light",
                 "door-visors-side-claddings",
@@ -856,7 +857,7 @@
                 }
             ],
             "image": "/images/exterior/door-visors-side-claddings-chennai.webp",
-            "imageAlt": "Door rain visors and protective side claddings in Chennai",
+            "imageAlt": "Door rain visors and protective side claddings in {{city}}",
             "relatedServices": [
                 "mud-flaps",
                 "rear-spoiler-tail-light",
@@ -906,7 +907,7 @@
                 }
             ],
             "image": "/images/exterior/mud-flaps-chennai.webp",
-            "imageAlt": "Custom-fit flexible thermoplastic mud flaps in Chennai",
+            "imageAlt": "Custom-fit flexible thermoplastic mud flaps in {{city}}",
             "relatedServices": [
                 "door-visors-side-claddings",
                 "side-foot-steps",
@@ -956,7 +957,7 @@
                 }
             ],
             "image": "https://res.cloudinary.com/fthteymu/image/upload/v1790171648/best-car-accessories/xmej72afzgn40ohsld52.jpg",
-            "imageAlt": "Heavy bumper clamps and stainless flag post installation in Chennai",
+            "imageAlt": "Heavy bumper clamps and stainless flag post installation in {{city}}",
             "relatedServices": [
                 "roof-rails-sharkfin-antenna",
                 "side-foot-steps",
@@ -1014,7 +1015,7 @@
                 }
             ],
             "image": "https://res.cloudinary.com/fthteymu/image/upload/v1790172138/best-car-accessories/thiizwoouuvd3ws87p00.jpg",
-            "imageAlt": "Heavy-duty aluminum SUV side foot steps installation in Chennai",
+            "imageAlt": "Heavy-duty aluminum SUV side foot steps installation in {{city}}",
             "relatedServices": [
                 "mud-flaps",
                 "door-visors-side-claddings",
@@ -1081,7 +1082,7 @@
                 }
             ],
             "image": "/images/exterior/door-logo-lights-chennai.webp",
-            "imageAlt": "Door logo LED puddle projector light installation in Chennai",
+            "imageAlt": "Door logo LED puddle projector light installation in {{city}}",
             "relatedServices": [
                 "drl-headlight-fog",
                 "roof-led-vip-light",
@@ -1135,7 +1136,7 @@
                 }
             ],
             "image": "/images/exterior/wiring-kits-cutouts-chennai.webp",
-            "imageAlt": "Automotive relay wiring harness and fuse block installation in Chennai",
+            "imageAlt": "Automotive relay wiring harness and fuse block installation in {{city}}",
             "relatedServices": [
                 "fog-light-fog-projector",
                 "headlight-led-upgrade",
@@ -1185,7 +1186,7 @@
                 }
             ],
             "image": "/images/exterior/box-clamp-wheel-cups-chennai.webp",
-            "imageAlt": "Decorative wheel cover caps and retention clamp installation in Chennai",
+            "imageAlt": "Decorative wheel cover caps and retention clamp installation in {{city}}",
             "relatedServices": [
                 "mud-flaps",
                 "side-foot-steps",

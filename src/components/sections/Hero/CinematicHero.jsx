@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronRight } from 'lucide-react';
+import business from '../../../config/business';
 import './CinematicHero.css';
 
 export default function CinematicHero() {
   return (
-    <section className="cinematic-hero" aria-label="Bumper To Bumper Car Accessories Showcase">
+    <section className="cinematic-hero" aria-label={`${business.name} Showcase`}>
       {/* ── Background: Backside of Black Sports Car with Glowing Red Backlights ── */}
       <div className="cinematic-hero__bg" aria-hidden="true">
         {/* Subtle Ambient Red Studio Illumination */}
@@ -70,7 +71,7 @@ export default function CinematicHero() {
             <Link
               to="/contact"
               className="cinematic-hero__btn-secondary"
-              aria-label="Contact our store in Adambakkam Chennai"
+              aria-label={`Contact our store in ${business.location}`}
             >
               <span>Contact Studio</span>
               <ArrowRight size={15} className="cinematic-hero__btn-icon" aria-hidden="true" />

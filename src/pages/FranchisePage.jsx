@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import business from '../data/business.json';
+import business from '../config/business';
 import formsData from '../data/forms.json';
 import Breadcrumbs from '../components/ui/Breadcrumbs/Breadcrumbs';
 import CTASection from '../components/ui/CTASection/CTASection';
@@ -29,10 +29,10 @@ function validate(form) {
 }
 
 const highlights = [
-  { icon: Award, title: `${business.stats.yearsExperience}+ Years in Chennai`, desc: 'Established Chennai brand with a loyal, repeat customer base.' },
+  { icon: Award, title: `${business.stats.yearsExperience}+ Years in ${business.city}`, desc: `Established ${business.city} brand with a loyal, repeat customer base.` },
   { icon: Users, title: `${business.stats.clientsServed.toLocaleString()}+ Clients Served`, desc: 'A demonstrated track record across hatchbacks, sedans and SUVs.' },
   { icon: TrendingUp, title: 'Growing Customization Market', desc: 'Aftermarket accessories and customization is expanding across India.' },
-  { icon: MapPin, title: 'Adambakkam Reference Studio', desc: 'A working Chennai studio you can visit, audit and learn from.' },
+  { icon: MapPin, title: `${business.location.split(',')[0]} Reference Studio`, desc: `A working ${business.city} studio you can visit, audit and learn from.` },
 ];
 
 export default function FranchisePage() {
@@ -72,16 +72,16 @@ export default function FranchisePage() {
     }
   };
 
-  const whatsappUrl = `https://wa.me/${business.whatsapp || '9789550006'}?text=${encodeURIComponent('Hello, I am interested in a franchise opportunity with Bumper To Bumper Car Accessories.')}`;
+  const whatsappUrl = `https://wa.me/${business.whatsapp}?text=${encodeURIComponent(`Hello, I am interested in a franchise opportunity with ${business.name}.`)}`;
 
   return (
     <>
       <Helmet>
-        <title>Franchise Opportunity | Partner With Bumper To Bumper Car Accessories Chennai</title>
-        <meta name="description" content="Interested in partnering with Bumper To Bumper Car Accessories, Adambakkam, Chennai? Submit your franchise enquiry and we'll get in touch to discuss the opportunity." />
+        <title>{`Franchise Opportunity | Partner With ${business.siteName}`}</title>
+        <meta name="description" content={`Interested in partnering with ${business.name}, ${business.location}? Submit your franchise enquiry and we'll get in touch to discuss the opportunity.`} />
         <link rel="canonical" href={`${business.siteUrl}/franchise`} />
-        <meta property="og:title" content="Franchise | Bumper To Bumper Car Accessories Chennai" />
-        <meta property="og:description" content="Partner with Bumper To Bumper Car Accessories, Chennai's trusted automotive accessories & retrofit studio with 15+ years of experience." />
+        <meta property="og:title" content={`Franchise | ${business.siteName}`} />
+        <meta property="og:description" content={`Partner with ${business.name}, ${business.city}'s trusted automotive accessories & retrofit studio with ${business.stats.yearsExperience}+ years of experience.`} />
       </Helmet>
 
       <div className="franchise-breadcrumb-wrap">
@@ -110,7 +110,7 @@ export default function FranchisePage() {
               <MessageCircle size={16} className="franchise-hero__btn-icon" aria-hidden="true" />
             </a>
             <a
-              href={`tel:${business.phoneHref || '9789550006'}`}
+              href={business.callHref}
               className="franchise-hero__btn franchise-hero__btn--primary"
             >
               <span>Call Now</span>
@@ -217,11 +217,11 @@ export default function FranchisePage() {
                   </span>
                   <div>
                     <span className="franchise-info__label">Phone & WhatsApp</span>
-                    <a href={business.phone ? `tel:${business.phone}` : '#'} className="franchise-info__value">
-                      {business.phone || 'Configure in business.json'}
+                    <a href={business.callHref} className="franchise-info__value">
+                      {business.phone}
                     </a>
                     {business.phone2 && (
-                      <a href={`tel:${business.phone2.replace(/\s+/g, '')}`} className="franchise-info__value">
+                      <a href={business.callHref2} className="franchise-info__value">
                         {business.phone2}
                       </a>
                     )}
@@ -252,8 +252,8 @@ export default function FranchisePage() {
       <CTASection
         title={<>Have a Question <span className="text-red">First</span>?</>}
         subtitle={<>Call us during working hours or WhatsApp us directly — our team is happy to clarify any partnership questions before you submit your <span className="text-red">enquiry</span>.</>}
-        primaryCta={{ label: 'Call Now', href: `tel:${business.phoneHref || '9789550006'}` }}
-        whatsappMessage="Hello, I am interested in a franchise opportunity with Bumper To Bumper Car Accessories."
+        primaryCta={{ label: 'Call Now', href: business.callHref }}
+        whatsappMessage={`Hello, I am interested in a franchise opportunity with ${business.name}.`}
         primaryIcon={Phone}
         dark={true}
       />

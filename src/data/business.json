@@ -1,36 +1,27 @@
 {
     "name": "Bumper To Bumper Car Accessories",
     "shortName": "Bumper To Bumper",
+    "siteName": "Bumper To Bumper Car Accessories Chennai",
+    "siteUrl": "https://bumpertobumpercaraccessories.com",
     "tagline": "Premium Automotive Accessories & Retrofit Studio",
     "location": "Adambakkam, Chennai",
-    "phone": "+91 97895 50006",
-    "phoneHref": "9789550006",
-    "phone2": null,
-    "whatsapp": "9789550006",
-    "email": "bumpertobumperchennai@gmail.com",
-    "address": "Shop No. 1, Survey.No 27/2A, The ARK, Shop, Jawaharlal Nehru Salai, Usha Nagar, Vanuvampet, Adambakkam, Chennai, Tamil Nadu 600091",
-    "landmark": "The ARK, Jawaharlal Nehru Salai, Vanuvampet",
     "city": "Chennai",
     "state": "Tamil Nadu",
+    "phone": "+91 97895 50006",
+    "phone2": null,
+    "whatsapp": "919789550006",
+    "email": "bumpertobumperchennai@gmail.com",
+    "address": "Shop No. 1, Survey.No 27/2A, The ARK, Shop, Jawaharlal Nehru Salai, Usha Nagar, Vanuvampet, Adambakkam, Chennai, Tamil Nadu 600091",
+    "street": "Shop No. 1, Survey.No 27/2A, The ARK, Shop, Jawaharlal Nehru Salai, Usha Nagar, Vanuvampet",
+    "landmark": "The ARK, Jawaharlal Nehru Salai, Vanuvampet",
     "pincode": "600091",
-    "mapUrl": "https://www.google.com/maps?q=Shop+No.+1,+Survey.No+27/2A,+The+ARK,+Shop,+Jawaharlal+Nehru+Salai,+Usha+Nagar,+Vanuvampet,+Adambakkam,+Chennai,+Tamil+Nadu+600091",
-    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Bumper+To+Bumper+Car+Accessories+Adambakkam+Chennai",
-    "googleBusinessUrl": "https://www.google.com/maps/search/?api=1&query=Bumper+To+Bumper+Car+Accessories+Adambakkam+Chennai",
-    "googleReviewsUrl": "https://www.google.com/maps/search/?api=1&query=Bumper+To+Bumper+Car+Accessories+Adambakkam+Chennai",
-    "instagram": "https://www.instagram.com/bumpertobumpercaraccessories/",
-    "instagramHandle": "@bumpertobumpercaraccessories",
-    "instagramUsername": "bumpertobumpercaraccessories",
-    "social": {
-        "instagram": "https://www.instagram.com/bumpertobumpercaraccessories/",
-        "facebook": "",
-        "youtube": "",
-        "twitter": ""
+    "geo": {
+        "latitude": 12.9863,
+        "longitude": 80.1983
     },
-    "yearsExperience": 15,
-    "clientsServed": 1000,
-    "accessoryCategories": 20,
-    "siteUrl": "https://bumpertobumpercaraccessories.com",
-    "siteName": "Bumper To Bumper Car Accessories Chennai",
+    "mapUrl": "https://maps.google.com/maps?q=Shop%20No.%201,%20Survey.No%2027/2A,%20The%20ARK,%20Jawaharlal%20Nehru%20Salai,%20Vanuvampet,%20Adambakkam,%20Chennai%20600091&t=&z=15&ie=UTF8&iwloc=&output=embed",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Bumper+To+Bumper+Car+Accessories+Adambakkam+Chennai",
+    "googleReviewsUrl": "https://www.google.com/maps/search/?api=1&query=Bumper+To+Bumper+Car+Accessories+Adambakkam+Chennai",
     "hours": {
         "weekdays": {
             "days": "Mon - Sat",
@@ -43,6 +34,13 @@
             "close": "07:00 PM"
         }
     },
+    "social": {
+        "instagram": "https://www.instagram.com/bumpertobumpercaraccessories/",
+        "facebook": "",
+        "youtube": "",
+        "twitter": ""
+    },
+    "instagramHandle": "@bumpertobumpercaraccessories",
     "stats": {
         "yearsExperience": 15,
         "clientsServed": 1000,

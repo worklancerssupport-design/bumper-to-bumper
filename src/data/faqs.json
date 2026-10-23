@@ -5,12 +5,12 @@
       "a": "No. Every electronic and lighting accessory is fitted using OEM-grade coupler-to-coupler harnesses with dedicated inline fuses. We do not cut, splice, or alter your vehicle's factory wiring looms, keeping manufacturer electrical warranties protected."
     },
     {
-      "q": "Where in Chennai is Bumper To Bumper Car Accessories located?",
-      "a": "Our studio and fitment workshop is located at Shop No. 1, Survey No. 27/2A, The ARK, Jawaharlal Nehru Salai, Usha Nagar, Vanuvampet, Adambakkam, Chennai 600091 (along the Inner Ring Road). We have dedicated service bays for customer car inspections and installations."
+      "q": "Where in {{city}} is {{name}} located?",
+      "a": "Our studio and fitment workshop is located at {{address}} (along the Inner Ring Road). We have dedicated service bays for customer car inspections and installations."
     },
     {
       "q": "How can I verify compatibility and enquire about accessories for my specific car model?",
-      "a": "You can send your vehicle make, model, manufacturing year, and variant via WhatsApp to +91 97895 50006 or use our contact form. Our technical team checks exact bracket and harness compatibility and shares tailored recommendations."
+      "a": "You can send your vehicle make, model, manufacturing year, and variant via WhatsApp to {{phone}} or use our contact form. Our technical team checks exact bracket and harness compatibility and shares tailored recommendations."
     },
     {
       "q": "What is the typical turnaround time for accessory installation?",
@@ -18,13 +18,13 @@
     },
     {
       "q": "Can I inspect accessory samples before confirming my booking?",
-      "a": "Yes. You are welcome to visit our Adambakkam studio to feel seat cover textures, view ambient light demos, inspect Android touchscreen displays, and compare beam cutoffs before finalizing your accessories."
+      "a": "Yes. You are welcome to visit our {{location}} studio to feel seat cover textures, view ambient light demos, inspect Android touchscreen displays, and compare beam cutoffs before finalizing your accessories."
     }
   ],
   "about": [
     {
-      "q": "What is the background of Bumper To Bumper Car Accessories?",
-      "a": "Founded in Chennai with over 15 years of automotive aftermarket experience, Bumper To Bumper Car Accessories has upgraded more than 1,000 vehicles ranging from compact city cars to luxury SUVs, emphasizing clean craftsmanship and non-invasive installations."
+      "q": "What is the background of {{name}}?",
+      "a": "Founded in {{city}} with over {{years}} years of automotive aftermarket experience, {{name}} has upgraded more than {{clients}} vehicles ranging from compact city cars to luxury SUVs, emphasizing clean craftsmanship and non-invasive installations."
     },
     {
       "q": "What categories of car accessories do you supply and install?",
@@ -32,11 +32,11 @@
     },
     {
       "q": "What are your showroom and workshop operating hours?",
-      "a": "We are open Monday through Saturday from 10:00 AM to 9:30 PM, and on Sundays from 10:30 AM to 7:00 PM. Prior appointment via phone or WhatsApp is recommended for dedicated fitment bay scheduling."
+      "a": "We are open {{hoursWeekdays}}, and on Sundays {{hoursSunday}}. Prior appointment via phone or WhatsApp is recommended for dedicated fitment bay scheduling."
     },
     {
-      "q": "How do I reach the store from nearby Chennai localities?",
-      "a": "Our studio at The ARK on Jawaharlal Nehru Salai is easily accessible from Guindy, Velachery, Nanganallur, Madipakkam, and St. Thomas Mount, situated right on the main corridor in Vanuvampet, Adambakkam."
+      "q": "How do I reach the store from nearby {{city}} localities?",
+      "a": "Our studio at {{landmark}} is easily accessible from Guindy, Velachery, Nanganallur, Madipakkam, and St. Thomas Mount, situated right on the main corridor in {{location}}."
     }
   ],
   "exterior": [
@@ -54,7 +54,7 @@
     },
     {
       "q": "How do I request an estimate for exterior accessories?",
-      "a": "Message our team on WhatsApp at +91 97895 50006 with your car model, current headlight setup, and desired styling upgrades. We will confirm item availability, compatibility, and fitment timelines."
+      "a": "Message our team on WhatsApp at {{phone}} with your car model, current headlight setup, and desired styling upgrades. We will confirm item availability, compatibility, and fitment timelines."
     },
     {
       "q": "Do you conduct quality checks after fitting exterior components?",

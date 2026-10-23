@@ -1,11 +1,10 @@
 import { useState } from 'react';
-import business from '../../../data/business.json';
+import business from '../../../config/business';
 import './WhatsAppButton.css';
 
 export default function WhatsAppButton() {
-  const whatsappNumber = business.whatsapp || '9789550006';
-  const whatsappMessage = encodeURIComponent("Hello Bumper To Bumper Car Accessories, I would like to enquire about your car accessories and upgrades.");
-  const whatsappUrl = whatsappNumber ? `https://wa.me/${whatsappNumber}?text=${whatsappMessage}` : '#';
+  const whatsappMessage = encodeURIComponent(`Hello ${business.name}, I would like to enquire about your car accessories and upgrades.`);
+  const whatsappUrl = `https://wa.me/${business.whatsapp}?text=${whatsappMessage}`;
   const [hovered, setHovered] = useState(false);
 
   return (

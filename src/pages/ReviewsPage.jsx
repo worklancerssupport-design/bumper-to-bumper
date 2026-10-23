@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async';
-import business from '../config/business';
+import business, { fillTokens } from '../config/business';
 import Breadcrumbs from '../components/ui/Breadcrumbs/Breadcrumbs';
 import CTASection from '../components/ui/CTASection/CTASection';
 import reviewsData from '../data/reviews.json';
@@ -29,11 +29,11 @@ export default function ReviewsPage() {
   return (
     <>
       <Helmet>
-        <title>Customer Reviews | Bumper To Bumper Car Accessories Chennai</title>
-        <meta name="description" content="See what customers say about Bumper To Bumper Car Accessories, Adambakkam, Chennai. 15+ years of serving car owners with genuine accessories and professional zero wire-cutting installation." />
+        <title>{`Customer Reviews | ${business.siteName}`}</title>
+        <meta name="description" content={`See what customers say about ${business.name}, ${business.location}. ${business.stats.yearsExperience}+ years of serving car owners with genuine accessories and professional zero wire-cutting installation.`} />
         <link rel="canonical" href={`${business.siteUrl}/reviews`} />
-        <meta property="og:title" content="Reviews | Bumper To Bumper Car Accessories Chennai" />
-        <meta property="og:description" content="Customer reviews for Bumper To Bumper Car Accessories, Adambakkam, Chennai." />
+        <meta property="og:title" content={`Reviews | ${business.siteName}`} />
+        <meta property="og:description" content={`Customer reviews for ${business.name}, ${business.location}.`} />
       </Helmet>
 
       <div className="reviews-breadcrumb-wrap">
@@ -48,7 +48,7 @@ export default function ReviewsPage() {
             What Our <span className="reviews-hero__title-accent">Customers</span> Say
           </h1>
           <p className="reviews-hero__subtitle">
-            We have been serving car owners in Chennai for over {business.stats.yearsExperience} years.
+            We have been serving car owners in {business.city} for over {business.stats.yearsExperience} years.
             Here is what some of our customers have shared about their <span className="text-red">experience</span>.
           </p>
 
@@ -67,7 +67,7 @@ export default function ReviewsPage() {
             </div>
             <div className="reviews-stat">
               <span className="reviews-stat__value">{reviewsData.totalReviews}</span>
-              <span className="reviews-stat__label">{reviewsData.totalReviewsLabel}</span>
+              <span className="reviews-stat__label">{fillTokens(reviewsData.totalReviewsLabel)}</span>
             </div>
             <div className="reviews-stat">
               <span className="reviews-stat__value">{totalCount}</span>
@@ -134,9 +134,9 @@ export default function ReviewsPage() {
 
       <CTASection
         title={<>Ready to Experience Our <span className="text-red">Service</span>?</>}
-        subtitle={<>Visit our studio on Jawaharlal Nehru Salai, Adambakkam, Chennai or WhatsApp your <span className="text-red">requirements</span>.</>}
+        subtitle={<>Visit our studio at {business.landmark}, {business.location} or WhatsApp your <span className="text-red">requirements</span>.</>}
         primaryCta={{ label: 'Contact Us', href: '/contact' }}
-        whatsappMessage="Hello Bumper To Bumper Car Accessories, I would like to enquire about your car accessories."
+        whatsappMessage={`Hello ${business.name}, I would like to enquire about your car accessories.`}
         dark={true}
       />
     </>

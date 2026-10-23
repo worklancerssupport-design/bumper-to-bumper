@@ -1,9 +1,17 @@
 {
+  "story": {
+    "imageAlt": "{{name}} shop and installation studio — {{location}}",
+    "caption": "{{name}} Shop Premises — {{landmark}} — {{location}}",
+    "paragraphs": [
+      "{{name}} has been serving car owners in {{city}} for over {{years}} years. We started with an unwavering standard: every car owner deserves genuine, high-grade accessories installed to OEM perfection — with strictly zero wire-cutting or damage to factory electrical harnesses.",
+      "Today we offer {{city}}'s most complete portfolio of automotive upgrades — bi-LED headlights and projectors, aerodynamic spoilers and body claddings, 360° surround cameras, Android touchscreen infotainment with DSP audio, 18-zone symphony ambient lighting, and bespoke leather seat covers tailored to every vehicle model."
+    ]
+  },
   "standards": [
     {
       "num": "01",
       "title": "Proven Track Record",
-      "desc": "15+ years of automotive excellence and over 1,000 Chennai car owners served — from daily hatchbacks to premium SUVs."
+      "desc": "{{years}}+ years of automotive excellence and over {{clients}} {{city}} car owners served — from daily hatchbacks to premium SUVs."
     },
     {
       "num": "02",
@@ -16,6 +24,7 @@
       "desc": "OEM-grade couplers, neat conduit routing, and zero wire-cutting as our standard on every fitment."
     }
   ],
+  "visitIntro": "Conveniently located on Jawaharlal Nehru Salai, Vanuvampet, {{location}}. Drive in for an expert consultation and live product demonstration.",
   "rangeGroups": [
     {
       "title": "Exterior",

@@ -1,83 +1,109 @@
 /**
- * Cloudinary unsigned upload + client-side compression.
- * Uses VITE_CLOUDINARY_CLOUD_NAME and VITE_CLOUDINARY_UPLOAD_PRESET env vars.
+ * Cloudinary uploads: client-side compression, then a signed upload.
+ * The server issues the signature (/api/cloudinary-sign); the API secret never reaches the browser.
  */
+import { apiFetch } from "./api.js";
+
+const MAX_DIMENSION = 1200;
+const MAX_BYTES = 500 * 1024;
+const WEBP_QUALITY = 0.8;
+
+function loadImage(file) {
+    return new Promise((resolve, reject) => {
+        const url = URL.createObjectURL(file);
+        const img = new Image();
+        img.onload = () => {
+            URL.revokeObjectURL(url);
+            resolve(img);
+        };
+        img.onerror = () => {
+            URL.revokeObjectURL(url);
+            reject(new Error("This file is not a supported image"));
+        };
+        img.src = url;
+    });
+}
+
+function drawToCanvas(img, width, height, whiteBackground) {
+    const canvas = document.createElement("canvas");
+    canvas.width = width;
+    canvas.height = height;
+    const ctx = canvas.getContext("2d");
+    if (whiteBackground) {
+        ctx.fillStyle = "#ffffff";
+        ctx.fillRect(0, 0, width, height);
+    }
+    ctx.drawImage(img, 0, 0, width, height);
+    return canvas;
+}
+
+function encode(canvas, type, quality) {
+    return new Promise((resolve) => canvas.toBlob(resolve, type, quality));
+}
 
 /**
- * Upload a file to Cloudinary using an unsigned upload preset.
- * @param {File} file - The file to upload
- * @param {string} folder - Cloudinary folder name
+ * Keep the file as-is when it's already within limits. Otherwise scale it down
+ * (never up) and re-encode as WebP, which keeps transparency and is smaller than JPEG.
+ * Browsers without WebP encoding (older Safari) fall back to JPEG on a white background.
+ * @param {File} file
+ * @returns {Promise<File>}
+ */
+export async function prepareImage(file) {
+    const img = await loadImage(file);
+    const { naturalWidth: width, naturalHeight: height } = img;
+    const longestSide = Math.max(width, height);
+
+    if (longestSide <= MAX_DIMENSION && file.size <= MAX_BYTES) return file;
+
+    const scale = Math.min(1, MAX_DIMENSION / longestSide);
+    const targetWidth = Math.round(width * scale);
+    const targetHeight = Math.round(height * scale);
+
+    let blob = await encode(drawToCanvas(img, targetWidth, targetHeight, false), "image/webp", WEBP_QUALITY);
+    let extension = "webp";
+    if (!blob || blob.type !== "image/webp") {
+        blob = await encode(drawToCanvas(img, targetWidth, targetHeight, true), "image/jpeg", WEBP_QUALITY);
+        extension = "jpg";
+    }
+    if (!blob) throw new Error("Could not process this image");
+
+    // Re-encoding made it bigger and it's already the right size: keep the original
+    if (blob.size >= file.size && longestSide <= MAX_DIMENSION) return file;
+
+    const baseName = file.name.replace(/\.[^.]+$/, "") || "upload";
+    return new File([blob], `${baseName}.${extension}`, { type: blob.type });
+}
+
+/**
+ * Prepare, sign, and upload an image to Cloudinary.
+ * @param {File} file
  * @returns {Promise<{ url: string, publicId: string, width: number, height: number }>}
  */
-export async function uploadToCloudinary(file, folder = "uploads") {
-    const cloudName = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME;
-    const uploadPreset = import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET;
-
-    if (!cloudName || !uploadPreset) {
-        throw new Error("Cloudinary env vars not configured (VITE_CLOUDINARY_CLOUD_NAME, VITE_CLOUDINARY_UPLOAD_PRESET)");
-    }
+export async function uploadImage(file) {
+    const prepared = await prepareImage(file);
+    const signed = await apiFetch("/api/cloudinary-sign", { method: "POST" });
 
     const formData = new FormData();
-    formData.append("file", file);
-    formData.append("upload_preset", uploadPreset);
-    formData.append("folder", folder);
+    formData.append("file", prepared);
+    formData.append("api_key", signed.apiKey);
+    formData.append("timestamp", String(signed.timestamp));
+    formData.append("folder", signed.folder);
+    formData.append("signature", signed.signature);
 
     const res = await fetch(
-        `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
+        `https://api.cloudinary.com/v1_1/${signed.cloudName}/image/upload`,
         { method: "POST", body: formData }
     );
 
-    if (!res.ok) throw new Error("Cloudinary upload failed");
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw new Error(data.error?.message || "Cloudinary upload failed");
 
-    const data = await res.json();
     return {
         url: data.secure_url,
         publicId: data.public_id,
         width: data.width,
         height: data.height,
     };
-}
-
-/**
- * Compress an image client-side using canvas.
- * @param {File} file - Original image file
- * @param {number} maxWidth - Max dimension in pixels
- * @param {number} quality - JPEG quality 0-1
- * @returns {Promise<File>} Compressed file
- */
-export function compressImage(file, maxWidth = 800, quality = 0.7) {
-    return new Promise((resolve, reject) => {
-        const img = new Image();
-        img.onload = () => {
-            const ratio = Math.min(maxWidth / img.width, maxWidth / img.height, 1);
-            const canvas = document.createElement("canvas");
-            canvas.width = img.width * ratio;
-            canvas.height = img.height * ratio;
-            canvas.getContext("2d").drawImage(img, 0, 0, canvas.width, canvas.height);
-            canvas.toBlob(
-                (blob) => {
-                    if (!blob) return reject(new Error("Compression failed"));
-                    resolve(new File([blob], file.name, { type: "image/jpeg" }));
-                },
-                "image/jpeg",
-                quality
-            );
-        };
-        img.onerror = () => reject(new Error("Failed to load image"));
-        img.src = URL.createObjectURL(file);
-    });
-}
-
-/**
- * Compress then upload.
- * @param {File} file
- * @param {number} maxWidth
- * @param {number} quality
- * @param {string} folder
- */
-export async function compressAndUpload(file, maxWidth = 800, quality = 0.7, folder = "uploads") {
-    const compressed = await compressImage(file, maxWidth, quality);
-    return uploadToCloudinary(compressed, folder);
 }
 
 /**

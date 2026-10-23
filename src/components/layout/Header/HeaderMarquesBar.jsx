@@ -1,16 +1,6 @@
 import React from 'react';
 import { ShieldCheck, ChevronRight } from 'lucide-react';
-
-const CAR_BRANDS = [
-  { name: 'Honda', slug: 'honda' },
-  { name: 'Hyundai', slug: 'hyundai' },
-  { name: 'Maruti', slug: 'maruti' },
-  { name: 'Kia', slug: 'kia' },
-  { name: 'Jeep', slug: 'jeep' },
-  { name: 'Tata', slug: 'tata' },
-  { name: 'Toyota', slug: 'toyota' },
-  { name: 'Volkswagen', slug: 'volkswagen' },
-];
+import catalog from '../../../data/catalog.json';
 
 export default function HeaderMarquesBar({ onSelectBrand }) {
   return (
@@ -22,7 +12,7 @@ export default function HeaderMarquesBar({ onSelectBrand }) {
         </div>
 
         <div className="header-marques-bar__list" role="list">
-          {CAR_BRANDS.map((brand) => (
+          {catalog.carBrands.map((brand) => (
             <button
               key={brand.slug}
               type="button"

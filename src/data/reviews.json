@@ -1,7 +1,7 @@
 {
   "rating": "5.0",
   "totalReviews": "217+",
-  "totalReviewsLabel": "upgrades delivered in Chennai",
+  "totalReviewsLabel": "upgrades delivered in {{city}}",
   "reviews": [
     {
       "id": 1,

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import business from '../config/business';
 import './NotFoundPage.css';
 import { Home, Wrench } from 'lucide-react';
 
@@ -7,7 +8,7 @@ export default function NotFoundPage() {
   return (
     <>
       <Helmet>
-        <title>Page Not Found | Bumper To Bumper Car Accessories Chennai</title>
+        <title>Page Not Found | {business.siteName}</title>
         <meta name="robots" content="noindex" />
       </Helmet>
       <section className="nfp-section">

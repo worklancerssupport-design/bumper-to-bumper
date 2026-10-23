@@ -1,50 +1,12 @@
 import { useState, useRef, useEffect } from 'react';
 import { X, Link2, Upload, Camera, Loader2, ImageOff } from 'lucide-react';
-import { compressImage, selectFromFile, captureFromCamera } from '../lib/cloudinary.js';
+import {
+    uploadImage,
+    isValidImageUrl,
+    selectFromFile,
+    captureFromCamera,
+} from '../lib/cloudinary.js';
 import './ImageEditor.css';
-
-const ALLOWED_DOMAINS = [
-    'res.cloudinary.com',
-    'images.unsplash.com',
-    'cdn.shopify.com',
-    'i.pinimg.com',
-    'lh3.googleusercontent.com',
-];
-
-function isValidImageUrl(url) {
-    if (!url) return false;
-    try {
-        const u = new URL(url);
-        if (!u.protocol.startsWith('http')) return false;
-        return (
-            ALLOWED_DOMAINS.some((d) => u.hostname.includes(d)) ||
-            /\.(jpg|jpeg|png|webp|gif)$/i.test(u.pathname)
-        );
-    } catch {
-        return false;
-    }
-}
-
-async function uploadToCloudinary(file, folder = 'best-car-accessories') {
-    const cloudName = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME;
-    const uploadPreset = import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET;
-    if (!cloudName || !uploadPreset) {
-        throw new Error('Cloudinary is not configured. Add VITE_CLOUDINARY_CLOUD_NAME and VITE_CLOUDINARY_UPLOAD_PRESET to .env');
-    }
-    const formData = new FormData();
-    formData.append('file', file);
-    formData.append('upload_preset', uploadPreset);
-    formData.append('folder', folder);
-    const res = await fetch(
-        `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
-        { method: 'POST', body: formData }
-    );
-    const data = await res.json();
-    if (!res.ok) {
-        throw new Error(data.error?.message || 'Upload failed');
-    }
-    return data.secure_url;
-}
 
 export default function ImageEditor({ value, onChange, onClose, alt = 'image' }) {
     const [tab, setTab] = useState('url');
@@ -81,8 +43,7 @@ export default function ImageEditor({ value, onChange, onClose, alt = 'image' })
         setError('');
         setUploading(true);
         try {
-            const compressed = await compressImage(file, 1200, 0.75);
-            const secureUrl = await uploadToCloudinary(compressed);
+            const { url: secureUrl } = await uploadImage(file);
             onChange(secureUrl);
             onClose();
         } catch (err) {

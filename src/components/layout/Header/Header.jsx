@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import MainHeader from './MainHeader';
 import MobileMenu from '../MobileMenu/MobileMenu';
 import SearchModal from '../../ui/SearchModal/SearchModal';
-import business from '../../../data/business.json';
+import business from '../../../config/business';
 import './Header.css';
 
 export default function Header() {
@@ -29,10 +29,10 @@ export default function Header() {
   };
 
   const whatsappMessage = encodeURIComponent(
-    'Hello Bumper To Bumper Car Accessories, I would like to enquire about accessories and upgrades for my car.'
+    `Hello ${business.name}, I would like to enquire about accessories and upgrades for my car.`
   );
-  const whatsappUrl = `https://wa.me/${business.whatsapp || '9789550006'}?text=${whatsappMessage}`;
-  const instagramUrl = business.instagram || 'https://www.instagram.com/bumpertobumpercaraccessories/';
+  const whatsappUrl = `https://wa.me/${business.whatsapp}?text=${whatsappMessage}`;
+  const instagramUrl = business.social.instagram;
 
   return (
     <>

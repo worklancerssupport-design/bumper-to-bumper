@@ -1,5 +1,5 @@
 import { ShieldCheck, Wrench, Award, MapPin } from 'lucide-react';
-import business from '../../../data/business.json';
+import business from '../../../config/business';
 import './CountUpStats.css';
 
 const trustFeatures = [
@@ -7,7 +7,7 @@ const trustFeatures = [
     icon: ShieldCheck,
     title: <>GENUINE <span className="text-red">ACCESSORIES</span></>,
     desc: <>OEM-grade components backed by manufacturer warranty and exact model <span className="text-red">fitment</span>.</>,
-    stat: '20+ Categories'
+    stat: `${business.stats.accessoryCategories}+ Categories`
   },
   {
     icon: Wrench,
@@ -17,21 +17,21 @@ const trustFeatures = [
   },
   {
     icon: Award,
-    title: <>15+ YEARS <span className="text-red">MASTERY</span></>,
-    desc: <>Over 1,000+ car upgrades and bespoke custom styling delivered across <span className="text-red">Chennai</span>.</>,
-    stat: '1,000+ Upgrades'
+    title: <>{business.stats.yearsExperience}+ YEARS <span className="text-red">MASTERY</span></>,
+    desc: <>Over {business.stats.clientsServed.toLocaleString()}+ car upgrades and bespoke custom styling delivered across <span className="text-red">{business.city}</span>.</>,
+    stat: `${business.stats.clientsServed.toLocaleString()}+ Upgrades`
   },
   {
     icon: MapPin,
-    title: <>ADAMBAKKAM <span className="text-red">STUDIO</span></>,
-    desc: <>Located at The ARK on Jawaharlal Nehru Salai, Vanuvampet with dedicated <span className="text-red">bay</span>.</>,
-    stat: 'Chennai Studio'
+    title: <>{business.location.split(',')[0].toUpperCase()} <span className="text-red">STUDIO</span></>,
+    desc: <>Located at {business.landmark} with dedicated <span className="text-red">bay</span>.</>,
+    stat: `${business.city} Studio`
   }
 ];
 
 export default function CountUpStats() {
   return (
-    <section className="trust-features-section" aria-label="Why Choose Bumper To Bumper">
+    <section className="trust-features-section" aria-label={`Why Choose ${business.shortName}`}>
       <div className="container">
         <div className="trust-features__grid">
           {trustFeatures.map((item, index) => {

@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { X, MessageCircle, Instagram, Phone, MapPin, ShieldCheck, Layers } from 'lucide-react';
-import business from '../../../data/business.json';
+import business from '../../../config/business';
 import './MobileMenu.css';
 
 export default function MobileMenu({ isOpen, onClose, whatsappUrl, instagramUrl }) {
@@ -53,15 +53,15 @@ export default function MobileMenu({ isOpen, onClose, whatsappUrl, instagramUrl 
       ref={menuRef}
     >
       <div className="mobile-menu-header">
-        <Link to="/" className="brand-badge" onClick={onClose} aria-label="Bumper To Bumper Car Accessories">
+        <Link to="/" className="brand-badge" onClick={onClose} aria-label={business.name}>
           <div className="brand-badge__mark" aria-hidden="true">
             <span className="brand-badge__mark-b">B</span>
             <span className="brand-badge__mark-dot">·</span>
             <span className="brand-badge__mark-b">B</span>
           </div>
           <div className="brand-badge__text">
-            <span className="brand-badge__title">BUMPER TO BUMPER</span>
-            <span className="brand-badge__sub">CAR ACCESSORIES</span>
+            <span className="brand-badge__title">{business.shortName.toUpperCase()}</span>
+            <span className="brand-badge__sub">{business.name.replace(business.shortName, '').trim().toUpperCase()}</span>
           </div>
         </Link>
         <button
@@ -98,13 +98,13 @@ export default function MobileMenu({ isOpen, onClose, whatsappUrl, instagramUrl 
       </nav>
 
       <div className="mobile-menu-contact-info">
-        <a href={`tel:${business.phoneHref || '9789550006'}`} className="mobile-menu-contact-row">
+        <a href={business.callHref} className="mobile-menu-contact-row">
           <Phone size={15} className="mobile-menu-red-icon" />
-          <span>Call: {business.phone || '9789550006'}</span>
+          <span>Call: {business.phone}</span>
         </a>
         <div className="mobile-menu-contact-row">
           <MapPin size={15} className="mobile-menu-red-icon" />
-          <span>The ARK, Adambakkam, Chennai</span>
+          <span>{business.landmark}</span>
         </div>
       </div>
 

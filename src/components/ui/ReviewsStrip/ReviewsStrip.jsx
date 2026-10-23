@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Star, Quote, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import reviewsData from '../../../data/reviews.json';
+import business from '../../../config/business';
 import './ReviewsStrip.css';
 
 function StarRow({ rating }) {
@@ -63,7 +64,7 @@ export default function ReviewsStrip() {
             What Our Clients <span className="rs-header__accent">Say</span>
           </h2>
           <p className="rs-header__sub">
-            Real upgrades. Real owners. Real <span className="text-red">Chennai</span> roads.
+            Real upgrades. Real owners. Real <span className="text-red">{business.city}</span> roads.
           </p>
         </div>
 
@@ -80,7 +81,7 @@ export default function ReviewsStrip() {
           </div>
           <div className="rs-rating-bar__divider" aria-hidden="true" />
           <p className="rs-rating-bar__tagline">
-            Chennai's most-trusted car accessories studio since 2009.
+            {business.city}'s most-trusted car accessories studio for over {business.stats.yearsExperience} years.
           </p>
         </div>
 

@@ -1,6 +1,6 @@
 import { useState, useCallback, useMemo } from 'react';
 import { Helmet } from 'react-helmet-async';
-import business from '../data/business.json';
+import business from '../config/business';
 import Breadcrumbs from '../components/ui/Breadcrumbs/Breadcrumbs';
 import CTASection from '../components/ui/CTASection/CTASection';
 import galleryData from '../data/gallery.json';
@@ -34,11 +34,11 @@ export default function GalleryPage() {
   return (
     <>
       <Helmet>
-        <title>Car Accessories Gallery | Bumper To Bumper Car Accessories Chennai</title>
-        <meta name="description" content="View our gallery of car accessory installations — custom seat covers, ambient lighting, infotainment systems, bi-LED fog lights, 360° cameras, and audio setups at Bumper To Bumper Car Accessories, Adambakkam, Chennai." />
+        <title>{`Car Accessories Gallery | ${business.siteName}`}</title>
+        <meta name="description" content={`View our gallery of car accessory installations — custom seat covers, ambient lighting, infotainment systems, bi-LED fog lights, 360° cameras, and audio setups at ${business.name}, ${business.location}.`} />
         <link rel="canonical" href={`${business.siteUrl}/gallery`} />
-        <meta property="og:title" content="Gallery | Bumper To Bumper Car Accessories Chennai" />
-        <meta property="og:description" content="Car accessories and customization gallery — Bumper To Bumper Car Accessories, Adambakkam, Chennai." />
+        <meta property="og:title" content={`Gallery | ${business.siteName}`} />
+        <meta property="og:description" content={`Car accessories and customization gallery — ${business.name}, ${business.location}.`} />
       </Helmet>
 
       <div className="gallery-breadcrumb-wrap">
@@ -149,9 +149,9 @@ export default function GalleryPage() {
 
       <CTASection
         title={<>Want This On Your <span className="text-red">Car</span>?</>}
-        subtitle={<>Visit Bumper To Bumper Car Accessories in Adambakkam, Chennai, or send us a message with your car model and the <span className="text-red">accessory</span> you are looking for.</>}
+        subtitle={<>Visit {business.name} in {business.location}, or send us a message with your car model and the <span className="text-red">accessory</span> you are looking for.</>}
         primaryCta={{ label: 'Book Fitment Slot', href: '/contact' }}
-        whatsappMessage="Hi Bumper To Bumper Car Accessories, I would like to enquire about an accessory I saw in your gallery."
+        whatsappMessage={`Hi ${business.name}, I would like to enquire about an accessory I saw in your gallery.`}
         dark={true}
       />
 
