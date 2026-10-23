@@ -1,40 +1,38 @@
-import { useState, useRef, useEffect } from 'react';
-import { X, Link2, Upload, Camera, Loader2, ImageOff } from 'lucide-react';
-import {
-    uploadImage,
-    isValidImageUrl,
-    selectFromFile,
-    captureFromCamera,
-} from '../lib/cloudinary.js';
+import { useState, useEffect, useRef } from 'react';
+import { Link2, Upload, Camera, X, ImageOff, Trash2 } from 'lucide-react';
+import { uploadImage, isValidImageUrl, captureFromCamera } from '../lib/cloudinary.js';
 import './ImageEditor.css';
 
+/**
+ * The one place a modal is right: uploading guards work in flight
+ * and needs protected focus. Uses <dialog> so focus trapping and
+ * Escape come from the platform rather than hand-rolled listeners.
+ */
 export default function ImageEditor({ value, onChange, onClose, alt = 'image' }) {
-    const [tab, setTab] = useState('url');
+    const dialogRef = useRef(null);
+    const [tab, setTab] = useState(value ? 'url' : 'upload');
     const [url, setUrl] = useState(value || '');
     const [uploading, setUploading] = useState(false);
     const [error, setError] = useState('');
     const [previewError, setPreviewError] = useState(false);
-    const fileRef = useRef(null);
     const cameraRef = useRef(null);
 
     useEffect(() => {
-        const onKey = (e) => {
-            if (e.key === 'Escape') onClose();
-        };
-        window.addEventListener('keydown', onKey);
-        return () => window.removeEventListener('keydown', onKey);
-    }, [onClose]);
+        const dialog = dialogRef.current;
+        if (dialog && !dialog.open) dialog.showModal();
+    }, []);
 
     function handleUrlSave() {
-        if (!url.trim()) {
-            setError('Please enter a URL');
+        const trimmed = url.trim();
+        if (!trimmed) {
+            setError('Enter an image URL first.');
             return;
         }
-        if (!isValidImageUrl(url)) {
-            setError('URL must be from an allowed CDN or end in .jpg/.png/.webp');
+        if (!isValidImageUrl(trimmed)) {
+            setError('Use a link from an allowed image host, or one ending in .jpg, .png, or .webp.');
             return;
         }
-        onChange(url.trim());
+        onChange(trimmed);
         onClose();
     }
 
@@ -47,174 +45,176 @@ export default function ImageEditor({ value, onChange, onClose, alt = 'image' })
             onChange(secureUrl);
             onClose();
         } catch (err) {
-            setError(err.message || 'Upload failed');
+            setError(err.message || 'The upload did not go through. Check your connection and try again.');
         } finally {
             setUploading(false);
         }
     }
 
-    function openFilePicker() {
-        fileRef.current?.click();
-    }
-
-    function openCamera() {
-        cameraRef.current?.click();
+    function onDialogClick(e) {
+        // Clicking the backdrop (the dialog element itself) closes.
+        if (e.target === dialogRef.current) onClose();
     }
 
     return (
-        <div className="image-editor-overlay" onClick={onClose}>
-            <div className="image-editor-modal" onClick={(e) => e.stopPropagation()}>
-                <div className="image-editor-header">
-                    <h3>Edit {alt}</h3>
-                    <button type="button" className="image-editor-close" onClick={onClose} aria-label="Close">
-                        <X size={18} />
+        <dialog ref={dialogRef} className="image-editor" onClose={onClose} onClick={onDialogClick}>
+            <div className="image-editor__panel">
+                <header className="image-editor__header">
+                    <div>
+                        <h2 className="image-editor__title">{alt}</h2>
+                        <p className="image-editor__subtitle">
+                            Upload a new photo, take one, or paste a link to an existing image.
+                        </p>
+                    </div>
+                    <button type="button" className="edit-icon-btn" onClick={onClose} aria-label="Close">
+                        <X size={16} />
                     </button>
-                </div>
+                </header>
 
-                {value && !previewError && (
-                    <div className="image-editor-preview">
-                        <img src={value} alt="Current" onError={() => setPreviewError(true)} />
+                {value && (
+                    <div className="image-editor__preview">
+                        {previewError ? (
+                            <div className="image-editor__preview-error">
+                                <ImageOff size={24} />
+                                <span>The current image could not be loaded.</span>
+                            </div>
+                        ) : (
+                            <img src={value} alt="Current" onError={() => setPreviewError(true)} />
+                        )}
                     </div>
                 )}
-                {value && previewError && (
-                    <div className="image-editor-preview image-editor-preview--error">
-                        <ImageOff size={32} />
-                        <span>Current image can't be loaded</span>
-                    </div>
-                )}
 
-                <div className="image-editor-tabs">
-                    <button
-                        type="button"
-                        className={`image-editor-tab ${tab === 'url' ? 'image-editor-tab--active' : ''}`}
-                        onClick={() => setTab('url')}
-                    >
-                        <Link2 size={14} />
-                        URL
-                    </button>
-                    <button
-                        type="button"
-                        className={`image-editor-tab ${tab === 'upload' ? 'image-editor-tab--active' : ''}`}
-                        onClick={() => setTab('upload')}
-                    >
-                        <Upload size={14} />
-                        Upload
-                    </button>
-                    <button
-                        type="button"
-                        className={`image-editor-tab ${tab === 'camera' ? 'image-editor-tab--active' : ''}`}
-                        onClick={() => setTab('camera')}
-                    >
-                        <Camera size={14} />
-                        Camera
-                    </button>
+                <div className="image-editor__tabs" role="tablist">
+                    {[
+                        { id: 'upload', label: 'Upload', icon: Upload },
+                        { id: 'camera', label: 'Camera', icon: Camera },
+                        { id: 'url', label: 'Paste link', icon: Link2 },
+                    ].map((t) => {
+                        const Icon = t.icon;
+                        return (
+                            <button
+                                key={t.id}
+                                type="button"
+                                role="tab"
+                                aria-selected={tab === t.id}
+                                className={`image-editor__tab ${tab === t.id ? 'image-editor__tab--active' : ''}`}
+                                onClick={() => {
+                                    setTab(t.id);
+                                    setError('');
+                                }}
+                            >
+                                <Icon size={13} aria-hidden="true" />
+                                {t.label}
+                            </button>
+                        );
+                    })}
                 </div>
 
-                <div className="image-editor-body">
+                <div className="image-editor__body">
                     {tab === 'url' && (
-                        <div className="image-editor-tab-content">
-                            <label className="image-editor-label">Image URL</label>
+                        <div className="image-editor__pane">
+                            <label className="edit-field__label" htmlFor="image-url-input">
+                                Image URL
+                            </label>
                             <input
-                                type="url"
-                                className="image-editor-input"
+                                id="image-url-input"
+                                type="text"
+                                className="edit-input"
                                 value={url}
-                                onChange={(e) => { setUrl(e.target.value); setError(''); }}
-                                placeholder="https://res.cloudinary.com/... or /images/..."
-                                autoFocus
-                                onKeyDown={(e) => { if (e.key === 'Enter') handleUrlSave(); }}
+                                onChange={(e) => {
+                                    setUrl(e.target.value);
+                                    setError('');
+                                }}
+                                placeholder="https://res.cloudinary.com/…"
+                                onKeyDown={(e) => {
+                                    if (e.key === 'Enter') handleUrlSave();
+                                }}
                             />
-                            <p className="image-editor-hint">
-                                Allowed: Cloudinary, Unsplash, Shopify, Pinterest, Google. Or any URL ending in .jpg / .png / .webp.
+                            <p className="edit-field__hint">
+                                Images uploaded here get their own secure link. For an existing image, paste a
+                                link from Cloudinary or another image host.
                             </p>
-                            <div className="image-editor-actions">
-                                <button type="button" className="image-editor-btn image-editor-btn--ghost" onClick={onClose}>
+                            <div className="image-editor__actions">
+                                <button type="button" className="edit-btn edit-btn--ghost" onClick={onClose}>
                                     Cancel
                                 </button>
-                                <button type="button" className="image-editor-btn image-editor-btn--primary" onClick={handleUrlSave}>
-                                    Save URL
+                                <button type="button" className="edit-btn edit-btn--primary" onClick={handleUrlSave}>
+                                    Use this link
                                 </button>
                             </div>
                         </div>
                     )}
 
-                    {tab === 'upload' && (
-                        <div className="image-editor-tab-content">
-                            <button
-                                type="button"
-                                className="image-editor-dropzone"
-                                onClick={openFilePicker}
-                                disabled={uploading}
+                    {(tab === 'upload' || tab === 'camera') && (
+                        <div className="image-editor__pane">
+                            <label
+                                className={`image-editor__dropzone ${uploading ? 'image-editor__dropzone--busy' : ''}`}
                             >
+                                <input
+                                    type="file"
+                                    accept="image/*"
+                                    className="image-editor__file"
+                                    disabled={uploading}
+                                    onChange={(e) => handleFileUpload(e.target.files?.[0])}
+                                />
                                 {uploading ? (
                                     <>
-                                        <Loader2 size={28} className="spinner" />
-                                        <span>Uploading...</span>
+                                        <span className="edit-spinner image-editor__spinner" aria-hidden="true" />
+                                        <span className="image-editor__drop-title">Uploading…</span>
+                                        <span className="image-editor__drop-hint">This usually takes a few seconds.</span>
+                                    </>
+                                ) : tab === 'camera' ? (
+                                    <>
+                                        <Camera size={22} aria-hidden="true" />
+                                        <span className="image-editor__drop-title">Take a photo</span>
+                                        <span className="image-editor__drop-hint">Uses your device's camera.</span>
                                     </>
                                 ) : (
                                     <>
-                                        <Upload size={28} />
-                                        <span>Click to select a file</span>
-                                        <small>JPG, PNG, WebP — auto-compressed to 1200px</small>
+                                        <Upload size={22} aria-hidden="true" />
+                                        <span className="image-editor__drop-title">Choose a photo</span>
+                                        <span className="image-editor__drop-hint">
+                                            JPG, PNG, or WebP. Large photos are resized automatically.
+                                        </span>
                                     </>
                                 )}
-                            </button>
-                            <input
-                                ref={fileRef}
-                                type="file"
-                                accept="image/*"
-                                style={{ display: 'none' }}
-                                onChange={(e) => handleFileUpload(e.target.files?.[0])}
-                            />
+                            </label>
+                            {tab === 'upload' && (
+                                <button
+                                    type="button"
+                                    className="image-editor__camera-alt"
+                                    onClick={() => setTab('camera')}
+                                >
+                                    <Camera size={13} aria-hidden="true" />
+                                    Use the camera instead
+                                </button>
+                            )}
                         </div>
                     )}
 
-                    {tab === 'camera' && (
-                        <div className="image-editor-tab-content">
-                            <button
-                                type="button"
-                                className="image-editor-dropzone"
-                                onClick={openCamera}
-                                disabled={uploading}
-                            >
-                                {uploading ? (
-                                    <>
-                                        <Loader2 size={28} className="spinner" />
-                                        <span>Uploading...</span>
-                                    </>
-                                ) : (
-                                    <>
-                                        <Camera size={28} />
-                                        <span>Take a photo</span>
-                                        <small>Uses your device camera</small>
-                                    </>
-                                )}
-                            </button>
-                            <input
-                                ref={cameraRef}
-                                type="file"
-                                accept="image/*"
-                                capture="environment"
-                                style={{ display: 'none' }}
-                                onChange={(e) => handleFileUpload(e.target.files?.[0])}
-                            />
+                    {error && (
+                        <div className="edit-notice edit-notice--error" role="alert">
+                            {error}
                         </div>
                     )}
-
-                    {error && <div className="image-editor-error">{error}</div>}
 
                     {value && (
-                        <div className="image-editor-footer">
+                        <div className="image-editor__footer">
                             <button
                                 type="button"
-                                className="image-editor-btn image-editor-btn--danger"
-                                onClick={() => { onChange(''); onClose(); }}
+                                className="edit-btn edit-btn--danger"
+                                onClick={() => {
+                                    onChange('');
+                                    onClose();
+                                }}
                             >
-                                Remove image
+                                <Trash2 size={13} />
+                                Remove this image
                             </button>
                         </div>
                     )}
                 </div>
             </div>
-        </div>
+        </dialog>
     );
 }

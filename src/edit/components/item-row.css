@@ -1,0 +1,278 @@
+/* ============================================================
+   ITEM ROW — collapsed header answers "what is this?"
+   ============================================================ */
+
+.edit-rows {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.edit-row {
+    background: var(--bg-primary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    transition: border-color var(--transition-fast);
+}
+
+.edit-row:hover {
+    border-color: var(--border-strong);
+}
+
+.edit-row--open {
+    border-color: var(--border-strong);
+    background: var(--bg-surface);
+}
+
+.edit-row__header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3);
+}
+
+.edit-row__order {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    flex-shrink: 0;
+}
+
+.edit-icon-btn--sm {
+    width: 24px;
+    height: 24px;
+}
+
+.edit-row__grip {
+    color: var(--text-disabled);
+    margin-right: var(--space-1);
+}
+
+.edit-row__toggle {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    flex: 1;
+    min-width: 0;
+    padding: var(--space-1) var(--space-2);
+    background: transparent;
+    border: none;
+    border-radius: var(--radius-sm);
+    color: inherit;
+    text-align: left;
+    cursor: pointer;
+    transition: background var(--transition-fast);
+}
+
+.edit-row__toggle:hover {
+    background: var(--bg-elevated);
+}
+
+.edit-row__summary {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+    font-size: var(--text-caption);
+    color: var(--text-secondary);
+    overflow: hidden;
+}
+
+.edit-row__title {
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-primary);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 46ch;
+}
+
+.edit-row__sub {
+    color: var(--text-muted);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 32ch;
+}
+
+.edit-row__chevron {
+    flex-shrink: 0;
+    color: var(--text-muted);
+    transition: transform var(--transition-base);
+}
+
+.edit-row__chevron--open {
+    transform: rotate(180deg);
+}
+
+.edit-row__thumb {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-sm);
+    object-fit: cover;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+}
+
+.edit-row__thumb--empty {
+    display: grid;
+    place-items: center;
+    color: var(--text-disabled);
+}
+
+.edit-row__thumb--empty svg {
+    width: 16px;
+    height: 16px;
+}
+
+.edit-row__body {
+    padding: var(--space-5);
+    border-top: 1px solid var(--border-subtle);
+    animation: edit-rise var(--transition-base) both;
+}
+
+.edit-row__body-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: var(--space-4);
+}
+
+/* Inline star rating preview in a collapsed row */
+.edit-stars {
+    display: inline-flex;
+    align-items: center;
+    gap: 1px;
+    flex-shrink: 0;
+    color: var(--brand-red);
+}
+
+.edit-row__accent {
+    flex-shrink: 0;
+    color: var(--brand-red);
+}
+
+/* ── Add button ──────────────────────────────────────────── */
+
+.edit-add {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    width: 100%;
+    margin-top: var(--space-3);
+    padding: var(--space-3);
+    background: transparent;
+    border: 1px dashed var(--border-strong);
+    border-radius: var(--radius-md);
+    color: var(--text-muted);
+    font-family: var(--font-sans);
+    font-size: var(--text-caption);
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+    transition:
+        border-color var(--transition-fast),
+        color var(--transition-fast),
+        background var(--transition-fast);
+}
+
+.edit-add:hover {
+    border-color: var(--brand-red);
+    color: var(--brand-red-hover);
+    background: var(--brand-red-subtle);
+}
+
+/* ── List empty state ────────────────────────────────────── */
+
+.edit-frame__list-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-8) var(--space-6);
+    border: 1px dashed var(--border);
+    border-radius: var(--radius-md);
+    background: var(--bg-primary);
+    text-align: center;
+    animation: edit-rise var(--transition-base) both;
+}
+
+.edit-frame__list-empty .edit-empty__title {
+    font-size: var(--text-body);
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-secondary);
+}
+
+.edit-frame__list-empty .edit-empty__hint {
+    font-size: var(--text-caption);
+    color: var(--text-muted);
+    max-width: 44ch;
+    line-height: var(--line-height-relaxed);
+}
+
+/* ============================================================
+   CHOICE LIST — compact rows for single-value option lists
+   ============================================================ */
+
+.edit-choices {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-choices__empty {
+    margin: 0 0 var(--space-3);
+    padding: var(--space-5);
+    border: 1px dashed var(--border);
+    border-radius: var(--radius-md);
+    background: var(--bg-primary);
+    font-size: var(--text-caption);
+    color: var(--text-muted);
+    text-align: center;
+}
+
+.edit-choice {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-2) 0;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.edit-choice:last-of-type {
+    border-bottom: none;
+}
+
+.edit-choice__index {
+    flex-shrink: 0;
+    width: 22px;
+    font-size: var(--text-tiny);
+    font-weight: var(--font-weight-semibold);
+    font-variant-numeric: tabular-nums;
+    color: var(--text-disabled);
+    text-align: right;
+}
+
+.edit-choice__pair {
+    flex: 1;
+    min-width: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-2);
+}
+
+.edit-choice__actions {
+    display: flex;
+    gap: var(--space-1);
+    flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+    .edit-choice__pair {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}

@@ -1,51 +1,91 @@
 import { useState } from 'react';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import './SectionCard.css';
 
+/**
+ * A titled group of related fields.
+ *
+ * `collapsible` sections are collapsed by default: an editor with
+ * twenty list items should not push the settings above it off screen.
+ */
 export default function SectionCard({
     title,
     subtitle,
+    hint,
     children,
-    span = 1,
+    icon: Icon,
+    action,
     collapsible = false,
     defaultOpen = true,
-    onToggle,
-    action,
 }) {
-    const [internalOpen, setInternalOpen] = useState(defaultOpen);
-    const isControlled = collapsible && onToggle;
-    const isOpen = isControlled ? defaultOpen : internalOpen;
-
-    function handleToggle() {
-        if (isControlled) {
-            onToggle();
-        } else {
-            setInternalOpen(!internalOpen);
-        }
-    }
+    const [open, setOpen] = useState(defaultOpen);
 
     return (
-        <div className={`edit-section edit-section--span-${span} ${!isOpen ? 'edit-section--collapsed' : ''}`}>
+        <section className={`edit-card ${collapsible && !open ? 'edit-card--collapsed' : ''}`}>
             {title && (
                 <div
-                    className={`edit-section__header ${collapsible ? 'edit-section__header--clickable' : ''}`}
-                    onClick={collapsible ? handleToggle : undefined}
+                    className={`edit-card__header ${collapsible ? 'edit-card__header--clickable' : ''}`}
+                    onClick={collapsible ? () => setOpen(!open) : undefined}
+                    role={collapsible ? 'button' : undefined}
+                    tabIndex={collapsible ? 0 : undefined}
+                    aria-expanded={collapsible ? open : undefined}
+                    onKeyDown={
+                        collapsible
+                            ? (e) => {
+                                  if (e.key === 'Enter' || e.key === ' ') {
+                                      e.preventDefault();
+                                      setOpen(!open);
+                                  }
+                              }
+                            : undefined
+                    }
                 >
-                    <div>
-                        <h2 className="edit-section__title">{title}</h2>
-                        {subtitle && <p className="edit-section__subtitle">{subtitle}</p>}
+                    {Icon && (
+                        <span className="edit-card__icon" aria-hidden="true">
+                            <Icon size={15} />
+                        </span>
+                    )}
+                    <div className="edit-card__heading">
+                        <h2 className="edit-card__title">{title}</h2>
+                        {subtitle && <p className="edit-card__subtitle">{subtitle}</p>}
                     </div>
-                    <div className="edit-section__header-right">
-                        {action}
-                        {collapsible && (
-                            <button type="button" className="edit-section__chevron" aria-label="Toggle">
-                                {isOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
-                            </button>
-                        )}
-                    </div>
+                    {action && <div className="edit-card__action">{action}</div>}
+                    {collapsible && (
+                        <ChevronDown
+                            size={16}
+                            className={`edit-card__chevron ${open ? 'edit-card__chevron--open' : ''}`}
+                            aria-hidden="true"
+                        />
+                    )}
                 </div>
             )}
-            {isOpen && <div className="edit-section__body">{children}</div>}
+            {open && (
+                <div className="edit-card__body">
+                    {hint && <p className="edit-card__hint">{hint}</p>}
+                    {children}
+                </div>
+            )}
+        </section>
+    );
+}
+
+/**
+ * Header + bulk actions for a repeating list (expand all, add item).
+ * Separate from SectionCard because lists need their own rhythm.
+ */
+export function ListHeader({ title, count, hint, actions }) {
+    return (
+        <div className="edit-list-header">
+            <div className="edit-list-header__text">
+                <h2 className="edit-list-header__title">
+                    {title}
+                    {typeof count === 'number' && (
+                        <span className="edit-badge edit-badge--count">{count}</span>
+                    )}
+                </h2>
+                {hint && <p className="edit-list-header__hint">{hint}</p>}
+            </div>
+            {actions && <div className="edit-list-header__actions">{actions}</div>}
         </div>
     );
 }

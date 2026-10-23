@@ -1,246 +1,169 @@
 import { useState } from 'react';
-import { ChevronDown, ChevronUp, ArrowUp, ArrowDown, Image as ImageIcon, Star, Plus } from 'lucide-react';
-import { useDataFile } from '../hooks/useDataFile.js';
-import { DATA_FILES } from '../constants.js';
-import { Field, TextInput, Toggle, ImageField } from '../components/Fields.jsx';
-import SectionCard from '../components/SectionCard.jsx';
-import ActionBar from '../components/ActionBar.jsx';
-import './products-editor.css';
+import { Plus, Tag, Star } from 'lucide-react';
+import { useGallery } from '../hooks/useGallery.js';
+import { Field, FieldGrid, TextInput, CommaList, Toggle, ImageField, Select } from '../components/Fields.jsx';
+import SectionCard, { ListHeader } from '../components/SectionCard.jsx';
+import EditorFrame from '../components/EditorFrame.jsx';
+import ItemRow, { ItemList, RowThumb } from '../components/ItemRow.jsx';
+import '../components/item-row.css';
 
-// ============================================================
-// Gallery Item Card
-// ============================================================
-function GalleryItemCard({ item, index, total, categoryOptions, expanded, onToggle, onChange, onRemove, onMove }) {
-    return (
-        <div className={`product-card ${expanded ? 'product-card--expanded' : ''}`}>
-            <div className="product-card__header" onClick={() => onToggle(index)}>
-                <div className="product-card__drag" onClick={(e) => e.stopPropagation()}>
-                    <div className="product-card__move">
-                        <button type="button" disabled={index === 0} onClick={() => onMove(index, index - 1)} aria-label="Move up">
-                            <ArrowUp size={12} />
-                        </button>
-                        <button type="button" disabled={index === total - 1} onClick={() => onMove(index, index + 1)} aria-label="Move down">
-                            <ArrowDown size={12} />
-                        </button>
-                    </div>
-                </div>
-                <div className="product-card__thumb">
-                    {item.src ? (
-                        <img src={item.src} alt="" />
-                    ) : (
-                        <div className="product-card__thumb-placeholder">
-                            <ImageIcon size={16} />
-                        </div>
-                    )}
-                </div>
-                <div className="product-card__info">
-                    <div className="product-card__name">{item.title || <em>Untitled</em>}</div>
-                    <div className="product-card__meta">
-                        <span className="product-card__id">{item.car || '—'}</span>
-                    </div>
-                </div>
-                <div className="product-card__badges">
-                    {item.category && <span className="product-card__badge product-card__badge--group">{item.category}</span>}
-                    {item.featured && <span className="product-card__badge product-card__badge--footer"><Star size={9} style={{ marginRight: 2, verticalAlign: -1 }} />Featured</span>}
-                </div>
-                <div className="product-card__chevron">
-                    {expanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
-                </div>
-            </div>
-
-            {expanded && (
-                <div className="product-card__body">
-                    <div className="product-card__panel">
-                        <div className="product-card__image-section">
-                            <div className="product-card__image-label">Image</div>
-                            <ImageField value={item.src} onChange={(v) => onChange(index, 'src', v)} compact />
-                        </div>
-                        <div className="product-card__grid-2">
-                            <Field label="Title">
-                                <TextInput value={item.title} onChange={(v) => onChange(index, 'title', v)} />
-                            </Field>
-                            <Field label="Car">
-                                <TextInput value={item.car} onChange={(v) => onChange(index, 'car', v)} />
-                            </Field>
-                            <Field label="Category">
-                                <select
-                                    className="edit-select"
-                                    value={item.category}
-                                    onChange={(e) => onChange(index, 'category', e.target.value)}
-                                >
-                                    {categoryOptions.map((c) => (
-                                        <option key={c} value={c}>{c}</option>
-                                    ))}
-                                </select>
-                            </Field>
-                            <Field label="Alt text" hint="For screen readers & SEO">
-                                <TextInput value={item.alt} onChange={(v) => onChange(index, 'alt', v)} />
-                            </Field>
-                        </div>
-                        <Field label="Featured" hint="Show on homepage carousel">
-                            <Toggle
-                                value={item.featured}
-                                onChange={(v) => onChange(index, 'featured', v)}
-                                label={item.featured ? 'Yes — featured on homepage' : 'No'}
-                            />
-                        </Field>
-                        <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-                            <button
-                                type="button"
-                                className="product-card__delete"
-                                onClick={() => onRemove(index)}
-                            >
-                                Delete item
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            )}
-        </div>
-    );
-}
-
-// ============================================================
-// List header (reused)
-// ============================================================
-function ListHeader({ title, hint, count, allExpanded, onToggleAll, onAdd, addLabel }) {
-    return (
-        <div className="product-editor__list-header">
-            <div>
-                <h3 className="product-editor__list-title">{title} <span className="product-card__count">({count})</span></h3>
-                {hint && <p className="product-editor__list-hint">{hint}</p>}
-            </div>
-            <div className="product-editor__list-actions">
-                <button type="button" className="product-editor__list-action" onClick={onToggleAll}>
-                    {allExpanded ? 'Collapse all' : 'Expand all'}
-                </button>
-                <button type="button" className="product-editor__list-action product-editor__list-action--primary" onClick={onAdd}>
-                    <Plus size={12} /> {addLabel}
-                </button>
-            </div>
-        </div>
-    );
-}
-
-// ============================================================
-// Main editor
-// ============================================================
 export default function GalleryEditor() {
-    const hook = useDataFile(DATA_FILES.gallery, { commitPrefix: 'Update' });
-    const [openItems, setOpenItems] = useState({});
-    const [showCategories, setShowCategories] = useState(false);
+    const hook = useGallery();
+    const [open, setOpen] = useState({});
+    const toggle = (i) => () => setOpen((p) => ({ ...p, [i]: !p[i] }));
 
-    const items = hook.editData?.items || [];
-    const categoryOptions = hook.editData?.categories || [];
+    const d = hook.editData;
+    const items = d?.items || [];
+    const categories = d?.categories || [];
+    const allOpen = items.length > 0 && items.every((_, i) => open[i]);
 
-    function toggleOpen(setter, idx) {
-        setter((prev) => ({ ...prev, [idx]: !prev[idx] }));
-    }
-    function toggleAll(openMap, total, setter) {
-        const allOpen = Object.values(openMap).filter(Boolean).length === total;
-        const next = {};
-        for (let i = 0; i < total; i++) next[i] = !allOpen;
-        setter(next);
+    function nextId() {
+        const ids = items.map((it) => Number(it.id)).filter(Number.isFinite);
+        return ids.length ? Math.max(...ids) + 1 : 1;
     }
 
-    function updateCategories(categoriesString) {
-        const categories = categoriesString.split(',').map((s) => s.trim()).filter(Boolean);
-        hook.updateEditData((draft) => {
-            draft.categories = categories;
-        });
-    }
-
-    function nextItemId() {
-        return items.length ? Math.max(...items.map((r) => r.id)) + 1 : 1;
-    }
-    function updateItem(index, field, value) {
-        hook.updateEditData((draft) => {
-            draft.items[index][field] = value;
-        });
-    }
     function addItem() {
-        hook.updateEditData((draft) => {
-            draft.items.push({
-                id: nextItemId(),
-                src: '',
-                alt: 'New gallery item',
-                category: draft.categories[1] || 'Exterior',
-                title: 'New Gallery Item',
-                car: 'Car Model',
-                featured: false,
-            });
+        hook.lists.items.add({
+            id: nextId(),
+            src: '',
+            alt: '',
+            title: 'New Gallery Item',
+            car: 'Car model',
+            category: categories[1] || categories[0] || '',
+            featured: false,
         });
+        setOpen((p) => ({ ...p, [items.length]: true }));
     }
-    function removeItem(index) {
-        hook.updateEditData((draft) => {
-            draft.items.splice(index, 1);
-        });
-    }
-    function moveItem(from, to) {
-        if (to < 0 || to >= items.length) return;
-        hook.updateEditData((draft) => {
-            const [moved] = draft.items.splice(from, 1);
-            draft.items.splice(to, 0, moved);
-        });
-    }
-
-    const allItemsOpen = items.length > 0 && Object.values(openItems).filter(Boolean).length === items.length;
 
     return (
-        <div>
-            <ActionBar
-                loading={hook.loading}
-                saving={hook.saving}
-                error={hook.error}
-                hasChanges={hook.hasChanges}
-                onRefresh={hook.refresh}
-                onDiscard={hook.discard}
-                onSave={() => hook.save()}
-            />
-
+        <EditorFrame sectionId="gallery" hook={hook}>
             <SectionCard
-                title="Filter Categories"
-                subtitle="Used by gallery filter tabs"
-                collapsible
-                defaultOpen={showCategories}
-                onToggle={() => setShowCategories((v) => !v)}
-                action={
-                    <span className="product-card__count">{categoryOptions.length} tags</span>
-                }
+                icon={Tag}
+                title="Filter categories"
+                subtitle="The tabs above the gallery grid. The first one is treated as “All” and should stay first."
             >
-                <Field label="Categories" hint="Separate with commas (e.g. All, Exterior, Interior, Lighting)">
-                    <TextInput
-                        value={categoryOptions.join(', ')}
-                        onChange={updateCategories}
-                    />
+                <Field label="Categories" hint="Comma separated, in the order they should appear.">
+                    <CommaList value={categories} onChange={(v) => hook.updateEditData((draft) => { draft.categories = v; })} />
                 </Field>
             </SectionCard>
 
-            <ListHeader
-                title="Gallery Items"
-                hint="Each card is one image shown on the public gallery page"
-                count={items.length}
-                allExpanded={allItemsOpen}
-                onToggleAll={() => toggleAll(openItems, items.length, setOpenItems)}
-                onAdd={addItem}
-                addLabel="Add item"
-            />
-            <div className="product-editor__list">
-                {items.map((item, index) => (
-                    <GalleryItemCard
-                        key={`item-${index}-${item.id}`}
-                        item={item}
-                        index={index}
-                        total={items.length}
-                        categoryOptions={categoryOptions}
-                        expanded={!!openItems[index]}
-                        onToggle={(i) => toggleOpen(setOpenItems, i)}
-                        onChange={updateItem}
-                        onRemove={removeItem}
-                        onMove={moveItem}
-                    />
-                ))}
-            </div>
-        </div>
+            <section className="edit-stack">
+                <ListHeader
+                    title="Gallery items"
+                    count={items.length}
+                    hint="Installation photographs shown on the gallery page."
+                    actions={
+                        <>
+                            {items.length > 0 && (
+                                <button
+                                    type="button"
+                                    className="edit-btn edit-btn--sm"
+                                    onClick={() =>
+                                        setOpen((p) => {
+                                            const next = {};
+                                            for (let i = 0; i < items.length; i++) next[i] = !allOpen;
+                                            return next;
+                                        })
+                                    }
+                                >
+                                    {allOpen ? 'Collapse all' : 'Expand all'}
+                                </button>
+                            )}
+                            <button type="button" className="edit-btn edit-btn--primary edit-btn--sm" onClick={addItem}>
+                                <Plus size={13} />
+                                Add item
+                            </button>
+                        </>
+                    }
+                />
+                <ItemList
+                    items={items}
+                    addLabel="Add item"
+                    onAdd={addItem}
+                    empty={
+                        <>
+                            <span className="edit-empty__title">The gallery is empty</span>
+                            <span className="edit-empty__hint">
+                                Add a photograph to get started. Landscape photos work best — they fill the grid evenly.
+                            </span>
+                        </>
+                    }
+                    renderItem={(item, i) => (
+                        <ItemRow
+                            key={`gi-${i}`}
+                            index={i}
+                            total={items.length}
+                            open={!!open[i]}
+                            onToggle={toggle(i)}
+                            onMove={hook.lists.items.move}
+                            onRemove={hook.lists.items.remove}
+                            removeLabel="Remove item"
+                            meta={<RowThumb src={item.src} alt="" />}
+                            summary={
+                                <>
+                                    <span className="edit-row__title">{item.title || 'Untitled item'}</span>
+                                    {item.car && <span className="edit-row__sub">{item.car}</span>}
+                                    {item.category && <span className="edit-badge">{item.category}</span>}
+                                    {item.featured && (
+                                        <span className="edit-badge edit-badge--accent">
+                                            <Star size={9} aria-hidden="true" />
+                                            Featured
+                                        </span>
+                                    )}
+                                    {!item.src && <span className="edit-badge edit-badge--accent">No image</span>}
+                                </>
+                            }
+                        >
+                            <FieldGrid>
+                                <Field label="Photograph" span={2}>
+                                    <ImageField
+                                        value={item.src}
+                                        onChange={(v) => hook.updateEditData((draft) => { draft.items[i].src = v; })}
+                                        alt="gallery image"
+                                    />
+                                </Field>
+                                <Field label="Title">
+                                    <TextInput
+                                        value={item.title}
+                                        onChange={(v) => hook.updateEditData((draft) => { draft.items[i].title = v; })}
+                                    />
+                                </Field>
+                                <Field label="Vehicle" hint="Which car is shown.">
+                                    <TextInput
+                                        value={item.car}
+                                        onChange={(v) => hook.updateEditData((draft) => { draft.items[i].car = v; })}
+                                    />
+                                </Field>
+                                <Field label="Filter category" hint="Which tab this item appears under.">
+                                    <Select
+                                        value={item.category}
+                                        onChange={(v) => hook.updateEditData((draft) => { draft.items[i].category = v; })}
+                                        options={categories}
+                                        placeholder="Choose a category…"
+                                    />
+                                </Field>
+                                <Field label="Alt text" hint="Describe the photo for screen readers and search.">
+                                    <TextInput
+                                        value={item.alt}
+                                        onChange={(v) => hook.updateEditData((draft) => { draft.items[i].alt = v; })}
+                                    />
+                                </Field>
+                                <Field
+                                    label="Featured on homepage"
+                                    span={2}
+                                    hint="Featured items also appear in the homepage carousel."
+                                >
+                                    <Toggle
+                                        value={item.featured}
+                                        onChange={(v) => hook.updateEditData((draft) => { draft.items[i].featured = v; })}
+                                        label={item.featured ? 'Showing on the homepage' : 'Not on the homepage'}
+                                    />
+                                </Field>
+                            </FieldGrid>
+                        </ItemRow>
+                    )}
+                />
+            </section>
+        </EditorFrame>
     );
 }

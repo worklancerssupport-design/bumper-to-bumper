@@ -1,276 +1,249 @@
-.image-editor-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.75);
-    backdrop-filter: blur(4px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-    padding: 20px;
-    animation: fadeIn 0.15s ease;
-}
+/* ============================================================
+   IMAGE EDITOR — the one modal in the console.
+   Native <dialog>: focus trapping, Escape, and inert background
+   come from the platform, not hand-rolled key handlers.
+   ============================================================ */
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-.image-editor-modal {
-    background: var(--bg-primary, #0a0a0a);
-    border: 1px solid var(--border, rgba(255, 255, 255, 0.10));
-    border-radius: 12px;
-    width: 100%;
-    max-width: 520px;
-    max-height: 90vh;
-    overflow-y: auto;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
-    animation: slideUp 0.2s ease;
-}
-
-@keyframes slideUp {
-    from { transform: translateY(20px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-
-.image-editor-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px 20px;
-    border-bottom: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.06));
-}
-
-.image-editor-header h3 {
-    margin: 0;
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--text-primary, #ffffff);
-}
-
-.image-editor-close {
-    background: transparent;
+.image-editor {
+    padding: 0;
     border: none;
-    color: var(--text-muted, #707070);
-    cursor: pointer;
-    padding: 4px;
-    border-radius: 4px;
+    background: transparent;
+    /* Native dialog defaults to top-left placement; these restore centring */
+    margin: auto;
+    inset: 0;
+    max-width: min(560px, calc(100vw - 2rem));
+    width: 100%;
+    max-height: calc(100vh - 2rem);
+    color: var(--text-primary);
+    overflow: visible;
+}
+
+.image-editor::backdrop {
+    background: var(--bg-overlay);
+    backdrop-filter: blur(6px);
+    animation: edit-fade-in var(--transition-fast) both;
+}
+
+.image-editor[open] .image-editor__panel {
+    animation: edit-slide-up var(--transition-base) both;
+}
+
+.image-editor__panel {
     display: flex;
-    align-items: center;
-    transition: all 0.15s;
-}
-
-.image-editor-close:hover {
-    background: var(--bg-elevated, #1f1f1f);
-    color: var(--text-primary, #ffffff);
-}
-
-.image-editor-preview {
-    margin: 16px 20px 0;
-    border-radius: 8px;
+    flex-direction: column;
+    max-height: calc(100vh - 2rem);
+    background: var(--bg-surface);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
     overflow: hidden;
-    background: var(--bg-surface, #161616);
-    aspect-ratio: 16 / 9;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
-.image-editor-preview img {
+.image-editor__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-4);
+    padding: var(--space-5);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.image-editor__title {
+    margin: 0 0 var(--space-1);
+    font-size: var(--text-title);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-tight);
+    letter-spacing: var(--letter-spacing-tight);
+    text-transform: capitalize;
+    color: var(--text-primary);
+}
+
+.image-editor__subtitle {
+    margin: 0;
+    font-size: var(--text-caption);
+    line-height: var(--line-height-relaxed);
+    color: var(--text-muted);
+    max-width: 46ch;
+}
+
+.image-editor__preview {
+    margin: var(--space-5) var(--space-5) 0;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-subtle);
+    aspect-ratio: 16 / 9;
+    flex-shrink: 0;
+}
+
+.image-editor__preview img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
 }
 
-.image-editor-preview--error {
-    flex-direction: column;
-    gap: 8px;
-    color: var(--text-muted, #707070);
-    font-size: 13px;
-}
-
-.image-editor-tabs {
+.image-editor__preview-error {
     display: flex;
-    gap: 4px;
-    padding: 16px 20px 0;
-    border-bottom: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.06));
-    margin-bottom: 16px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    height: 100%;
+    color: var(--text-muted);
+    font-size: var(--text-caption);
 }
 
-.image-editor-tab {
+/* ── Tabs ────────────────────────────────────────────────── */
+
+.image-editor__tabs {
+    display: flex;
+    gap: var(--space-1);
+    margin: var(--space-5) var(--space-5) 0;
+    padding: var(--space-1);
+    background: var(--bg-primary);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+}
+
+.image-editor__tab {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    flex: 1;
+    padding: var(--space-2) var(--space-3);
     background: transparent;
     border: none;
-    color: var(--text-muted, #707070);
+    border-radius: var(--radius-sm);
+    color: var(--text-muted);
+    font-size: var(--text-caption);
+    font-weight: var(--font-weight-medium);
     cursor: pointer;
-    padding: 8px 12px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 13px;
-    font-weight: 500;
-    border-bottom: 2px solid transparent;
-    margin-bottom: -1px;
-    transition: all 0.15s;
-    font-family: inherit;
+    transition:
+        background var(--transition-fast),
+        color var(--transition-fast);
 }
 
-.image-editor-tab:hover {
-    color: var(--text-secondary, #b0b0b0);
+.image-editor__tab:hover {
+    background: var(--bg-elevated);
+    color: var(--text-secondary);
 }
 
-.image-editor-tab--active {
-    color: var(--brand-red, #e63946);
-    border-bottom-color: var(--brand-red, #e63946);
+.image-editor__tab--active,
+.image-editor__tab--active:hover {
+    background: var(--brand-red-subtle);
+    color: var(--brand-red-hover);
+    font-weight: var(--font-weight-semibold);
 }
 
-.image-editor-body {
-    padding: 0 20px 20px;
-}
+/* ── Body ────────────────────────────────────────────────── */
 
-.image-editor-tab-content {
+.image-editor__body {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: var(--space-4);
+    padding: var(--space-5);
+    overflow-y: auto;
 }
 
-.image-editor-label {
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--text-secondary, #b0b0b0);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+.image-editor__pane {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
 }
 
-.image-editor-input {
-    background: var(--bg-input, #1c1c1c);
-    border: 1px solid var(--border, rgba(255, 255, 255, 0.10));
-    border-radius: 6px;
-    color: var(--text-primary, #ffffff);
-    font-family: inherit;
-    font-size: 13px;
-    padding: 10px 12px;
-    width: 100%;
-    transition: border-color 0.15s;
+.image-editor__dropzone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: var(--space-10) var(--space-6);
+    background: var(--bg-primary);
+    border: 2px dashed var(--border-strong);
+    border-radius: var(--radius-md);
+    color: var(--text-muted);
+    text-align: center;
+    cursor: pointer;
+    transition:
+        border-color var(--transition-fast),
+        background var(--transition-fast),
+        color var(--transition-fast);
 }
 
-.image-editor-input:focus {
-    outline: none;
-    border-color: var(--brand-red, #e63946);
+.image-editor__dropzone:hover {
+    border-color: var(--brand-red);
+    background: var(--brand-red-subtle);
+    color: var(--text-secondary);
 }
 
-.image-editor-hint {
-    margin: 0;
-    font-size: 11px;
-    color: var(--text-muted, #707070);
-    line-height: 1.5;
+.image-editor__dropzone--busy {
+    cursor: progress;
+    opacity: 0.75;
 }
 
-.image-editor-actions {
+.image-editor__drop-title {
+    font-size: var(--text-body);
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-primary);
+}
+
+.image-editor__drop-hint {
+    font-size: var(--text-caption);
+    color: var(--text-muted);
+    max-width: 40ch;
+    line-height: var(--line-height-relaxed);
+}
+
+.image-editor__file {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.image-editor__spinner {
+    width: 22px;
+    height: 22px;
+    border: 2px solid var(--border-strong);
+    border-top-color: var(--brand-red);
+    border-radius: var(--radius-full);
+}
+
+.image-editor__camera-alt {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: var(--space-2);
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-family: var(--font-sans);
+    font-size: var(--text-caption);
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color var(--transition-fast);
+}
+
+.image-editor__camera-alt:hover {
+    color: var(--brand-red-hover);
+}
+
+.image-editor__actions {
     display: flex;
     justify-content: flex-end;
-    gap: 8px;
-    margin-top: 8px;
+    gap: var(--space-2);
 }
 
-.image-editor-btn {
-    background: var(--bg-elevated, #1f1f1f);
-    border: 1px solid var(--border, rgba(255, 255, 255, 0.10));
-    color: var(--text-secondary, #b0b0b0);
-    font-family: inherit;
-    font-size: 13px;
-    font-weight: 500;
-    padding: 8px 16px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.15s;
-}
-
-.image-editor-btn:hover {
-    background: var(--bg-input, #1c1c1c);
-    color: var(--text-primary, #ffffff);
-}
-
-.image-editor-btn--primary {
-    background: var(--brand-red, #e63946);
-    border-color: var(--brand-red, #e63946);
-    color: #fff;
-}
-
-.image-editor-btn--primary:hover {
-    background: var(--brand-red-hover, #ff4d5a);
-    border-color: var(--brand-red-hover, #ff4d5a);
-    color: #fff;
-}
-
-.image-editor-btn--ghost {
-    background: transparent;
-}
-
-.image-editor-btn--danger {
-    color: var(--brand-red, #e63946);
-    border-color: rgba(230, 57, 70, 0.30);
-}
-
-.image-editor-btn--danger:hover {
-    background: rgba(230, 57, 70, 0.10);
-    color: var(--brand-red-hover, #ff4d5a);
-    border-color: var(--brand-red, #e63946);
-}
-
-.image-editor-dropzone {
-    background: var(--bg-input, #1c1c1c);
-    border: 2px dashed var(--border, rgba(255, 255, 255, 0.10));
-    border-radius: 8px;
-    color: var(--text-secondary, #b0b0b0);
-    padding: 32px 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    cursor: pointer;
-    transition: all 0.15s;
-    font-family: inherit;
-}
-
-.image-editor-dropzone:hover:not(:disabled) {
-    border-color: var(--brand-red, #e63946);
-    background: var(--bg-elevated, #1f1f1f);
-    color: var(--text-primary, #ffffff);
-}
-
-.image-editor-dropzone:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-}
-
-.image-editor-dropzone small {
-    color: var(--text-muted, #707070);
-    font-size: 11px;
-}
-
-.image-editor-error {
-    margin-top: 12px;
-    padding: 10px 12px;
-    background: rgba(230, 57, 70, 0.10);
-    border: 1px solid rgba(230, 57, 70, 0.30);
-    color: var(--brand-red-hover, #ff4d5a);
-    border-radius: 6px;
-    font-size: 12px;
-}
-
-.image-editor-footer {
-    margin-top: 16px;
-    padding-top: 16px;
-    border-top: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.06));
-    display: flex;
-    justify-content: flex-start;
-}
-
-.spinner {
-    animation: spin 0.8s linear infinite;
-}
-
-@keyframes spin {
-    to { transform: rotate(360deg); }
+.image-editor__footer {
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--border-subtle);
 }

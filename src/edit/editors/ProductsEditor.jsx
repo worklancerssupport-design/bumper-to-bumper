@@ -1,653 +1,570 @@
 import { useState } from 'react';
-import { ChevronDown, ChevronUp, ChevronRight, Trash2, GripVertical, Plus, ArrowUp, ArrowDown, Image as ImageIcon } from 'lucide-react';
-import { useDataFile } from '../hooks/useDataFile.js';
-import { DATA_FILES } from '../constants.js';
-import { Field, TextInput, Textarea, Toggle, ImageField } from '../components/Fields.jsx';
-import SectionCard from '../components/SectionCard.jsx';
-import ActionBar from '../components/ActionBar.jsx';
+import {
+    Plus,
+    Trash2,
+    Tag,
+    Images,
+    ListChecks,
+    LayoutTemplate,
+    ChevronRight,
+    FolderTree,
+    Tags,
+} from 'lucide-react';
+import { useProducts } from '../hooks/useProducts.js';
+import { Field, FieldGrid, TextInput, Textarea, Toggle, ImageField, CommaList } from '../components/Fields.jsx';
+import EditorFrame from '../components/EditorFrame.jsx';
+import SectionCard, { ListHeader } from '../components/SectionCard.jsx';
+import ItemRow, { ItemList, RowThumb } from '../components/ItemRow.jsx';
+import '../components/item-row.css';
 import './products-editor.css';
 
-const SECTION_CONFIG = {
-    productsExterior: {
-        file: DATA_FILES.productsExterior,
-        category: 'exterior',
-        title: 'Exterior Products',
-    },
-    productsInterior: {
-        file: DATA_FILES.productsInterior,
-        category: 'interior',
-        title: 'Interior Products',
-    },
-};
+/* ============================================================
+   REUSABLE SUB-LISTS inside a product
+   ============================================================ */
 
-// ============================================================
-// Product Card (the new collapsed-by-default design)
-// ============================================================
-function ProductCard({ item, index, total, groups, expanded, onToggle, onChange, onRemove, onMove }) {
-    const [tab, setTab] = useState('basics');
-    const group = groups?.find((g) => g.slugs?.includes(item.slug));
-
-    function update(field, value) {
-        onChange(index, field, value);
-    }
-
-    function updateArray(field, array) {
-        onChange(index, field, array);
-    }
-
-    // --- Sub-array helpers ---
-    function arrayAdd(field, defaultValue) {
-        const next = Array.isArray(item[field]) ? [...item[field], defaultValue] : [defaultValue];
-        updateArray(field, next);
-    }
-    function arrayRemove(field, idx) {
-        const next = [...(item[field] || [])];
-        next.splice(idx, 1);
-        updateArray(field, next);
-    }
-    function arrayUpdate(field, idx, value) {
-        const next = [...(item[field] || [])];
-        next[idx] = value;
-        updateArray(field, next);
-    }
-    function objectArrayAdd(field, defaultObj) {
-        const next = Array.isArray(item[field]) ? [...item[field], defaultObj] : [defaultObj];
-        updateArray(field, next);
-    }
-    function objectArrayRemove(field, idx) {
-        const next = [...(item[field] || [])];
-        next.splice(idx, 1);
-        updateArray(field, next);
-    }
-    function objectArrayUpdate(field, idx, key, value) {
-        const next = item[field].map((o, i) => (i === idx ? { ...o, [key]: value } : o));
-        updateArray(field, next);
-    }
-
+function StringList({ label, hint, items, onChange, addLabel, placeholder }) {
+    const list = items || [];
     return (
-        <div className={`product-card ${expanded ? 'product-card--expanded' : ''}`}>
-            {/* COLLAPSED HEADER — always visible */}
-            <div className="product-card__header" onClick={() => onToggle(index)}>
-                <div className="product-card__drag" onClick={(e) => e.stopPropagation()}>
-                    <div className="product-card__move">
-                        <button
-                            type="button"
-                            disabled={index === 0}
-                            onClick={() => onMove(index, index - 1)}
-                            aria-label="Move up"
-                        >
-                            <ArrowUp size={12} />
-                        </button>
-                        <button
-                            type="button"
-                            disabled={index === total - 1}
-                            onClick={() => onMove(index, index + 1)}
-                            aria-label="Move down"
-                        >
-                            <ArrowDown size={12} />
-                        </button>
-                    </div>
-                </div>
-                <div className="product-card__thumb">
-                    {item.image ? (
-                        <img src={item.image} alt="" />
-                    ) : (
-                        <div className="product-card__thumb-placeholder">
-                            <ImageIcon size={16} />
-                        </div>
-                    )}
-                </div>
-                <div className="product-card__info">
-                    <div className="product-card__name">{item.name || <em>Untitled</em>}</div>
-                    <div className="product-card__meta">
-                        <code className="product-card__slug">{item.slug || 'no-slug'}</code>
-                        <span className="product-card__id">{item.id}</span>
-                    </div>
-                </div>
-                <div className="product-card__badges">
-                    {group && <span className="product-card__badge product-card__badge--group">{group.id}</span>}
-                    {item.showInNav && <span className="product-card__badge product-card__badge--nav">Nav</span>}
-                    {item.showInFooter && <span className="product-card__badge product-card__badge--footer">Footer</span>}
-                    {item.gallery?.length > 0 && (
-                        <span className="product-card__badge">{item.gallery.length} gallery</span>
-                    )}
-                </div>
-                <div className="product-card__chevron">
-                    {expanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
-                </div>
+        <div className="edit-sublists__group">
+            <div className="edit-sublists__head">
+                <h4 className="edit-sublists__title">{label}</h4>
+                <span className="edit-badge edit-badge--count">{list.length}</span>
             </div>
-
-            {/* EXPANDED BODY */}
-            {expanded && (
-                <div className="product-card__body">
-                    <div className="product-card__tabs">
+            {hint && <p className="edit-sublists__hint">{hint}</p>}
+            <div className="edit-sublists__rows">
+                {list.length === 0 && <p className="edit-choices__empty">Nothing here yet.</p>}
+                {list.map((value, i) => (
+                    <div key={i} className="edit-sublists__row">
+                        <ChevronRight size={12} className="edit-sublists__bullet" aria-hidden="true" />
+                        <TextInput value={value} onChange={(v) => onChange(i, v)} placeholder={placeholder} />
                         <button
                             type="button"
-                            className={`product-card__tab ${tab === 'basics' ? 'product-card__tab--active' : ''}`}
-                            onClick={() => setTab('basics')}
+                            className="edit-icon-btn edit-icon-btn--sm edit-icon-btn--danger"
+                            onClick={() => onChange(null, i)}
+                            aria-label="Remove item"
                         >
-                            Basics
-                        </button>
-                        <button
-                            type="button"
-                            className={`product-card__tab ${tab === 'content' ? 'product-card__tab--active' : ''}`}
-                            onClick={() => setTab('content')}
-                        >
-                            Content
-                        </button>
-                        <button
-                            type="button"
-                            className={`product-card__tab ${tab === 'images' ? 'product-card__tab--active' : ''}`}
-                            onClick={() => setTab('images')}
-                        >
-                            Images
-                        </button>
-                        <button
-                            type="button"
-                            className={`product-card__tab ${tab === 'lists' ? 'product-card__tab--active' : ''}`}
-                            onClick={() => setTab('lists')}
-                        >
-                            Lists
-                        </button>
-                        <div className="product-card__tab-spacer" />
-                        <button
-                            type="button"
-                            className="product-card__delete"
-                            onClick={() => {
-                                if (confirm(`Delete "${item.name || item.id}"?`)) onRemove(index);
-                            }}
-                        >
-                            <Trash2 size={12} /> Delete
+                            <Trash2 size={12} />
                         </button>
                     </div>
-
-                    {/* TAB: BASICS */}
-                    {tab === 'basics' && (
-                        <div className="product-card__panel">
-                            <div className="product-card__grid-2">
-                                <Field label="Name">
-                                    <TextInput value={item.name} onChange={(v) => update('name', v)} />
-                                </Field>
-                                <Field label="Slug" hint="URL-safe identifier">
-                                    <TextInput value={item.slug} onChange={(v) => update('slug', v)} />
-                                </Field>
-                            </div>
-                            <div className="product-card__grid-3">
-                                <Field label="ID" hint="e.g. int-01">
-                                    <TextInput value={item.id} onChange={(v) => update('id', v)} />
-                                </Field>
-                                <Field label="Nav name" hint="Menu label">
-                                    <TextInput value={item.navName} onChange={(v) => update('navName', v)} />
-                                </Field>
-                                <Field label="Mega menu group">
-                                    <TextInput value={item.megaMenuGroup || ''} onChange={(v) => update('megaMenuGroup', v || null)} />
-                                </Field>
-                            </div>
-                            <div className="product-card__grid-2">
-                                <Field label="Show in nav">
-                                    <Toggle value={item.showInNav} onChange={(v) => update('showInNav', v)} label={item.showInNav ? 'Yes' : 'No'} />
-                                </Field>
-                                <Field label="Show in footer" hint="Popular upgrades">
-                                    <Toggle value={item.showInFooter} onChange={(v) => update('showInFooter', v)} label={item.showInFooter ? 'Yes' : 'No'} />
-                                </Field>
-                            </div>
-                        </div>
-                    )}
-
-                    {/* TAB: CONTENT */}
-                    {tab === 'content' && (
-                        <div className="product-card__panel">
-                            <Field label="Short description" hint="Card preview text">
-                                <Textarea
-                                    value={item.shortDescription}
-                                    onChange={(v) => update('shortDescription', v)}
-                                    rows={2}
-                                />
-                            </Field>
-                            <Field label="Full description">
-                                <Textarea
-                                    value={item.description}
-                                    onChange={(v) => update('description', v)}
-                                    rows={4}
-                                />
-                            </Field>
-                            <Field label="Installation" hint="How this is installed">
-                                <Textarea
-                                    value={item.installation}
-                                    onChange={(v) => update('installation', v)}
-                                    rows={3}
-                                />
-                            </Field>
-                            <Field label="Related services" hint="Comma-separated slugs">
-                                <TextInput
-                                    value={item.relatedServices?.join(', ')}
-                                    onChange={(v) => update(
-                                        'relatedServices',
-                                        v.split(',').map((s) => s.trim()).filter(Boolean)
-                                    )}
-                                />
-                            </Field>
-                        </div>
-                    )}
-
-                    {/* TAB: IMAGES */}
-                    {tab === 'images' && (
-                        <div className="product-card__panel">
-                            <div className="product-card__image-section">
-                                <div className="product-card__image-label">Main Image</div>
-                                <ImageField
-                                    value={item.image}
-                                    onChange={(v) => update('image', v)}
-                                    alt={item.name || 'main image'}
-                                />
-                                <Field label="Image alt text" hint="For SEO and accessibility">
-                                    <TextInput
-                                        value={item.imageAlt}
-                                        onChange={(v) => update('imageAlt', v)}
-                                        placeholder="Describe the image..."
-                                    />
-                                </Field>
-                            </div>
-                            <div className="product-card__image-section">
-                                <div className="product-card__image-label">
-                                    Gallery ({item.gallery?.length || 0})
-                                </div>
-                                <div className="product-card__gallery">
-                                    {(item.gallery || []).map((img, imgIdx) => (
-                                        <div key={imgIdx} className="product-card__gallery-item">
-                                            <ImageField
-                                                value={img}
-                                                onChange={(v) => arrayUpdate('gallery', imgIdx, v)}
-                                                alt={`Gallery ${imgIdx + 1}`}
-                                                compact
-                                            />
-                                            <button
-                                                type="button"
-                                                className="product-card__gallery-remove"
-                                                onClick={() => arrayRemove('gallery', imgIdx)}
-                                                aria-label="Remove"
-                                            >
-                                                <Trash2 size={12} />
-                                            </button>
-                                        </div>
-                                    ))}
-                                    <button
-                                        type="button"
-                                        className="product-card__gallery-add"
-                                        onClick={() => arrayAdd('gallery', '')}
-                                    >
-                                        <Plus size={14} /> Add to gallery
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    )}
-
-                    {/* TAB: LISTS */}
-                    {tab === 'lists' && (
-                        <div className="product-card__panel">
-                            {/* Benefits */}
-                            <div className="product-card__list-section">
-                                <div className="product-card__list-header">
-                                    <div className="product-card__image-label">Benefits</div>
-                                    <span className="product-card__count">{item.benefits?.length || 0}</span>
-                                </div>
-                                <div className="product-card__string-list">
-                                    {(item.benefits || []).map((b, i) => (
-                                        <div key={i} className="product-card__string-row">
-                                            <ChevronRight size={12} className="product-card__string-bullet" />
-                                            <TextInput value={b} onChange={(v) => arrayUpdate('benefits', i, v)} />
-                                            <button
-                                                type="button"
-                                                className="product-card__string-remove"
-                                                onClick={() => arrayRemove('benefits', i)}
-                                                aria-label="Remove"
-                                            >
-                                                ×
-                                            </button>
-                                        </div>
-                                    ))}
-                                    <button
-                                        type="button"
-                                        className="product-card__string-add"
-                                        onClick={() => arrayAdd('benefits', 'New benefit')}
-                                    >
-                                        <Plus size={12} /> Add benefit
-                                    </button>
-                                </div>
-                            </div>
-
-                            {/* FAQs */}
-                            <div className="product-card__list-section">
-                                <div className="product-card__list-header">
-                                    <div className="product-card__image-label">FAQs</div>
-                                    <span className="product-card__count">{item.faqs?.length || 0}</span>
-                                </div>
-                                <div className="product-card__faq-list">
-                                    {(item.faqs || []).map((faq, i) => (
-                                        <div key={i} className="product-card__faq">
-                                            <div className="product-card__faq-head">
-                                                <span className="product-card__faq-num">{i + 1}</span>
-                                                <button
-                                                    type="button"
-                                                    className="product-card__string-remove"
-                                                    onClick={() => arrayRemove('faqs', i)}
-                                                    aria-label="Remove FAQ"
-                                                >
-                                                    <Trash2 size={11} />
-                                                </button>
-                                            </div>
-                                            <Field label="Question">
-                                                <TextInput
-                                                    value={faq.q}
-                                                    onChange={(v) => objectArrayUpdate('faqs', i, 'q', v)}
-                                                />
-                                            </Field>
-                                            <Field label="Answer">
-                                                <Textarea
-                                                    value={faq.a}
-                                                    onChange={(v) => objectArrayUpdate('faqs', i, 'a', v)}
-                                                    rows={2}
-                                                />
-                                            </Field>
-                                        </div>
-                                    ))}
-                                    <button
-                                        type="button"
-                                        className="product-card__string-add"
-                                        onClick={() => objectArrayAdd('faqs', { q: 'New question?', a: 'New answer.' })}
-                                    >
-                                        <Plus size={12} /> Add FAQ
-                                    </button>
-                                </div>
-                            </div>
-
-                            {/* Options */}
-                            <div className="product-card__list-section">
-                                <div className="product-card__list-header">
-                                    <div className="product-card__image-label">Options</div>
-                                    <span className="product-card__count">{item.options?.length || 0}</span>
-                                </div>
-                                <div className="product-card__faq-list">
-                                    {(item.options || []).map((opt, i) => (
-                                        <div key={i} className="product-card__faq">
-                                            <div className="product-card__faq-head">
-                                                <span className="product-card__faq-num">{i + 1}</span>
-                                                <button
-                                                    type="button"
-                                                    className="product-card__string-remove"
-                                                    onClick={() => arrayRemove('options', i)}
-                                                    aria-label="Remove option"
-                                                >
-                                                    <Trash2 size={11} />
-                                                </button>
-                                            </div>
-                                            <Field label="Label">
-                                                <TextInput
-                                                    value={opt.label}
-                                                    onChange={(v) => objectArrayUpdate('options', i, 'label', v)}
-                                                />
-                                            </Field>
-                                            <Field label="Description">
-                                                <Textarea
-                                                    value={opt.description}
-                                                    onChange={(v) => objectArrayUpdate('options', i, 'description', v)}
-                                                    rows={2}
-                                                />
-                                            </Field>
-                                        </div>
-                                    ))}
-                                    <button
-                                        type="button"
-                                        className="product-card__string-add"
-                                        onClick={() => objectArrayAdd('options', { label: 'New option', description: 'Describe this option...' })}
-                                    >
-                                        <Plus size={12} /> Add option
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    )}
-                </div>
-            )}
+                ))}
+                <button
+                    type="button"
+                    className="edit-btn edit-btn--sm"
+                    onClick={() => onChange('append')}
+                >
+                    <Plus size={13} />
+                    {addLabel}
+                </button>
+            </div>
         </div>
     );
 }
 
-// ============================================================
-// Main Editor
-// ============================================================
+function ObjectList({ label, hint, items, fields, onChange, onAdd, addLabel, renderExtra }) {
+    const list = items || [];
+    return (
+        <div className="edit-sublists__group">
+            <div className="edit-sublists__head">
+                <h4 className="edit-sublists__title">{label}</h4>
+                <span className="edit-badge edit-badge--count">{list.length}</span>
+            </div>
+            {hint && <p className="edit-sublists__hint">{hint}</p>}
+            <div className="edit-sublists__stack">
+                {list.length === 0 && <p className="edit-choices__empty">Nothing here yet.</p>}
+                {list.map((item, i) => (
+                    <div key={i} className="edit-sublists__item">
+                        <div className="edit-sublists__item-head">
+                            <span className="edit-badge edit-badge--count">{String(i + 1).padStart(2, '0')}</span>
+                            <button
+                                type="button"
+                                className="edit-icon-btn edit-icon-btn--sm edit-icon-btn--danger"
+                                onClick={() => onChange(null, i)}
+                                aria-label="Remove"
+                            >
+                                <Trash2 size={12} />
+                            </button>
+                        </div>
+                        <FieldGrid>
+                            {fields.map((f) => (
+                                <Field key={f.key} label={f.label} span={f.span || 2} hint={f.hint}>
+                                    {f.multiline ? (
+                                        <Textarea
+                                            value={item[f.key] ?? ''}
+                                            rows={f.rows || 2}
+                                            onChange={(v) => onChange(i, { [f.key]: v })}
+                                        />
+                                    ) : (
+                                        <TextInput
+                                            value={item[f.key] ?? ''}
+                                            onChange={(v) => onChange(i, { [f.key]: v })}
+                                            placeholder={f.placeholder}
+                                        />
+                                    )}
+                                </Field>
+                            ))}
+                            {renderExtra?.(item, i, onChange)}
+                        </FieldGrid>
+                    </div>
+                ))}
+                <button type="button" className="edit-add" onClick={onAdd}>
+                    <Plus size={14} />
+                    {addLabel}
+                </button>
+            </div>
+        </div>
+    );
+}
+
+/* ============================================================
+   PRODUCT ROW — tabs keep a dense record readable
+   ============================================================ */
+
+const TABS = [
+    { id: 'details', label: 'Details', icon: LayoutTemplate },
+    { id: 'content', label: 'Content', icon: ListChecks },
+    { id: 'images', label: 'Images', icon: Images },
+    { id: 'extras', label: 'Extras', icon: ListChecks },
+];
+
+function ProductBody({ item, index, groups, update, updateArray }) {
+    const [tab, setTab] = useState('details');
+
+    function setList(field) {
+        return (pos, value) => {
+            const next = Array.isArray(item[field]) ? [...item[field]] : [];
+            if (pos === null) next.splice(value, 1);
+            else if (pos === 'append') next.push('');
+            else next[pos] = value;
+            updateArray(field, next);
+        };
+    }
+
+    function setObjectList(field) {
+        return (pos, patch) => {
+            const next = (Array.isArray(item[field]) ? [...item[field]] : []).map((o) => ({ ...o }));
+            if (pos === null) next.splice(patch, 1);
+            else next[pos] = { ...next[pos], ...patch };
+            updateArray(field, next);
+        };
+    }
+
+    const gallery = item.gallery || [];
+    const benefits = item.benefits || [];
+    const faqs = item.faqs || [];
+    const options = item.options || [];
+
+    return (
+        <div className="edit-product">
+            <div className="edit-product__tabs" role="tablist">
+                {TABS.map((t) => {
+                    const Icon = t.icon;
+                    return (
+                        <button
+                            key={t.id}
+                            type="button"
+                            role="tab"
+                            aria-selected={tab === t.id}
+                            className={`edit-product__tab ${tab === t.id ? 'edit-product__tab--active' : ''}`}
+                            onClick={() => setTab(t.id)}
+                        >
+                            <Icon size={13} aria-hidden="true" />
+                            {t.label}
+                        </button>
+                    );
+                })}
+            </div>
+
+            <div className="edit-product__panel" role="tabpanel">
+                {tab === 'details' && (
+                    <FieldGrid>
+                        <Field label="Product name">
+                            <TextInput value={item.name} onChange={(v) => update('name', v)} />
+                        </Field>
+                        <Field label="URL slug" hint="Changing this breaks existing links to the product.">
+                            <TextInput value={item.slug} onChange={(v) => update('slug', v)} />
+                        </Field>
+                        <Field label="Internal ID" hint="Unique identifier, e.g. ext-07.">
+                            <TextInput value={item.id} onChange={(v) => update('id', v)} />
+                        </Field>
+                        <Field label="Menu label" hint="Shorter name used in the navigation.">
+                            <TextInput value={item.navName} onChange={(v) => update('navName', v)} />
+                        </Field>
+                        <Field label="Navigation group" hint="Which section of the mega menu this sits in.">
+                            <TextInput
+                                value={item.megaMenuGroup || ''}
+                                onChange={(v) => update('megaMenuGroup', v || null)}
+                            />
+                        </Field>
+                        <Field label="Grouping" hint="Groups on the listing page. Assign by slug below.">
+                            <TextInput value={groups?.find((g) => g.slugs?.includes(item.slug))?.title || ''} disabled />
+                        </Field>
+                        <Field label="Show in navigation">
+                            <Toggle
+                                value={item.showInNav}
+                                onChange={(v) => update('showInNav', v)}
+                                label={item.showInNav ? 'Visible in the menu' : 'Hidden from the menu'}
+                            />
+                        </Field>
+                        <Field label="Show in footer" hint="Appears under popular upgrades.">
+                            <Toggle
+                                value={item.showInFooter}
+                                onChange={(v) => update('showInFooter', v)}
+                                label={item.showInFooter ? 'Shown in the footer' : 'Not in the footer'}
+                            />
+                        </Field>
+                    </FieldGrid>
+                )}
+
+                {tab === 'content' && (
+                    <FieldGrid>
+                        <Field label="Short description" span={2} hint="One or two lines — this is the card preview text.">
+                            <Textarea value={item.shortDescription} onChange={(v) => update('shortDescription', v)} rows={2} />
+                        </Field>
+                        <Field label="Full description" span={2} hint="The main body of the product page.">
+                            <Textarea value={item.description} onChange={(v) => update('description', v)} rows={6} />
+                        </Field>
+                        <Field label="Installation notes" span={2} hint="How this accessory is fitted. Builds trust with buyers.">
+                            <Textarea value={item.installation} onChange={(v) => update('installation', v)} rows={3} />
+                        </Field>
+                        <Field
+                            label="Related products"
+                            span={2}
+                            hint="Slugs of other products, comma separated. These become the related-upgrades strip."
+                        >
+                            <CommaList
+                                value={item.relatedServices}
+                                onChange={(v) => update('relatedServices', v)}
+                                placeholder="bi-led-headlights, ambient-lighting"
+                            />
+                        </Field>
+                    </FieldGrid>
+                )}
+
+                {tab === 'images' && (
+                    <div className="edit-product__images">
+                        <Field label="Main image" span={2} hint="The photograph used on cards and at the top of the page.">
+                            <ImageField value={item.image} onChange={(v) => update('image', v)} alt={item.name || 'product'} />
+                        </Field>
+                        <Field label="Main image alt text" span={2} hint="Describe the photo for screen readers and search engines.">
+                            <TextInput value={item.imageAlt} onChange={(v) => update('imageAlt', v)} />
+                        </Field>
+
+                        <div className="edit-product__gallery">
+                            <div className="edit-sublists__head">
+                                <h4 className="edit-sublists__title">Gallery</h4>
+                                <span className="edit-badge edit-badge--count">{gallery.length}</span>
+                            </div>
+                            <p className="edit-sublists__hint">
+                                Extra photos shown on the product page. Upload or paste a URL for each.
+                            </p>
+                            <div className="edit-product__gallery-grid">
+                                {gallery.map((img, imgIdx) => (
+                                    <div key={imgIdx} className="edit-product__gallery-cell">
+                                        <ImageField
+                                            value={img}
+                                            onChange={(v) => {
+                                                const next = [...gallery];
+                                                next[imgIdx] = v;
+                                                updateArray('gallery', next);
+                                            }}
+                                            alt={`Gallery image ${imgIdx + 1}`}
+                                            compact
+                                        />
+                                        <button
+                                            type="button"
+                                            className="edit-icon-btn edit-icon-btn--danger edit-product__gallery-remove"
+                                            onClick={() => updateArray('gallery', gallery.filter((_, i) => i !== imgIdx))}
+                                            aria-label="Remove gallery image"
+                                        >
+                                            <Trash2 size={12} />
+                                        </button>
+                                    </div>
+                                ))}
+                                <button
+                                    type="button"
+                                    className="edit-product__gallery-add"
+                                    onClick={() => updateArray('gallery', [...gallery, ''])}
+                                >
+                                    <Plus size={18} aria-hidden="true" />
+                                    <span>Add photo</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                )}
+
+                {tab === 'extras' && (
+                    <div className="edit-sublists">
+                        <StringList
+                            label="Benefits"
+                            hint="Bullet points under the product title."
+                            items={benefits}
+                            onChange={setList('benefits')}
+                            addLabel="Add benefit"
+                            placeholder="A benefit of this accessory"
+                        />
+                        <ObjectList
+                            label="Options"
+                            hint="Variants or finishes customers can choose."
+                            items={options}
+                            onChange={setObjectList('options')}
+                            onAdd={() => updateArray('options', [...options, { label: 'New option', description: '' }])}
+                            addLabel="Add option"
+                            fields={[
+                                { key: 'label', label: 'Option name', placeholder: 'e.g. Matte Black' },
+                                { key: 'description', label: 'Description', multiline: true, rows: 2 },
+                            ]}
+                        />
+                        <ObjectList
+                            label="FAQs"
+                            hint="Questions answered on the product page itself."
+                            items={faqs}
+                            onChange={setObjectList('faqs')}
+                            onAdd={() => updateArray('faqs', [...faqs, { q: 'New question?', a: 'New answer.' }])}
+                            addLabel="Add question"
+                            fields={[
+                                { key: 'q', label: 'Question', placeholder: 'What do customers ask?' },
+                                { key: 'a', label: 'Answer', multiline: true, rows: 3 },
+                            ]}
+                        />
+                    </div>
+                )}
+            </div>
+        </div>
+    );
+}
+
+/* ============================================================
+   MAIN EDITOR
+   ============================================================ */
+
 export default function ProductsEditor({ section }) {
-    const config = SECTION_CONFIG[section];
-    const hook = useDataFile(config.file, { commitPrefix: 'Update' });
+    const hook = useProducts(section === 'productsInterior' ? 'interior' : 'exterior');
+    const [open, setOpen] = useState({});
+    const toggle = (i) => () => setOpen((p) => ({ ...p, [i]: !p[i] }));
 
-    const [expanded, setExpanded] = useState({});
-    const [showGroups, setShowGroups] = useState(false);
+    const d = hook.editData;
+    const items = d?.items || [];
+    const groups = d?.groups || [];
+    const allOpen = items.length > 0 && items.every((_, i) => open[i]);
 
-    function toggle(index) {
-        setExpanded((prev) => ({ ...prev, [index]: !prev[index] }));
-    }
-    function expandAll() {
-        const all = {};
-        hook.editData?.items?.forEach((_, i) => { all[i] = true; });
-        setExpanded(all);
-    }
-    function collapseAll() {
-        setExpanded({});
-    }
-
-    function nextItemId() {
-        const items = hook.editData?.items || [];
-        const prefix = config.category === 'exterior' ? 'ext' : 'int';
-        const existing = items
-            .map((r) => r.id)
-            .filter((id) => id && id.startsWith(prefix))
-            .map((id) => parseInt(id.split('-')[1], 10))
-            .filter((n) => !isNaN(n));
-        const next = existing.length ? Math.max(...existing) + 1 : 1;
+    function nextId() {
+        const prefix = section === 'productsInterior' ? 'int' : 'ext';
+        const nums = items
+            .map((it) => String(it.id || '').match(/\d+/)?.[0])
+            .filter(Boolean)
+            .map(Number);
+        const next = nums.length ? Math.max(...nums) + 1 : 1;
         return `${prefix}-${String(next).padStart(2, '0')}`;
     }
 
-    function addItem() {
-        hook.updateEditData((draft) => {
-            draft.items.push({
-                id: nextItemId(),
-                name: 'New Product',
-                slug: 'new-product',
-                category: config.category,
-                shortDescription: 'Short description...',
-                description: 'Full description...',
-                installation: 'Installation notes...',
-                benefits: ['New benefit'],
-                options: [],
-                faqs: [],
-                gallery: [],
-                showInNav: false,
-                showInFooter: false,
-                navName: 'New Product',
-                megaMenuGroup: null,
-                relatedServices: [],
-            });
+    function addProduct() {
+        hook.lists.items.add({
+            id: nextId(),
+            slug: 'new-product',
+            name: 'New Product',
+            navName: 'New Product',
+            shortDescription: 'A short summary for the card.',
+            description: 'Full product description.',
+            installation: 'How this is installed.',
+            benefits: [],
+            options: [],
+            faqs: [],
+            gallery: [],
+            showInNav: false,
+            showInFooter: false,
+            megaMenuGroup: null,
+            relatedServices: [],
+            image: '',
+            imageAlt: '',
         });
-        // Auto-expand the newly added product
-        const newIndex = (hook.editData?.items?.length || 1);
-        setExpanded((prev) => ({ ...prev, [newIndex - 1]: true }));
-    }
-
-    function updateItem(index, field, value) {
-        hook.updateEditData((draft) => {
-            draft.items[index][field] = value;
-        });
-    }
-    function removeItem(index) {
-        hook.updateEditData((draft) => {
-            draft.items.splice(index, 1);
-        });
-    }
-    function moveItem(from, to) {
-        if (to < 0 || to >= hook.editData.items.length) return;
-        hook.updateEditData((draft) => {
-            const [item] = draft.items.splice(from, 1);
-            draft.items.splice(to, 0, item);
-        });
-    }
-
-    // --- Filter tags ---
-    function updateFilterTags(tagsString) {
-        const tags = tagsString.split(',').map((s) => s.trim()).filter(Boolean);
-        hook.updateEditData((draft) => {
-            draft.filterTags = tags;
-        });
-    }
-
-    // --- Groups ---
-    function updateGroup(index, field, value) {
-        hook.updateEditData((draft) => {
-            draft.groups[index][field] = value;
-        });
-    }
-    function updateGroupSlugs(index, slugsString) {
-        const slugs = slugsString.split(',').map((s) => s.trim()).filter(Boolean);
-        hook.updateEditData((draft) => {
-            draft.groups[index].slugs = slugs;
-        });
-    }
-    function addGroup() {
-        hook.updateEditData((draft) => {
-            const num = String(draft.groups.length + 1).padStart(2, '0');
-            draft.groups.push({
-                id: 'new-group',
-                tag: `GROUP ${num} // NEW`,
-                title: 'New Group Title',
-                slugs: [],
-            });
-        });
-    }
-    function removeGroup(index) {
-        hook.updateEditData((draft) => {
-            draft.groups.splice(index, 1);
-        });
-    }
-    function moveGroup(from, to) {
-        if (to < 0 || to >= hook.editData.groups.length) return;
-        hook.updateEditData((draft) => {
-            const [item] = draft.groups.splice(from, 1);
-            draft.groups.splice(to, 0, item);
-        });
+        setOpen((p) => ({ ...p, [items.length]: true }));
     }
 
     return (
-        <div>
-            <ActionBar
-                loading={hook.loading}
-                saving={hook.saving}
-                error={hook.error}
-                hasChanges={hook.hasChanges}
-                onRefresh={hook.refresh}
-                onDiscard={hook.discard}
-                onSave={() => hook.save()}
-            />
-
-            {/* Top-level config: filter tags + groups (collapsible) */}
+        <EditorFrame sectionId={section} hook={hook}>
             <SectionCard
-                title="Filter Tags & Groups"
-                subtitle="Top-level category filter bar and group structure"
-                collapsible
-                defaultOpen={showGroups}
-                onToggle={() => setShowGroups(!showGroups)}
+                icon={Tags}
+                title="Filter tags"
+                subtitle="The filter bar above the product grid. The first tag is the default 'All' view."
             >
-                <Field label="Filter tags" hint="Comma-separated. First one is usually 'All'.">
-                    <TextInput
-                        value={hook.editData?.filterTags?.join(', ')}
-                        onChange={updateFilterTags}
+                <Field label="Filter tags" hint="Comma separated, in display order.">
+                    <CommaList
+                        value={d?.filterTags}
+                        onChange={(v) => hook.updateEditData((draft) => { draft.filterTags = v; })}
+                        placeholder="All, Lighting, Audio, Protection"
                     />
                 </Field>
             </SectionCard>
 
-            {showGroups && (
-                <SectionCard title="Groups" subtitle="Each group references products by slug.">
-                    <div className="product-editor__groups">
-                        {hook.editData?.groups?.map((group, index) => (
-                            <div key={index} className="product-editor__group">
-                                <div className="product-editor__group-header">
-                                    <span className="product-editor__group-title">{group.title || group.id}</span>
-                                    <div className="product-editor__group-actions">
-                                        <button type="button" onClick={() => moveGroup(index, index - 1)} disabled={index === 0} aria-label="Move up">
-                                            <ArrowUp size={11} />
-                                        </button>
-                                        <button type="button" onClick={() => moveGroup(index, index + 1)} disabled={index === hook.editData.groups.length - 1} aria-label="Move down">
-                                            <ArrowDown size={11} />
-                                        </button>
-                                        <button type="button" onClick={() => removeGroup(index)} aria-label="Delete">
-                                            <Trash2 size={11} />
-                                        </button>
-                                    </div>
-                                </div>
-                                <div className="product-editor__group-fields">
-                                    <Field label="ID">
-                                        <TextInput value={group.id} onChange={(v) => updateGroup(index, 'id', v)} />
-                                    </Field>
-                                    <Field label="Tag">
-                                        <TextInput value={group.tag} onChange={(v) => updateGroup(index, 'tag', v)} />
-                                    </Field>
-                                    <Field label="Title">
-                                        <TextInput value={group.title} onChange={(v) => updateGroup(index, 'title', v)} />
-                                    </Field>
-                                </div>
-                                <Field label="Slugs" hint="Comma-separated product slugs">
+            <SectionCard
+                icon={FolderTree}
+                title="Page groupings"
+                subtitle="How products are organised into sections on the category page. Assign by slug."
+            >
+                <ItemList
+                    items={groups}
+                    addLabel="Add group"
+                    onAdd={() =>
+                        hook.lists.groups.add({
+                            id: `group-${groups.length + 1}`,
+                            tag: `GROUP ${String(groups.length + 1).padStart(2, '0')}`,
+                            title: 'New Group',
+                            slugs: [],
+                        })
+                    }
+                    empty={
+                        <>
+                            <span className="edit-empty__title">No groups yet</span>
+                            <span className="edit-empty__hint">
+                                Groups split the category page into labelled sections. Without them, products
+                                appear in one continuous list.
+                            </span>
+                        </>
+                    }
+                    renderItem={(item, i) => (
+                        <ItemRow
+                            key={`grp-${i}`}
+                            index={i}
+                            total={groups.length}
+                            open={!!open[`g${i}`]}
+                            onToggle={() =>
+                                setOpen((p) => ({ ...p, [`g${i}`]: !p[`g${i}`] }))
+                            }
+                            onMove={hook.lists.groups.move}
+                            onRemove={hook.lists.groups.remove}
+                            removeLabel="Remove group"
+                            summary={
+                                <>
+                                    <span className="edit-row__title">{item.title || 'Untitled group'}</span>
+                                    <span className="edit-row__sub">{item.slugs?.length || 0} products</span>
+                                </>
+                            }
+                        >
+                            <FieldGrid>
+                                <Field label="Group ID">
                                     <TextInput
-                                        value={group.slugs?.join(', ')}
-                                        onChange={(v) => updateGroupSlugs(index, v)}
+                                        value={item.id}
+                                        onChange={(v) => hook.updateEditData((draft) => { draft.groups[i].id = v; })}
                                     />
                                 </Field>
-                            </div>
-                        ))}
-                        <button type="button" className="product-editor__add-group" onClick={addGroup}>
-                            <Plus size={13} /> Add group
-                        </button>
-                    </div>
-                </SectionCard>
-            )}
+                                <Field label="Tag line" hint="Small heading shown above the group.">
+                                    <TextInput
+                                        value={item.tag}
+                                        onChange={(v) => hook.updateEditData((draft) => { draft.groups[i].tag = v; })}
+                                    />
+                                </Field>
+                                <Field label="Section title" span={2}>
+                                    <TextInput
+                                        value={item.title}
+                                        onChange={(v) => hook.updateEditData((draft) => { draft.groups[i].title = v; })}
+                                    />
+                                </Field>
+                                <Field
+                                    label="Product slugs"
+                                    span={2}
+                                    hint="Comma separated. Each slug must match a product on this page exactly."
+                                >
+                                    <CommaList
+                                        value={item.slugs}
+                                        onChange={(v) => hook.updateEditData((draft) => { draft.groups[i].slugs = v; })}
+                                    />
+                                </Field>
+                            </FieldGrid>
+                        </ItemRow>
+                    )}
+                />
+            </SectionCard>
 
-            {/* Products list — the main work area */}
-            <div className="product-editor__list-header">
-                <div>
-                    <h2 className="product-editor__list-title">
-                        Products ({hook.editData?.items?.length || 0})
-                    </h2>
-                    <p className="product-editor__list-hint">
-                        Cards are collapsed by default. Click to expand and edit.
-                    </p>
-                </div>
-                <div className="product-editor__list-actions">
-                    <button type="button" className="product-editor__list-action" onClick={expandAll}>
-                        Expand all
-                    </button>
-                    <button type="button" className="product-editor__list-action" onClick={collapseAll}>
-                        Collapse all
-                    </button>
-                    <button type="button" className="product-editor__list-action product-editor__list-action--primary" onClick={addItem}>
-                        <Plus size={13} /> Add product
-                    </button>
-                </div>
-            </div>
-
-            <div className="product-editor__list">
-                {hook.editData?.items?.map((item, index) => (
-                    <ProductCard
-                        key={item.id || index}
-                        item={item}
-                        index={index}
-                        total={hook.editData.items.length}
-                        groups={hook.editData.groups}
-                        expanded={!!expanded[index]}
-                        onToggle={toggle}
-                        onChange={updateItem}
-                        onRemove={removeItem}
-                        onMove={moveItem}
-                    />
-                ))}
-            </div>
-        </div>
+            <section className="edit-stack">
+                <ListHeader
+                    title="Products"
+                    count={items.length}
+                    hint="Everything on the category page. Each product is one card and one detail page."
+                    actions={
+                        <>
+                            {items.length > 0 && (
+                                <button
+                                    type="button"
+                                    className="edit-btn edit-btn--sm"
+                                    onClick={() =>
+                                        setOpen((p) => {
+                                            const next = {};
+                                            for (let i = 0; i < items.length; i++) next[i] = !allOpen;
+                                            return next;
+                                        })
+                                    }
+                                >
+                                    {allOpen ? 'Collapse all' : 'Expand all'}
+                                </button>
+                            )}
+                            <button type="button" className="edit-btn edit-btn--primary edit-btn--sm" onClick={addProduct}>
+                                <Plus size={13} />
+                                Add product
+                            </button>
+                        </>
+                    }
+                />
+                <ItemList
+                    items={items}
+                    addLabel="Add product"
+                    onAdd={addProduct}
+                    empty={
+                        <>
+                            <span className="edit-empty__title">No products yet</span>
+                            <span className="edit-empty__hint">
+                                Add your first accessory. Give it a name and slug — everything else can be filled
+                                in as you go.
+                            </span>
+                        </>
+                    }
+                    renderItem={(item, i) => {
+                        const group = groups.find((g) => g.slugs?.includes(item.slug));
+                        return (
+                            <ItemRow
+                                key={`p-${i}`}
+                                index={i}
+                                total={items.length}
+                                open={!!open[i]}
+                                onToggle={toggle(i)}
+                                onMove={hook.lists.items.move}
+                                onRemove={hook.lists.items.remove}
+                                removeLabel="Delete product"
+                                meta={<RowThumb src={item.image} alt="" />}
+                                summary={
+                                    <>
+                                        <span className="edit-row__title">{item.name || 'Untitled product'}</span>
+                                        <span className="edit-row__sub">{item.slug}</span>
+                                        {group && <span className="edit-badge">{group.title}</span>}
+                                        {item.showInNav && <span className="edit-badge">Nav</span>}
+                                        {item.showInFooter && <span className="edit-badge edit-badge--accent">Footer</span>}
+                                        {!item.image && <span className="edit-badge edit-badge--accent">No image</span>}
+                                        {!item.shortDescription && (
+                                            <span className="edit-badge edit-badge--accent">No summary</span>
+                                        )}
+                                    </>
+                                }
+                            >
+                                <ProductBody
+                                    item={item}
+                                    index={i}
+                                    groups={groups}
+                                    update={(field, value) =>
+                                        hook.updateEditData((draft) => {
+                                            draft.items[i][field] = value;
+                                        })
+                                    }
+                                    updateArray={(field, value) =>
+                                        hook.updateEditData((draft) => {
+                                            draft.items[i][field] = value;
+                                        })
+                                    }
+                                />
+                            </ItemRow>
+                        );
+                    }}
+                />
+            </section>
+        </EditorFrame>
     );
 }

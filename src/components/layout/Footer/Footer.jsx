@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Instagram, MapPin, Phone, Clock, Mail, ShieldCheck } from 'lucide-react';
+import { Instagram, Youtube, MapPin, Phone, Clock, Mail, ShieldCheck } from 'lucide-react';
 import business from '../../../config/business';
 import exteriorData from '../../../data/products/exterior.json';
 import interiorData from '../../../data/products/interior.json';
@@ -76,6 +76,18 @@ export default function Footer() {
                   <Instagram size={17} />
                   <span>{business.instagramHandle}</span>
                 </a>
+                {business.social.youtube && (
+                  <a
+                    href={business.social.youtube}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="footer-social-link footer-social-link--yt"
+                    aria-label={`Watch ${business.shortName} on YouTube`}
+                  >
+                    <Youtube size={17} />
+                    <span>YouTube</span>
+                  </a>
+                )}
               </div>
             </div>
           </div>

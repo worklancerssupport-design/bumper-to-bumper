@@ -36,7 +36,9 @@ function App() {
     return (
         <ErrorBoundary>
             <Analytics />
-            <CustomCursor />
+            {/* The edit console is a working tool, not a showcase: it keeps the
+                native cursor so precise clicking on inputs stays accurate. */}
+            {!isEdit && <CustomCursor />}
             <ScrollToTop />
             {!isEdit && <Header />}
             <main id="main-content" tabIndex={-1}>

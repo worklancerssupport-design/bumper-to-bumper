@@ -1,6 +1,8 @@
 /* ============================================================
-   EDIT CONSOLE — Global Styles
-   Matches main website theme (black + red accent + Orbitron)
+   EDIT CONSOLE — Foundation
+   Inherits the main site's token system (black + refined red,
+   Microgramma display / Plus Jakarta Sans UI). Only the console's
+   own layout primitives live here.
    ============================================================ */
 
 *,
@@ -11,44 +13,352 @@
 
 body {
     margin: 0;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: var(--bg-canvas, #000000);
-    color: var(--text-primary, #ffffff);
+    background: var(--bg-canvas);
+    color: var(--text-primary);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* Scrollbar styling */
-::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: var(--bg-primary, #0a0a0a);
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--border-strong, rgba(255, 255, 255, 0.18));
-    border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: var(--text-muted, #707070);
-}
-
-/* Reset button defaults */
 button {
     font-family: inherit;
 }
 
-/* Remove number input spinners */
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
+/* ── Scrollbar: themed from the palette, not the OS default ── */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-strong);
+    border-radius: var(--radius-full);
+    border: 3px solid var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-muted);
+}
+
+/* ── Selection + caret: browser surfaces that ship with no design ── */
+::selection {
+    background: var(--brand-red-soft);
+    color: var(--text-primary);
+}
+
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
 
-input[type="number"] {
+input[type='number'] {
     -moz-appearance: textfield;
+}
+
+/* ============================================================
+   SHARED PRIMITIVES
+   ============================================================ */
+
+/* Focus ring — one authored definition, used by every control */
+.edit-shell :is(button, a, input, textarea, select, [tabindex]):focus-visible {
+    outline: 2px solid var(--brand-red);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+}
+
+@keyframes edit-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes edit-fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes edit-rise {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes edit-slide-up {
+    from {
+        opacity: 0;
+        transform: translateY(16px) scale(0.985);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.edit-spinner {
+    animation: edit-spin 0.7s linear infinite;
+}
+
+/* ============================================================
+   BUTTONS — one shape, one vocabulary, every state
+   ============================================================ */
+
+.edit-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    min-height: 36px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    color: var(--text-secondary);
+    font-family: var(--font-sans);
+    font-size: var(--text-caption);
+    font-weight: var(--font-weight-medium);
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+    transition:
+        background var(--transition-fast),
+        border-color var(--transition-fast),
+        color var(--transition-fast),
+        opacity var(--transition-fast);
+}
+
+.edit-btn:hover:not(:disabled) {
+    background: var(--bg-surface);
+    border-color: var(--border-strong);
+    color: var(--text-primary);
+}
+
+.edit-btn:active:not(:disabled) {
+    background: var(--bg-primary);
+}
+
+.edit-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.edit-btn--primary {
+    background: var(--gradient-accent);
+    border-color: var(--brand-red);
+    color: var(--text-on-accent);
+    font-weight: var(--font-weight-semibold);
+}
+
+.edit-btn--primary:hover:not(:disabled) {
+    background: var(--brand-red-hover);
+    border-color: var(--brand-red-hover);
+    color: var(--text-on-accent);
+}
+
+.edit-btn--primary:active:not(:disabled) {
+    background: var(--brand-red-deep);
+    border-color: var(--brand-red-deep);
+}
+
+.edit-btn--ghost {
+    background: transparent;
+    border-color: transparent;
+    color: var(--text-muted);
+}
+
+.edit-btn--ghost:hover:not(:disabled) {
+    background: var(--bg-surface);
+    border-color: var(--border);
+    color: var(--text-primary);
+}
+
+.edit-btn--danger {
+    background: transparent;
+    border-color: var(--border-strong);
+    color: var(--color-error);
+}
+
+.edit-btn--danger:hover:not(:disabled) {
+    background: var(--color-error-bg);
+    border-color: var(--border-accent);
+    color: var(--brand-red-hover);
+}
+
+.edit-btn--sm {
+    min-height: 30px;
+    padding: var(--space-1) var(--space-3);
+    font-size: var(--text-micro);
+}
+
+/* Square icon-only button — used for row move/delete controls */
+.edit-icon-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text-muted);
+    cursor: pointer;
+    transition:
+        background var(--transition-fast),
+        border-color var(--transition-fast),
+        color var(--transition-fast),
+        opacity var(--transition-fast);
+}
+
+.edit-icon-btn:hover:not(:disabled) {
+    background: var(--bg-elevated);
+    border-color: var(--border-strong);
+    color: var(--text-primary);
+}
+
+.edit-icon-btn:disabled {
+    opacity: 0.28;
+    cursor: not-allowed;
+}
+
+.edit-icon-btn--danger:hover:not(:disabled) {
+    background: var(--color-error-bg);
+    border-color: var(--border-accent);
+    color: var(--brand-red-hover);
+}
+
+/* ============================================================
+   BADGES / PILLS
+   ============================================================ */
+
+.edit-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    padding: 3px var(--space-2);
+    border-radius: var(--radius-full);
+    border: 1px solid var(--border);
+    background: var(--bg-elevated);
+    color: var(--text-muted);
+    font-size: var(--text-tiny);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: var(--letter-spacing-wide);
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.edit-badge--accent {
+    background: var(--brand-red-subtle);
+    border-color: var(--brand-red-soft);
+    color: var(--brand-red-hover);
+}
+
+.edit-badge--count {
+    font-variant-numeric: tabular-nums;
+    background: transparent;
+    border-color: transparent;
+    padding: 0;
+    color: var(--text-muted);
+    text-transform: none;
+    letter-spacing: var(--letter-spacing-normal);
+    font-weight: var(--font-weight-medium);
+    font-size: var(--text-caption);
+}
+
+/* ============================================================
+   NOTICE — inline guidance / errors (never a modal)
+   ============================================================ */
+
+.edit-notice {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: var(--bg-surface);
+    color: var(--text-secondary);
+    font-size: var(--text-caption);
+    line-height: var(--line-height-snug);
+    animation: edit-rise var(--transition-base) both;
+}
+
+.edit-notice svg {
+    flex-shrink: 0;
+    margin-top: 1px;
+    color: var(--text-muted);
+}
+
+.edit-notice--error {
+    background: var(--color-error-bg);
+    border-color: var(--border-accent);
+    color: var(--text-primary);
+}
+
+.edit-notice--error svg {
+    color: var(--brand-red-hover);
+}
+
+.edit-notice--success {
+    background: var(--color-success-bg);
+    border-color: rgba(46, 159, 74, 0.35);
+}
+
+.edit-notice--success svg {
+    color: var(--color-success);
+}
+
+/* ============================================================
+   EMPTY STATE — teaches the interface instead of saying "nothing"
+   ============================================================ */
+
+.edit-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-10) var(--space-6);
+    border: 1px dashed var(--border);
+    border-radius: var(--radius-md);
+    background: var(--bg-primary);
+    text-align: center;
+    animation: edit-rise var(--transition-base) both;
+}
+
+.edit-empty__icon {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-full);
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    margin-bottom: var(--space-1);
+}
+
+.edit-empty__title {
+    font-size: var(--text-body);
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.edit-empty__hint {
+    font-size: var(--text-caption);
+    color: var(--text-muted);
+    margin: 0;
+    max-width: 42ch;
+    line-height: var(--line-height-relaxed);
 }

@@ -1,11 +1,36 @@
-import { useDataFile } from '../hooks/useDataFile.js';
-import { DATA_FILES } from '../constants.js';
-import { Field, TextInput, Textarea } from '../components/Fields.jsx';
-import ArrayField from '../components/ArrayField.jsx';
-import ActionBar from '../components/ActionBar.jsx';
+import { useState } from 'react';
+import { Plus } from 'lucide-react';
+import { useProcess } from '../hooks/useProcess.js';
+import { Field, FieldGrid, TextInput, Textarea } from '../components/Fields.jsx';
+import { ListHeader } from '../components/SectionCard.jsx';
+import EditorFrame from '../components/EditorFrame.jsx';
+import ItemRow, { ItemList } from '../components/ItemRow.jsx';
+import '../components/item-row.css';
 
 export default function ProcessEditor() {
-    const hook = useDataFile(DATA_FILES.process, { commitPrefix: 'Update' });
+    const hook = useProcess();
+    const [open, setOpen] = useState({});
+    const toggle = (i) => () => setOpen((p) => ({ ...p, [i]: !p[i] }));
+
+    const steps = Array.isArray(hook.editData) ? hook.editData : [];
+    const allOpen = steps.length > 0 && steps.every((_, i) => open[i]);
+
+    function toggleAll() {
+        setOpen((p) => {
+            const next = {};
+            for (let i = 0; i < steps.length; i++) next[i] = !allOpen;
+            return next;
+        });
+    }
+
+    function addStep() {
+        hook.lists.steps.add({
+            id: String(steps.length + 1).padStart(2, '0'),
+            title: 'New Step',
+            desc: 'Describe this step…',
+        });
+        setOpen((p) => ({ ...p, [steps.length]: true }));
+    }
 
     function updateStep(index, field, value) {
         hook.updateEditData((draft) => {
@@ -13,74 +38,70 @@ export default function ProcessEditor() {
         });
     }
 
-    function nextStepId() {
-        const steps = hook.editData || [];
-        return String(steps.length + 1).padStart(2, '0');
-    }
-
-    function addStep() {
-        hook.updateEditData((draft) => {
-            const newId = String(draft.length + 1).padStart(2, '0');
-            draft.push({ id: newId, title: 'New Step', desc: 'Step description...' });
-        });
-    }
-
-    function removeStep(index) {
-        hook.updateEditData((draft) => {
-            draft.splice(index, 1);
-            draft.forEach((s, i) => {
-                s.id = String(i + 1).padStart(2, '0');
-            });
-        });
-    }
-
-    function moveStep(from, to) {
-        if (to < 0 || to >= hook.editData.length) return;
-        hook.updateEditData((draft) => {
-            const [item] = draft.splice(from, 1);
-            draft.splice(to, 0, item);
-            draft.forEach((s, i) => {
-                s.id = String(i + 1).padStart(2, '0');
-            });
-        });
-    }
-
     return (
-        <div>
-            <ActionBar
-                loading={hook.loading}
-                saving={hook.saving}
-                error={hook.error}
-                hasChanges={hook.hasChanges}
-                onRefresh={hook.refresh}
-                onDiscard={hook.discard}
-                onSave={() => hook.save()}
+        <EditorFrame sectionId="process" hook={hook}>
+            <ListHeader
+                title="Process steps"
+                count={steps.length}
+                hint="The journey shown in the process section of the site. Numbers renumber automatically when you reorder."
+                actions={
+                    <>
+                        {steps.length > 0 && (
+                            <button type="button" className="edit-btn edit-btn--sm" onClick={toggleAll}>
+                                {allOpen ? 'Collapse all' : 'Expand all'}
+                            </button>
+                        )}
+                        <button type="button" className="edit-btn edit-btn--primary edit-btn--sm" onClick={addStep}>
+                            <Plus size={13} />
+                            Add step
+                        </button>
+                    </>
+                }
             />
 
-            <ArrayField
-                label="Process Steps"
-                items={hook.editData || []}
-                onAdd={addStep}
-                onUpdate={(i, updates) => Object.assign(updates, {})}
-                onRemove={removeStep}
-                onMove={moveStep}
+            <ItemList
+                items={steps}
                 addLabel="Add step"
-                renderItem={(item, index) => (
-                    <div style={{ display: 'grid', gridTemplateColumns: '80px 1fr', gap: '0 16px' }}>
-                        <Field label="Number">
-                            <TextInput value={item.id} onChange={(v) => updateStep(index, 'id', v)} />
-                        </Field>
-                        <Field label="Title">
-                            <TextInput value={item.title} onChange={(v) => updateStep(index, 'title', v)} />
-                        </Field>
-                        <div style={{ gridColumn: 'span 2' }}>
-                            <Field label="Description">
-                                <Textarea value={item.desc} onChange={(v) => updateStep(index, 'desc', v)} rows={2} />
+                onAdd={addStep}
+                empty={
+                    <>
+                        <span className="edit-empty__title">No process steps yet</span>
+                        <span className="edit-empty__hint">
+                            Each step is a numbered card on the site — a title and one sentence explaining it.
+                        </span>
+                    </>
+                }
+                renderItem={(item, i) => (
+                    <ItemRow
+                        key={`step-${i}`}
+                        index={i}
+                        total={steps.length}
+                        open={!!open[i]}
+                        onToggle={toggle(i)}
+                        onMove={hook.lists.steps.move}
+                        onRemove={hook.lists.steps.remove}
+                        removeLabel="Remove step"
+                        summary={
+                            <>
+                                <span className="edit-badge edit-badge--accent">{item.id}</span>
+                                <span className="edit-row__title">{item.title || 'Untitled step'}</span>
+                            </>
+                        }
+                    >
+                        <FieldGrid>
+                            <Field label="Step number" hint="Displayed as the card's index.">
+                                <TextInput value={item.id} onChange={(v) => updateStep(i, 'id', v)} />
                             </Field>
-                        </div>
-                    </div>
+                            <Field label="Title">
+                                <TextInput value={item.title} onChange={(v) => updateStep(i, 'title', v)} />
+                            </Field>
+                            <Field label="Description" span={2} hint="One or two sentences.">
+                                <Textarea value={item.desc} onChange={(v) => updateStep(i, 'desc', v)} rows={3} />
+                            </Field>
+                        </FieldGrid>
+                    </ItemRow>
                 )}
             />
-        </div>
+        </EditorFrame>
     );
 }

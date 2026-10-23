@@ -70,3 +70,6 @@ tmp/
 
 # skills
 EDIT_CONSOLE.md
+CLIENT_SETUP.md
+.env.client.local
+.env.personal.local

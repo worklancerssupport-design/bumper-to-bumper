@@ -1,0 +1,48 @@
+/* ============================================================
+   EDITOR FRAME — states shared by every editor
+   ============================================================ */
+
+.edit-frame__loading {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-10);
+    color: var(--text-muted);
+    font-size: var(--text-body);
+    animation: edit-fade-in var(--transition-base) both;
+}
+
+.edit-frame__loading svg {
+    color: var(--brand-red);
+}
+
+.edit-frame__retry {
+    margin-top: var(--space-5);
+}
+
+.edit-frame__notice {
+    margin-top: var(--space-6);
+}
+
+.edit-frame__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+    padding-top: var(--space-6);
+    animation: edit-rise var(--transition-slow) both;
+}
+
+/* A repeating list block inside an editor body */
+.edit-stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+}
+
+/* A group of related cards, e.g. several lists that belong together */
+.edit-stack-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    padding-top: var(--space-2);
+}

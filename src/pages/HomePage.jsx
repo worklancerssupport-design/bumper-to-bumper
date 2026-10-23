@@ -44,7 +44,7 @@ const localBusinessSchema = {
       closes: to24h(business.hours.sunday.close),
     },
   ],
-  sameAs: [business.social.instagram].filter(Boolean),
+  sameAs: [business.social.instagram, business.social.youtube].filter(Boolean),
 };
 
 export default function HomePage() {
