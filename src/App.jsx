@@ -1,4 +1,3 @@
-import CustomCursor from './components/ui/CustomCursor/CustomCursor';
 import { Suspense, lazy } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { Analytics } from '@vercel/analytics/react';
@@ -36,9 +35,6 @@ function App() {
     return (
         <ErrorBoundary>
             <Analytics />
-            {/* The edit console is a working tool, not a showcase: it keeps the
-                native cursor so precise clicking on inputs stays accurate. */}
-            {!isEdit && <CustomCursor />}
             <ScrollToTop />
             {!isEdit && <Header />}
             <main id="main-content" tabIndex={-1}>
