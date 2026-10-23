@@ -1,0 +1,219 @@
+.cta-section {
+  position: relative;
+  padding: clamp(4rem, 9vw, 7rem) 0;
+  text-align: center;
+  overflow: hidden;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.cta-section--dark {
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+}
+
+.cta-section--accent {
+  background: var(--gradient-red);
+  color: var(--text-on-red);
+}
+
+.cta-section__pattern {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+  opacity: var(--opacity-medium);
+  pointer-events: none;
+  mask-image: radial-gradient(ellipse at center, #000 0%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 0%, transparent 75%);
+}
+
+.cta-section--dark::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, var(--brand-red-glow) 0%, transparent 65%);
+  transform: translate(-50%, -50%);
+  opacity: var(--opacity-whisper);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.cta-section__content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.cta-section__label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--text-tiny);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-widest);
+  text-transform: uppercase;
+  color: var(--text-muted);
+  opacity: var(--opacity-low);
+  margin-bottom: var(--space-2);
+}
+
+.cta-section__label::before,
+.cta-section__label::after {
+  content: '';
+  display: inline-block;
+  width: 28px;
+  height: 1px;
+  background: var(--border-strong);
+}
+
+.cta-section__title {
+  font-family: var(--font-display);
+  font-size: var(--text-display);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-display);
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--text-primary);
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.cta-section--accent .cta-section__title {
+  color: var(--text-on-red);
+}
+
+.cta-section__subtitle {
+  font-family: var(--font-sans);
+  font-size: var(--text-lead);
+  line-height: var(--line-height-relaxed);
+  color: var(--text-secondary);
+  opacity: var(--opacity-medium);
+  max-width: 640px;
+  margin: 0 0 var(--space-4);
+}
+
+.cta-section--accent .cta-section__subtitle {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.cta-section__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+/* Outline CTA button — matches navbar Get Quote style */
+.cta-section__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  height: var(--header-control-height);
+  padding: 0 var(--space-4);
+  font-family: var(--font-sans);
+  font-size: var(--text-caption);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-wider);
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  transition: background-color var(--transition-fast),
+              color var(--transition-fast),
+              border-color var(--transition-fast);
+}
+
+.cta-section__btn:hover {
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+}
+
+.cta-section__btn-icon {
+  color: var(--brand-red);
+  transition: transform var(--transition-fast);
+}
+
+.cta-section__btn:hover .cta-section__btn-icon {
+  transform: translateX(3px);
+}
+
+/* Outline icon button — matches navbar WhatsApp/Instagram style */
+.cta-section__icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--header-control-height);
+  height: var(--header-control-height);
+  border-radius: var(--radius-md);
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color var(--transition-fast),
+              border-color var(--transition-fast),
+              background-color var(--transition-fast);
+}
+
+.cta-section__icon-btn:hover {
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+  background-color: var(--bg-surface);
+}
+
+/* On red/accent variant, invert */
+.cta-section--accent .cta-section__btn {
+  color: var(--text-on-red);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.cta-section--accent .cta-section__btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--text-on-red);
+  border-color: var(--text-on-red);
+}
+
+.cta-section--accent .cta-section__icon-btn {
+  color: var(--text-on-red);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.cta-section--accent .cta-section__icon-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--text-on-red);
+  border-color: var(--text-on-red);
+}
+
+@media (max-width: 600px) {
+  .cta-section__actions {
+    flex-direction: row;
+    width: auto;
+  }
+
+  .cta-section__title {
+    font-size: var(--text-heading);
+  }
+
+  .cta-section__subtitle {
+    font-size: var(--text-body);
+  }
+}

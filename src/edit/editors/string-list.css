@@ -1,0 +1,62 @@
+.edit-string-list {
+    margin-top: 12px;
+}
+
+.edit-string-list__label {
+    font-family: var(--font-display, 'Orbitron', sans-serif);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted, #707070);
+    margin-bottom: 8px;
+}
+
+.edit-string-list__row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+    align-items: center;
+}
+
+.edit-string-list__row .edit-input {
+    flex: 1;
+}
+
+.edit-string-list__remove {
+    width: 36px;
+    height: 36px;
+    background: none;
+    border: 1px solid var(--border, rgba(255, 255, 255, 0.10));
+    border-radius: 6px;
+    color: var(--text-muted, #707070);
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 1;
+    transition: all 0.15s;
+    flex-shrink: 0;
+}
+
+.edit-string-list__remove:hover {
+    background: var(--color-error-bg, rgba(255, 74, 90, 0.12));
+    color: var(--color-error, #ff4a5a);
+    border-color: rgba(255, 74, 90, 0.40);
+}
+
+.edit-string-list__add {
+    padding: 6px 12px;
+    background: none;
+    border: 1px dashed var(--border, rgba(255, 255, 255, 0.18));
+    border-radius: 4px;
+    color: var(--text-secondary, #b0b0b0);
+    font-family: inherit;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.edit-string-list__add:hover {
+    background: var(--bg-elevated, #1f1f1f);
+    border-color: var(--border-strong, rgba(255, 255, 255, 0.30));
+    color: var(--text-primary, #ffffff);
+}

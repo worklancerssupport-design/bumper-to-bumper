@@ -1,0 +1,1208 @@
+{
+    "filterTags": [
+        "All",
+        "Lighting",
+        "Protection",
+        "Styling",
+        "Utility"
+    ],
+    "groups": [
+        {
+            "id": "lighting",
+            "tag": "GROUP 01 // LIGHTING ARCHITECTURE",
+            "title": "High-Performance Lighting & Optics",
+            "slugs": [
+                "fog-light-fog-projector",
+                "headlight-led-upgrade",
+                "drl-headlight-fog",
+                "horn-parking-leds",
+                "door-logo-lights",
+                "wiring-kits-cutouts"
+            ]
+        },
+        {
+            "id": "protection",
+            "tag": "GROUP 02 // ARMOR & DEFENSE",
+            "title": "Vehicle Armor & Body Protection",
+            "slugs": [
+                "anti-rat-machine-rat-mesh",
+                "windshield-anti-glare-film",
+                "door-visors-side-claddings",
+                "mud-flaps",
+                "bonnet-letters-damping",
+                "wiper-blades"
+            ]
+        },
+        {
+            "id": "styling",
+            "tag": "GROUP 03 // AERODYNAMICS",
+            "title": "Aerodynamics & Exterior Styling",
+            "slugs": [
+                "roof-rails-sharkfin-antenna",
+                "rear-spoiler-tail-light",
+                "front-rear-bumpers",
+                "side-foot-steps",
+                "heavy-clamp-post-covers",
+                "box-clamp-wheel-cups"
+            ]
+        },
+        {
+            "id": "utility",
+            "tag": "GROUP 04 // ELECTRONICS & UTILITY",
+            "title": "Utility, Safety & Custom Hardware",
+            "slugs": [
+                "reverse-camera-sensor",
+                "number-plates-frames"
+            ]
+        }
+    ],
+    "items": [
+        {
+            "id": "ext-01",
+            "name": "Fog Light & Fog Projector",
+            "slug": "fog-light-fog-projector",
+            "category": "exterior",
+            "shortDescription": "High-output halogen, LED, and bi-LED optical projector fog lamps engineered for weather penetration and defined beam cutoff.",
+            "description": "Fog lights and optical projector fog lamps provide crucial low-slung illumination that cuts directly beneath mist, heavy monsoon rainfall, coastal sea fog, and dust. Installed into factory bumper recesses using vehicle-specific mounting brackets, our projector fog lamps feature razor-sharp cutoff shields that illuminate the immediate road surface and kerbside shoulders without producing glare for oncoming traffic.",
+            "benefits": [
+                "Low-mount beam spread cuts under rain, haze, and coastal fog",
+                "Razor-sharp optical cutoff prevents upward light scatter into oncoming eyes",
+                "Vehicle-specific bracket fitment preserves original bumper aesthetics",
+                "Available in crisp 6000K pure white and high-penetration 3000K selective yellow",
+                "Dedicated relay harness with inline fuse protection prevents electrical overload",
+                "Weather-sealed IP67 waterproof housings withstand monsoons and road spray"
+            ],
+            "installation": "Mounted directly into factory fog light apertures using vehicle-specific brackets. Wiring is connected via plug-and-play relay harnesses with independent inline fuse protection, requiring zero cuts to the factory headlight loom.",
+            "options": [
+                {
+                    "label": "Standard Halogen Fog Lights",
+                    "description": "Reliable halogen units with clean OEM-style fitment"
+                },
+                {
+                    "label": "LED Fog Lights",
+                    "description": "Brighter, energy-efficient LED units with crisp white or selective yellow output"
+                },
+                {
+                    "label": "Projector Fog Lamps",
+                    "description": "Sharp beam-cut projector units for superior light control"
+                },
+                {
+                    "label": "DRL Integrated Fog",
+                    "description": "Fog lights with integrated daytime running lights for a premium look"
+                }
+            ],
+            "image": "https://res.cloudinary.com/fthteymu/image/upload/v1790172382/best-car-accessories/f4nn9jmcu0t8c0qunuex.jpg",
+            "imageAlt": "Fog light and bi-LED projector fog lamp installation in Chennai",
+            "relatedServices": [
+                "drl-headlight-fog",
+                "headlight-led-upgrade",
+                "wiring-kits-cutouts",
+                "parking-leds"
+            ],
+            "faqs": [
+                {
+                    "q": "Are fog lights compatible with all cars?",
+                    "a": "Fog light availability and bracket compatibility varies by car model. We assess your specific vehicle before recommending and installing any fog light kit."
+                },
+                {
+                    "q": "Can I choose between yellow and white fog lights?",
+                    "a": "Yes. Both selective yellow and white LED options are available, and the right choice often depends on your local weather conditions and personal preference."
+                },
+                {
+                    "q": "Do you handle the wiring as well?",
+                    "a": "Yes, our installation includes complete wiring with relays, fuse protection, and switch integration."
+                },
+                {
+                    "q": "Will fog light installation affect my car's warranty?",
+                    "a": "Aftermarket accessory installation guidelines vary by manufacturer. We recommend checking your vehicle's warranty terms before proceeding with any modification."
+                },
+                {
+                    "q": "Can I enquire about pricing via WhatsApp?",
+                    "a": "Yes, you can send your car model and requirements via WhatsApp and we will get back to you with options."
+                }
+            ],
+            "showInNav": true,
+            "showInFooter": true,
+            "navName": "Fog Lights & Projectors",
+            "megaMenuGroup": "Lighting",
+            "gallery": [
+                "https://res.cloudinary.com/fthteymu/image/upload/v1790174024/best-car-accessories/skkwsxt75cf04y7m1haw.jpg",
+                "https://res.cloudinary.com/fthteymu/image/upload/v1790174077/best-car-accessories/yyohtxqbfnsjhyhmgysj.jpg",
+                "https://res.cloudinary.com/fthteymu/image/upload/v1790174116/best-car-accessories/cmoi9xo2rjmkxkqxzpfx.jpg",
+                "https://res.cloudinary.com/fthteymu/image/upload/v1790174181/best-car-accessories/loxmjnzubic2ml8kktgg.jpg",
+                "https://res.cloudinary.com/fthteymu/image/upload/v1790174224/best-car-accessories/wve53rxiiwdg1cnfjnr8.jpg",
+                "https://res.cloudinary.com/fthteymu/image/upload/v1790174253/best-car-accessories/mvgkodtj0n0qgyd71wdz.jpg",
+                "https://res.cloudinary.com/fthteymu/image/upload/v1790174293/best-car-accessories/qj6rxcyi1yvw5ut13wyt.jpg",
+                "https://res.cloudinary.com/fthteymu/image/upload/v1790174336/best-car-accessories/sweoi9euebx803g3c93c.jpg",
+                "https://res.cloudinary.com/fthteymu/image/upload/v1790174360/best-car-accessories/qvushrsnima5xibmuuie.jpg",
+                "https://res.cloudinary.com/fthteymu/image/upload/v1790174384/best-car-accessories/ogugozgmw3yikyapuuvw.jpg"
+            ]
+        },
+        {
+            "id": "ext-02",
+            "name": "Headlight LED Upgrade & Dome Polish",
+            "slug": "headlight-led-upgrade",
+            "category": "exterior",
+            "shortDescription": "High-lumen LED bulb conversions paired with optical lens restoration to deliver enhanced night throw and crystal-clear front styling.",
+            "description": "Factory halogen headlight bulbs often leave night driving fatigued with dull yellow illumination and limited throw. Our precision LED conversions replace low-efficiency filaments with automotive-grade LED chips positioned exactly at the optical focal point of your reflector or projector housing. For older vehicles with oxidation or haze, multi-stage dome restoration removes yellowed UV damage, polishing the polycarbonate lens to factory optical clarity before applying a protective sealant.",
+            "benefits": [
+                "Focused beam projection calibrated to existing reflector and projector optics",
+                "Modern 6000K cool white output enhances contrast on unlit roadways",
+                "Multi-stage dome polishing eliminates yellowing and haze without lens replacement",
+                "High-speed aviation aluminum heat sinks ensure active thermal management",
+                "Immediate ignition with zero warm-up delay compared to older HID systems",
+                "Low power draw reduces thermal load on headlight housing assemblies"
+            ],
+            "installation": "Direct bulb replacement with CANBUS-ready error-free driver modules. Dome restoration employs progressive wet sanding, compound rotary polishing, and a UV-curable sealant to protect restored lens clarity.",
+            "options": [
+                {
+                    "label": "LED Bulb Upgrade",
+                    "description": "High-output LED replacement bulbs matched to your headlight housing type"
+                },
+                {
+                    "label": "Projector Headlight Upgrade",
+                    "description": "Upgraded projector units for sharper beam patterns"
+                },
+                {
+                    "label": "Headlight Dome Polish",
+                    "description": "Multi-stage polishing and sealing to restore cloudy/yellowed headlight lenses"
+                }
+            ],
+            "image": "/images/exterior/led-headlight-upgrade-chennai.webp",
+            "imageAlt": "Headlight LED bulb upgrade and dome lens polish in Chennai",
+            "relatedServices": [
+                "fog-light-fog-projector",
+                "drl-headlight-fog",
+                "wiring-kits-cutouts",
+                "horn-parking-leds"
+            ],
+            "faqs": [
+                {
+                    "q": "Which LED bulbs are compatible with my car?",
+                    "a": "Compatibility depends on your vehicle's headlight housing type (H4, H7, H11, etc.). We check your car's specifications before selecting the right unit."
+                },
+                {
+                    "q": "Will LED bulbs cause issues with projector housings?",
+                    "a": "Some LED bulbs are specifically designed for projector housings while others are better suited for reflector housings. We select accordingly."
+                },
+                {
+                    "q": "How long does dome polishing last?",
+                    "a": "With a proper UV sealant applied after polishing, results typically last for an extended period depending on parking conditions and UV exposure."
+                },
+                {
+                    "q": "Can I enquire about options before visiting?",
+                    "a": "Yes, share your car model via WhatsApp and we can advise on available options."
+                }
+            ],
+            "showInNav": true,
+            "showInFooter": true,
+            "navName": "LED Headlights Upgrade",
+            "megaMenuGroup": "Lighting"
+        },
+        {
+            "id": "ext-03",
+            "name": "DRL for Headlights & Fog",
+            "slug": "drl-headlight-fog",
+            "category": "exterior",
+            "shortDescription": "Distinctive Daytime Running Lights with integrated dynamic sequential indicators for heightened daytime conspicuity and modern front-end styling.",
+            "description": "Daytime Running Lights (DRLs) provide critical visual contrast on busy suburban roads and highways, allowing pedestrians and other drivers to identify your vehicle earlier from greater distances. We supply and install both flexible matrix LED light strips and integrated bezel housings that feature crisp white daytime illumination and smooth amber sequential turn signals synchronized with your hazard and indicator controls.",
+            "benefits": [
+                "High-intensity daytime visibility alerts pedestrians and opposite-lane traffic",
+                "Smooth amber sequential sweeping indicators add a refined European touch",
+                "Dual-function controller automatically dims white output when headlights activate",
+                "Flexible silicone and rigid ABS housing variants to match diverse bumper contours",
+                "Integrated inline voltage stabilizers prevent LED flicker during engine idle",
+                "Low power consumption designed for continuous daytime running"
+            ],
+            "installation": "Wired via ignition-switched ACC feeds with waterproof inline controllers. Integrated into headlight assemblies or fog lamp surrounds using OEM-grade mounting tape and hidden conduits.",
+            "options": [
+                {
+                    "label": "Headlight DRL Strip",
+                    "description": "LED strips integrated into or around headlight bezels"
+                },
+                {
+                    "label": "Fog Position DRL",
+                    "description": "DRL units mounted in the fog light position"
+                },
+                {
+                    "label": "Dual Function DRL + Indicator",
+                    "description": "DRL units with sequential indicator function"
+                }
+            ],
+            "image": "https://m.media-amazon.com/images/I/71dtPz9y+EL._AC_UF1000,1000_QL80_.jpg",
+            "imageAlt": "Daytime running lights and dynamic indicator installation in Chennai",
+            "relatedServices": [
+                "fog-light-fog-projector",
+                "headlight-led-upgrade",
+                "wiring-kits-cutouts",
+                "door-logo-lights"
+            ],
+            "faqs": [
+                {
+                    "q": "Will DRLs drain my car battery?",
+                    "a": "Modern LED DRLs consume very little power and are wired to the ignition, so they only run when the engine is on."
+                },
+                {
+                    "q": "Can DRLs be added to any car?",
+                    "a": "DRL fitment varies by vehicle make, model, and front bumper design. We assess fitment options specific to your car."
+                },
+                {
+                    "q": "Do DRLs replace headlights at night?",
+                    "a": "No. DRLs are for daytime use only. Standard headlights should still be used at night."
+                }
+            ],
+            "showInNav": true,
+            "navName": "DRL & Daytime Lights",
+            "megaMenuGroup": "Lighting"
+        },
+        {
+            "id": "ext-04",
+            "name": "Bonnet Letters & Damping Sheets",
+            "slug": "bonnet-letters-damping",
+            "category": "exterior",
+            "shortDescription": "Premium 3D bonnet lettering paired with multi-layer butyl engine hood acoustic damping to reduce mechanical vibration and engine clatter.",
+            "description": "Enhance your vehicle's front identity while significantly silencing engine bay noise. Our 3D bonnet lettering utilizes automotive-grade ABS with high-gloss chrome or matte black finishes, laser-cut to exact OEM typographic proportions and affixed with exterior-grade 3M adhesive. Complementing the exterior styling, high-density butyl aluminum damping sheets applied under the hood line absorb engine harmonics, lowering cabin noise levels over highway journeys.",
+            "benefits": [
+                "Precision 3D lettering enhances front hood presence and brand identity",
+                "Automotive-grade 3M adhesive backing withstands pressure washes and Chennai heat",
+                "High-density butyl damping sheets attenuate low-frequency engine vibrations",
+                "Aluminum foil face reflects radiated engine heat away from the bonnet paint",
+                "Noticeable reduction in intrusive diesel clatter and engine hum inside the cabin",
+                "Pre-curved lettering alignment templates ensure straight, factory-aligned application"
+            ],
+            "installation": "Hood surface undergoes thorough solvent degreasing before letters are aligned using spacing templates. Damping sheets are roller-pressed directly onto bare inner hood sheet metal between structural braces for maximum acoustic bonding.",
+            "options": [
+                {
+                    "label": "Chrome Bonnet Letters",
+                    "description": "Classic chrome finish lettering for a premium look"
+                },
+                {
+                    "label": "Body-Coloured Letters",
+                    "description": "Painted to match your car's body colour"
+                },
+                {
+                    "label": "Bonnet Damping Sheet",
+                    "description": "Sound and heat insulation material for bonnet underside"
+                },
+                {
+                    "label": "Combined Package",
+                    "description": "Letters + damping sheet together"
+                }
+            ],
+            "image": "https://res.cloudinary.com/fthteymu/image/upload/v1790157587/best-car-accessories/h67fqu5rgspkdfkntzc4.jpg",
+            "imageAlt": "Bonnet 3D lettering and engine hood sound damping in Chennai",
+            "relatedServices": [
+                "rear-spoiler-tail-light",
+                "door-visors-side-claddings",
+                "number-plates-frames",
+                "mud-flaps"
+            ],
+            "faqs": [
+                {
+                    "q": "Will bonnet damping affect my car's engine cooling?",
+                    "a": "Properly installed bonnet damping materials do not affect engine cooling as they are designed to work within the bonnet space without blocking ventilation."
+                },
+                {
+                    "q": "Are bonnet letters permanent?",
+                    "a": "They are designed for long-term attachment but can be removed with appropriate adhesive remover if needed."
+                }
+            ],
+            "showInNav": false
+        },
+        {
+            "id": "ext-05",
+            "name": "Anti-Rat Machine & Rat Mesh",
+            "slug": "anti-rat-machine-rat-mesh",
+            "category": "exterior",
+            "shortDescription": "Ultrasonic rodent deterrent devices and stainless steel mesh barriers designed to safeguard engine bay wiring looms and AC intake ducts from rodent damage.",
+            "description": "Rodent damage to automotive electrical harnesses and air conditioning ducts is one of the most common and costly vehicle issues in urban environments. We install a dual-action defense system combining ultrasonic sound wave generators with custom-fitted 304 stainless steel mesh barriers. The ultrasonic unit emits frequency-swept acoustic waves and strobe light flashes that repel rodents from nesting, while the precision mesh physically blocks entry into vulnerable AC cabin filter intake openings.",
+            "benefits": [
+                "Variable-frequency ultrasonic emissions prevent rodents from adapting to sounds",
+                "High-grade 304 stainless steel mesh stops physical entry through cowl drain holes",
+                "Low current standby draw ensures vehicle battery is never depleted during parking",
+                "Built-in vibration sensor automatically switches off unit when the engine starts",
+                "Prevents expensive electrical short circuits, wire harness replacements, and AC fouls",
+                "Robust heat-resistant construction suitable for engine bay mounting"
+            ],
+            "installation": "Securely mounted inside the engine bay with dedicated fused battery connections and smart vibration sensors. Stainless mesh is shaped and clamped over the cabin intake and cowl drainage channels.",
+            "options": [
+                {
+                    "label": "Ultrasonic Anti-Rat Device",
+                    "description": "Electronic deterrent mounted in engine bay"
+                },
+                {
+                    "label": "Rat Mesh Protection",
+                    "description": "Physical mesh covering entry points"
+                },
+                {
+                    "label": "Combined Protection Package",
+                    "description": "Both ultrasonic device and mesh together"
+                }
+            ],
+            "image": "/images/exterior/anti-rat-machine-mesh-chennai.webp",
+            "imageAlt": "Anti-rat ultrasonic repellent and stainless steel mesh installation in Chennai",
+            "relatedServices": [
+                "wiring-kits-cutouts",
+                "bonnet-letters-damping",
+                "fog-light-fog-projector"
+            ],
+            "faqs": [
+                {
+                    "q": "How effective is the ultrasonic device?",
+                    "a": "Ultrasonic devices are effective as a deterrent. Combined with physical mesh, they provide comprehensive protection."
+                },
+                {
+                    "q": "Does it require any maintenance?",
+                    "a": "The ultrasonic device should be checked periodically to ensure it remains active. Mesh should be inspected occasionally for damage."
+                },
+                {
+                    "q": "Is this safe for my car's existing wiring?",
+                    "a": "Yes. Both solutions are non-invasive and do not interfere with your vehicle's wiring."
+                }
+            ],
+            "showInNav": false
+        },
+        {
+            "id": "ext-06",
+            "name": "Windshield Anti-Glare & Replacement",
+            "slug": "windshield-anti-glare-film",
+            "category": "exterior",
+            "shortDescription": "Optical-clarity windshield anti-glare protection and certified glass replacement with leak-proof polyurethane urethane bonding.",
+            "description": "Driving through intense Chennai sun or confronting high-beam glare at night causes severe eye strain and visibility reduction. Our optical ceramic windshield films block harsh ultraviolet and infrared thermal energy without interfering with FASTag, GPS, or cellular signals. For windshields with deep stone chips or structural cracks, we provide certified OEM-grade windshield replacement utilizing automotive polyurethane adhesives that restore structural cab integrity and guarantee leak-proof sealing.",
+            "benefits": [
+                "High infrared heat rejection keeps the dashboard cool and reduces AC load",
+                "Night anti-glare filtration reduces eye fatigue from high-beam oncoming headlights",
+                "100% non-metallic nano-ceramic construction preserves FASTag and GPS reception",
+                "Certified shatter-resistant laminated glass replacement for cracked windshields",
+                "Automotive polyurethane adhesive cures to OEM factory tensile strength",
+                "Crystal-clear visual acuity with zero distortion across the optical field"
+            ],
+            "installation": "Film installation is performed in an enclosed dust-controlled bay using heat-forming techniques. Replacement windshields are bedded in high-modulus polyurethane adhesive with a required curing resting period.",
+            "options": [
+                {
+                    "label": "Anti-Glare Film",
+                    "description": "Glare-reducing film for existing windshield"
+                },
+                {
+                    "label": "Windshield Replacement",
+                    "description": "Professional replacement when original glass is damaged"
+                }
+            ],
+            "image": "/images/exterior/windshield-anti-glare-film-chennai.webp",
+            "imageAlt": "Windshield anti-glare film and certified auto glass replacement in Chennai",
+            "relatedServices": [
+                "sun-control-films",
+                "wiper-blades",
+                "door-visors-side-claddings"
+            ],
+            "faqs": [
+                {
+                    "q": "Will anti-glare film affect visibility at night?",
+                    "a": "Quality anti-glare films are designed to reduce harsh glare without significantly reducing overall visibility."
+                },
+                {
+                    "q": "Is windshield replacement safe?",
+                    "a": "Professional windshield replacement using correct sealants and glass grades ensures structural integrity."
+                }
+            ],
+            "showInNav": false
+        },
+        {
+            "id": "ext-07",
+            "name": "Roof Rails, Stickers & Sharkfin Antenna",
+            "slug": "roof-rails-sharkfin-antenna",
+            "category": "exterior",
+            "shortDescription": "Aerodynamic roof rails, styling vinyl graphics, and amplified sharkfin antennas that modernize roof profiles with zero drilling.",
+            "description": "Transform your car's upper profile with purposeful SUV-inspired roof rails, subtle aesthetic accent graphics, and aerodynamic sharkfin radio antennas. Our roof rails are contoured to follow your specific vehicle's roof arch, utilizing high-bond automotive adhesive systems that securely support styling rails without drilling through roof sheet metal. The functional sharkfin antenna replaces bulky whip antennas with a built-in amplified signal receiver that maintains clear AM/FM radio clarity.",
+            "benefits": [
+                "SUV-styled roof profile adds visual height, ruggedness, and athletic character",
+                "Non-invasive 3M acrylic adhesive fitment ensures completely drill-free installation",
+                "Amplified helical antenna core ensures clear radio reception across AM and FM bands",
+                "UV-stabilized ABS construction resists fading, cracking, and weathering under direct sun",
+                "Sleek aerodynamic sharkfin design minimizes wind whistling at highway speeds",
+                "Custom vinyl accent stripes and decals applied with precision edge alignment"
+            ],
+            "installation": "Roof gutters are decontaminated and primed before mounting rails with automotive-grade bonding tape. The sharkfin antenna is screwed directly into the factory antenna base before weather-sealing.",
+            "options": [
+                {
+                    "label": "Roof Rails",
+                    "description": "Functional ABS or aluminium roof rails"
+                },
+                {
+                    "label": "Sharkfin Antenna",
+                    "description": "Aerodynamic sharkfin replacement antenna"
+                },
+                {
+                    "label": "Short Antenna",
+                    "description": "Compact short-mast antenna for cleaner look"
+                },
+                {
+                    "label": "Roof Stickers / Decals",
+                    "description": "Styling decals for roof area"
+                }
+            ],
+            "image": "/images/exterior/roof-rails-sharkfin-antenna-chennai.webp",
+            "imageAlt": "Drill-free roof rails and amplified sharkfin antenna installation in Chennai",
+            "relatedServices": [
+                "rear-spoiler-tail-light",
+                "door-visors-side-claddings",
+                "bonnet-letters-damping"
+            ],
+            "faqs": [
+                {
+                    "q": "Will roof rail installation damage the roof?",
+                    "a": "Roof rails are fitted using vehicle-specific mounting points designed for this purpose, avoiding damage to the roof."
+                },
+                {
+                    "q": "Will the sharkfin antenna affect radio reception?",
+                    "a": "Quality sharkfin antennas include proper RF adapters to maintain reception quality."
+                }
+            ],
+            "showInNav": true,
+            "navName": "Roof Rails & Antennas",
+            "megaMenuGroup": "Styling"
+        },
+        {
+            "id": "ext-08",
+            "name": "Rear Spoiler & Tail Light Replacement",
+            "slug": "rear-spoiler-tail-light",
+            "category": "exterior",
+            "shortDescription": "Aerodynamic rear spoilers with integrated LED brake lights and custom smoke-tint or clear LED tail light clusters for elevated rear styling.",
+            "description": "The rear view of your car makes a lasting impression. Our vehicle-specific rear spoilers add aerodynamic poise and sporty flair, featuring integrated LED third brake lights that enhance trailing vehicle reaction times. Complementing rear styling, our replacement LED tail light assemblies feature smoked housings, illuminated welcome animations, and bright LED braking modules that plug directly into factory wiring connectors.",
+            "benefits": [
+                "Distinctive rear-end styling creates an athletic, road-hugging silhouette",
+                "Integrated high-mount LED stop lamp provides rapid illumination when braking",
+                "Replacement tail lights feature modern LED guide pipes and dynamic welcome sweeps",
+                "Manufactured from impact-resistant lightweight ABS plastic",
+                "Plug-and-play wiring connectors match factory tail light harnesses",
+                "Precision fitment contours cleanly to boot lids and tailgate glass frames"
+            ],
+            "installation": "Spoilers are secured using structural double-sided adhesive and concealed under-edge mounting clamps where applicable. Tail lights connect directly into existing factory harness sockets without wire splicing.",
+            "options": [
+                {
+                    "label": "ABS Rear Spoiler",
+                    "description": "Lightweight ABS spoiler in body colour or primer"
+                },
+                {
+                    "label": "LED Tail Light Upgrade",
+                    "description": "LED replacement units for existing tail light positions"
+                },
+                {
+                    "label": "Reflector DRL Tail Lights",
+                    "description": "Premium units combining LED with reflector DRL styling"
+                }
+            ],
+            "image": "https://res.cloudinary.com/fthteymu/image/upload/v1790172325/best-car-accessories/uvlph57x4sljvzwzx0yt.jpg",
+            "imageAlt": "Rear spoiler and LED tail light assembly replacement in Chennai",
+            "relatedServices": [
+                "front-rear-bumpers",
+                "roof-rails-sharkfin-antenna",
+                "reverse-camera-sensor",
+                "door-visors-side-claddings"
+            ],
+            "faqs": [
+                {
+                    "q": "Will a spoiler require drilling into the boot lid?",
+                    "a": "Fitment methods vary by vehicle model. We assess the cleanest fitment method for your specific car."
+                },
+                {
+                    "q": "Are aftermarket tail lights road-legal?",
+                    "a": "We recommend checking local road regulations regarding aftermarket lighting modifications for your region."
+                }
+            ],
+            "showInNav": true,
+            "navName": "Rear Spoilers & Tail Lights",
+            "megaMenuGroup": "Styling"
+        },
+        {
+            "id": "ext-09",
+            "name": "Front & Rear Bumpers (Steel / ABS)",
+            "slug": "front-rear-bumpers",
+            "category": "exterior",
+            "shortDescription": "Heavy-duty ABS bumper diffusers, skid plate garnishes, and rugged steel bumper guards designed to absorb low-speed impacts and shield body panels.",
+            "description": "Protect your vehicle's vulnerable bumper extremities from parking scuffs, tight lane scrapes, and road debris. We supply and fit front and rear bumper styling kits ranging from sleek ABS aerodynamic splitters with silver skid accents to heavy-gauge steel rear safety guards. Designed to absorb low-speed parking impacts, these guards distribute shock away from delicate body panels while giving your car an assertive, road-ready stance.",
+            "benefits": [
+                "Protects front and rear bodywork from daily bumper scuffs and parking impacts",
+                "Dual-tone styling with faux skid plates elevates crossover and SUV aesthetics",
+                "Heavy-gauge steel rear guards provide robust protection against tailgating vehicles",
+                "Engineered to mount securely to factory chassis tow points and subframe brackets",
+                "ABS plastic components are finished in UV-resistant automotive satin or gloss coatings",
+                "Zero interference with reverse parking sensors and exhaust tailpipe clearances"
+            ],
+            "installation": "Bolted to dedicated factory chassis mounting locations using high-tensile hardware. ABS splitters and bumper extensions are anchored with mechanical fasteners and 3M automotive adhesive.",
+            "options": [
+                {
+                    "label": "Steel Front Bumper",
+                    "description": "Heavy-duty steel front protection bumper"
+                },
+                {
+                    "label": "Steel Rear Bumper",
+                    "description": "Heavy-duty steel rear protection bumper"
+                },
+                {
+                    "label": "ABS Front Bumper",
+                    "description": "Styled ABS front bumper for premium look"
+                },
+                {
+                    "label": "ABS Rear Bumper",
+                    "description": "Styled ABS rear bumper upgrade"
+                }
+            ],
+            "image": "https://res.cloudinary.com/fthteymu/image/upload/v1790170805/best-car-accessories/jl9bakw6sopdfezjd4qc.jpg",
+            "imageAlt": "Front and rear bumper guard and ABS diffuser installation in Chennai",
+            "relatedServices": [
+                "fog-light-fog-projector",
+                "rear-spoiler-tail-light",
+                "reverse-camera-sensor",
+                "mud-flaps"
+            ],
+            "faqs": [
+                {
+                    "q": "Will a bumper change affect my car's sensors?",
+                    "a": "We ensure all parking sensors and other integrated features continue to function correctly after installation."
+                },
+                {
+                    "q": "Are these bumpers specific to my car model?",
+                    "a": "Yes. Bumpers are model-specific for proper fitment and correct alignment."
+                }
+            ],
+            "showInNav": true,
+            "navName": "Front & Rear Bumpers",
+            "megaMenuGroup": "Styling",
+            "gallery": [
+                "https://res.cloudinary.com/fthteymu/image/upload/v1789627879/best-car-accessories/vcsoleeelcdocotzechj.jpg",
+                "https://res.cloudinary.com/fthteymu/image/upload/v1789627924/best-car-accessories/vryojjxmtwgg92ja9bki.jpg",
+                "https://res.cloudinary.com/fthteymu/image/upload/v1790170829/best-car-accessories/wks1etqluw4f0gggclxd.jpg",
+                "https://res.cloudinary.com/fthteymu/image/upload/v1790170846/best-car-accessories/welphhv92tkzv4auzs76.jpg",
+                "https://res.cloudinary.com/fthteymu/image/upload/v1790170868/best-car-accessories/qqlg2jst4wduaebaovmm.jpg",
+                "https://res.cloudinary.com/fthteymu/image/upload/v1790170884/best-car-accessories/tgmocflhqp7fgodqe9ft.jpg",
+                "https://res.cloudinary.com/fthteymu/image/upload/v1790170913/best-car-accessories/wgp1tjr9psxanmruhbpf.jpg",
+                "https://res.cloudinary.com/fthteymu/image/upload/v1790170931/best-car-accessories/y44ete1l7ijwqgfnvu2x.jpg",
+                "https://res.cloudinary.com/fthteymu/image/upload/v1790170966/best-car-accessories/ag1jefa2ggcuzvts2r1o.jpg",
+                "https://res.cloudinary.com/fthteymu/image/upload/v1790170985/best-car-accessories/e8tuak4kfgyemr5hotct.jpg",
+                "https://res.cloudinary.com/fthteymu/image/upload/v1790171069/best-car-accessories/ayhko2kzzue5m9b5n87k.jpg",
+                "https://res.cloudinary.com/fthteymu/image/upload/v1790171084/best-car-accessories/fj7rsadgpn0uvuqgkfgo.jpg",
+                "https://res.cloudinary.com/fthteymu/image/upload/v1790171101/best-car-accessories/bo0syoqkghypwxss6gy3.jpg",
+                "https://res.cloudinary.com/fthteymu/image/upload/v1790171121/best-car-accessories/z602ktld73cmds8hxzfu.jpg",
+                "https://res.cloudinary.com/fthteymu/image/upload/v1790171146/best-car-accessories/zvdxzbela6zccfa2tt6i.jpg",
+                "https://res.cloudinary.com/fthteymu/image/upload/v1790171163/best-car-accessories/mej4rcg5ewbzbebmjbwn.jpg",
+                "https://res.cloudinary.com/fthteymu/image/upload/v1790171184/best-car-accessories/sn84r1jvjduxwo647ly0.jpg",
+                "https://res.cloudinary.com/fthteymu/image/upload/v1790171202/best-car-accessories/pfbe1ib3tudz8aexjgvg.jpg",
+                "https://res.cloudinary.com/fthteymu/image/upload/v1790171216/best-car-accessories/d7rwr6thpoe4fjehqovz.jpg",
+                "https://res.cloudinary.com/fthteymu/image/upload/v1790171234/best-car-accessories/sawvuk5izggrfgdegfol.jpg",
+                "https://res.cloudinary.com/fthteymu/image/upload/v1790171251/best-car-accessories/soqlq7z80nqfns0gaxeg.jpg",
+                "https://res.cloudinary.com/fthteymu/image/upload/v1790171265/best-car-accessories/lskvioeojllneljyrgq7.jpg",
+                "https://res.cloudinary.com/fthteymu/image/upload/v1790171407/best-car-accessories/bepgx6u2elzmtlqqqdcg.jpg",
+                "https://res.cloudinary.com/fthteymu/image/upload/v1790171873/best-car-accessories/abxbspehh4x2hhzoi0s2.jpg",
+                "https://res.cloudinary.com/fthteymu/image/upload/v1790691803/best-car-accessories/vfgipbzgnqyccavvlllc.jpg",
+                "https://res.cloudinary.com/fthteymu/image/upload/v1790691815/best-car-accessories/sugbklk7vzzzfjpaujww.jpg",
+                "https://res.cloudinary.com/fthteymu/image/upload/v1790692435/best-car-accessories/fqqgcaeaps5jjjivkeft.jpg"
+            ]
+        },
+        {
+            "id": "ext-10",
+            "name": "Reverse Camera, Sensor & Monitor",
+            "slug": "reverse-camera-sensor",
+            "category": "exterior",
+            "shortDescription": "High-definition wide-angle reversing cameras, ultrasonic distance sensors, and dashboard/mirror monitors for safe and effortless parking in tight spots.",
+            "description": "Navigating tight parking slots and crowded Chennai streets requires complete rearward visibility. Our parking assist systems combine 170-degree wide-angle night vision reversing cameras with multi-zone ultrasonic parking sensors. The camera feed streams directly onto your existing infotainment screen or a dedicated interior rearview mirror monitor, displaying dynamic or static parking guidelines with color-coded distance warnings.",
+            "benefits": [
+                "Ultra-wide 170° optical field eliminates blind spots directly behind the rear bumper",
+                "Low-lux Sony starlight sensor provides crisp, colored visibility during nighttime parking",
+                "Multi-stage audible beepers and LED distance readouts alert to hidden obstacles",
+                "IP68 waterproof camera housing withstands high-pressure underbody washes",
+                "Automatic activation when reverse gear is engaged with zero lag",
+                "Flush-fit bumper sensors paint-matched to your car's original body colour"
+            ],
+            "installation": "Sensors are flush-mounted into the bumper with factory-matched hole saws. Camera wiring is cleanly routed along OEM door sills and rubber conduit boots to the dashboard display.",
+            "options": [
+                {
+                    "label": "Reverse Camera Only",
+                    "description": "Basic rear camera with display connection"
+                },
+                {
+                    "label": "Parking Sensor Kit",
+                    "description": "Rear parking sensors with audio alert unit"
+                },
+                {
+                    "label": "Camera + Sensor + Monitor",
+                    "description": "Complete reversing system with dedicated monitor"
+                },
+                {
+                    "label": "OEM-Style Integration",
+                    "description": "Integrated with existing infotainment display"
+                }
+            ],
+            "image": "https://res.cloudinary.com/fthteymu/image/upload/v1790171427/best-car-accessories/qw3epurbr3lrw3yrf6aj.jpg",
+            "imageAlt": "Reverse camera and ultrasonic parking sensor installation in Chennai",
+            "relatedServices": [
+                "dash-cameras-ai-dongles",
+                "oem-camera-360-camera",
+                "infotainment-systems",
+                "rear-spoiler-tail-light"
+            ],
+            "faqs": [
+                {
+                    "q": "Can the reverse camera integrate with my factory display?",
+                    "a": "Integration depends on your vehicle's existing infotainment system. We assess compatibility before installation."
+                },
+                {
+                    "q": "How many parking sensors come in a kit?",
+                    "a": "Standard kits typically include 4 rear sensors. Front sensor kits can also be added."
+                },
+                {
+                    "q": "Will the camera work in low light?",
+                    "a": "Many units include night vision or wide dynamic range capability. Premium units offer better low-light performance."
+                }
+            ],
+            "showInNav": false,
+            "gallery": [
+                "https://res.cloudinary.com/fthteymu/image/upload/v1790171447/best-car-accessories/niilbejt4mlejnbb71e1.jpg",
+                "https://res.cloudinary.com/fthteymu/image/upload/v1790171465/best-car-accessories/d2zsfm28l2ydjoxalnwo.jpg",
+                "https://res.cloudinary.com/fthteymu/image/upload/v1790171505/best-car-accessories/rx77oeb0tx1ywn3glegb.jpg",
+                ""
+            ]
+        },
+        {
+            "id": "ext-11",
+            "name": "Wiper Blades & Washer Liquid",
+            "slug": "wiper-blades",
+            "category": "exterior",
+            "shortDescription": "Premium frameless aerodynamic wiper blades and concentrated bug-stripping washer fluids for smear-free visibility during sudden downpours.",
+            "description": "Clear forward vision is non-negotiable for safe driving during torrential monsoon downpours. Our frameless beam wiper blades utilize graphite-coated natural rubber edges that glide silently across your windshield without chatter, judder, or streaking. Paired with anti-scale windshield washer concentrate, the system dissolves road grime, tree sap, and insect residue to maintain an unobstructed optical line of sight.",
+            "benefits": [
+                "Aerodynamic beam frame applies uniform downward pressure across curved glass",
+                "Graphite-blended natural rubber edge delivers streak-free, silent wiping performance",
+                "Prevents wiper blade chatter and scratching on treated windshield glass",
+                "Multi-adapter connectors ensure secure lock fitment onto J-hook and bayonet arms",
+                "Concentrated washer fluid dissolves oily traffic films and prevents jet nozzle clogging",
+                "Long-lasting compound resists cracking under scorching summer sunlight"
+            ],
+            "installation": "Installed on original wiper arms within minutes using vehicle-specific adapter clips. Windshield washer reservoir is topped with balanced concentrate fluid.",
+            "options": [
+                {
+                    "label": "Standard Replacement Blades",
+                    "description": "Conventional frame-type replacement blades"
+                },
+                {
+                    "label": "Flat Beam Blades",
+                    "description": "Aerodynamic frameless flat blades for superior performance"
+                },
+                {
+                    "label": "Hybrid Blades",
+                    "description": "Combined frame and flat beam for balanced performance"
+                }
+            ],
+            "image": "https://i.pinimg.com/1200x/33/33/28/333328778c3839d16929881de4f0697f.jpg",
+            "imageAlt": "Frameless aerodynamic wiper blades and washer liquid in Chennai",
+            "relatedServices": [
+                "windshield-anti-glare-film",
+                "horn-parking-leds",
+                "fog-light-fog-projector"
+            ],
+            "faqs": [
+                {
+                    "q": "How do I know when to replace wiper blades?",
+                    "a": "Replace when blades streak, squeak, or leave areas unwiped. Generally recommended every 6–12 months depending on usage."
+                },
+                {
+                    "q": "Are flat beam blades compatible with my car?",
+                    "a": "Most modern vehicles can accept flat beam blades. We check compatibility before fitting."
+                }
+            ],
+            "showInNav": false
+        },
+        {
+            "id": "ext-12",
+            "name": "Horn, Parking LEDs & Chrome Combo",
+            "slug": "horn-parking-leds",
+            "category": "exterior",
+            "shortDescription": "Resonant twin-tone European horn systems, bright T10 parking LEDs, and custom chrome styling accents that deliver audible presence and polished elegance.",
+            "description": "Enhance both the acoustic authority and exterior refinement of your vehicle. Our twin-tone trumpet and disc horns deliver a deep, commanding European harmonic tone that alerts pedestrians and commercial vehicles without the harshness of unshielded horns. Complementing the audio upgrade, low-draw T10 LED parking lamps replace dull yellow bulbs with crisp white illumination, while precision chrome trim accents along window sills and door handles add an executive finish.",
+            "benefits": [
+                "Commanding twin-tone acoustic output penetrates cabin soundproofing of other cars",
+                "Heavy-duty horn relay wiring harness prevents voltage drops and switch pitting",
+                "Crisp 6000K LED parking lamps elevate front parking signature and night presence",
+                "Stainless steel and ABS triple-plated chrome accents resist corrosion and peeling",
+                "Direct replacement for factory single-tone horns and incandescent parking bulbs",
+                "Waterproof horn housing design keeps water from accumulating in sound trumpets"
+            ],
+            "installation": "Horns are mounted to chassis brackets behind the front grille using dedicated relay wiring and inline fuse protection. Parking LEDs and chrome trims are fitted with plug-and-play sockets and 3M tape.",
+            "options": [
+                {
+                    "label": "Dual-Tone Horn",
+                    "description": "Classic high/low tone dual horn upgrade"
+                },
+                {
+                    "label": "Musical / Custom Horn",
+                    "description": "Custom horn sound options"
+                },
+                {
+                    "label": "Parking LED Kit",
+                    "description": "LED units for parking light positions"
+                },
+                {
+                    "label": "Chrome Combo Kit",
+                    "description": "Chrome trim pieces for exterior detailing"
+                }
+            ],
+            "image": "/images/exterior/horn-parking-leds-chrome-chennai.webp",
+            "imageAlt": "Twin-tone horn and LED parking light upgrade in Chennai",
+            "relatedServices": [
+                "wiring-kits-cutouts",
+                "fog-light-fog-projector",
+                "door-visors-side-claddings",
+                "number-plates-frames"
+            ],
+            "faqs": [
+                {
+                    "q": "Is horn modification legal in India?",
+                    "a": "Standard dual-tone horns are widely used. Extremely loud or musical horns may have different regulatory considerations."
+                },
+                {
+                    "q": "Will the parking LED installation require rewiring?",
+                    "a": "Parking LEDs are typically wired into the existing parking light circuit with minimal modification."
+                }
+            ],
+            "showInNav": false
+        },
+        {
+            "id": "ext-13",
+            "name": "Number Plates & Frames",
+            "slug": "number-plates-frames",
+            "category": "exterior",
+            "shortDescription": "High-security registration plate (HSRP) compatible acrylic covers, gel 3D lettering plates, and anti-rattle protective frames.",
+            "description": "Frame your vehicle's identity with clean, durable number plate surrounds. Our number plate frames are engineered from flexible, impact-resistant polypropylene that prevents metal plates from vibrating against body panels over rough road surfaces. Available in classic carbon fiber textures, sleek gloss black, and subtle chrome borders, they protect plate edges from bending during washes while lending a tidy, showroom-finished look to front and rear bumpers.",
+            "benefits": [
+                "Protects license plate edges from bending, warping, and accidental scratches",
+                "Soft rubberized backing cushions plates against tailgate sheet metal to eliminate rattles",
+                "Fully compatible with standard HSRP dimensions and mounting screw placements",
+                "Available in discreet matte black, carbon fiber texture, and polished chrome borders",
+                "High-grade UV-resistant polymer prevents yellowing, hazing, or brittle cracking",
+                "Easy access for plate inspection and mandatory registration verification"
+            ],
+            "installation": "Number plates are mounted inside frames using anti-theft stainless screws or secure snap-lock tabs that eliminate vibration without rattling.",
+            "options": [
+                {
+                    "label": "Standard Number Plate",
+                    "description": "Properly formatted plate with correct specifications"
+                },
+                {
+                    "label": "IND Plate with Hologram",
+                    "description": "Standard IND format plate with security hologram"
+                },
+                {
+                    "label": "Chrome Plate Frame",
+                    "description": "Premium chrome surrounding frame"
+                },
+                {
+                    "label": "ABS Plate Frame",
+                    "description": "Stylish ABS frame in various finishes"
+                }
+            ],
+            "image": "/images/exterior/number-plates-frames-chennai.webp",
+            "imageAlt": "Number plate frames and anti-rattle brackets in Chennai",
+            "relatedServices": [
+                "rear-spoiler-tail-light",
+                "door-visors-side-claddings",
+                "bonnet-letters-damping"
+            ],
+            "faqs": [
+                {
+                    "q": "Do number plates meet road regulations?",
+                    "a": "We follow standard plate formats. We recommend ensuring compliance with current local motor vehicle regulations."
+                },
+                {
+                    "q": "Are IND plates with holograms available?",
+                    "a": "Yes, IND format plates with security holograms are available."
+                }
+            ],
+            "showInNav": true,
+            "navName": "Number Plates & Frames",
+            "megaMenuGroup": "Utility"
+        },
+        {
+            "id": "ext-14",
+            "name": "Door Visors, Side Claddings & Guards",
+            "slug": "door-visors-side-claddings",
+            "category": "exterior",
+            "shortDescription": "Aerodynamic injection-molded rain visors, protective side body claddings, and edge guards designed to shield doors from parking dings and rain spray.",
+            "description": "Everyday parking lots and monsoon showers present constant challenges to your vehicle's exterior finish. Our injection-molded acrylic door visors allow you to crack windows open for cabin ventilation during heavy downpours without letting rain seep inside. Along the doors, rugged polyurethane side claddings and flexible rubber edge guards shield bodywork against accidental dings from neighboring car doors in tight commercial parking bays.",
+            "benefits": [
+                "Enables window crack-opening during rain to demist glass without cabin dampness",
+                "Reduces cabin wind noise and deflects crosswind turbulence at highway speeds",
+                "Lower door claddings protect paintwork from flying gravel, sand, and door dings",
+                "Subtle chrome insert strips complement vehicle window beltline aesthetics",
+                "Applied using industrial-strength 3M VHB automotive acrylic foam bonding tape",
+                "Computer-modeled CAD contours match your car's exact door and window lines"
+            ],
+            "installation": "Door sashes and lower panels are treated with adhesive promoter before visors and claddings are firmly pressed along body lines for a permanent, vibration-free bond.",
+            "options": [
+                {
+                    "label": "Door Visors",
+                    "description": "OEM-style or sporty visor for all four doors"
+                },
+                {
+                    "label": "Side Body Cladding",
+                    "description": "Lower door protection cladding panels"
+                },
+                {
+                    "label": "Door Edge Guards",
+                    "description": "Protection strips for door edges"
+                },
+                {
+                    "label": "Finger Guards",
+                    "description": "Handle area protection covers"
+                }
+            ],
+            "image": "/images/exterior/door-visors-side-claddings-chennai.webp",
+            "imageAlt": "Door rain visors and protective side claddings in Chennai",
+            "relatedServices": [
+                "mud-flaps",
+                "rear-spoiler-tail-light",
+                "number-plates-frames",
+                "roof-rails-sharkfin-antenna"
+            ],
+            "faqs": [
+                {
+                    "q": "Do door visors require drilling?",
+                    "a": "Most door visors use adhesive tape and channel clips without drilling. Some premium types may use in-channel installation."
+                },
+                {
+                    "q": "Will claddings damage my car's paint?",
+                    "a": "Quality 3M adhesive is used which does not damage paint when properly applied."
+                }
+            ],
+            "showInNav": false
+        },
+        {
+            "id": "ext-15",
+            "name": "Mud Flaps",
+            "slug": "mud-flaps",
+            "category": "exterior",
+            "shortDescription": "Flexible OE-fit thermoplastic mud flaps that prevent wheel-thrown slush, gravel, and tar from damaging lower quarter panels.",
+            "description": "Tires spinning at high speeds continually kick up road grime, sharp gravel, tar, and muddy water against your car's rocker panels and rear bumper. Our custom-molded mud flaps are precision-shaped from flexible thermoplastic elastomer (TPE) that absorbs stone impacts without cracking. Designed to mount into existing wheel arch liner holes, they maintain underbody cleanliness and protect your paint from stone chipping.",
+            "benefits": [
+                "Shields side sills and rear bumper aprons from stone chips, gravel, and road tar",
+                "Reduces spray thrown onto vehicles following behind you during wet weather",
+                "Flexible TPE composite bends over speed breakers without cracking or snapping",
+                "Contoured to hug vehicle wheel arches with zero unsightly gaps",
+                "Mounts into existing wheel arch clips and screws with no drilling into body sheet metal",
+                "Weather-resistant material resists hardening under extreme sun and winter temperatures"
+            ],
+            "installation": "Fitted into factory wheel arch liner screw points using anti-corrosion screws and clips. No drilling into painted metal bodywork is required.",
+            "options": [
+                {
+                    "label": "Standard Mud Flaps",
+                    "description": "Black rubber or ABS mud flaps for all four wheels"
+                },
+                {
+                    "label": "Custom Styled Mud Flaps",
+                    "description": "Styled units with branding or design elements"
+                },
+                {
+                    "label": "Mud Flaps with LED",
+                    "description": "Integrated lighting for rear mud flaps"
+                }
+            ],
+            "image": "/images/exterior/mud-flaps-chennai.webp",
+            "imageAlt": "Custom-fit flexible thermoplastic mud flaps in Chennai",
+            "relatedServices": [
+                "door-visors-side-claddings",
+                "side-foot-steps",
+                "front-rear-bumpers",
+                "box-clamp-wheel-cups"
+            ],
+            "faqs": [
+                {
+                    "q": "Are mud flaps universal or model-specific?",
+                    "a": "We use model-specific brackets to ensure correct fitment and proper coverage."
+                },
+                {
+                    "q": "Will mud flaps interfere with driving?",
+                    "a": "Properly fitted mud flaps do not interfere with suspension, steering, or braking."
+                }
+            ],
+            "showInNav": false
+        },
+        {
+            "id": "ext-16",
+            "name": "Heavy Clamp, Post Covers & Flag Posts",
+            "slug": "heavy-clamp-post-covers",
+            "category": "exterior",
+            "shortDescription": "Heavy-gauge stainless bumper mounting clamps, ceremonial flag masts, and exterior pillar post covers for specialized and executive vehicles.",
+            "description": "For utility, security, and ceremonial vehicles requiring exterior mounting hardware, our heavy clamp systems provide rock-solid anchoring points without compromising vehicle aerodynamics or bumper stability. Fabricated from heavy-gauge stainless steel with anti-corrosion finishes, these clamps support specialized accessories such as auxiliary light pods, antennas, and flag masts with zero vibration at highway speeds.",
+            "benefits": [
+                "Heavy-gauge stainless steel construction supports high-load auxiliary accessories",
+                "Anti-scratch rubber cushioning protects bumper surfaces from clamping marks",
+                "Precision threaded fasteners resist loosening over continuous washboard roads",
+                "Universal and vehicle-specific clamp geometries to fit diverse bumper configurations",
+                "Weatherproof powder-coated and polished chrome finishes prevent rust and corrosion",
+                "Stable anchoring for auxiliary lighting, utility gear, and ceremonial flag posts"
+            ],
+            "installation": "Clamped securely around structural bumper reinforcers or chassis tow eyes. All contact faces are protected with vulcanized rubber liners to preserve paintwork.",
+            "options": [
+                {
+                    "label": "Heavy Clamp Set",
+                    "description": "Exterior styling clamps in chrome or black"
+                },
+                {
+                    "label": "Post Covers",
+                    "description": "Decorative post/pillar covers"
+                },
+                {
+                    "label": "Flag Posts",
+                    "description": "Exterior flag post mounts"
+                }
+            ],
+            "image": "https://res.cloudinary.com/fthteymu/image/upload/v1790171648/best-car-accessories/xmej72afzgn40ohsld52.jpg",
+            "imageAlt": "Heavy bumper clamps and stainless flag post installation in Chennai",
+            "relatedServices": [
+                "roof-rails-sharkfin-antenna",
+                "side-foot-steps",
+                "door-visors-side-claddings"
+            ],
+            "faqs": [
+                {
+                    "q": "Will these damage my car's bodywork?",
+                    "a": "Proper installation with appropriate brackets and padding ensures no damage to paint or body panels."
+                }
+            ],
+            "showInNav": false,
+            "gallery": [
+                "https://res.cloudinary.com/fthteymu/image/upload/v1790171671/best-car-accessories/yyzv4sf6a9f5ffywidcy.jpg",
+                "https://res.cloudinary.com/fthteymu/image/upload/v1790171689/best-car-accessories/ruhgcowxbadkwz1ykicg.jpg",
+                "https://res.cloudinary.com/fthteymu/image/upload/v1790171723/best-car-accessories/kb8vdywfcsbudzyzbhyw.jpg",
+                "https://res.cloudinary.com/fthteymu/image/upload/v1790171776/best-car-accessories/rwxv0zhi4wnmzsaa2udw.jpg",
+                "https://res.cloudinary.com/fthteymu/image/upload/v1790171805/best-car-accessories/bjbr83ka1jwfa33k4hkd.jpg",
+                "",
+                ""
+            ]
+        },
+        {
+            "id": "ext-17",
+            "name": "Side Foot Steps",
+            "slug": "side-foot-steps",
+            "category": "exterior",
+            "shortDescription": "Heavy-duty aluminum side running boards with non-slip treads that facilitate easy cabin entry for passengers while shielding lower doors from side scuffs.",
+            "description": "High ground-clearance SUVs and crossovers can be difficult for children and elderly family members to board comfortably. Our heavy-duty side running boards provide an ergonomic intermediate step that makes entering and exiting your vehicle effortless. Constructed with an extruded aircraft-grade aluminum core and slip-resistant rubber tread inlays, these running boards also act as a physical buffer against high curbs, shopping carts, and careless door openings.",
+            "benefits": [
+                "Provides a wide, stable stepping platform for effortless entry and roof rack access",
+                "Heavy-duty extruded aluminum frame comfortably supports up to 200 kg load capacity",
+                "Textured rubber tread surface ensures positive footing even with wet or muddy footwear",
+                "Acts as a protective barrier shielding rocker panels and lower doors from high curbs",
+                "Vehicle-specific heavy-gauge steel brackets mount directly to factory chassis holes",
+                "Integrated edge garnishes match vehicle body styling for a cohesive factory look"
+            ],
+            "installation": "Bolted directly into factory-threaded chassis mounting points using powder-coated heavy steel brackets. Absolutely no welding or chassis drilling is required.",
+            "options": [
+                {
+                    "label": "C Track Side Steps",
+                    "description": "Stylish running board in C track profile"
+                },
+                {
+                    "label": "Gold Sun Side Steps",
+                    "description": "Premium Gold Sun style running boards"
+                },
+                {
+                    "label": "M Sun Side Steps",
+                    "description": "M Sun profile running boards"
+                },
+                {
+                    "label": "Welcome Side Steps",
+                    "description": "Motorised electric steps that extend when doors open"
+                }
+            ],
+            "image": "https://res.cloudinary.com/fthteymu/image/upload/v1790172138/best-car-accessories/thiizwoouuvd3ws87p00.jpg",
+            "imageAlt": "Heavy-duty aluminum SUV side foot steps installation in Chennai",
+            "relatedServices": [
+                "mud-flaps",
+                "door-visors-side-claddings",
+                "heavy-clamp-post-covers",
+                "roof-rails-sharkfin-antenna"
+            ],
+            "faqs": [
+                {
+                    "q": "Are side steps compatible with my SUV?",
+                    "a": "Compatibility depends on your vehicle's make, model, and wheelbase. We check fitment before installation."
+                },
+                {
+                    "q": "How do motorised welcome steps work?",
+                    "a": "They extend automatically when a door is opened and retract when the door is closed, wired to the door open signal."
+                }
+            ],
+            "showInNav": true,
+            "navName": "Side Foot Steps",
+            "megaMenuGroup": "Utility",
+            "gallery": [
+                "https://res.cloudinary.com/fthteymu/image/upload/v1790172151/best-car-accessories/dp9urdrgv4nvlgfpyu30.jpg",
+                "https://res.cloudinary.com/fthteymu/image/upload/v1790172171/best-car-accessories/aomf9qbpkjcg3qoyx5hl.jpg",
+                "https://res.cloudinary.com/fthteymu/image/upload/v1790172187/best-car-accessories/zsvbuxygemqu6kaif8b9.jpg",
+                "https://res.cloudinary.com/fthteymu/image/upload/v1790172203/best-car-accessories/xelectw82vl9qs5m96of.jpg",
+                "https://res.cloudinary.com/fthteymu/image/upload/v1790172216/best-car-accessories/lqc3fbue6bnmrstmh97u.jpg",
+                "https://res.cloudinary.com/fthteymu/image/upload/v1790172231/best-car-accessories/tps9ejkd2lqrqklu8nqn.jpg",
+                "https://res.cloudinary.com/fthteymu/image/upload/v1790172247/best-car-accessories/c2n8f4ugzijzb8llfdj6.jpg",
+                "https://res.cloudinary.com/fthteymu/image/upload/v1790172266/best-car-accessories/g308jrsjoyqdmdaabumo.jpg",
+                "https://res.cloudinary.com/fthteymu/image/upload/v1790172282/best-car-accessories/m9tox07zykwtbqfvdeaw.jpg"
+            ]
+        },
+        {
+            "id": "ext-18",
+            "name": "Door Logo Lights & Exterior LEDs",
+            "slug": "door-logo-lights",
+            "category": "exterior",
+            "shortDescription": "High-definition puddle projection lights and exterior underglow accents that project vehicle emblems onto the pavement upon door opening.",
+            "description": "Welcome passengers with an upscale automotive experience the moment you unlock or open your car doors. Our laser-etched LED projector puddle lamps project your car's brand crest crisply onto the pavement below, illuminating puddles and dark ground for safer boarding. Powered by optical quartz lenses and Cree LED chips, these lamps deliver bright, focused projection that retains sharp clarity over years of use without fading.",
+            "benefits": [
+                "Crisp high-definition logo projection illuminates pavement for confident nighttime boarding",
+                "High-grade quartz optical lens ensures projection never fades, hazes, or degrades",
+                "Directly replaces existing lower door courtesy lamps on compatible vehicle doors",
+                "Low power consumption with built-in thermal protection to prevent overheating",
+                "Automatic activation when doors open with immediate shutoff upon closing",
+                "Adds an unmistakable bespoke luxury feel to nighttime vehicle entries"
+            ],
+            "installation": "Fitted into factory bottom door card cutouts with direct plug-and-play connectors on pre-wired models, or wired through door switch triggers with concealed conduit runs.",
+            "options": [
+                {
+                    "label": "Door Logo Puddle Lights",
+                    "description": "LED projector units installed in door sill area"
+                },
+                {
+                    "label": "Lower Chrome LED Strip",
+                    "description": "Exterior underbody chrome LED strips"
+                },
+                {
+                    "label": "Exterior Red Accent Lights",
+                    "description": "Red LED accent lighting for exterior"
+                },
+                {
+                    "label": "Blue Accent Lights",
+                    "description": "Blue LED accent lighting for exterior"
+                }
+            ],
+            "image": "/images/exterior/door-logo-lights-chennai.webp",
+            "imageAlt": "Door logo LED puddle projector light installation in Chennai",
+            "relatedServices": [
+                "drl-headlight-fog",
+                "roof-led-vip-light",
+                "ambient-lights",
+                "door-foot-lights"
+            ],
+            "faqs": [
+                {
+                    "q": "Can I choose the logo for puddle lights?",
+                    "a": "Various logo options are available. Custom logos may be available depending on the unit selected."
+                },
+                {
+                    "q": "Are exterior underbody lights road legal?",
+                    "a": "Regulations regarding coloured exterior lights vary. We recommend checking local motor vehicle regulations."
+                }
+            ],
+            "showInNav": false
+        },
+        {
+            "id": "ext-19",
+            "name": "Wiring Kits & Cutouts",
+            "slug": "wiring-kits-cutouts",
+            "category": "exterior",
+            "shortDescription": "Heavy-duty automotive wiring harnesses with inline relays, waterproof fuse blocks, and auxiliary switches for safe, zero-wire-cut electrical upgrades.",
+            "description": "Modern automotive electrical systems are delicate CANBUS-managed networks where incorrect wiring can trigger dashboard error codes or void factory warranties. Our professional accessory wiring kits are pre-assembled with copper core conductors, heavy-duty automotive relays, weather-sealed fuse holders, and OEM-style dashboard switches. Designed for non-invasive fitment, these kits draw power safely from battery terminals while completely insulating your factory vehicle computer and sensors.",
+            "benefits": [
+                "Pure copper multi-strand conductors provide minimal voltage drop and low resistance",
+                "Dedicated automotive relays relieve load from interior switches and factory control stalks",
+                "Weather-sealed inline fuse holders isolate each accessory circuit for ultimate safety",
+                "Braided nylon and heat-shrink conduit protects wiring from engine heat and abrasion",
+                "Zero cutting or tapping into factory vehicle wiring looms maintains warranty compliance",
+                "OEM-style illuminated dashboard rocker switches blend seamlessly with interior consoles"
+            ],
+            "installation": "Routed through factory firewall grommets and engine bay conduit pathways. Powered directly through fused battery terminals with negative chassis grounding points.",
+            "options": [
+                {
+                    "label": "Headlight Wiring Kit",
+                    "description": "Complete relay wiring kit for headlight modifications"
+                },
+                {
+                    "label": "Fog Light Wiring Kit",
+                    "description": "Relay and switch wiring kit for fog lights"
+                },
+                {
+                    "label": "Horn Wiring Kit",
+                    "description": "Relay wiring kit for horn upgrades"
+                },
+                {
+                    "label": "Custom Cutout Work",
+                    "description": "Bumper or panel cutouts for accessory fitment"
+                }
+            ],
+            "image": "/images/exterior/wiring-kits-cutouts-chennai.webp",
+            "imageAlt": "Automotive relay wiring harness and fuse block installation in Chennai",
+            "relatedServices": [
+                "fog-light-fog-projector",
+                "headlight-led-upgrade",
+                "horn-parking-leds",
+                "anti-rat-machine-rat-mesh"
+            ],
+            "faqs": [
+                {
+                    "q": "Why is a relay needed for headlights?",
+                    "a": "A relay allows the accessory to draw power directly from the battery through a fused circuit, preventing overloading of the factory wiring."
+                },
+                {
+                    "q": "What is cutout work?",
+                    "a": "Cutout work involves precisely modifying a bumper, panel, or trim piece to allow correct fitment of an accessory such as a fog light or sensor."
+                }
+            ],
+            "showInNav": false
+        },
+        {
+            "id": "ext-20",
+            "name": "Box Clamp & Wheel Cups",
+            "slug": "box-clamp-wheel-cups",
+            "category": "exterior",
+            "shortDescription": "Precision-fit wheel arch covers, decorative wheel center caps, and secure clamp fixtures that dress up steel wheels and exterior hardware.",
+            "description": "Give steel wheels and exterior fittings a refined, customized finish. Our impact-resistant wheel hub covers and decorative wheel cups snap securely over factory steel rims, mimicking the dynamic appearance of expensive alloy wheels while protecting lug nuts and axle hubs from road grime, moisture, and rust. Made from flexible ABS with high-luster silver and gloss black coatings, they resist stone chips and withstand rigorous pressure washing.",
+            "benefits": [
+                "Transforms standard steel wheels into dynamic, modern alloy-styled aesthetics",
+                "Shields lug nuts, brake hub centers, and axle threads from corrosive road spray",
+                "Flexible ABS construction absorbs curb brushes without snapping or cracking",
+                "Heavy-duty retention ring spring clips ensure a tight, rattle-free grip on rims",
+                "Available in modern two-tone diamond-cut and gloss black geometric spoke designs",
+                "Affordable exterior styling upgrade with immediate visual transformation"
+            ],
+            "installation": "Retention spring ring is calibrated to wheel rim diameter and snapped securely over the wheel lip. Wheel clamp hardware is torqued evenly across mounting points.",
+            "options": [
+                {
+                    "label": "Box Clamp",
+                    "description": "Exterior styling clamp accessories"
+                },
+                {
+                    "label": "Standard Wheel Cups",
+                    "description": "Hub caps for steel or alloy wheels"
+                },
+                {
+                    "label": "Custom Design Wheel Cups",
+                    "description": "Styled caps with distinctive design patterns"
+                }
+            ],
+            "image": "/images/exterior/box-clamp-wheel-cups-chennai.webp",
+            "imageAlt": "Decorative wheel cover caps and retention clamp installation in Chennai",
+            "relatedServices": [
+                "mud-flaps",
+                "side-foot-steps",
+                "door-visors-side-claddings",
+                "number-plates-frames"
+            ],
+            "faqs": [
+                {
+                    "q": "Are wheel cups compatible with all wheel types?",
+                    "a": "Wheel cup compatibility depends on the wheel size and bolt pattern. We check compatibility before fitment."
+                },
+                {
+                    "q": "Will wheel cups affect tyre pressure monitoring?",
+                    "a": "We ensure that TPMS sensors are not obstructed during installation."
+                }
+            ],
+            "showInNav": false
+        }
+    ]
+}

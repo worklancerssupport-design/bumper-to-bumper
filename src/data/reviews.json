@@ -1,0 +1,78 @@
+{
+  "rating": "5.0",
+  "totalReviews": "217+",
+  "totalReviewsLabel": "upgrades delivered in Chennai",
+  "reviews": [
+    {
+      "id": 1,
+      "initials": "AR",
+      "name": "Anand R.",
+      "car": "Mahindra XUV700",
+      "mod": "Matrix Bi-LED Headlights & 7D Mats",
+      "rating": 5,
+      "text": "Upgraded my XUV700 headlights with bi-LED projectors. The highway illumination between Chennai and Bengaluru is phenomenal now. Clean coupler-to-coupler installation with no error codes on the MID."
+    },
+    {
+      "id": 2,
+      "initials": "DM",
+      "name": "Divya Meenakshi",
+      "car": "Hyundai Venue",
+      "mod": "Custom Perforated Nappa Seat Covers",
+      "rating": 5,
+      "text": "Got custom bucket-fit seat covers stitched in dual-tone tan and black. The stitching finish and contour fit look like an OEM top-end variant. Extremely courteous team at their Adambakkam studio."
+    },
+    {
+      "id": 3,
+      "initials": "VP",
+      "name": "Vigneshwaran P.",
+      "car": "Volkswagen Taigun",
+      "mod": "18-Zone Symphony Ambient Lighting",
+      "rating": 5,
+      "text": "Installed symphony ambient lighting with app control. The optical strips are tucked seamlessly into the door grooves with zero visible wires. Night drives feel so premium."
+    },
+    {
+      "id": 4,
+      "initials": "SB",
+      "name": "Saravanan B.",
+      "car": "Tata Harrier",
+      "mod": "Sound Damping & Component Audio",
+      "rating": 5,
+      "text": "Full 4-door damping sheets and component speaker upgrade completely transformed the acoustic experience. Road rumble on the bypass is drastically reduced."
+    },
+    {
+      "id": 5,
+      "initials": "DK",
+      "name": "Deepak Kumar",
+      "car": "Kia Carens",
+      "mod": "360° Bird-Eye Camera & Android Infotainment",
+      "rating": 5,
+      "text": "The 360-degree camera calibration was done with utmost precision using optical floor mats. Makes tight basement parking in T. Nagar stress-free."
+    },
+    {
+      "id": 6,
+      "initials": "NC",
+      "name": "Naveen Chandran",
+      "car": "Maruti Grand Vitara",
+      "mod": "Heavy-Duty Side Running Steps & Door Visors",
+      "rating": 5,
+      "text": "Fitted heavy-duty aluminum side steps for family convenience. Rock solid fitment bolted directly to chassis points without drilling. Delivery was prompt."
+    }
+  ],
+  "highlights": [
+    {
+      "name": "Anand R.",
+      "car": "Mahindra XUV700",
+      "text": "Bi-LED headlights upgrade — phenomenal highway illumination and clean coupler-to-coupler installation."
+    },
+    {
+      "name": "Divya Meenakshi",
+      "car": "Hyundai Venue",
+      "text": "Custom bucket-fit seat covers in dual-tone tan and black with OEM-level craftsmanship."
+    },
+    {
+      "name": "Vigneshwaran P.",
+      "car": "Volkswagen Taigun",
+      "text": "18-zone symphony ambient lighting tucked seamlessly into factory door crevices with zero visible wires."
+    }
+  ]
+}

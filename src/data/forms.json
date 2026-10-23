@@ -1,0 +1,34 @@
+{
+  "contactServices": [
+    "Exterior Car Accessories",
+    "Interior Car Accessories",
+    "LED Headlights / DRL",
+    "Fog Lights",
+    "Infotainment System",
+    "Speakers / Audio",
+    "Ambient Lights",
+    "Seat Covers",
+    "Floor Mats",
+    "Dash Camera",
+    "360\u00b0 Camera",
+    "Reverse Camera",
+    "Car Customization",
+    "Other"
+  ],
+  "quickEnquiryServices": [
+    { "value": "Exterior Fog Lights / LEDs", "label": "Exterior: Fog Lights / LED Headlights" },
+    { "value": "Exterior Spoilers / Bumpers", "label": "Exterior: Spoilers / Bumpers / Roof Rails" },
+    { "value": "Interior Ambient Lighting", "label": "Interior: 18-Zone Ambient Lighting" },
+    { "value": "Interior Seat Covers", "label": "Interior: Custom Leather Seat Covers" },
+    { "value": "Audio & Infotainment", "label": "Electronics: Infotainment & Audio Setup" },
+    { "value": "Cameras & Safety", "label": "Safety: 360\u00b0 Camera & Dashcam" },
+    { "value": "Complete Custom Package", "label": "Complete Custom Package" }
+  ],
+  "franchiseInvestments": [
+    "I am exploring options",
+    "Below \u20b95 Lakhs",
+    "\u20b95\u201310 Lakhs",
+    "\u20b910\u201320 Lakhs",
+    "\u20b920 Lakhs+"
+  ]
+}

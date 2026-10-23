@@ -1,0 +1,290 @@
+/* ============================================================
+   FOOTER — Bumper To Bumper Car Accessories
+   Clean, structured, automotive black & red palette
+   Tokens: #050505, #0D0D0D, #151515, #D71920, #A91219, #F5F5F5, #B8B8B8, #292929, #858585
+   ============================================================ */
+
+.footer {
+  background: var(--bg-secondary, #0D0D0D);
+  border-top: 1px solid var(--border, #292929);
+  padding: var(--space-12, 3rem) 0 var(--space-6, 1.5rem);
+  color: var(--text-secondary, #B8B8B8);
+  position: relative;
+}
+
+/* ── Trust Banner Strip above columns ───────────────────────── */
+.footer-trust-banner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  padding: 1.75rem 2rem;
+  background: var(--bg-surface, #151515);
+  border: 1px solid var(--border, #292929);
+  border-radius: var(--radius-md, 8px);
+  margin-bottom: var(--space-12, 3rem);
+}
+
+.footer-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-trust-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background: rgba(215, 25, 32, 0.1);
+  color: var(--brand-red, #D71920);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: 800;
+  flex-shrink: 0;
+  border: 1px solid rgba(215, 25, 32, 0.25);
+}
+
+.footer-trust-item strong {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--text-primary, #F5F5F5);
+  margin-bottom: 2px;
+}
+
+.footer-trust-item p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--text-muted, #858585);
+  line-height: 1.35;
+}
+
+/* ── Footer Grid ───────────────────────────────────────────── */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.3fr;
+  gap: var(--space-10, 2.5rem);
+  margin-bottom: var(--space-12, 3rem);
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4, 1rem);
+}
+
+.footer-logo {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.footer-logo-img {
+  height: 40px;
+  width: auto;
+  max-width: 230px;
+  object-fit: contain;
+}
+
+.footer-desc {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--text-secondary, #B8B8B8);
+  margin: 0;
+  max-width: 340px;
+}
+
+.footer-socials {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2, 0.5rem);
+  margin-top: var(--space-2, 0.5rem);
+}
+
+.footer-social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-sm, 6px);
+  background: var(--bg-surface, #151515);
+  border: 1px solid var(--border, #292929);
+  color: var(--text-secondary, #B8B8B8);
+  font-size: 0.78rem;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.footer-social-link:hover {
+  color: #FFFFFF;
+  border-color: var(--brand-red, #D71920);
+  background: rgba(215, 25, 32, 0.12);
+  transform: translateY(-2px);
+}
+
+/* Section labels */
+.footer-col-title {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--brand-red, #D71920);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0 0 var(--space-5, 1.25rem) 0;
+  padding: 0;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-links a {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--text-secondary, #B8B8B8);
+  text-decoration: none;
+  display: inline-block;
+  transition: all var(--transition-fast);
+}
+
+.footer-links a:hover {
+  color: var(--brand-red, #D71920);
+  padding-left: 4px;
+}
+
+.footer-contact-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4, 1rem);
+  margin: 0;
+  padding: 0;
+}
+
+.footer-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary, #B8B8B8);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+  line-height: 1.4;
+}
+
+a.footer-contact-item:hover {
+  color: var(--text-primary, #F5F5F5);
+}
+
+.footer-contact-item-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm, 6px);
+  background: var(--bg-surface, #151515);
+  border: 1px solid var(--border, #292929);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--brand-red, #D71920);
+  flex-shrink: 0;
+}
+
+.footer-contact-item-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.footer-contact-item-label {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text-muted, #858585);
+  text-transform: uppercase;
+}
+
+.footer-contact-item-value {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: var(--text-secondary, #B8B8B8);
+}
+
+.footer-contact-phone {
+  color: var(--brand-red, #D71920) !important;
+  font-weight: 600;
+}
+
+/* ── Footer Bottom ─────────────────────────────────────────── */
+.footer-bottom {
+  border-top: 1px solid var(--border, #292929);
+  padding-top: var(--space-5, 1.25rem);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-3, 0.75rem);
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: var(--text-muted, #858585);
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+.footer-bottom-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-bottom-meta-sep {
+  color: var(--border, #292929);
+}
+
+.footer-bottom-tagline {
+  color: var(--brand-red, #D71920);
+}
+
+@media (max-width: 992px) {
+  .footer-trust-banner {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1.25rem;
+  }
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-8, 2rem);
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-8, 2rem);
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+
+  .footer-bottom-meta {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.35rem;
+  }
+}

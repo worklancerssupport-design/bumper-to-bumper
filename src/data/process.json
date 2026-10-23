@@ -1,0 +1,27 @@
+[
+  {
+    "id": "01",
+    "title": "Choose Accessory",
+    "desc": "Browse our complete catalogue of 40+ verified exterior and interior upgrades at our showroom."
+  },
+  {
+    "id": "02",
+    "title": "Discuss Details",
+    "desc": "Share your vehicle make, model year, and driving requirements with our expert team."
+  },
+  {
+    "id": "03",
+    "title": "Select Configuration",
+    "desc": "Select verified accessories, tailored trim finishes, and precision configurations for your car."
+  },
+  {
+    "id": "04",
+    "title": "Precision Fitment",
+    "desc": "Zero wire-cutting installation with factory couplers, neat wiring looms, and seamless integration."
+  },
+  {
+    "id": "05",
+    "title": "Complete Handover",
+    "desc": "Electronic diagnostic testing, feature calibration, and road-ready vehicle handover to you."
+  }
+]

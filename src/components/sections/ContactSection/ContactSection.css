@@ -1,0 +1,312 @@
+/* ============================================================
+   CONTACT SECTION — refined, uniform spacing, cleaner right side
+   Bumper To Bumper Car Accessories · Adambakkam, Chennai
+   ============================================================ */
+
+.contact-section {
+  position: relative;
+  background: var(--bg-canvas);
+  padding: var(--section-padding) 0;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.contact-container { position: relative; z-index: 1; width: 100%; }
+
+.contact-header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: var(--space-12);
+}
+
+.contact-header .section-title {
+  font-family: var(--font-display);
+  font-size: var(--text-display);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-tight);
+  line-height: var(--line-height-tight);
+  color: var(--text-primary);
+  margin: var(--space-3) 0 var(--space-5);
+  text-transform: uppercase;
+}
+
+.contact-header .section-subtitle--left {
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--line-height-relaxed);
+  color: var(--text-secondary);
+  opacity: var(--opacity-medium);
+  max-width: 520px;
+  margin: 0;
+}
+
+.contact-header .section-label { justify-content: center; }
+.contact-header .section-label::before { display: none; }
+
+/* Equal-height columns */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  align-items: stretch;
+}
+
+.contact-form-col,
+.contact-info-col {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* ── Form ─────────────────────────────────────────────────── */
+.enquiry-form {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-7);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  flex: 1;
+}
+
+.enquiry-form-header { margin-bottom: var(--space-2); }
+
+.enquiry-form-header h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-title);
+  font-weight: var(--font-weight-normal);
+  color: var(--text-primary);
+  margin-bottom: var(--space-2);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+}
+
+.enquiry-form-header p {
+  font-size: var(--text-caption);
+  color: var(--text-secondary);
+  opacity: var(--opacity-medium);
+  margin: 0;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+.enquiry-form label {
+  font-family: var(--font-sans);
+  font-size: var(--text-micro);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-widest);
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* Lighter grey fields (one step above primary bg) */
+.enquiry-form input,
+.enquiry-form select,
+.enquiry-form textarea {
+  width: 100%;
+  background: var(--bg-input);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  font-family: var(--font-sans);
+  font-size: var(--text-caption);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+  transition: border-color var(--transition-base), background-color var(--transition-base);
+}
+
+.enquiry-form input::placeholder,
+.enquiry-form textarea::placeholder { color: var(--text-muted); }
+
+.enquiry-form input:hover,
+.enquiry-form select:hover,
+.enquiry-form textarea:hover { border-color: var(--border); }
+
+.enquiry-form input:focus,
+.enquiry-form select:focus,
+.enquiry-form textarea:focus {
+  outline: none;
+  border-color: var(--border-strong);
+  background: var(--bg-elevated);
+}
+
+.enquiry-form select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23a0a0a0' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 14px;
+  padding-right: 2.5rem;
+}
+
+.enquiry-form select option { background: var(--bg-input); color: var(--text-primary); }
+
+/* Send Enquiry button — transparent fill, secondary text, no border */
+.contact-submit-btn {
+  width: 100%;
+  margin-top: var(--space-2);
+  padding: var(--space-3) var(--space-5);
+  height: var(--header-control-height);
+  font-family: var(--font-sans);
+  font-size: var(--text-caption);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-wider);
+  text-transform: uppercase;
+  background: transparent;
+  color: var(--text-secondary);
+  border: none;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  cursor: pointer;
+  transition: background var(--transition-base),
+              color var(--transition-base),
+              transform var(--transition-base),
+              box-shadow var(--transition-base);
+}
+
+.contact-submit-btn:hover:not(:disabled) {
+  background: var(--brand-red);
+  color: var(--text-on-red);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-accent);
+}
+
+.contact-submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.form-success {
+  background: var(--color-success-bg);
+  border: 1px solid var(--color-success);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  font-family: var(--font-sans);
+  font-size: var(--text-caption);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-success);
+  text-align: center;
+}
+
+/* ── Right column: compact single block ───────────────────── */
+.contact-info-col {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.contact-info-block {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-7);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  flex: 1;
+}
+
+.contact-info-block-header h4 {
+  font-family: var(--font-display);
+  font-size: var(--text-title);
+  font-weight: var(--font-weight-normal);
+  color: var(--text-primary);
+  margin: 0 0 var(--space-2) 0;
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+}
+
+.contact-info-block-header p {
+  font-size: var(--text-caption);
+  color: var(--text-secondary);
+  opacity: var(--opacity-medium);
+  margin: 0;
+  line-height: var(--line-height-relaxed);
+}
+
+/* Compact detail rows — label + value side by side, no separate cards */
+.contact-info-list {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: var(--space-4);
+}
+
+.contact-info-row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.contact-info-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.contact-info-row-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-md);
+  background: transparent;
+  border: 1px solid var(--border-subtle);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+}
+
+.contact-info-row-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.contact-info-row-label {
+  font-family: var(--font-sans);
+  font-size: var(--text-micro);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-widest);
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.contact-info-row-value {
+  font-family: var(--font-sans);
+  font-size: var(--text-caption);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+  text-decoration: none;
+  line-height: var(--line-height-normal);
+}
+
+a.contact-info-row-value:hover { color: var(--text-secondary); }
+
+@media (max-width: 960px) {
+  .contact-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 520px) {
+  .enquiry-form,
+  .contact-info-block { padding: var(--space-5) var(--space-4); }
+  .form-row { grid-template-columns: 1fr; }
+}

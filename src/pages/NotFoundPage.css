@@ -1,0 +1,195 @@
+.nfp-section {
+  min-height: 100vh;
+  background: var(--bg-canvas);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: var(--space-16) 0;
+}
+
+.nfp-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 100%, var(--brand-red-glow) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 50% 0%, var(--brand-red-light) 0%, transparent 70%);
+  opacity: var(--opacity-low);
+  pointer-events: none;
+}
+
+.nfp-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--border-subtle) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border-subtle) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, #000 0%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, #000 0%, transparent 80%);
+  opacity: var(--opacity-medium);
+  pointer-events: none;
+}
+
+.nfp-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  gap: var(--space-6);
+}
+
+.nfp-road {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-6);
+  width: min(360px, 60%);
+}
+
+.nfp-road__stripe {
+  flex: 1;
+  height: 3px;
+  background: linear-gradient(90deg, transparent 0%, var(--border-strong) 50%, transparent 100%);
+  border-radius: var(--radius-full);
+  position: relative;
+}
+
+.nfp-road__stripe::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: inherit;
+  filter: blur(6px);
+  opacity: var(--opacity-medium);
+}
+
+.nfp-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-5);
+}
+
+.nfp-404 {
+  font-family: var(--font-display);
+  font-size: clamp(7rem, 18vw, 14rem);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-tighter);
+  line-height: var(--line-height-none);
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0;
+}
+
+.nfp-404-digit {
+  display: inline-block;
+  background: linear-gradient(180deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.nfp-404-digit--accent {
+  background: linear-gradient(180deg, var(--brand-red) 0%, var(--brand-red-deep) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.nfp-title {
+  font-family: var(--font-display);
+  font-size: var(--text-display);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  margin: 0;
+  max-width: 640px;
+  letter-spacing: var(--letter-spacing-tight);
+  line-height: var(--line-height-tight);
+  text-transform: uppercase;
+}
+
+.nfp-title__accent {
+  color: var(--text-primary);
+}
+
+.nfp-subtitle {
+  font-size: var(--text-body);
+  color: var(--text-secondary);
+  opacity: var(--opacity-medium);
+  max-width: 520px;
+  margin: 0;
+  line-height: var(--line-height-relaxed);
+}
+
+.nfp-actions {
+  display: flex;
+  gap: var(--space-4);
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: var(--space-4);
+}
+
+.nfp-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  font-family: var(--font-mono);
+  font-size: var(--text-tiny);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-widest);
+  color: var(--text-primary);
+}
+
+.nfp-badge__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--border-strong);
+  animation: nfp-blink 1.6s ease-in-out infinite;
+}
+
+@keyframes nfp-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: var(--opacity-low); }
+}
+
+@media (max-width: 640px) {
+  .nfp-section {
+    min-height: calc(100vh - var(--header-height));
+    padding: var(--space-12) 0;
+  }
+
+  .nfp-actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .nfp-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .nfp-road {
+    width: 80%;
+  }
+}

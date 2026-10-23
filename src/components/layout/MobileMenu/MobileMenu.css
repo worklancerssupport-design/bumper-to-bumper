@@ -1,0 +1,317 @@
+/* ============================================================
+   MOBILE MENU — BLACK & RED DESIGN SYSTEM
+   Bumper To Bumper Car Accessories · Adambakkam, Chennai
+   ============================================================ */
+
+.mobile-menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 5, 5, 0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 1.25rem;
+  transform: translateX(100%);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0s linear 0.25s;
+  overflow-y: auto;
+  visibility: hidden;
+}
+
+.mobile-menu-overlay.open {
+  transform: translateX(0);
+  visibility: visible;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0s linear 0s;
+}
+
+/* ── Header ─────────────────────────────────────────────────── */
+.mobile-menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #292929;
+  margin-bottom: 1.5rem;
+}
+
+.mobile-menu-close {
+  width: 38px;
+  height: 38px;
+  border-radius: 4px;
+  background: #0D0D0D;
+  border: 1px solid #292929;
+  color: #B8B8B8;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.mobile-menu-close:hover {
+  color: #F5F5F5;
+  border-color: #D71920;
+  background-color: #151515;
+}
+
+/* ── Section label ──────────────────────────────────────────── */
+.mobile-menu-eyebrow {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #858585;
+  text-transform: uppercase;
+  margin: 0 0 0.85rem;
+}
+
+/* ── Nav links ──────────────────────────────────────────────── */
+.mobile-menu-nav {
+  flex: 1;
+}
+
+.mobile-menu-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-menu-nav li {
+  border-bottom: 1px solid rgba(41, 41, 41, 0.6);
+}
+
+.mobile-menu-nav li:first-child {
+  border-top: 1px solid rgba(41, 41, 41, 0.6);
+}
+
+.mobile-menu-nav a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #B8B8B8;
+  padding: 0.85rem 0.25rem;
+  text-decoration: none;
+  letter-spacing: 0.3px;
+  transition: color 0.15s ease, padding-left 0.15s ease;
+}
+
+.mobile-menu-link-left {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.mobile-menu-link-icon {
+  color: #D71920;
+  flex-shrink: 0;
+}
+
+.mobile-menu-nav a:hover,
+.mobile-menu-nav a.active {
+  color: #F5F5F5;
+  padding-left: 0.5rem;
+}
+
+.mobile-menu-nav a.active {
+  color: #F5F5F5;
+  font-weight: 600;
+}
+
+.mobile-menu-index {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #858585;
+  letter-spacing: 1px;
+}
+
+.mobile-menu-nav a:hover .mobile-menu-index,
+.mobile-menu-nav a.active .mobile-menu-index {
+  color: #D71920;
+}
+
+/* ── Mobile Accordion Styles ────────────────────────────────── */
+.mobile-menu-accordion-btn {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #B8B8B8;
+  padding: 0.85rem 0.25rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  text-align: left;
+  font-family: inherit;
+  transition: color 0.15s ease, padding-left 0.15s ease;
+}
+
+.mobile-menu-accordion-btn:hover,
+.mobile-menu-accordion-btn.active {
+  color: #F5F5F5;
+  padding-left: 0.5rem;
+}
+
+.mobile-menu-accordion-right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.mobile-menu-accordion-icon {
+  color: #858585;
+  transition: transform 0.2s ease, color 0.15s ease;
+}
+
+.mobile-menu-accordion-icon.open {
+  transform: rotate(180deg);
+  color: #D71920;
+}
+
+.mobile-menu-subitems {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 0.4rem 0 0.85rem 0.5rem;
+  margin-top: -0.25rem;
+}
+
+.mobile-menu-subitem {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 0.75rem !important;
+  padding: 0.65rem 0.75rem !important;
+  border-radius: 6px;
+  background: #111111;
+  border: 1px solid #242424;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.mobile-menu-subitem:hover,
+.mobile-menu-subitem.active {
+  background: #181818 !important;
+  border-color: rgba(215, 25, 32, 0.4) !important;
+  padding-left: 0.75rem !important;
+}
+
+.mobile-menu-subitem-icon {
+  color: #D71920;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.mobile-menu-subitem-title {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #F5F5F5;
+}
+
+.mobile-menu-subitem-desc {
+  display: block;
+  font-size: 0.72rem;
+  color: #858585;
+  line-height: 1.3;
+  margin-top: 1px;
+}
+
+/* ── Contact Info Block ─────────────────────────────────────── */
+.mobile-menu-contact-info {
+  margin-top: 1.5rem;
+  padding: 0.85rem 1rem;
+  background: #0D0D0D;
+  border: 1px solid #292929;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.mobile-menu-contact-row {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.82rem;
+  color: #B8B8B8;
+  text-decoration: none;
+}
+
+.mobile-menu-red-icon {
+  color: #D71920;
+  flex-shrink: 0;
+}
+
+/* ── Footer Actions ─────────────────────────────────────────── */
+.mobile-menu-footer {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid #292929;
+}
+
+.mobile-menu-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.mobile-menu-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  background: #0D0D0D;
+  border: 1px solid #292929;
+  color: #B8B8B8;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.mobile-menu-icon-btn:hover {
+  color: #F5F5F5;
+  border-color: #D71920;
+  background-color: #151515;
+}
+
+.mobile-menu-icon-btn--wa {
+  color: #25D366;
+}
+
+.mobile-menu-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  height: 40px;
+  padding: 0 1rem;
+  font-size: 0.825rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  background: #D71920;
+  color: #FFFFFF;
+  border: 1px solid #D71920;
+  border-radius: 9999px;
+  transition: background-color 0.15s ease;
+}
+
+.mobile-menu-cta:hover {
+  background: #E82830;
+  border-color: #E82830;
+}

@@ -1,0 +1,112 @@
+/* ============================================================
+   DESIGN TOKENS — NON-TYPOGRAPHY, NON-COLOR SYSTEM
+   Bumper To Bumper Car Accessories · Adambakkam, Chennai
+
+   ─────────────────────────────────────────────────────────────
+   🎨 COLORS    → /src/styles/colorConfig.css
+   🔤 FONTS     → /src/styles/fontConfig.css  (fontConfig.css)
+   This file holds: spacing, radii, shadows, transitions,
+   z-index, layout tokens, and legacy color aliases.
+   ─────────────────────────────────────────────────────────────
+   🔧 TO TWEAK THE THEME
+       • Colors      → edit colorConfig.css
+       • Typography  → edit fontConfig.css
+       • Spacing     → edit this file (variables.css)
+   ============================================================ */
+
+:root {
+  /* ============================================================
+     SPACING — 4px Base Scale
+     Use these instead of hardcoded px/rem values.
+     ============================================================ */
+  --space-0:   0;
+  --space-1:   0.25rem;   /* 4px */
+  --space-2:   0.5rem;    /* 8px */
+  --space-3:   0.75rem;   /* 12px */
+  --space-4:   1rem;      /* 16px */
+  --space-5:   1.25rem;   /* 20px */
+  --space-6:   1.5rem;    /* 24px */
+  --space-7:   1.75rem;   /* 28px */
+  --space-8:   2rem;      /* 32px */
+  --space-10:  2.5rem;    /* 40px */
+  --space-12:  3rem;      /* 48px */
+  --space-14:  3.5rem;    /* 56px */
+  --space-16:  4rem;      /* 64px */
+  --space-20:  5rem;      /* 80px */
+  --space-24:  6rem;      /* 96px */
+  --space-32:  8rem;      /* 128px */
+
+  /* ── Section & Container ── */
+  --section-padding:    clamp(3rem, 6vw, 5.5rem);
+  --container-max:      1280px;
+  --container-padding:  clamp(1.25rem, 4vw, 2.5rem);
+
+  /* ── Header ── */
+  --header-height:          80px;
+  --header-height-scrolled: 64px;
+
+  /* ============================================================
+     RADII — Border Radius Scale
+     ============================================================ */
+  --radius-none: 0;
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   12px;
+  --radius-xl:   16px;
+  --radius-2xl:  24px;
+  --radius-full: 9999px;
+
+  /* ============================================================
+     TRANSITIONS — Motion Tokens
+     ============================================================ */
+  --transition-instant: 100ms ease;
+  --transition-fast:    150ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-base:    250ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow:    400ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-spring:  500ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ============================================================
+     Z-INDEX — Stacking Order
+     ============================================================ */
+  --z-base:      0;
+  --z-raised:    10;
+  --z-dropdown:  100;
+  --z-sticky:    200;
+  --z-overlay:   300;
+  --z-modal:     400;
+  --z-toast:     500;
+  --z-tooltip:   600;
+
+  /* ============================================================
+     LEGACY COLOR ALIASES — Backwards Compatibility
+     ============================================================ */
+  --color-bg-obsidian:        var(--bg-canvas);
+  --color-bg-obsidian-soft:   var(--bg-primary);
+  --color-bg-graphite:        var(--bg-secondary);
+  --color-bg-graphite-card:   var(--bg-surface);
+  --color-bg-titanium:        var(--bg-elevated);
+  --color-bg-dark:            var(--bg-canvas);
+  --color-bg-dark-2:          var(--bg-primary);
+  --color-bg-dark-3:          var(--bg-surface);
+  --color-bg-dark-4:          var(--bg-elevated);
+  --color-bg-light:           var(--bg-secondary);
+  --color-bg-white:           var(--bg-surface);
+  --color-bg-section:         var(--bg-secondary);
+
+  --color-accent:             var(--accent);
+  --color-accent-hover:       var(--accent-hover);
+  --color-accent-light:       var(--accent-light);
+  --color-accent-glow:        var(--accent-glow);
+
+  --color-text-primary:       var(--text-primary);
+  --color-text-secondary:     var(--text-secondary);
+  --color-text-muted:         var(--text-muted);
+  --color-text-dark:          var(--text-primary);
+  --color-text-dark-secondary: var(--text-secondary);
+  --color-text-dark-muted:    var(--text-muted);
+
+  --color-border:             var(--border);
+  --color-border-subtle:      var(--border-subtle);
+  --color-border-light:       var(--border-strong);
+  --color-border-hover:       var(--border-accent);
+}

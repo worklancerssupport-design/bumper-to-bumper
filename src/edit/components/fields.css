@@ -1,0 +1,214 @@
+.edit-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 16px;
+}
+
+.edit-field__label {
+    font-family: var(--font-display, 'Orbitron', sans-serif);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted, #707070);
+}
+
+.edit-field__required {
+    color: var(--brand-red, #e63946);
+    margin-left: 2px;
+}
+
+.edit-field__hint {
+    font-size: 12px;
+    color: var(--text-muted, #707070);
+}
+
+.edit-input,
+.edit-textarea,
+.edit-select {
+    width: 100%;
+    padding: 10px 12px;
+    background: var(--bg-input, #1c1c1c);
+    border: 1px solid var(--border, rgba(255, 255, 255, 0.10));
+    border-radius: 6px;
+    color: var(--text-primary, #ffffff);
+    font-family: inherit;
+    font-size: 14px;
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.edit-input:focus,
+.edit-textarea:focus,
+.edit-select:focus {
+    outline: none;
+    border-color: var(--brand-red, #e63946);
+    box-shadow: 0 0 0 2px var(--brand-red-glow, rgba(230, 57, 70, 0.35));
+}
+
+.edit-input::placeholder,
+.edit-textarea::placeholder {
+    color: var(--text-disabled, #4a4a4a);
+}
+
+.edit-textarea {
+    resize: vertical;
+    min-height: 80px;
+    line-height: 1.5;
+}
+
+.edit-select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23b0b0b0' stroke-width='2'%3e%3cpolyline points='6 9 12 15 18 9'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+    padding-right: 36px;
+}
+
+.edit-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.edit-toggle__track {
+    position: relative;
+    width: 40px;
+    height: 22px;
+    background: var(--bg-input, #1c1c1c);
+    border: 1px solid var(--border, rgba(255, 255, 255, 0.10));
+    border-radius: 11px;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.edit-toggle__thumb {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+    background: var(--text-muted, #707070);
+    border-radius: 50%;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.edit-toggle--on .edit-toggle__track {
+    background: var(--brand-red, #e63946);
+    border-color: var(--brand-red, #e63946);
+}
+
+.edit-toggle--on .edit-toggle__thumb {
+    transform: translateX(18px);
+    background: #ffffff;
+}
+
+.edit-toggle__label {
+    font-size: 13px;
+    color: var(--text-secondary, #b0b0b0);
+}
+
+.edit-image-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.edit-image-field--compact {
+    width: 100%;
+}
+
+.edit-image-field__preview {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 6px;
+    overflow: hidden;
+    background: var(--bg-input, #1c1c1c);
+    border: 1px solid var(--border, rgba(255, 255, 255, 0.10));
+    cursor: pointer;
+    transition: border-color 0.15s;
+}
+
+.edit-image-field__preview:hover {
+    border-color: var(--brand-red, #e63946);
+}
+
+.edit-image-field__preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.edit-image-field__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 500;
+    opacity: 0;
+    transition: opacity 0.15s;
+}
+
+.edit-image-field__preview:hover .edit-image-field__overlay {
+    opacity: 1;
+}
+
+.edit-image-field--compact .edit-image-field__preview {
+    aspect-ratio: 1 / 1;
+}
+
+.edit-image-field__add {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 2px dashed var(--border, rgba(255, 255, 255, 0.10));
+    background: transparent;
+    color: var(--text-muted, #707070);
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.15s;
+}
+
+.edit-image-field__add:hover {
+    border-color: var(--brand-red, #e63946);
+    color: var(--brand-red, #e63946);
+    background: rgba(230, 57, 70, 0.05);
+}
+
+.edit-image-field--compact .edit-image-field__add {
+    aspect-ratio: 1 / 1;
+    font-size: 11px;
+    padding: 4px;
+}
+
+.edit-image-field__edit {
+    background: var(--bg-elevated, #1f1f1f);
+    border: 1px solid var(--border, rgba(255, 255, 255, 0.10));
+    color: var(--text-secondary, #b0b0b0);
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: all 0.15s;
+}
+
+.edit-image-field__edit:hover {
+    background: var(--bg-input, #1c1c1c);
+    color: var(--text-primary, #ffffff);
+}

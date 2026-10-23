@@ -1,0 +1,94 @@
+/* ============================================================
+   TRUST & SERVICE FEATURES — DARK GREEN & CHARCOAL PALETTE
+   Bumper To Bumper Car Accessories · Adambakkam, Chennai
+   ============================================================ */
+
+.trust-features-section {
+  background: var(--bg-secondary, #171F19);
+  padding: 2.5rem 0;
+  border-top: 1px solid var(--border, #303B32);
+  border-bottom: 1px solid var(--border, #303B32);
+  position: relative;
+}
+
+.trust-features__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+.trust-feature-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  padding: 1.15rem 1rem;
+  border-radius: 4px;
+  background: var(--bg-surface, #1D2920);
+  border: 1px solid var(--border, #303B32);
+  transition: all var(--transition-fast);
+}
+
+.trust-feature-card:hover {
+  background: var(--bg-elevated, #233227);
+  border-color: #477A50;
+  transform: translateY(-2px);
+}
+
+.trust-feature-icon-wrapper {
+  width: 44px;
+  height: 44px;
+  border-radius: 4px;
+  background: rgba(71, 122, 80, 0.15);
+  border: 1px solid rgba(71, 122, 80, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all var(--transition-fast);
+}
+
+.trust-feature-card:hover .trust-feature-icon-wrapper {
+  background: #477A50;
+}
+
+.trust-feature-icon {
+  color: #6B916C;
+  transition: color var(--transition-fast);
+}
+
+.trust-feature-card:hover .trust-feature-icon {
+  color: #F0F2ED;
+}
+
+.trust-feature-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.trust-feature-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--text-primary, #F0F2ED);
+  margin: 0 0 0.25rem;
+  text-transform: uppercase;
+}
+
+.trust-feature-desc {
+  font-size: 0.775rem;
+  line-height: 1.45;
+  color: var(--text-secondary, #B4BDB4);
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .trust-features__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .trust-features__grid {
+    grid-template-columns: 1fr;
+  }
+}

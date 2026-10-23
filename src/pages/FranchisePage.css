@@ -1,0 +1,502 @@
+/* ============================================================
+   FRANCHISE PAGE
+   Bumper To Bumper Car Accessories · Adambakkam, Chennai
+   Structure: Hero → Form + Highlights/Reach (2-col) → CTA
+   Matches ContactPage patterns exactly: typography, spacing,
+   section headers, form panel, side info, hero overlay.
+   ============================================================ */
+
+.franchise-breadcrumb-wrap {
+  background: var(--bg-primary);
+  padding: var(--space-4) 0;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ============================================================
+   1. HERO — matches .cat-hero / .contact-hero exactly
+   ============================================================ */
+
+.franchise-hero {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  min-height: clamp(540px, 60vh, 640px);
+  background-image: url('/images/headers/about_hero_banner.jpg');
+  background-size: cover;
+  background-position: center 40%;
+  overflow: hidden;
+  padding: var(--space-20) 0 var(--space-16);
+  border-bottom: 1px solid var(--border);
+}
+
+.franchise-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.95) 0%,
+    rgba(10, 10, 10, 0.45) 55%,
+    rgba(10, 10, 10, 0.0) 100%
+  );
+  pointer-events: none;
+}
+
+.franchise-hero__content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.franchise-hero__title {
+  font-family: var(--font-display);
+  font-size: var(--text-hero);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  margin: 0 0 var(--space-8);
+  line-height: var(--line-height-display);
+  text-transform: uppercase;
+}
+
+.franchise-hero__title-accent {
+  color: var(--brand-red);
+  opacity: 1;
+  font-weight: inherit;
+}
+
+.franchise-hero__subtitle {
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  font-weight: var(--font-weight-regular);
+  color: var(--text-secondary);
+  opacity: var(--opacity-medium);
+  max-width: 540px;
+  line-height: var(--line-height-relaxed);
+  margin: 0 0 var(--space-10);
+}
+
+.franchise-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.franchise-hero__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-6);
+  font-family: var(--font-sans);
+  font-size: var(--text-caption);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-wider);
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  transition: transform var(--transition-base),
+              background var(--transition-base),
+              border-color var(--transition-base);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.franchise-hero__btn--primary {
+  background: var(--brand-red);
+  color: #FFFFFF;
+  border-color: var(--brand-red);
+}
+
+.franchise-hero__btn--primary:hover {
+  background: var(--brand-red-hover);
+  border-color: var(--brand-red-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(215, 25, 32, 0.4);
+}
+
+.franchise-hero__btn-icon {
+  color: var(--brand-red);
+  transition: transform var(--transition-base);
+}
+
+.franchise-hero__btn--primary:hover .franchise-hero__btn-icon {
+  transform: translateX(4px);
+}
+
+/* ============================================================
+   2. MAIN — Form (left) + Highlights/Reach (right)
+   ============================================================ */
+
+.franchise-main {
+  background-color: var(--bg-canvas);
+  border-bottom: 1px solid var(--border);
+}
+
+.franchise-main__grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  align-items: start;
+}
+
+/* ----- FORM PANEL ----- */
+
+.franchise-form-panel {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-2xl);
+  padding: clamp(var(--space-6), 3vw, var(--space-10));
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.franchise-form-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--border-strong);
+}
+
+.franchise-form-panel__header {
+  margin-bottom: var(--space-2);
+}
+
+.franchise-form-panel__title {
+  font-family: var(--font-display);
+  font-size: var(--text-title);
+  font-weight: var(--font-weight-normal);
+  color: var(--text-primary);
+  margin-bottom: var(--space-2);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+}
+
+.franchise-form-panel__intro {
+  font-size: var(--text-caption);
+  color: var(--text-secondary);
+  opacity: var(--opacity-medium);
+  line-height: var(--line-height-relaxed);
+  max-width: 520px;
+  margin: 0 0 var(--space-8);
+}
+
+.franchise-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.franchise-form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-5);
+}
+
+.franchise-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.franchise-form__field label {
+  font-family: var(--font-sans);
+  font-size: var(--text-tiny);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-wider);
+  text-transform: uppercase;
+  color: var(--text-muted);
+  opacity: var(--opacity-low);
+}
+
+.franchise-form__field input,
+.franchise-form__field select,
+.franchise-form__field textarea {
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  font-family: var(--font-sans);
+  font-size: var(--text-caption);
+  color: var(--text-primary);
+  background: var(--bg-input);
+  transition: all var(--transition-fast);
+  width: 100%;
+}
+
+.franchise-form__field select {
+  appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--text-secondary) 50%),
+    linear-gradient(135deg, var(--text-secondary) 50%, transparent 50%);
+  background-position: calc(100% - 18px) center, calc(100% - 13px) center;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+  padding-right: 2.5rem;
+  cursor: pointer;
+}
+
+.franchise-form__field input:focus,
+.franchise-form__field select:focus,
+.franchise-form__field textarea:focus {
+  outline: none;
+  border-color: var(--border-strong);
+  background: var(--bg-elevated);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.06);
+}
+
+.franchise-form__field textarea {
+  resize: vertical;
+  min-height: 120px;
+  font-family: var(--font-sans);
+}
+
+.franchise-form__field-error {
+  font-family: var(--font-mono);
+  font-size: var(--text-tiny);
+  color: var(--color-error);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.franchise-form__field-error::before {
+  content: '⚠';
+  font-size: var(--text-micro);
+}
+
+.franchise-form__error-banner {
+  background: var(--color-error-bg);
+  border: 1px solid var(--color-error);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--text-caption);
+  color: var(--color-error);
+}
+
+.franchise-form__submit {
+  width: 100%;
+  justify-content: center;
+  margin-top: var(--space-2);
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+  border: 1px solid var(--border-strong);
+}
+
+.franchise-form__submit:hover:not(:disabled) {
+  background: var(--brand-red);
+  color: var(--text-on-red);
+  border-color: var(--brand-red);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-accent);
+}
+
+.franchise-form__submit:disabled {
+  opacity: var(--opacity-low);
+  cursor: not-allowed;
+}
+
+.franchise-form-success {
+  text-align: center;
+  padding: var(--space-12) 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.franchise-form-success h3 {
+  font-family: var(--font-sans);
+  font-size: var(--text-heading);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.franchise-form-success p {
+  color: var(--text-secondary);
+  opacity: var(--opacity-medium);
+  max-width: 420px;
+}
+
+/* ----- SIDE INFO (right column) ----- */
+
+.franchise-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  position: sticky;
+  top: var(--space-6);
+}
+
+.franchise-info__block {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+}
+
+.franchise-info__title {
+  font-family: var(--font-display);
+  font-size: var(--text-title);
+  font-weight: var(--font-weight-normal);
+  color: var(--text-primary);
+  margin: 0 0 var(--space-2);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+}
+
+.franchise-info__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.franchise-info__item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.franchise-info__icon {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  border-radius: var(--radius-md);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+}
+
+.franchise-info__item > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.franchise-info__label {
+  font-family: var(--font-sans);
+  font-size: var(--text-tiny);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wider);
+  color: var(--text-muted);
+  opacity: var(--opacity-medium);
+}
+
+.franchise-info__value {
+  font-family: var(--font-sans);
+  font-size: var(--text-caption);
+  color: var(--text-primary);
+  line-height: var(--line-height-snug);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+  word-break: break-word;
+}
+
+a.franchise-info__value:hover {
+  color: var(--brand-red);
+}
+
+.franchise-info__value--text {
+  color: var(--text-secondary);
+}
+
+/* ----- FEATURED BLOCK (more prominent, signal content) ----- */
+
+.franchise-info__block--featured {
+  background: var(--bg-elevated);
+  border-color: var(--border-strong);
+  position: relative;
+  padding: var(--space-7) var(--space-6);
+  box-shadow: var(--shadow-md);
+}
+
+.franchise-info__block--featured .franchise-info__list {
+  gap: var(--space-5);
+}
+
+.franchise-info__block--featured .franchise-info__icon {
+  width: 40px;
+  height: 40px;
+  color: var(--brand-red);
+  background: rgba(0, 0, 0, 0.3);
+  border-color: var(--border);
+  transform: translateY(20px);
+}
+
+.franchise-info__block--featured .franchise-info__value {
+  font-size: var(--text-body);
+  color: var(--text-primary);
+  line-height: var(--line-height-normal);
+}
+
+.franchise-info__block--featured .franchise-info__value--text {
+  color: var(--text-secondary);
+  opacity: var(--opacity-high);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 1024px) {
+  .franchise-main__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .franchise-info {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .franchise-hero {
+    padding: var(--space-12) 0;
+  }
+
+  .franchise-form__row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .franchise-hero__content .section-label,
+  .franchise-hero__subtitle {
+    display: none;
+  }
+
+  .franchise-hero__title {
+    font-size: var(--text-heading);
+    padding-top: var(--space-16);
+    padding-bottom: var(--space-16);
+  }
+
+  .franchise-hero__actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .franchise-hero__btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

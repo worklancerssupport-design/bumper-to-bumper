@@ -1,0 +1,61 @@
+/* ============================================================
+   APP-LEVEL STYLES
+   Bumper To Bumper Car Accessories · Adambakkam, Chennai
+
+   Loading state, skip link, and global app containers.
+   ============================================================ */
+
+.app-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  gap: var(--space-4);
+}
+
+.app-loading__spinner {
+  width: 44px;
+  height: 44px;
+  border: 3px solid rgba(230, 57, 70, 0.15);
+  border-top-color: var(--brand-red);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.app-loading__text {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  letter-spacing: var(--letter-spacing-wider);
+  text-transform: uppercase;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Skip link — accessibility for keyboard users */
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(-200%);
+  background: var(--brand-red);
+  color: var(--text-on-red);
+  padding: 0.7rem 1.4rem;
+  z-index: 99999;
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-bold);
+  text-decoration: none;
+  border-radius: 0 0 var(--radius-md) 0;
+  transition: transform 0.15s ease-in-out;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+  outline: 3px solid var(--text-primary);
+  outline-offset: 2px;
+}

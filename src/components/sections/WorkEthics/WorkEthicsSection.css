@@ -1,0 +1,213 @@
+/* ============================================================
+   WORK ETHICS SECTION — BLACK & RED DESIGN SYSTEM
+   Bumper To Bumper Car Accessories · Adambakkam, Chennai
+   ============================================================ */
+
+.work-ethics-section {
+  padding: 5rem 0;
+  background-color: #0D0D0D;
+  border-bottom: 1px solid #292929;
+}
+
+.work-ethics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+/* ── Left Column: Media ────────────────────────────────────── */
+.work-ethics-media {
+  position: relative;
+}
+
+.work-ethics-media__frame {
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid #292929;
+  background: #151515;
+  aspect-ratio: 16 / 11;
+}
+
+.work-ethics-media__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+}
+
+.work-ethics-media__badge {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 1.25rem;
+  background: rgba(5, 5, 5, 0.88);
+  backdrop-filter: blur(8px);
+  border: 1px solid #292929;
+  border-left: 3px solid #D71920;
+  border-radius: 4px;
+  padding: 0.65rem 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.work-ethics-media__badge-title {
+  font-family: var(--font-display, 'Michroma', sans-serif);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #F5F5F5;
+  line-height: 1.2;
+}
+
+.work-ethics-media__badge-sub {
+  font-size: 0.72rem;
+  color: #B8B8B8;
+  letter-spacing: 0.5px;
+}
+
+/* ── Right Column: Content ─────────────────────────────────── */
+.work-ethics-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.work-ethics-eyebrow {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #858585;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.work-ethics-title {
+  font-family: var(--font-display, 'Michroma', sans-serif);
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: #F5F5F5;
+  margin: 0 0 0.75rem;
+}
+
+.work-ethics-title-accent {
+  color: #D71920;
+}
+
+.work-ethics-subtitle {
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.6;
+  color: #D8D8D8;
+  margin-bottom: 1.5rem;
+}
+
+.work-ethics-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #B8B8B8;
+  margin-bottom: 2rem;
+}
+
+.work-ethics-text strong {
+  color: #F5F5F5;
+  font-weight: 600;
+}
+
+/* Highlights */
+.work-ethics-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+  margin-bottom: 2.25rem;
+  padding: 1.25rem;
+  background: #151515;
+  border: 1px solid #292929;
+  border-radius: 6px;
+}
+
+.work-ethics-highlight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.work-ethics-highlight-icon {
+  color: #D71920;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.work-ethics-highlight-item strong {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #F5F5F5;
+  margin-bottom: 2px;
+}
+
+.work-ethics-highlight-item p {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: #858585;
+  margin: 0;
+}
+
+/* Actions */
+.work-ethics-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.work-ethics-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.65rem;
+  border-radius: 9999px;
+  background: #D71920;
+  color: #FFFFFF;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  text-decoration: none;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.work-ethics-btn-primary:hover {
+  background: #E82830;
+  transform: translateY(-2px);
+}
+
+.work-ethics-phone-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: #B8B8B8;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.work-ethics-phone-link:hover {
+  color: #F5F5F5;
+}
+
+.work-ethics-phone-icon {
+  color: #D71920;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .work-ethics-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}

@@ -1,0 +1,473 @@
+/* ============================================================
+   HEADER & NAVIGATION — MINIMAL AUTOMOTIVE BLACK & RED
+   Bumper To Bumper Car Accessories · Adambakkam, Chennai
+
+   Palette:
+   - Primary BG:     #050505
+   - Secondary BG:   #0D0D0D
+   - Card Surfaces:  #151515
+   - Accent Red:     #D71920
+   - Dark Red:       #A91219
+   - Text Primary:   #F5F5F5
+   - Text Secondary: #B8B8B8
+   - Borders:        #292929
+   ============================================================ */
+
+.btb-header {
+  position: relative;
+  z-index: 1000;
+  width: 100%;
+  background-color: #050505;
+  border-bottom: 1px solid #292929;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.btb-header--scrolled {
+  position: sticky;
+  top: 0;
+  background-color: rgba(5, 5, 5, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom-color: #292929;
+}
+
+/* ============================================================
+   MAIN BRAND & NAVIGATION ROW
+   ============================================================ */
+.header-main-row {
+  padding: 0.9rem 0;
+  background-color: #050505;
+}
+
+.header-main-row__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+/* ── Brand Badge (Typographic Automotive Identity) ────────── */
+.brand-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.brand-badge__mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  background-color: #0D0D0D;
+  border: 1px solid #292929;
+  border-radius: 6px;
+  color: #F5F5F5;
+  font-family: 'Michroma', sans-serif, system-ui;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.brand-badge:hover .brand-badge__mark {
+  border-color: #D71920;
+  background-color: #151515;
+}
+
+.brand-badge__mark-b {
+  color: #F5F5F5;
+}
+
+.brand-badge__mark-dot {
+  color: #D71920;
+  margin: 0 1px;
+}
+
+.brand-badge__text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-badge__title {
+  font-family: 'Michroma', sans-serif, system-ui;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #F5F5F5;
+  line-height: 1.15;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+.brand-badge:hover .brand-badge__title {
+  color: #FFFFFF;
+}
+
+.brand-badge__sub {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  color: #858585;
+  text-transform: uppercase;
+  margin-top: 1px;
+  transition: color 0.2s ease;
+}
+
+.brand-badge:hover .brand-badge__sub {
+  color: #D71920;
+}
+
+
+
+
+/* ── Center: Minimal Navigation ───────────────────────────── */
+.header-main-nav {
+  display: flex;
+  align-items: center;
+}
+
+.header-main-nav__list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: clamp(0.75rem, 1.5vw, 1.65rem);
+}
+
+.header-main-nav__item {
+  position: relative;
+}
+
+.header-main-nav__link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #B8B8B8;
+  text-decoration: none;
+  background: none;
+  border: none;
+  padding: 0.45rem 0.2rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.18s ease;
+}
+
+.header-main-nav__link:hover,
+.header-main-nav__link:focus-visible {
+  color: #FFFFFF;
+  outline: none;
+}
+
+.header-main-nav__link--active {
+  color: #FFFFFF;
+  font-weight: 700;
+}
+
+/* Subtle Active-State Red Indicator (Minimal line below link) */
+.header-main-nav__indicator {
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #D71920;
+  border-radius: 1px;
+}
+
+/* Dropdown trigger icon */
+.header-dropdown-icon {
+  color: #858585;
+  transition: transform 0.2s ease, color 0.15s ease;
+}
+
+.header-dropdown-icon--open,
+.header-main-nav__item--dropdown:hover .header-dropdown-icon {
+  transform: rotate(180deg);
+  color: #D71920;
+}
+
+/* Dropdown Menu (Interior / Exterior Accessories) */
+.header-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 340px;
+  background: #151515;
+  border: 1px solid #292929;
+  border-radius: 8px;
+  padding: 0.6rem;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.85);
+  z-index: 1050;
+  animation: dropdownFade 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Invisible hover bridge connecting trigger button to dropdown menu */
+.header-dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: -16px;
+  left: 0;
+  right: 0;
+  height: 16px;
+  background: transparent;
+}
+
+@keyframes dropdownFade {
+  from { opacity: 0; transform: translate(-50%, -6px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+.header-dropdown-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.85rem;
+  padding: 0.75rem 0.85rem;
+  border-radius: 6px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.header-dropdown-item:hover {
+  background-color: #1C1C1C;
+  border-color: #333333;
+}
+
+.header-dropdown-item.active {
+  background-color: #1A1A1A;
+  border-color: rgba(215, 25, 32, 0.35);
+}
+
+.header-dropdown-item__icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  background-color: #0D0D0D;
+  border: 1px solid #292929;
+  color: #D71920;
+  flex-shrink: 0;
+  transition: all 0.15s ease;
+}
+
+.header-dropdown-item:hover .header-dropdown-item__icon-wrap,
+.header-dropdown-item.active .header-dropdown-item__icon-wrap {
+  border-color: #D71920;
+  background-color: rgba(215, 25, 32, 0.15);
+  color: #FFFFFF;
+}
+
+.header-dropdown-item__text {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.header-dropdown-item__title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #F5F5F5;
+  margin-bottom: 2px;
+}
+
+.header-dropdown-item:hover .header-dropdown-item__title,
+.header-dropdown-item.active .header-dropdown-item__title {
+  color: #D71920;
+}
+
+.header-dropdown-item__desc {
+  font-size: 0.72rem;
+  color: #858585;
+  line-height: 1.35;
+}
+
+.header-dropdown-arrow {
+  color: #858585;
+  flex-shrink: 0;
+  transition: transform 0.15s ease, color 0.15s ease;
+}
+
+.header-dropdown-item:hover .header-dropdown-arrow {
+  color: #D71920;
+  transform: translateX(3px);
+}
+
+.header-dropdown-divider {
+  height: 1px;
+  background-color: #292929;
+  margin: 0.25rem 0.5rem;
+}
+
+/* ── Right: Compact Icon Controls (Search, Instagram, Phone, Mobile Toggle) ── */
+.header-main-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.header-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 6px;
+  background: #151515;
+  border: 1px solid #292929;
+  color: #B8B8B8;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease, transform 0.15s ease;
+}
+
+.header-icon-btn:hover {
+  color: #FFFFFF;
+  border-color: #D71920;
+  background-color: rgba(215, 25, 32, 0.12);
+  transform: translateY(-1px);
+}
+
+.header-icon-btn:focus-visible {
+  outline: 2px solid #D71920;
+  outline-offset: 2px;
+}
+
+.header-icon-btn--toggle {
+  display: none;
+}
+
+/* ============================================================
+   RESPONSIVE ADAPTATIONS
+   ============================================================ */
+@media (max-width: 1024px) {
+  .header-main-nav {
+    display: none;
+  }
+
+  .header-icon-btn--toggle {
+    display: inline-flex;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-badge__title {
+    font-size: 0.78rem;
+  }
+
+  .brand-badge__sub {
+    font-size: 0.58rem;
+  }
+
+  .brand-badge__mark {
+    width: 34px;
+    height: 34px;
+    font-size: 0.8rem;
+  }
+
+  .header-icon-btn {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+/* ============================================================
+   SUPPORTED CAR MARQUES STRIP IN HEADER
+   Honda, Hyundai, Maruti, Kia, Jeep, Tata, Toyota, Volkswagen
+   ============================================================ */
+.header-marques-bar {
+  background-color: #0A0A0A;
+  border-top: 1px solid #1C1C1C;
+  padding: 0.35rem 0;
+  font-size: 0.72rem;
+  overflow: hidden;
+}
+
+.header-marques-bar__inner {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.header-marques-bar__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #858585;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.header-marques-bar__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #D71920;
+  flex-shrink: 0;
+}
+
+.header-marques-bar__list {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  padding: 2px 0;
+}
+
+.header-marques-bar__list::-webkit-scrollbar {
+  display: none;
+}
+
+.header-marques-item {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.65rem;
+  border-radius: 9999px;
+  background: #121212;
+  border: 1px solid #242424;
+  color: #B8B8B8;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+  text-decoration: none;
+}
+
+.header-marques-item:hover {
+  background-color: #1A1A1A;
+  border-color: #D71920;
+  color: #FFFFFF;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 640px) {
+  .header-marques-bar__label {
+    display: none;
+  }
+}

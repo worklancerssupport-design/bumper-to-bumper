@@ -1,0 +1,344 @@
+/* ============================================================
+   PREMIUM HERO — DARK GREEN & CHARCOAL PALETTE
+   Bumper To Bumper Car Accessories · Adambakkam, Chennai
+   ============================================================ */
+
+.premium-hero {
+  position: relative;
+  width: 100%;
+  min-height: calc(85vh - 110px);
+  background-color: var(--bg-canvas, #101512);
+  color: var(--text-primary, #F0F2ED);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  font-family: var(--font-sans);
+  padding: 0;
+}
+
+/* ── Background Image & Automotive Overlay ─────────────────── */
+.premium-hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.premium-hero__bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right 30%;
+}
+
+.premium-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      #101512 0%,
+      rgba(16, 21, 18, 0.96) 38%,
+      rgba(16, 21, 18, 0.82) 58%,
+      rgba(16, 21, 18, 0.45) 80%,
+      rgba(16, 21, 18, 0.25) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(16, 21, 18, 0.5) 0%,
+      transparent 30%,
+      transparent 70%,
+      #101512 100%
+    );
+}
+
+/* ── Content Layout ────────────────────────────────────────── */
+.premium-hero__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  flex: 1;
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 3.5rem var(--container-padding) 2.5rem;
+}
+
+.premium-hero__copy {
+  display: flex;
+  flex-direction: column;
+  max-width: 760px;
+}
+
+/* Eyebrow Badge */
+.premium-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  background: rgba(71, 122, 80, 0.15);
+  border: 1px solid rgba(71, 122, 80, 0.35);
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #6B916C;
+  margin-bottom: 1.5rem;
+  width: fit-content;
+}
+
+.premium-hero__badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #477A50;
+}
+
+/* ── Headline ──────────────────────────────────────────────── */
+.premium-hero__title {
+  font-family: var(--font-display, 'Michroma', sans-serif);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  margin: 0 0 1.25rem;
+  color: var(--text-primary, #F0F2ED);
+}
+
+.premium-hero__title-accent {
+  color: #6B916C;
+  display: inline-block;
+}
+
+/* ── Lead Paragraph ────────────────────────────────────────── */
+.premium-hero__lead {
+  font-family: var(--font-sans);
+  font-size: clamp(0.95rem, 1.3vw, 1.05rem);
+  line-height: 1.65;
+  color: var(--text-secondary, #B4BDB4);
+  max-width: 620px;
+  margin: 0 0 2rem;
+}
+
+/* ── Action Row ────────────────────────────────────────────── */
+.premium-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.premium-hero__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.75rem;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.premium-hero__btn--primary {
+  background: #477A50;
+  color: #F0F2ED;
+  border: 1px solid #477A50;
+}
+
+.premium-hero__btn--primary:hover {
+  background: #568F60;
+  border-color: #568F60;
+  transform: translateY(-2px);
+}
+
+.premium-hero__btn-icon {
+  color: #F0F2ED;
+  transition: transform var(--transition-fast);
+}
+
+.premium-hero__btn--primary:hover .premium-hero__btn-icon {
+  transform: translateX(3px);
+}
+
+.premium-hero__btn--secondary {
+  background: #171F19;
+  color: #F0F2ED;
+  border: 1px solid #303B32;
+}
+
+.premium-hero__btn--secondary:hover {
+  background: #1D2920;
+  border-color: #477A50;
+  transform: translateY(-2px);
+}
+
+.premium-hero__hotline-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.6rem 1rem;
+  border-radius: 4px;
+  background: #171F19;
+  border: 1px solid #303B32;
+  color: #F0F2ED;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.premium-hero__hotline-link:hover {
+  border-color: #477A50;
+  background: #1D2920;
+  transform: translateY(-2px);
+}
+
+.premium-hero__hotline-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  background: rgba(71, 122, 80, 0.15);
+  color: #6B916C;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.premium-hero__hotline-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.premium-hero__hotline-text small {
+  font-size: 0.65rem;
+  color: #89958B;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.premium-hero__hotline-text strong {
+  font-size: 0.85rem;
+  color: #F0F2ED;
+}
+
+/* ── Quick Trust Highlights ────────────────────────────────── */
+.premium-hero__highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid #303B32;
+}
+
+.premium-hero__highlight-item {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.8rem;
+  color: #B4BDB4;
+}
+
+.premium-hero__highlight-icon {
+  color: #6B916C;
+  flex-shrink: 0;
+}
+
+/* ── Brand Strip Below Hero ────────────────────────────────── */
+.premium-hero__brand-strip {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  background: #171F19;
+  border-top: 1px solid #303B32;
+  padding: 0.85rem var(--container-padding);
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  overflow-x: auto;
+}
+
+.premium-hero__brand-strip-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #89958B;
+  white-space: nowrap;
+}
+
+.premium-hero__brands {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.premium-hero__brands li {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #89958B;
+  white-space: nowrap;
+  transition: color var(--transition-fast);
+}
+
+.premium-hero__brands li:hover {
+  color: #F0F2ED;
+}
+
+/* ── Responsive Media Queries ──────────────────────────────── */
+@media (max-width: 1024px) {
+  .premium-hero {
+    min-height: auto;
+  }
+  .premium-hero__content {
+    padding: 3rem var(--container-padding) 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .premium-hero__overlay {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(16, 21, 18, 0.85) 0%,
+        rgba(16, 21, 18, 0.95) 60%,
+        #101512 100%
+      );
+  }
+  .premium-hero__title {
+    font-size: 1.85rem;
+  }
+  .premium-hero__lead {
+    font-size: 0.9rem;
+  }
+  .premium-hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+  .premium-hero__btn {
+    justify-content: center;
+  }
+  .premium-hero__hotline-link {
+    justify-content: center;
+  }
+  .premium-hero__brand-strip {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .premium-hero__brands {
+    gap: 1.25rem;
+  }
+}

@@ -1,0 +1,115 @@
+.edit-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: var(--bg-canvas, #000000);
+    padding: 20px;
+}
+
+.edit-login__card {
+    width: 100%;
+    max-width: 360px;
+    background: var(--bg-surface, #161616);
+    border: 1px solid var(--border, rgba(255, 255, 255, 0.10));
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: var(--shadow-lg, 0 16px 40px rgba(0, 0, 0, 0.75));
+}
+
+.edit-login__icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--brand-red-light, rgba(230, 57, 70, 0.12));
+    color: var(--brand-red, #e63946);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+}
+
+.edit-login__title {
+    font-family: var(--font-display, 'Orbitron', sans-serif);
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    color: var(--text-primary, #ffffff);
+    margin: 0 0 4px 0;
+}
+
+.edit-login__subtitle {
+    font-size: 13px;
+    text-align: center;
+    color: var(--text-muted, #707070);
+    margin: 0 0 24px 0;
+}
+
+.edit-login__error {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 12px;
+    background: var(--color-error-bg, rgba(255, 74, 90, 0.12));
+    border: 1px solid rgba(255, 74, 90, 0.30);
+    border-radius: 6px;
+    color: var(--color-error, #ff4a5a);
+    font-size: 12px;
+    margin-bottom: 16px;
+}
+
+.edit-login__field {
+    margin-bottom: 14px;
+}
+
+.edit-login__label {
+    display: block;
+    font-family: var(--font-display, 'Orbitron', sans-serif);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted, #707070);
+    margin-bottom: 6px;
+}
+
+.edit-login__input {
+    width: 100%;
+    padding: 10px 12px;
+    background: var(--bg-input, #1c1c1c);
+    border: 1px solid var(--border, rgba(255, 255, 255, 0.10));
+    border-radius: 6px;
+    color: var(--text-primary, #ffffff);
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.edit-login__input:focus {
+    outline: none;
+    border-color: var(--brand-red, #e63946);
+    box-shadow: 0 0 0 2px var(--brand-red-glow, rgba(230, 57, 70, 0.35));
+}
+
+.edit-login__submit {
+    width: 100%;
+    padding: 12px;
+    background: var(--brand-red, #e63946);
+    border: none;
+    border-radius: 6px;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background 0.15s;
+}
+
+.edit-login__submit:hover:not(:disabled) {
+    background: var(--brand-red-hover, #ff4d5a);
+}
+
+.edit-login__submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}

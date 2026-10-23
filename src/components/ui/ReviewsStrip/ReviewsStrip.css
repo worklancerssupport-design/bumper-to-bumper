@@ -1,0 +1,365 @@
+/* ============================================================
+   REVIEWS STRIP — Premium Card Carousel Design
+   Bumper To Bumper Car Accessories · Adambakkam, Chennai
+   ============================================================ */
+
+.rs-section {
+  background: #050505;
+  padding: var(--section-padding) 0;
+  border-top: 1px solid #1a1a1a;
+  border-bottom: 1px solid #1a1a1a;
+  overflow: hidden;
+}
+
+/* ── Header ── */
+.rs-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.rs-header__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #F5F5F5;
+  text-transform: uppercase;
+  margin: 0.6rem 0 0.75rem;
+  line-height: 1.1;
+}
+
+.rs-header__accent {
+  color: #D71920;
+}
+
+.rs-header__sub {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: #858585;
+  margin: 0;
+}
+
+/* ── Rating bar ── */
+.rs-rating-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  padding: 1.25rem 2rem;
+  background: #0D0D0D;
+  border: 1px solid #222;
+  border-radius: 10px;
+  flex-wrap: wrap;
+}
+
+.rs-rating-bar__score {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.rs-rating-bar__num {
+  font-family: var(--font-display, 'Michroma', sans-serif);
+  font-size: 2rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1;
+}
+
+.rs-rating-bar__stars {
+  display: flex;
+  gap: 2px;
+}
+
+.rs-rating-bar__star {
+  color: #D71920;
+}
+
+.rs-rating-bar__label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #858585;
+}
+
+.rs-rating-bar__divider {
+  width: 1px;
+  height: 36px;
+  background: #292929;
+  flex-shrink: 0;
+}
+
+.rs-rating-bar__tagline {
+  font-size: 0.85rem;
+  color: #858585;
+  margin: 0;
+  max-width: 280px;
+  text-align: left;
+}
+
+/* ── Carousel ── */
+.rs-carousel {
+  overflow: hidden;
+  position: relative;
+  margin: 0 -0.5rem;
+  padding: 0 0.5rem;
+}
+
+.rs-carousel__track {
+  display: flex;
+  gap: 1.5rem;
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+/* ── Review Card ── */
+.rs-card {
+  flex: 0 0 100%;
+  position: relative;
+  background: #0D0D0D;
+  border: 1px solid #1e1e1e;
+  border-radius: 14px;
+  padding: 2.25rem 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  opacity: 0.45;
+  transform: scale(0.98);
+  transition: opacity 0.45s ease, transform 0.45s ease, border-color 0.3s ease;
+  cursor: default;
+}
+
+.rs-card--active {
+  opacity: 1;
+  transform: scale(1);
+  border-color: #2a0609;
+  background: linear-gradient(145deg, #0f0808 0%, #0D0D0D 60%);
+}
+
+/* Red corner accent */
+.rs-card--active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(180deg, #D71920 0%, transparent 80%);
+  border-radius: 14px 0 0 14px;
+}
+
+.rs-card__quote-icon {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.75rem;
+  color: #D71920;
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+.rs-card--active .rs-card__quote-icon {
+  opacity: 0.18;
+}
+
+.rs-card__stars-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.rs-card__stars {
+  display: flex;
+  gap: 3px;
+}
+
+.rs-card__star--filled {
+  color: #D71920;
+}
+
+.rs-card__star--empty {
+  color: #333;
+}
+
+.rs-card__mod {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #D71920;
+  background: rgba(215, 25, 32, 0.08);
+  border: 1px solid rgba(215, 25, 32, 0.2);
+  border-radius: 4px;
+  padding: 0.2rem 0.55rem;
+}
+
+.rs-card__text {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #D0D0D0;
+  margin: 0;
+  font-style: normal;
+}
+
+.rs-card__footer {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-top: 0.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #1e1e1e;
+}
+
+.rs-card__avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display, 'Michroma', sans-serif);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+  letter-spacing: 0.5px;
+}
+
+.rs-card__author {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.rs-card__name {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #F0F0F0;
+}
+
+.rs-card__car {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #666;
+}
+
+/* ── Dot + Arrow Nav ── */
+.rs-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.rs-nav__arrow {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #0D0D0D;
+  border: 1px solid #292929;
+  color: #858585;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: color 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+}
+
+.rs-nav__arrow:hover {
+  color: #F5F5F5;
+  border-color: #D71920;
+  background: #151515;
+}
+
+.rs-nav__dots {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.rs-nav__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #333;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.25s ease, width 0.25s ease, border-radius 0.25s ease;
+}
+
+.rs-nav__dot--active {
+  background: #D71920;
+  width: 22px;
+  border-radius: 3px;
+}
+
+/* ── Footer CTA ── */
+.rs-footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.5rem;
+}
+
+.rs-footer__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.4rem;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #B8B8B8;
+  background: transparent;
+  border: 1px solid #2a2a2a;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.rs-footer__cta:hover {
+  color: #FFFFFF;
+  border-color: #D71920;
+  background: rgba(215, 25, 32, 0.06);
+  transform: translateY(-2px);
+}
+
+/* ── Responsive ── */
+@media (max-width: 700px) {
+  .rs-card {
+    padding: 1.5rem 1.25rem 1.25rem;
+  }
+
+  .rs-card__text {
+    font-size: 0.95rem;
+  }
+
+  .rs-rating-bar {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .rs-rating-bar__divider {
+    width: 80%;
+    height: 1px;
+  }
+
+  .rs-rating-bar__tagline {
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .rs-header__title {
+    font-size: 1.6rem;
+  }
+}

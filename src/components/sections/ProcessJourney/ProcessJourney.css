@@ -1,0 +1,130 @@
+/* ============================================================
+   PROCESS JOURNEY — UNIFIED DESIGN SYSTEM
+   Bumper To Bumper Car Accessories · Adambakkam, Chennai
+
+   Matches the section h2 typography used on every other page
+   (display + display UPPERCASE, solid text-primary). No third
+   typeface, no decorative red, no rotating icons, no hover
+   transforms. Signal over noise.
+   ============================================================ */
+
+.process-section {
+  background: var(--bg-primary);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: var(--section-padding) 0;
+}
+
+.process-header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: var(--space-12);
+  gap: var(--space-3);
+}
+
+.process-section__title {
+  font-family: var(--font-display);
+  font-size: var(--text-display);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  line-height: var(--line-height-tight);
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.process-section__subtitle {
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  font-weight: var(--font-weight-regular);
+  color: var(--text-secondary);
+  opacity: var(--opacity-medium);
+  max-width: 540px;
+  margin: 0;
+  line-height: var(--line-height-relaxed);
+  text-align: center;
+}
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-6);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  align-items: stretch;
+}
+
+.process-step {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: var(--space-2);
+}
+
+.process-step-marker {
+  width: 56px;
+  height: 56px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-5);
+  border-radius: var(--radius-full);
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+}
+
+.process-step-icon {
+  color: var(--text-secondary);
+}
+
+.process-step-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 0;
+  height: 100%;
+  max-width: 200px;
+}
+
+.process-step-title {
+  font-family: var(--font-sans);
+  font-size: var(--text-lead);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  line-height: var(--line-height-snug);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.process-step-desc {
+  font-family: var(--font-sans);
+  font-size: var(--text-caption);
+  line-height: var(--line-height-relaxed);
+  color: var(--text-secondary);
+  opacity: var(--opacity-medium);
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .process-steps {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-10) var(--space-4);
+  }
+}
+
+@media (max-width: 640px) {
+  .process-section__title {
+    font-size: var(--text-heading);
+  }
+
+  .process-steps {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+}

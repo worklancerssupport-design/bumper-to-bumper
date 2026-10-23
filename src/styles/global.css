@@ -1,0 +1,644 @@
+/* ============================================================
+   GLOBAL STYLES — AUTOMOTIVE LUXURY DESIGN SYSTEM
+   Bumper To Bumper Car Accessories · Adambakkam, Chennai
+
+   ── DESIGN PRINCIPLES ───────────────────────────────────────
+   • Pure black canvas with vibrant red accents
+   • Generous whitespace, strong vertical rhythm
+   • Uppercase red labels for section markers
+   • Mixed red/white headlines for brand emphasis
+   • Hierarchy: size + weight + color together
+   ============================================================ */
+
+@import './colorConfig.css';
+@import './fontConfig.css';
+@import './variables.css';
+
+/* ============================================================
+   RESET — Modern Normalize
+   ============================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  background-color: var(--bg-canvas);
+  color-scheme: dark;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+  color: var(--text-primary);
+  background-color: var(--bg-canvas);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+
+img,
+video,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  color: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+/* ============================================================
+   TYPOGRAPHY — STRICT HIERARCHY (Applied Globally)
+   • --font-display (Michroma) → H1 + H2 only.
+                                 Page-level headlines, hero title.
+   • --font-sans (Plus Jakarta Sans) → EVERYTHING ELSE.
+                                 Body, nav, buttons, captions,
+                                 H3, H4, H5, H6, labels, forms.
+
+   The split is binary and intentional. There is no third option.
+   Never apply --font-display to anything that is not H1 or H2
+   (or an element explicitly tagged display, like the hero title).
+
+   ── OPACITY SCALE (Signal-to-Noise) ─────────────────────────
+   Use these to dial emphasis without changing size:
+     full      = 1.00  → primary headings, CTAs, important data
+     high      = 0.85  → hero leads, sub-headings, key metadata
+     medium    = 0.65  → body paragraphs, supporting descriptions
+     low       = 0.50  → captions, helper text, labels
+     whisper   = 0.35  → background hints, decorative only
+
+   ── SPACING LOGIC (inverse with size) ───────────────────────
+     Bigger text  → tighter letter-spacing (punchy)
+     Smaller text → looser letter-spacing (legible)
+     Line-height  → tighter for display, looser for body
+   ============================================================ */
+h1, h2 {
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--text-primary);
+  text-transform: uppercase;
+}
+
+h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-snug);
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--text-primary);
+}
+
+h1 { font-size: var(--text-hero);    line-height: var(--line-height-display); }
+h2 { font-size: var(--text-display); }
+h3 { font-size: var(--text-heading); font-weight: var(--font-weight-bold);    letter-spacing: var(--letter-spacing-normal); }
+h4 { font-size: var(--text-title);   font-weight: var(--font-weight-semibold); }
+h5 { font-size: var(--text-lead);    font-weight: var(--font-weight-semibold); }
+h6 { font-size: var(--text-body);    font-weight: var(--font-weight-semibold); }
+
+p {
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  color: var(--text-secondary);
+  line-height: var(--line-height-relaxed);
+  opacity: var(--opacity-medium);
+}
+
+strong, b {
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  opacity: var(--opacity-full);
+}
+
+small {
+  font-size: var(--text-caption);
+  color: var(--text-muted);
+  opacity: var(--opacity-low);
+}
+
+/* ============================================================
+   SCROLLBAR — Subtle Dark
+   ============================================================ */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-canvas);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--bg-elevated);
+  border-radius: var(--radius-md);
+  border: 2px solid var(--bg-canvas);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-red);
+}
+
+/* ============================================================
+   FOCUS — Visible Accessibility Ring
+   ============================================================ */
+:focus-visible {
+  outline: 2px solid var(--brand-red);
+  outline-offset: 3px;
+}
+
+/* ============================================================
+   SELECTION
+   ============================================================ */
+::selection {
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+}
+
+/* ============================================================
+   LAYOUT — Container & Section
+   ============================================================ */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+.section {
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+  position: relative;
+}
+
+.section--dark {
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+}
+
+.section--dark-alt {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* ============================================================
+   SECTION HEADERS — Label + Title + Subtitle Pattern
+   No leading line. No red spam. Subtle muted label.
+   ============================================================ */
+
+/* Small uppercase label (e.g., "WHAT WE OFFER") — muted, not red. */
+.section-label {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: var(--text-micro);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-label);
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: var(--space-4);
+}
+
+/* No ::before — never draw the "---- X" red line. */
+
+/* Hero title accent — muted/secondary word in hero titles. Shared across pages. */
+.about-hero__title-accent {
+  color: var(--text-secondary);
+  opacity: var(--opacity-medium);
+  font-weight: var(--font-weight-normal);
+}
+
+/* Large section title — h3 size, sans family (display font is h1/h2 only). */
+.section-title {
+  font-family: var(--font-sans);
+  font-size: var(--text-heading);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-tight);
+  line-height: var(--line-height-tight);
+  margin-bottom: var(--space-4);
+  color: var(--text-primary);
+}
+
+.section-title__accent,
+.text-red,
+.accent-word,
+.title-accent,
+.heading-accent,
+.subheading-accent {
+  color: var(--brand-red, #D71920) !important;
+  opacity: 1 !important;
+}
+
+/* Section subtitle / description — smaller than body, whisper opacity */
+.section-subtitle {
+  font-size: var(--text-caption);
+  line-height: var(--line-height-relaxed);
+  color: var(--text-secondary);
+  opacity: var(--opacity-whisper);
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-subtitle--left {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: var(--space-16);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section-header--left {
+  text-align: left;
+  align-items: flex-start;
+}
+
+/* ============================================================
+   BUTTONS — Red Accent System
+   ============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 0.85rem 1.75rem;
+  font-family: var(--font-sans);
+  font-size: var(--text-caption);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-base);
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  text-decoration: none;
+  border: 1px solid transparent;
+}
+
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  transition: transform var(--transition-fast);
+}
+
+.btn:hover .btn-icon {
+  transform: translateX(3px);
+}
+
+/* Primary: Vibrant red CTA */
+.btn-primary {
+  background: var(--brand-red);
+  color: var(--text-on-red);
+  border-color: var(--brand-red);
+}
+
+.btn-primary:hover {
+  background: var(--brand-red-hover);
+  border-color: var(--brand-red-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-accent);
+}
+
+.btn-primary:active {
+  background: var(--brand-red-deep);
+  transform: translateY(0);
+}
+
+/* Secondary: Outline with red border */
+.btn-secondary {
+  background: transparent;
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+}
+
+.btn-secondary:hover {
+  border-color: var(--brand-red);
+  color: var(--brand-red);
+  transform: translateY(-2px);
+}
+
+/* Ghost: Minimal text button */
+.btn-ghost {
+  background: transparent;
+  color: var(--text-primary);
+  border: none;
+  padding: 0.5rem 0;
+}
+
+.btn-ghost:hover {
+  color: var(--brand-red);
+}
+
+/* Outline dark for dark backgrounds */
+.btn-outline {
+  background: transparent;
+  color: var(--text-primary);
+  border-color: var(--border);
+}
+
+.btn-outline:hover {
+  border-color: var(--brand-red);
+  color: var(--brand-red);
+  transform: translateY(-2px);
+}
+
+/* WhatsApp brand button */
+.btn-whatsapp {
+  background: var(--color-whatsapp);
+  color: #021a08;
+  border-color: var(--color-whatsapp);
+  font-weight: var(--font-weight-extrabold);
+}
+
+.btn-whatsapp:hover {
+  background: var(--color-whatsapp-hover);
+  border-color: var(--color-whatsapp-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
+}
+
+/* Size modifiers */
+.btn-sm {
+  padding: 0.55rem 1.1rem;
+  font-size: var(--text-xs);
+}
+
+.btn-lg {
+  padding: 1rem 2.25rem;
+  font-size: var(--text-base);
+}
+
+/* Icon-only round button (e.g., play, search) */
+.btn-icon-round {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-full);
+  padding: 0;
+  background: transparent;
+  border: 1.5px solid var(--brand-red);
+  color: var(--brand-red);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-icon-round:hover {
+  background: var(--brand-red);
+  color: var(--text-on-red);
+  transform: scale(1.05);
+}
+
+.btn-icon-round--filled {
+  background: var(--brand-red);
+  color: var(--text-on-red);
+}
+
+.btn-icon-round--filled:hover {
+  background: var(--brand-red-hover);
+}
+
+/* ============================================================
+   SECTION DIVIDER — Horizontal Red Line
+   ============================================================ */
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--brand-red) 50%,
+    transparent 100%
+  );
+  opacity: var(--opacity-low);
+  margin: var(--space-8) 0;
+}
+
+.section-divider--short {
+  width: 80px;
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.section-divider--vertical {
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    var(--brand-red) 50%,
+    transparent 100%
+  );
+}
+
+/* ============================================================
+   CARDS — Surface System
+   ============================================================ */
+.card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  position: relative;
+  transition: all var(--transition-base);
+}
+
+.card:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Card with red accent line on hover */
+.card-accent {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-accent::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--brand-red);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-base);
+}
+
+.card-accent:hover::after,
+.card-accent.is-active::after {
+  transform: scaleX(1);
+}
+
+/* ============================================================
+   FORMS — Clean Dark Inputs
+   ============================================================ */
+input,
+textarea,
+select {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--text-primary);
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1rem;
+  transition: all var(--transition-fast);
+  width: 100%;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--brand-red);
+  background-color: var(--bg-elevated);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-muted);
+}
+
+label {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wider);
+  color: var(--text-primary);
+  opacity: var(--opacity-low);
+  margin-bottom: var(--space-2);
+  display: block;
+}
+
+/* ============================================================
+   ICON CIRCLE — Feature List Markers
+   Subtle by default. Red only on hover / filled variant.
+   ============================================================ */
+.icon-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+  transition: color var(--transition-fast),
+              border-color var(--transition-fast),
+              background var(--transition-fast);
+}
+
+.icon-circle:hover,
+.icon-circle--filled {
+  color: var(--brand-red);
+  border-color: var(--brand-red);
+}
+
+.icon-circle--filled {
+  background: var(--brand-red);
+  color: var(--text-on-red);
+}
+
+/* ============================================================
+   STAR RATING — Red Stars
+   ============================================================ */
+.stars {
+  display: inline-flex;
+  gap: 2px;
+  color: var(--brand-red);
+}
+
+.star {
+  width: 18px;
+  height: 18px;
+}
+
+.star--filled {
+  fill: var(--brand-red);
+}
+
+.star--empty {
+  fill: var(--text-disabled);
+}
+
+/* ============================================================
+   UTILITY CLASSES
+   ============================================================ */
+.text-accent    { color: var(--brand-red); }
+.text-primary-c { color: var(--text-primary); }
+.text-muted     { color: var(--text-secondary); }
+.text-dim       { color: var(--text-muted); }
+
+.bg-canvas      { background-color: var(--bg-canvas); }
+.bg-surface     { background-color: var(--bg-surface); }
+
+.font-display   { font-family: var(--font-display); }
+.font-mono      { font-family: var(--font-mono); }
+
+.uppercase      { text-transform: uppercase; letter-spacing: var(--letter-spacing-wide); }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ============================================================
+   REDUCED MOTION — Accessibility
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

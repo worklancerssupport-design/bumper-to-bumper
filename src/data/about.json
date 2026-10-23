@@ -1,0 +1,37 @@
+{
+  "standards": [
+    {
+      "num": "01",
+      "title": "Proven Track Record",
+      "desc": "15+ years of automotive excellence and over 1,000 Chennai car owners served — from daily hatchbacks to premium SUVs."
+    },
+    {
+      "num": "02",
+      "title": "Complete Customization",
+      "desc": "Exterior, interior, infotainment, audio, lighting, and cameras — end-to-end upgrades under one roof."
+    },
+    {
+      "num": "03",
+      "title": "Professional Installation",
+      "desc": "OEM-grade couplers, neat conduit routing, and zero wire-cutting as our standard on every fitment."
+    }
+  ],
+  "rangeGroups": [
+    {
+      "title": "Exterior",
+      "items": ["Fog Lights & Projectors", "LED Headlights & DRL", "Spoilers & Bumpers", "Side Claddings & Rails"]
+    },
+    {
+      "title": "Interior",
+      "items": ["Premium Seat Covers", "Ambient Lighting", "Floor Mats & Steering", "Dashboard Customization"]
+    },
+    {
+      "title": "Infotainment & Audio",
+      "items": ["Touchscreen Systems", "Speakers & Amplifiers", "Dash Cameras", "AI Dongles"]
+    },
+    {
+      "title": "Lighting & Safety",
+      "items": ["Ambient & Foot Lights", "Parking Sensors", "360° Cameras", "Anti-Rat Protection"]
+    }
+  ]
+}
