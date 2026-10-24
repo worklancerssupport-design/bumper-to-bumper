@@ -9,7 +9,6 @@ export function useCatalog() {
         lists: {
             categories: createListActions(hook, (d) => d.categories),
             carBrands: createListActions(hook, (d) => d.carBrands),
-            showcaseVehicles: createListActions(hook, (d) => d.showcaseVehicles),
         },
     };
 }

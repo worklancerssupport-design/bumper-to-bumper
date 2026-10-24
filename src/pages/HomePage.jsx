@@ -15,7 +15,7 @@ const localBusinessSchema = {
   name: business.name,
   description: `${business.tagline} — premium automotive accessories, bi-LED lighting, Android infotainment, 360° cameras, custom seat covers, and zero wire-cutting installation in ${business.location}.`,
   url: business.siteUrl,
-  image: `${business.siteUrl}/images/cars/jeep_compass.jpg`,
+  image: `${business.siteUrl}/images/home/hero.jpg`,
   telephone: business.phone,
   address: {
     '@type': 'PostalAddress',
@@ -61,7 +61,7 @@ export default function HomePage() {
         <meta property="og:description" content={pageDescription} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={business.siteUrl} />
-        <meta property="og:image" content="/images/cars/jeep_compass.jpg" />
+        <meta property="og:image" content="/images/home/hero.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={pageTitle} />
         <meta name="twitter:description" content={pageDescription} />

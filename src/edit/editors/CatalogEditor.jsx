@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { LayoutGrid, Car, Images, Plus, Info } from 'lucide-react';
+import { LayoutGrid, Info } from 'lucide-react';
 import { useCatalog } from '../hooks/useCatalog.js';
 import { CATEGORY_ROUTES } from '../constants.js';
-import { Field, FieldGrid, TextInput, ImageField, Select } from '../components/Fields.jsx';
+import { Field, FieldGrid, TextInput, Select } from '../components/Fields.jsx';
 import SectionCard, { ListHeader } from '../components/SectionCard.jsx';
 import EditorFrame from '../components/EditorFrame.jsx';
-import ItemRow, { ItemList, RowThumb } from '../components/ItemRow.jsx';
+import ItemRow, { ItemList } from '../components/ItemRow.jsx';
 import '../components/item-row.css';
 
 const ROUTE_OPTIONS = Object.entries(CATEGORY_ROUTES).map(([value, label]) => ({ value, label }));
@@ -18,7 +18,6 @@ export default function CatalogEditor() {
     const d = hook.editData;
     const categories = d?.categories || [];
     const brands = d?.carBrands || [];
-    const vehicles = d?.showcaseVehicles || [];
 
     return (
         <EditorFrame
@@ -113,75 +112,6 @@ export default function CatalogEditor() {
                                                 draft.carBrands[i].slug = v.toLowerCase().replace(/[^a-z0-9-]/g, '-');
                                             })
                                         }
-                                    />
-                                </Field>
-                            </FieldGrid>
-                        </ItemRow>
-                    )}
-                />
-            </section>
-
-            <section className="edit-stack">
-                <ListHeader
-                    title="Vehicle showcase"
-                    count={vehicles.length}
-                    hint="Vehicles featured in the showroom showcase section."
-                />
-                <ItemList
-                    items={vehicles}
-                    addLabel="Add vehicle"
-                    onAdd={() =>
-                        hook.lists.showcaseVehicles.add({
-                            id: 'new-vehicle',
-                            name: 'New Vehicle',
-                            image: '',
-                            alt: '',
-                        })
-                    }
-                    renderItem={(item, i) => (
-                        <ItemRow
-                            key={`veh-${i}`}
-                            index={i}
-                            total={vehicles.length}
-                            open={!!open[`v${i}`]}
-                            onToggle={toggle(`v${i}`)}
-                            onMove={hook.lists.showcaseVehicles.move}
-                            onRemove={hook.lists.showcaseVehicles.remove}
-                            removeLabel="Remove vehicle"
-                            meta={<RowThumb src={item.image} alt="" />}
-                            summary={
-                                <>
-                                    <span className="edit-row__title">{item.name || 'Untitled vehicle'}</span>
-                                    {!item.image && (
-                                        <span className="edit-badge edit-badge--accent">No image</span>
-                                    )}
-                                </>
-                            }
-                        >
-                            <FieldGrid>
-                                <Field label="Vehicle name">
-                                    <TextInput
-                                        value={item.name}
-                                        onChange={(v) => hook.updateEditData((draft) => { draft.showcaseVehicles[i].name = v; })}
-                                    />
-                                </Field>
-                                <Field label="ID" hint="Internal identifier. Keep it unique.">
-                                    <TextInput
-                                        value={item.id}
-                                        onChange={(v) => hook.updateEditData((draft) => { draft.showcaseVehicles[i].id = v; })}
-                                    />
-                                </Field>
-                                <Field label="Photograph" span={2}>
-                                    <ImageField
-                                        value={item.image}
-                                        onChange={(v) => hook.updateEditData((draft) => { draft.showcaseVehicles[i].image = v; })}
-                                        alt="vehicle"
-                                    />
-                                </Field>
-                                <Field label="Alt text" span={2} hint="Describe the photo for screen readers and search.">
-                                    <TextInput
-                                        value={item.alt}
-                                        onChange={(v) => hook.updateEditData((draft) => { draft.showcaseVehicles[i].alt = v; })}
                                     />
                                 </Field>
                             </FieldGrid>

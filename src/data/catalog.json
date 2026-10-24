@@ -20,13 +20,5 @@
         { "name": "Mahindra", "slug": "mahindra" },
         { "name": "Skoda", "slug": "skoda" },
         { "name": "MG", "slug": "mg" }
-    ],
-    "showcaseVehicles": [
-        { "id": "jeep-compass", "name": "Jeep Compass", "image": "/images/cars/jeep_compass.jpg", "alt": "Jeep Compass exterior front view" },
-        { "id": "tata-sierra", "name": "Tata Sierra", "image": "/images/cars/tata_sierra.jpg", "alt": "Tata Sierra SUV exterior design showcase" },
-        { "id": "mg-hector", "name": "MG Hector", "image": "/images/cars/mg_hector.png", "alt": "MG Hector exterior front three-quarters profile" },
-        { "id": "new-kia-seltos", "name": "New Kia Seltos", "image": "/images/cars/new_kia_seltos.jpg", "alt": "New Kia Seltos facelift exterior front perspective" },
-        { "id": "volkswagen-taigun", "name": "Volkswagen Taigun", "image": "/images/cars/volkswagen_taigun.jpg", "alt": "Volkswagen Taigun exterior front view" },
-        { "id": "skoda-kushaq", "name": "Skoda Kushaq", "image": "/images/cars/skoda_kushaq.png", "alt": "Skoda Kushaq exterior front angle view" }
     ]
 }
