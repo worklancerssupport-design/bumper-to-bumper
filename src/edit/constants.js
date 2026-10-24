@@ -10,7 +10,6 @@ export const DATA_FILES = {
     forms: "src/data/forms.json",
     faqs: "src/data/faqs.json",
     process: "src/data/process.json",
-    theme: "src/data/theme.json",
     productsExterior: "src/data/products/exterior.json",
     productsInterior: "src/data/products/interior.json",
     catalog: "src/data/catalog.json",

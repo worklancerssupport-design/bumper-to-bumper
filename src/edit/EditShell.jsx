@@ -9,7 +9,6 @@ import {
     ListOrdered,
     Wrench,
     LayoutGrid,
-    Palette,
     ExternalLink,
     LogOut,
     Save,
@@ -108,17 +107,9 @@ export const SECTIONS = [
         file: 'src/data/products/interior.json',
         group: 'Products',
     },
-    {
-        id: 'theme',
-        label: 'Theme reference',
-        description: 'Documentation of the design tokens. Colours themselves live in CSS.',
-        icon: Palette,
-        file: 'src/data/theme.json',
-        group: 'Reference',
-    },
 ];
 
-export const GROUPS = ['Site', 'Content', 'Conversion', 'Products', 'Reference'];
+export const GROUPS = ['Site', 'Content', 'Conversion', 'Products'];
 
 /* ============================================================
    SIDEBAR
