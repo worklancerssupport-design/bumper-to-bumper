@@ -5,14 +5,8 @@ import galleryData from '../../../data/gallery.json';
 import business from '../../../config/business';
 import './Gallery.css';
 
-// Select exactly five distinct authentic installation photographs
-const FIVE_SELECTED_IMAGES = [
-  galleryData.items[0], // XL6 Custom Seat Cover
-  galleryData.items[1], // Exter JBL Audio Setup
-  galleryData.items[2], // New Seltos Napa Leather Seat Cover
-  galleryData.items[3], // Thar Ambient Lighting
-  galleryData.items[5], // XL6 Napa Leather + Ambient Setup
-].filter(Boolean);
+// Show up to six installation photographs — however many the gallery has
+const FEATURED_IMAGES = galleryData.items.slice(0, 6);
 
 export default function Gallery({ compact = false }) {
   const [activeItem, setActiveItem] = useState(null);
@@ -25,6 +19,9 @@ export default function Gallery({ compact = false }) {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
+  // Nothing in the gallery yet — skip the section rather than render an empty grid
+  if (FEATURED_IMAGES.length === 0) return null;
+
   return (
     <section className="gallery-section" id="gallery-preview" aria-label="Featured installation builds">
       <div className="container">
@@ -34,13 +31,13 @@ export default function Gallery({ compact = false }) {
             Our <span className="gallery-section__title-accent">Craftsmanship</span>
           </h2>
           <p className="gallery-section__subtitle">
-            A curated look at five customer vehicle upgrades completed at our {business.location.split(',')[0]} studio in {business.city} with <span className="text-red">zero</span> wire cutting.
+            A curated look at customer vehicle upgrades completed at our {business.location.split(',')[0]} studio in {business.city} with <span className="text-red">zero</span> wire cutting.
           </p>
         </header>
 
-        {/* Exactly Five-Image Editorial Asymmetric Grid */}
-        <div className="gallery-five-grid" role="region" aria-label="Curated five installation photographs">
-          {FIVE_SELECTED_IMAGES.map((item, index) => {
+        {/* Editorial asymmetric grid — first card featured, up to six total */}
+        <div className="gallery-five-grid" role="region" aria-label="Curated installation photographs">
+          {FEATURED_IMAGES.map((item, index) => {
             const isFeatured = index === 0;
             return (
               <article
