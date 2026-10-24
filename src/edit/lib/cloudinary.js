@@ -142,6 +142,10 @@ export function captureFromCamera() {
  */
 export function isValidImageUrl(url) {
     try {
+        // Local site assets (e.g. /images/exterior/foo.jpg) are valid as-is.
+        if (url.startsWith("/")) {
+            return /\.(jpg|jpeg|png|webp|gif)$/i.test(url);
+        }
         const u = new URL(url);
         if (!u.protocol.startsWith("http")) return false;
         const allowedDomains = [
