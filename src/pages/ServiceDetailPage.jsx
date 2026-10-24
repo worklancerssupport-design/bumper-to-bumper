@@ -16,7 +16,7 @@ import CTASection from '../components/ui/CTASection/CTASection';
 import RelatedServices from '../components/ui/RelatedServices/RelatedServices';
 import exteriorData from '../data/products/exterior.json';
 import interiorData from '../data/products/interior.json';
-import business from '../config/business';
+import business, { fillTokens } from '../config/business';
 import { renderSubheadingWithRed } from '../utils/textUtils';
 import './ServiceDetailPage.css';
 
@@ -119,7 +119,10 @@ export default function ServiceDetailPage() {
         <meta property="og:type" content="website" />
         <meta property="og:url" content={canonicalUrl} />
         {service.image && (
-          <meta property="og:image" content={`${business.siteUrl}${service.image}`} />
+          <meta
+            property="og:image"
+            content={/^https?:\/\//.test(service.image) ? service.image : `${business.siteUrl}${service.image}`}
+          />
         )}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={pageTitle} />
@@ -162,12 +165,12 @@ export default function ServiceDetailPage() {
             <div className="sd-hero__right">
               <div className="sd-media-box" ref={mediaRef}>
                 <img
-                  src={service.image || '/images/exterior/placeholder.webp'}
+                  src={service.image || '/images/placeholder.webp'}
                   alt={service.imageAlt || service.name}
                   loading="eager"
                   className="sd-image"
                   onError={(e) => {
-                    e.target.src = '/images/exterior/placeholder.webp';
+                    e.target.src = '/images/placeholder.webp';
                   }}
                 />
               </div>
