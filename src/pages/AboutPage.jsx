@@ -68,7 +68,7 @@ export default function AboutPage() {
           <div className="about-story__grid">
             <div className="about-story__media">
               <img
-                src="/images/about/about-showroom-upgrade.jpg"
+                src="/images/about/showroom-upgrade.jpg"
                 alt={fillTokens(aboutData.story.imageAlt)}
                 className="about-story__img"
                 loading="lazy"

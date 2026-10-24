@@ -20,7 +20,7 @@
   align-items: flex-start;
   min-height: clamp(540px, 60vh, 640px);
   background-color: var(--bg-canvas);
-  background-image: url('/images/headers/contact_hero_banner.jpg');
+  background-image: url('/images/contact/hero-banner.jpg');
   background-size: cover;
   background-position: center 35%;
   overflow: hidden;

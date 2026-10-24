@@ -91,7 +91,7 @@
                     "description": "Fog lights with integrated daytime running lights for a premium look"
                 }
             ],
-            "image": "https://res.cloudinary.com/fthteymu/image/upload/v1790172382/best-car-accessories/f4nn9jmcu0t8c0qunuex.jpg",
+            "image": "/images/exterior/fog-light-fog-projector.jpg",
             "imageAlt": "Fog light and bi-LED projector fog lamp installation in {{city}}",
             "relatedServices": [
                 "drl-headlight-fog",
@@ -125,18 +125,7 @@
             "showInFooter": true,
             "navName": "Fog Lights & Projectors",
             "megaMenuGroup": "Lighting",
-            "gallery": [
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790174024/best-car-accessories/skkwsxt75cf04y7m1haw.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790174077/best-car-accessories/yyohtxqbfnsjhyhmgysj.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790174116/best-car-accessories/cmoi9xo2rjmkxkqxzpfx.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790174181/best-car-accessories/loxmjnzubic2ml8kktgg.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790174224/best-car-accessories/wve53rxiiwdg1cnfjnr8.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790174253/best-car-accessories/mvgkodtj0n0qgyd71wdz.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790174293/best-car-accessories/qj6rxcyi1yvw5ut13wyt.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790174336/best-car-accessories/sweoi9euebx803g3c93c.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790174360/best-car-accessories/qvushrsnima5xibmuuie.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790174384/best-car-accessories/ogugozgmw3yikyapuuvw.jpg"
-            ]
+            "gallery": []
         },
         {
             "id": "ext-02",
@@ -168,7 +157,7 @@
                     "description": "Multi-stage polishing and sealing to restore cloudy/yellowed headlight lenses"
                 }
             ],
-            "image": "/images/exterior/led-headlight-upgrade-chennai.webp",
+            "image": "/images/exterior/headlight-led-upgrade.jpg",
             "imageAlt": "Headlight LED bulb upgrade and dome lens polish in {{city}}",
             "relatedServices": [
                 "fog-light-fog-projector",
@@ -230,7 +219,7 @@
                     "description": "DRL units with sequential indicator function"
                 }
             ],
-            "image": "https://m.media-amazon.com/images/I/71dtPz9y+EL._AC_UF1000,1000_QL80_.jpg",
+            "image": "/images/exterior/drl-headlight-fog.jpg",
             "imageAlt": "Daytime running lights and dynamic indicator installation in {{city}}",
             "relatedServices": [
                 "fog-light-fog-projector",
@@ -290,7 +279,7 @@
                     "description": "Letters + damping sheet together"
                 }
             ],
-            "image": "https://res.cloudinary.com/fthteymu/image/upload/v1790157587/best-car-accessories/h67fqu5rgspkdfkntzc4.jpg",
+            "image": "/images/exterior/bonnet-letters-damping.jpg",
             "imageAlt": "Bonnet 3D lettering and engine hood sound damping in {{city}}",
             "relatedServices": [
                 "rear-spoiler-tail-light",
@@ -340,7 +329,7 @@
                     "description": "Both ultrasonic device and mesh together"
                 }
             ],
-            "image": "/images/exterior/anti-rat-machine-mesh-chennai.webp",
+            "image": "/images/exterior/anti-rat-machine-rat-mesh.jpg",
             "imageAlt": "Anti-rat ultrasonic repellent and stainless steel mesh installation in {{city}}",
             "relatedServices": [
                 "wiring-kits-cutouts",
@@ -389,7 +378,7 @@
                     "description": "Professional replacement when original glass is damaged"
                 }
             ],
-            "image": "/images/exterior/windshield-anti-glare-film-chennai.webp",
+            "image": "/images/exterior/windshield-anti-glare-film.jpg",
             "imageAlt": "Windshield anti-glare film and certified auto glass replacement in {{city}}",
             "relatedServices": [
                 "sun-control-films",
@@ -442,7 +431,7 @@
                     "description": "Styling decals for roof area"
                 }
             ],
-            "image": "/images/exterior/roof-rails-sharkfin-antenna-chennai.webp",
+            "image": "/images/exterior/roof-rails-sharkfin-antenna.jpg",
             "imageAlt": "Drill-free roof rails and amplified sharkfin antenna installation in {{city}}",
             "relatedServices": [
                 "rear-spoiler-tail-light",
@@ -493,7 +482,7 @@
                     "description": "Premium units combining LED with reflector DRL styling"
                 }
             ],
-            "image": "https://res.cloudinary.com/fthteymu/image/upload/v1790172325/best-car-accessories/uvlph57x4sljvzwzx0yt.jpg",
+            "image": "/images/exterior/rear-spoiler-tail-light.jpg",
             "imageAlt": "Rear spoiler and LED tail light assembly replacement in {{city}}",
             "relatedServices": [
                 "front-rear-bumpers",
@@ -549,7 +538,7 @@
                     "description": "Styled ABS rear bumper upgrade"
                 }
             ],
-            "image": "https://res.cloudinary.com/fthteymu/image/upload/v1790170805/best-car-accessories/jl9bakw6sopdfezjd4qc.jpg",
+            "image": "/images/exterior/front-rear-bumpers.jpg",
             "imageAlt": "Front and rear bumper guard and ABS diffuser installation in {{city}}",
             "relatedServices": [
                 "fog-light-fog-projector",
@@ -570,35 +559,7 @@
             "showInNav": true,
             "navName": "Front & Rear Bumpers",
             "megaMenuGroup": "Styling",
-            "gallery": [
-                "https://res.cloudinary.com/fthteymu/image/upload/v1789627879/best-car-accessories/vcsoleeelcdocotzechj.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1789627924/best-car-accessories/vryojjxmtwgg92ja9bki.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790170829/best-car-accessories/wks1etqluw4f0gggclxd.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790170846/best-car-accessories/welphhv92tkzv4auzs76.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790170868/best-car-accessories/qqlg2jst4wduaebaovmm.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790170884/best-car-accessories/tgmocflhqp7fgodqe9ft.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790170913/best-car-accessories/wgp1tjr9psxanmruhbpf.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790170931/best-car-accessories/y44ete1l7ijwqgfnvu2x.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790170966/best-car-accessories/ag1jefa2ggcuzvts2r1o.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790170985/best-car-accessories/e8tuak4kfgyemr5hotct.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790171069/best-car-accessories/ayhko2kzzue5m9b5n87k.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790171084/best-car-accessories/fj7rsadgpn0uvuqgkfgo.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790171101/best-car-accessories/bo0syoqkghypwxss6gy3.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790171121/best-car-accessories/z602ktld73cmds8hxzfu.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790171146/best-car-accessories/zvdxzbela6zccfa2tt6i.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790171163/best-car-accessories/mej4rcg5ewbzbebmjbwn.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790171184/best-car-accessories/sn84r1jvjduxwo647ly0.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790171202/best-car-accessories/pfbe1ib3tudz8aexjgvg.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790171216/best-car-accessories/d7rwr6thpoe4fjehqovz.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790171234/best-car-accessories/sawvuk5izggrfgdegfol.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790171251/best-car-accessories/soqlq7z80nqfns0gaxeg.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790171265/best-car-accessories/lskvioeojllneljyrgq7.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790171407/best-car-accessories/bepgx6u2elzmtlqqqdcg.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790171873/best-car-accessories/abxbspehh4x2hhzoi0s2.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790691803/best-car-accessories/vfgipbzgnqyccavvlllc.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790691815/best-car-accessories/sugbklk7vzzzfjpaujww.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790692435/best-car-accessories/fqqgcaeaps5jjjivkeft.jpg"
-            ]
+            "gallery": []
         },
         {
             "id": "ext-10",
@@ -657,12 +618,7 @@
                 }
             ],
             "showInNav": false,
-            "gallery": [
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790171447/best-car-accessories/niilbejt4mlejnbb71e1.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790171465/best-car-accessories/d2zsfm28l2ydjoxalnwo.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790171505/best-car-accessories/rx77oeb0tx1ywn3glegb.jpg",
-                ""
-            ]
+            "gallery": []
         },
         {
             "id": "ext-11",
@@ -694,7 +650,7 @@
                     "description": "Combined frame and flat beam for balanced performance"
                 }
             ],
-            "image": "https://i.pinimg.com/1200x/33/33/28/333328778c3839d16929881de4f0697f.jpg",
+            "image": "/images/exterior/wiper-blades.jpg",
             "imageAlt": "Frameless aerodynamic wiper blades and washer liquid in {{city}}",
             "relatedServices": [
                 "windshield-anti-glare-film",
@@ -747,7 +703,7 @@
                     "description": "Chrome trim pieces for exterior detailing"
                 }
             ],
-            "image": "/images/exterior/horn-parking-leds-chrome-chennai.webp",
+            "image": "/images/exterior/horn-parking-leds.jpg",
             "imageAlt": "Twin-tone horn and LED parking light upgrade in {{city}}",
             "relatedServices": [
                 "wiring-kits-cutouts",
@@ -801,7 +757,7 @@
                     "description": "Stylish ABS frame in various finishes"
                 }
             ],
-            "image": "/images/exterior/number-plates-frames-chennai.webp",
+            "image": "/images/exterior/number-plates-frames.webp",
             "imageAlt": "Number plate frames and anti-rattle brackets in {{city}}",
             "relatedServices": [
                 "rear-spoiler-tail-light",
@@ -856,7 +812,7 @@
                     "description": "Handle area protection covers"
                 }
             ],
-            "image": "/images/exterior/door-visors-side-claddings-chennai.webp",
+            "image": "/images/exterior/door-visors-side-claddings.jpg",
             "imageAlt": "Door rain visors and protective side claddings in {{city}}",
             "relatedServices": [
                 "mud-flaps",
@@ -906,7 +862,7 @@
                     "description": "Integrated lighting for rear mud flaps"
                 }
             ],
-            "image": "/images/exterior/mud-flaps-chennai.webp",
+            "image": "/images/exterior/mud-flaps.jpg",
             "imageAlt": "Custom-fit flexible thermoplastic mud flaps in {{city}}",
             "relatedServices": [
                 "door-visors-side-claddings",
@@ -956,7 +912,7 @@
                     "description": "Exterior flag post mounts"
                 }
             ],
-            "image": "https://res.cloudinary.com/fthteymu/image/upload/v1790171648/best-car-accessories/xmej72afzgn40ohsld52.jpg",
+            "image": "/images/exterior/heavy-clamp-post-covers.webp",
             "imageAlt": "Heavy bumper clamps and stainless flag post installation in {{city}}",
             "relatedServices": [
                 "roof-rails-sharkfin-antenna",
@@ -970,15 +926,7 @@
                 }
             ],
             "showInNav": false,
-            "gallery": [
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790171671/best-car-accessories/yyzv4sf6a9f5ffywidcy.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790171689/best-car-accessories/ruhgcowxbadkwz1ykicg.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790171723/best-car-accessories/kb8vdywfcsbudzyzbhyw.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790171776/best-car-accessories/rwxv0zhi4wnmzsaa2udw.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790171805/best-car-accessories/bjbr83ka1jwfa33k4hkd.jpg",
-                "",
-                ""
-            ]
+            "gallery": []
         },
         {
             "id": "ext-17",
@@ -1014,7 +962,7 @@
                     "description": "Motorised electric steps that extend when doors open"
                 }
             ],
-            "image": "https://res.cloudinary.com/fthteymu/image/upload/v1790172138/best-car-accessories/thiizwoouuvd3ws87p00.jpg",
+            "image": "/images/exterior/side-foot-steps.jpg",
             "imageAlt": "Heavy-duty aluminum SUV side foot steps installation in {{city}}",
             "relatedServices": [
                 "mud-flaps",
@@ -1035,17 +983,7 @@
             "showInNav": true,
             "navName": "Side Foot Steps",
             "megaMenuGroup": "Utility",
-            "gallery": [
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790172151/best-car-accessories/dp9urdrgv4nvlgfpyu30.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790172171/best-car-accessories/aomf9qbpkjcg3qoyx5hl.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790172187/best-car-accessories/zsvbuxygemqu6kaif8b9.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790172203/best-car-accessories/xelectw82vl9qs5m96of.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790172216/best-car-accessories/lqc3fbue6bnmrstmh97u.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790172231/best-car-accessories/tps9ejkd2lqrqklu8nqn.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790172247/best-car-accessories/c2n8f4ugzijzb8llfdj6.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790172266/best-car-accessories/g308jrsjoyqdmdaabumo.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790172282/best-car-accessories/m9tox07zykwtbqfvdeaw.jpg"
-            ]
+            "gallery": []
         },
         {
             "id": "ext-18",
@@ -1081,7 +1019,7 @@
                     "description": "Blue LED accent lighting for exterior"
                 }
             ],
-            "image": "/images/exterior/door-logo-lights-chennai.webp",
+            "image": "/images/exterior/door-logo-lights.jpg",
             "imageAlt": "Door logo LED puddle projector light installation in {{city}}",
             "relatedServices": [
                 "drl-headlight-fog",
@@ -1135,7 +1073,7 @@
                     "description": "Bumper or panel cutouts for accessory fitment"
                 }
             ],
-            "image": "/images/exterior/wiring-kits-cutouts-chennai.webp",
+            "image": "/images/exterior/wiring-kits-cutouts.jpg",
             "imageAlt": "Automotive relay wiring harness and fuse block installation in {{city}}",
             "relatedServices": [
                 "fog-light-fog-projector",
@@ -1185,7 +1123,7 @@
                     "description": "Styled caps with distinctive design patterns"
                 }
             ],
-            "image": "/images/exterior/box-clamp-wheel-cups-chennai.webp",
+            "image": "/images/exterior/box-clamp-wheel-cups.webp",
             "imageAlt": "Decorative wheel cover caps and retention clamp installation in {{city}}",
             "relatedServices": [
                 "mud-flaps",

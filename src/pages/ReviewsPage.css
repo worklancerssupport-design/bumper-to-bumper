@@ -10,7 +10,7 @@
   display: flex;
   align-items: center;
   background-color: var(--bg-primary);
-  background-image: url('/images/headers/gallery_hero_banner.jpg');
+  background-image: url('/images/gallery/hero-banner.jpg');
   background-size: cover;
   background-position: center 40%;
   overflow: hidden;

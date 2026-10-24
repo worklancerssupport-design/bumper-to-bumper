@@ -15,7 +15,7 @@ export default function CinematicHero() {
         <div className="cinematic-hero__stage">
           <div className="cinematic-hero__car-frame">
             <img
-              src="/images/hero/hero_black_sports_car.jpg"
+              src="/images/home/hero.jpg"
               alt="Black performance sports coupe rear three-quarters in cinematic red studio"
               className="cinematic-hero__car-img"
               loading="eager"

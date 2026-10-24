@@ -94,12 +94,9 @@
                     "description": "Colour-changing RGB roof lights with controller"
                 }
             ],
-            "image": "/images/interior/roof-vip-light-1.jpg",
+            "image": "/images/interior/roof-led-vip-light.webp",
             "imageAlt": "Roof LED cabin light and VIP executive reading lamp installation in {{city}}",
-            "gallery": [
-                "/images/interior/roof-vip-light-1.jpg",
-                "/images/interior/roof-vip-light-og.jpg"
-            ],
+            "gallery": [],
             "relatedServices": [
                 "ambient-lights",
                 "door-foot-lights",
@@ -158,12 +155,9 @@
                     "description": "Multi-function controls for audio and calls"
                 }
             ],
-            "image": "/images/interior/steering-covers-1.jpg",
+            "image": "/images/interior/steering-covers-controls.jpg",
             "imageAlt": "Hand-stitched leather steering cover and steering control buttons in {{city}}",
-            "gallery": [
-                "/images/interior/steering-covers-1.jpg",
-                "/images/interior/steering-covers-2.jpg"
-            ],
+            "gallery": [],
             "relatedServices": [
                 "infotainment-systems",
                 "speakers",
@@ -222,43 +216,9 @@
                     "description": "Dual knob control infotainment for specific vehicles"
                 }
             ],
-            "image": "https://res.cloudinary.com/fthteymu/image/upload/v1789629693/best-car-accessories/elqixtcydmu8pybrwwiz.jpg",
+            "image": "/images/interior/infotainment-systems.jpg",
             "imageAlt": "Android touchscreen infotainment system with wireless Apple CarPlay in {{city}}",
-            "gallery": [
-                "https://res.cloudinary.com/fthteymu/image/upload/v1789629773/best-car-accessories/xzp0e27ljp5ew6ckqaq4.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1789629792/best-car-accessories/psgtgk4hajaeebr7x47a.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1789629816/best-car-accessories/b5oryyftpls7vra5aiu8.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790235229/best-car-accessories/pjlladaj0dgw1mfspoky.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790235245/best-car-accessories/ljxmovpeuq4z92p610pq.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790235260/best-car-accessories/qe5y0ccic9qfzv2vb1pe.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790235271/best-car-accessories/plwv04hkgdwejyajmixi.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790235285/best-car-accessories/ciy0pzvk5ii62kxlwicw.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790235297/best-car-accessories/jsp8lv0msgxlbr6ax1ss.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790235317/best-car-accessories/ic2dnr49ujoylqgjxkod.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790235334/best-car-accessories/s7hxcqnjiie7vva6kwpd.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790235463/best-car-accessories/aa7ki96oikrlklesdry3.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790235483/best-car-accessories/qbqbnhxbzmbw1adx0icp.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790691414/best-car-accessories/fso2ewjh476jciw9m2l5.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790691436/best-car-accessories/vah7ucrkjf76ux1pxdba.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790691449/best-car-accessories/ft8l7pckwc9eqsoznnag.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790691467/best-car-accessories/tojwpl6nmnasogjx7dbq.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790691483/best-car-accessories/etjydk7ihx0fmirqblht.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790691523/best-car-accessories/oevjtyas8k5zxnjak24l.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790691547/best-car-accessories/jsij1sskgfilggybbq6v.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790691568/best-car-accessories/lkkrli8wlrvmvexbbal5.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790691587/best-car-accessories/ddma7lnkrdkiib9nbucy.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790691606/best-car-accessories/xi9hfv8jr84ti5wccp80.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790691620/best-car-accessories/dum7dxxwucujydcum7se.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790691634/best-car-accessories/relwuq4uq428ey0mt3kj.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790691650/best-car-accessories/ohp91pw9j4trimoj6tll.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1791187603/best-car-accessories/czcumhbu6dppsnmwxrgk.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1791187617/best-car-accessories/xy7vkbozhx94b2pqj3uk.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1791187638/best-car-accessories/jv27rewyr1hj24mycje0.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1791187680/best-car-accessories/mhdchjkllm2ignj4pe6a.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1791187696/best-car-accessories/gzcrhihkqeh1nmcx0dcg.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1791187707/best-car-accessories/dp8g5azlcgpqassqgdyf.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1791187733/best-car-accessories/namgnlpo4xxrlmsaxdah.jpg"
-            ],
+            "gallery": [],
             "relatedServices": [
                 "oem-infotainment",
                 "speakers",
@@ -323,14 +283,9 @@
                     "description": "High resolution front dash camera"
                 }
             ],
-            "image": "/images/interior/dashcam-ai-1.jpg",
+            "image": "/images/interior/dash-cameras-ai-dongles.jpg",
             "imageAlt": "Dual-channel 4K dash camera and AI CarPlay dongle installation in {{city}}",
-            "gallery": [
-                "https://res.cloudinary.com/fthteymu/image/upload/v1789629885/best-car-accessories/t7bv11b3ozauad58wdea.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1789629925/best-car-accessories/vbmyv25u4iaxqeiklsco.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790235403/best-car-accessories/sfdig4jbq363qxss9jnf.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790235444/best-car-accessories/wxvem4ykqqqthlcubdk9.jpg"
-            ],
+            "gallery": [],
             "relatedServices": [
                 "oem-camera-360-camera",
                 "reverse-camera-sensor",
@@ -385,12 +340,9 @@
                     "description": "Full OEM replacement with camera and AI dongle"
                 }
             ],
-            "image": "https://res.cloudinary.com/fthteymu/image/upload/v1789629957/best-car-accessories/eev5uyq1pnqwcnrpuziw.jpg",
+            "image": "/images/interior/oem-infotainment.jpg",
             "imageAlt": "OEM-style Android infotainment system with AHD reverse camera in {{city}}",
-            "gallery": [
-                "/images/interior/oem-infotainment-1.jpg",
-                "/images/interior/oem-infotainment-2.jpg"
-            ],
+            "gallery": [],
             "relatedServices": [
                 "infotainment-systems",
                 "dash-cameras-ai-dongles",
@@ -445,12 +397,9 @@
                     "description": "App or remote-controlled RGB ambient system"
                 }
             ],
-            "image": "https://res.cloudinary.com/fthteymu/image/upload/v1789629990/best-car-accessories/h20umu7mke8zdui1jb6o.jpg",
+            "image": "/images/interior/ambient-lights.jpg",
             "imageAlt": "18-zone symphony ambient lighting installation in {{city}}",
-            "gallery": [
-                "https://res.cloudinary.com/fthteymu/image/upload/v1789630037/best-car-accessories/fodqhtti4g0cjetaxfkm.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1789630073/best-car-accessories/nshpjsrsspnx9toj7u2l.jpg"
-            ],
+            "gallery": [],
             "relatedServices": [
                 "roof-led-vip-light",
                 "door-foot-lights",
@@ -510,15 +459,9 @@
                     "description": "Comprehensive colour change for all interior surfaces"
                 }
             ],
-            "image": "/images/interior/dashboard-custom-1.jpg",
+            "image": "/images/interior/dashboard-door-pad-customization.jpg",
             "imageAlt": "Dashboard leatherette wrapping and hydro-dipped door pad customization in {{city}}",
-            "gallery": [
-                "/images/interior/dashboard-custom-1.jpg",
-                "/images/interior/dashboard-custom-2.jpg",
-                "/images/interior/dashboard-custom-3.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1789972286/best-car-accessories/aissmvbsrt7slfcllhof.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1789972309/best-car-accessories/g6l23tcw9t9tgpb9yrkd.jpg"
-            ],
+            "gallery": [],
             "relatedServices": [
                 "premium-car-seat-covers",
                 "ambient-lights",
@@ -573,12 +516,9 @@
                     "description": "High privacy tint with heat rejection"
                 }
             ],
-            "image": "https://res.cloudinary.com/fthteymu/image/upload/v1789630144/best-car-accessories/gp37yzgwerczddwlykud.jpg",
+            "image": "/images/interior/sun-control-films.jpg",
             "imageAlt": "Nano-ceramic solar heat rejection window film installation in {{city}}",
-            "gallery": [
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790235508/best-car-accessories/v8madynae53qps4rhiq9.jpg",
-                "/images/interior/sun-control-films-2.jpg"
-            ],
+            "gallery": [],
             "relatedServices": [
                 "windshield-anti-glare-film",
                 "dashboard-door-pad-customization",
@@ -632,21 +572,9 @@
                     "description": "Top-tier multi-layer ultra-premium floor mats"
                 }
             ],
-            "image": "/images/interior/floor-mats-1.jpg",
+            "image": "/images/interior/floor-mats.jpg",
             "imageAlt": "7D custom-fit all-weather luxury car floor mats in {{city}}",
-            "gallery": [
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790235537/best-car-accessories/egewx08z8kocviuhw6nw.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790235549/best-car-accessories/jc3fdbc3h349sxqld06x.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790235563/best-car-accessories/cp2pepywplfquvnu1duf.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790691906/best-car-accessories/jozrmvlbzkzbucvtyu4k.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790691931/best-car-accessories/ejoj0e8vshyenmttb8hp.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790691997/best-car-accessories/irsxsig4f4zmxfu3azas.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790692478/best-car-accessories/ukzb1kri64cksrfpsxe2.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790692519/best-car-accessories/gbghimqzmuuokcxtulwp.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790692546/best-car-accessories/chsrgp9ub5m5ed0uv57w.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1791187900/best-car-accessories/ew5nhkhvl0dwxjlveptr.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1791187913/best-car-accessories/kbbbehmewdi1mzjylhab.jpg"
-            ],
+            "gallery": [],
             "relatedServices": [
                 "premium-car-seat-covers",
                 "steering-covers-controls",
@@ -697,18 +625,9 @@
                     "description": "High-quality component speaker systems"
                 }
             ],
-            "image": "https://res.cloudinary.com/fthteymu/image/upload/v1790235819/best-car-accessories/lh36d5a4waihuobisarb.jpg",
+            "image": "/images/interior/speakers.jpg",
             "imageAlt": "Component car speaker and silk-dome tweeter audio installation in {{city}}",
-            "gallery": [
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790235768/best-car-accessories/gzmvvwna6c3mwr3togyh.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1789203152/best-car-accessories/zgb4ualbm5yp9nxnf8lj.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790235900/best-car-accessories/kpkhinx0rsbolejpyy6s.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790235919/best-car-accessories/udmyhk80thycfcc4dngt.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790235936/best-car-accessories/nlnundtfz6zduqegzba3.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790235974/best-car-accessories/snhfmnfofenrhi5qgw7n.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790236084/best-car-accessories/yrkxuhfozpqtufndbwdb.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790236139/best-car-accessories/l9vv5yebqumdjiwjtmfw.jpg"
-            ],
+            "gallery": [],
             "relatedServices": [
                 "woofers-amplifiers",
                 "infotainment-systems",
@@ -762,12 +681,9 @@
                     "description": "Complete amplifier wiring kit with power cable, RCA, and remote wire"
                 }
             ],
-            "image": "/images/interior/woofers-amplifiers-1.webp",
+            "image": "/images/interior/woofers-amplifiers.webp",
             "imageAlt": "Under-seat active subwoofer and multi-channel amplifier installation in {{city}}",
-            "gallery": [
-                "/images/interior/woofers-amplifiers-1.webp",
-                "/images/interior/woofers-amplifiers-2.png"
-            ],
+            "gallery": [],
             "relatedServices": [
                 "speakers",
                 "infotainment-systems",
@@ -821,15 +737,9 @@
                     "description": "Traditional bead seat cover for airflow and comfort"
                 }
             ],
-            "image": "/images/interior/neck-pillows-1.jpg",
+            "image": "/images/interior/neck-pillows-seat-cushions.jpg",
             "imageAlt": "Memory foam car neck pillow and ergonomic lumbar seat cushions in {{city}}",
-            "gallery": [
-                "/images/interior/neck-pillows-1.jpg",
-                "/images/interior/neck-pillows-2.webp",
-                "/images/interior/neck-pillows-3.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1789972186/best-car-accessories/um7xvdteuc7ihpznwltb.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1789972214/best-car-accessories/govls2ydqdrjl97tgnwb.jpg"
-            ],
+            "gallery": [],
             "relatedServices": [
                 "premium-car-seat-covers",
                 "floor-mats",
@@ -876,12 +786,9 @@
                     "description": "LED foot lights installed in door sill area"
                 }
             ],
-            "image": "/images/interior/door-foot-lights-1.jpg",
+            "image": "/images/interior/mobile-holder-door-foot-lights.jpg",
             "imageAlt": "Wireless charging car phone mount and LED footwell lighting in {{city}}",
-            "gallery": [
-                "/images/interior/door-foot-lights-1.jpg",
-                "/images/interior/door-foot-lights-2.jpg"
-            ],
+            "gallery": [],
             "relatedServices": [
                 "ambient-lights",
                 "roof-led-vip-light",
@@ -936,12 +843,9 @@
                     "description": "Decorative ceramic accent stickers for interior"
                 }
             ],
-            "image": "/images/interior/footstep-patti-1.jpg",
+            "image": "/images/interior/foot-step-patti.jpg",
             "imageAlt": "Stainless steel illuminated LED door sill scuff plates in {{city}}",
-            "gallery": [
-                "/images/interior/footstep-patti-1.jpg",
-                "/images/interior/footstep-patti-2.jpg"
-            ],
+            "gallery": [],
             "relatedServices": [
                 "mobile-holder-door-foot-lights",
                 "door-visors-side-claddings",
@@ -984,12 +888,9 @@
                     "description": "Premium wooden storage box for center console area"
                 }
             ],
-            "image": "/images/interior/parcel-trays-1.jpg",
+            "image": "/images/interior/parcel-trays.jpg",
             "imageAlt": "Reinforced rear parcel tray and custom acoustic speaker shelf in {{city}}",
-            "gallery": [
-                "/images/interior/parcel-trays-1.jpg",
-                "/images/interior/parcel-trays-2.jpg"
-            ],
+            "gallery": [],
             "relatedServices": [
                 "center-seat-arm-rest",
                 "floor-mats",
@@ -1044,13 +945,9 @@
                     "description": "Steering wheel assistance knob"
                 }
             ],
-            "image": "/images/interior/armrest-gear-1.jpg",
+            "image": "/images/interior/center-seat-arm-rest.jpg",
             "imageAlt": "Sliding center console armrest and leather gear shift knob in {{city}}",
-            "gallery": [
-                "/images/interior/armrest-gear-1.jpg",
-                "/images/interior/armrest-gear-2.jpg",
-                "/images/interior/armrest-gear-3.jpg"
-            ],
+            "gallery": [],
             "relatedServices": [
                 "premium-car-seat-covers",
                 "floor-mats",
@@ -1105,14 +1002,9 @@
                     "description": "Long-lasting cabin fragrance diffuser"
                 }
             ],
-            "image": "/images/interior/curtains-air-1.jpg",
+            "image": "/images/interior/curtains-air-fresheners.jpg",
             "imageAlt": "Magnetic window sunshades and luxury car air freshener diffusers in {{city}}",
-            "gallery": [
-                "/images/interior/curtains-air-1.jpg",
-                "/images/interior/curtains-air-2.webp",
-                "/images/interior/curtains-air-3.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1789972118/best-car-accessories/d7om2ak9enizjkusl9vy.jpg"
-            ],
+            "gallery": [],
             "relatedServices": [
                 "sun-control-films",
                 "premium-car-seat-covers",
@@ -1158,13 +1050,9 @@
                     "description": "Four-camera 360-degree bird's eye view system"
                 }
             ],
-            "image": "/images/interior/360-camera-1.jpg",
+            "image": "/images/interior/oem-camera-360-camera.jpg",
             "imageAlt": "360 degree bird view surround camera system installation in {{city}}",
-            "gallery": [
-                "/images/interior/360-camera-1.jpg",
-                "/images/interior/360-camera-2.jpg",
-                ""
-            ],
+            "gallery": [],
             "relatedServices": [
                 "dash-cameras-ai-dongles",
                 "reverse-camera-sensor",
@@ -1241,10 +1129,7 @@
             "showInNav": false,
             "navName": null,
             "megaMenuGroup": null,
-            "gallery": [
-                "https://res.cloudinary.com/fthteymu/image/upload/v1789971978/best-car-accessories/nqwwuggwujemwlcregkm.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1789972008/best-car-accessories/cibvsjcr2i0jj219nnh7.jpg"
-            ]
+            "gallery": []
         },
         {
             "id": "int-20",
@@ -1282,36 +1167,7 @@
             ],
             "image": "https://res.cloudinary.com/fthteymu/image/upload/v1790236186/best-car-accessories/jggsunwfeqrfymvmom2c.jpg",
             "imageAlt": "Custom-fit perforated Nappa leather car seat covers in {{city}}",
-            "gallery": [
-                "https://res.cloudinary.com/fthteymu/image/upload/v1789971237/best-car-accessories/rmdvaus31f8kdaneanty.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1789971298/best-car-accessories/nc8womwwuditzqhjbbx3.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1789971366/best-car-accessories/uawtmhcstaml9m1dtwtf.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1789203329/best-car-accessories/rjjpdkmwvmxdkhazc6cv.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1789971403/best-car-accessories/fn8ke344l4pzab6lb4uo.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1789971428/best-car-accessories/bv1xr4z44ovqu9lrv3pj.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1789971460/best-car-accessories/cbli4woac2vatjadkd0w.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1789971492/best-car-accessories/azg0lvdt1m4y5dlpgyqg.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1789971514/best-car-accessories/wuobjnrb5goav065z72v.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1789971542/best-car-accessories/uk8yciz3dtur1fc752kh.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1789971562/best-car-accessories/yabp67gnvoff8vhpmprq.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1789971589/best-car-accessories/vcmu2mehldzljgxomapq.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1789971610/best-car-accessories/fs9vcm4cbgcgpnpftkzd.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1789971627/best-car-accessories/i2jqnm8d9ekxeyiiu69t.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1789971650/best-car-accessories/gwh1sztnuccweyjfp4gw.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1789971680/best-car-accessories/epceappycxsojc7wgtxf.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1789971709/best-car-accessories/rssovdegkoh9psgcghap.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1789971743/best-car-accessories/qimc9lrcz0izoevaznv6.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1789971770/best-car-accessories/htmpczmb0nh1y38lsypn.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1789971826/best-car-accessories/mdidljj1y7imldfuasd3.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790236265/best-car-accessories/kr8ncielp9h9r3l6k2zg.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790236309/best-car-accessories/y6idkuknqdddmumgcky4.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790236423/best-car-accessories/e6x689prwfv2igr2s4xz.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790236509/best-car-accessories/bliiyq5c9i45iyuehe44.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790236545/best-car-accessories/v21pjubwp6zspbeo12um.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790236593/best-car-accessories/pa9dxcoqy5brzfgx2emz.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790692351/best-car-accessories/omsuxd7dbmxgyaqhruxu.jpg",
-                "https://res.cloudinary.com/fthteymu/image/upload/v1790692379/best-car-accessories/vr1vo4hoznjdgk3gac1c.jpg"
-            ],
+            "gallery": [],
             "relatedServices": [
                 "floor-mats",
                 "steering-covers-controls",

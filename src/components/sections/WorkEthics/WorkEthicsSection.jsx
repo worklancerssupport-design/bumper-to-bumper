@@ -13,7 +13,7 @@ export default function WorkEthicsSection() {
           <div className="work-ethics-media">
             <div className="work-ethics-media__frame">
               <img
-                src="/images/about/about-showroom-upgrade.jpg"
+                src="/images/about/showroom-upgrade.jpg"
                 alt={`${business.name} Showroom and Installation Bay in ${business.location}`}
                 className="work-ethics-media__img"
                 loading="lazy"

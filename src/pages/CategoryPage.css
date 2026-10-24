@@ -25,13 +25,13 @@
 }
 
 .cat-hero--exterior {
-  background-image: url('/images/headers/exterior_hero_banner.jpg');
+  background-image: url('/images/exterior/hero-banner.jpg');
   background-size: cover;
   background-position: center center;
 }
 
 .cat-hero--interior {
-  background-image: url('/images/headers/interior_hero_banner.jpg');
+  background-image: url('/images/interior/hero-banner.jpg');
   background-size: cover;
   background-position: center 35%;
 }

@@ -13,11 +13,11 @@ export default function ServiceCard({ service, index = 1 }) {
   return (
     <article className="svc-card" aria-label={`View details for ${service.name}`}>
       <img
-        src={service.image || '/images/exterior/placeholder.webp'}
+        src={service.image || '/images/placeholder.webp'}
         alt={service.imageAlt || service.name}
         className="svc-card__img"
         loading="lazy"
-        onError={(e) => { e.target.src = '/images/exterior/placeholder.webp'; }}
+        onError={(e) => { e.target.src = '/images/placeholder.webp'; }}
       />
       <div className="svc-card__overlay" />
 
