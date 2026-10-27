@@ -64,7 +64,7 @@ export default function ReviewsEditor() {
                         <TextInput
                             value={d?.totalReviews}
                             onChange={(v) => hook.updateEditData((draft) => { draft.totalReviews = v; })}
-                            placeholder="217"
+                            placeholder="234"
                         />
                     </Field>
                     <Field label="Count label" span={2} hint="Word or phrase after the number.">
